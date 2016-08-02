@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		35563BCD2652FFDB667FD054 /* libPods-MXInteraciton.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E556444AD94CC8D05282A073 /* libPods-MXInteraciton.a */; };
-		4874BE041D4A5E1B00A13EC7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4874BE031D4A5E1B00A13EC7 /* AppDelegate.m */; };
-		4874BE071D4A5E1B00A13EC7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4874BE061D4A5E1B00A13EC7 /* ViewController.m */; };
 		4874BE0A1D4A5E1B00A13EC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4874BE081D4A5E1B00A13EC7 /* Main.storyboard */; };
 		4874BE0C1D4A5E1B00A13EC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4874BE0B1D4A5E1B00A13EC7 /* Assets.xcassets */; };
 		4874BE0F1D4A5E1B00A13EC7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4874BE0D1D4A5E1B00A13EC7 /* LaunchScreen.storyboard */; };
@@ -17,6 +15,8 @@
 		4874BE251D4A5E1B00A13EC7 /* MXInteracitonUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4874BE241D4A5E1B00A13EC7 /* MXInteracitonUITests.m */; };
 		487A954D1D50EF6800FD4F96 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 487A954C1D50EF6800FD4F96 /* main.m */; };
 		48FA25561D50F37900D272EB /* MXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FA25551D50F37900D272EB /* MXViewController.m */; };
+		48FA25591D50F49D00D272EB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FA25581D50F49D00D272EB /* ViewController.m */; };
+		48FA255C1D50F4A700D272EB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FA255B1D50F4A700D272EB /* AppDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,10 +39,6 @@
 /* Begin PBXFileReference section */
 		44C4F694E39D8B2252987220 /* Pods-MXInteraciton.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MXInteraciton.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MXInteraciton/Pods-MXInteraciton.debug.xcconfig"; sourceTree = "<group>"; };
 		4874BDFC1D4A5E1B00A13EC7 /* MXInteraciton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MXInteraciton.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4874BE021D4A5E1B00A13EC7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = MXInteraciton/AppDelegate.h; sourceTree = SOURCE_ROOT; };
-		4874BE031D4A5E1B00A13EC7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = MXInteraciton/AppDelegate.m; sourceTree = SOURCE_ROOT; };
-		4874BE051D4A5E1B00A13EC7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = ../ViewController.h; sourceTree = "<group>"; };
-		4874BE061D4A5E1B00A13EC7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = ../ViewController.m; sourceTree = "<group>"; };
 		4874BE091D4A5E1B00A13EC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4874BE0B1D4A5E1B00A13EC7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		4874BE0E1D4A5E1B00A13EC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -56,6 +52,10 @@
 		487A954C1D50EF6800FD4F96 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		48FA25541D50F37900D272EB /* MXViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXViewController.h; sourceTree = "<group>"; };
 		48FA25551D50F37900D272EB /* MXViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXViewController.m; sourceTree = "<group>"; };
+		48FA25571D50F49D00D272EB /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		48FA25581D50F49D00D272EB /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		48FA255A1D50F4A700D272EB /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		48FA255B1D50F4A700D272EB /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		E556444AD94CC8D05282A073 /* libPods-MXInteraciton.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MXInteraciton.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCB3C671AE590E1E0D75FA8F /* Pods-MXInteraciton.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MXInteraciton.release.xcconfig"; path = "Pods/Target Support Files/Pods-MXInteraciton/Pods-MXInteraciton.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -152,8 +152,8 @@
 		487A95481D50EEEC00FD4F96 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
-				4874BE021D4A5E1B00A13EC7 /* AppDelegate.h */,
-				4874BE031D4A5E1B00A13EC7 /* AppDelegate.m */,
+				48FA255A1D50F4A700D272EB /* AppDelegate.h */,
+				48FA255B1D50F4A700D272EB /* AppDelegate.m */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -161,8 +161,8 @@
 		487A95491D50EF1700FD4F96 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				4874BE051D4A5E1B00A13EC7 /* ViewController.h */,
-				4874BE061D4A5E1B00A13EC7 /* ViewController.m */,
+				48FA25571D50F49D00D272EB /* ViewController.h */,
+				48FA25581D50F49D00D272EB /* ViewController.m */,
 				48FA25541D50F37900D272EB /* MXViewController.h */,
 				48FA25551D50F37900D272EB /* MXViewController.m */,
 			);
@@ -446,10 +446,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4874BE071D4A5E1B00A13EC7 /* ViewController.m in Sources */,
+				48FA255C1D50F4A700D272EB /* AppDelegate.m in Sources */,
+				48FA25591D50F49D00D272EB /* ViewController.m in Sources */,
 				48FA25561D50F37900D272EB /* MXViewController.m in Sources */,
 				487A954D1D50EF6800FD4F96 /* main.m in Sources */,
-				4874BE041D4A5E1B00A13EC7 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
