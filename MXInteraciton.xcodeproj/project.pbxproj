@@ -16,6 +16,7 @@
 		4874BE1A1D4A5E1B00A13EC7 /* MXInteracitonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4874BE191D4A5E1B00A13EC7 /* MXInteracitonTests.m */; };
 		4874BE251D4A5E1B00A13EC7 /* MXInteracitonUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4874BE241D4A5E1B00A13EC7 /* MXInteracitonUITests.m */; };
 		487A954D1D50EF6800FD4F96 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 487A954C1D50EF6800FD4F96 /* main.m */; };
+		48FA25561D50F37900D272EB /* MXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FA25551D50F37900D272EB /* MXViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		4874BE241D4A5E1B00A13EC7 /* MXInteracitonUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MXInteracitonUITests.m; sourceTree = "<group>"; };
 		4874BE261D4A5E1B00A13EC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		487A954C1D50EF6800FD4F96 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		48FA25541D50F37900D272EB /* MXViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXViewController.h; sourceTree = "<group>"; };
+		48FA25551D50F37900D272EB /* MXViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXViewController.m; sourceTree = "<group>"; };
 		E556444AD94CC8D05282A073 /* libPods-MXInteraciton.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MXInteraciton.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCB3C671AE590E1E0D75FA8F /* Pods-MXInteraciton.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MXInteraciton.release.xcconfig"; path = "Pods/Target Support Files/Pods-MXInteraciton/Pods-MXInteraciton.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -160,6 +163,8 @@
 			children = (
 				4874BE051D4A5E1B00A13EC7 /* ViewController.h */,
 				4874BE061D4A5E1B00A13EC7 /* ViewController.m */,
+				48FA25541D50F37900D272EB /* MXViewController.h */,
+				48FA25551D50F37900D272EB /* MXViewController.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -442,6 +447,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4874BE071D4A5E1B00A13EC7 /* ViewController.m in Sources */,
+				48FA25561D50F37900D272EB /* MXViewController.m in Sources */,
 				487A954D1D50EF6800FD4F96 /* main.m in Sources */,
 				4874BE041D4A5E1B00A13EC7 /* AppDelegate.m in Sources */,
 			);
