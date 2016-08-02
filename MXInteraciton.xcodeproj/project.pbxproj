@@ -17,6 +17,7 @@
 		48FA25561D50F37900D272EB /* MXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FA25551D50F37900D272EB /* MXViewController.m */; };
 		48FA25591D50F49D00D272EB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FA25581D50F49D00D272EB /* ViewController.m */; };
 		48FA255C1D50F4A700D272EB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FA255B1D50F4A700D272EB /* AppDelegate.m */; };
+		48FA255E1D50F55200D272EB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 48FA255D1D50F55200D272EB /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +43,6 @@
 		4874BE091D4A5E1B00A13EC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4874BE0B1D4A5E1B00A13EC7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		4874BE0E1D4A5E1B00A13EC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		4874BE101D4A5E1B00A13EC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		4874BE151D4A5E1B00A13EC7 /* MXInteracitonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MXInteracitonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4874BE191D4A5E1B00A13EC7 /* MXInteracitonTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MXInteracitonTests.m; sourceTree = "<group>"; };
 		4874BE1B1D4A5E1B00A13EC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,6 +56,7 @@
 		48FA25581D50F49D00D272EB /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		48FA255A1D50F4A700D272EB /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		48FA255B1D50F4A700D272EB /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		48FA255D1D50F55200D272EB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E556444AD94CC8D05282A073 /* libPods-MXInteraciton.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MXInteraciton.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCB3C671AE590E1E0D75FA8F /* Pods-MXInteraciton.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MXInteraciton.release.xcconfig"; path = "Pods/Target Support Files/Pods-MXInteraciton/Pods-MXInteraciton.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,10 +123,10 @@
 		4874BDFF1D4A5E1B00A13EC7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				48FA255D1D50F55200D272EB /* Info.plist */,
 				4874BE081D4A5E1B00A13EC7 /* Main.storyboard */,
 				4874BE0B1D4A5E1B00A13EC7 /* Assets.xcassets */,
 				4874BE0D1D4A5E1B00A13EC7 /* LaunchScreen.storyboard */,
-				4874BE101D4A5E1B00A13EC7 /* Info.plist */,
 				487A954C1D50EF6800FD4F96 /* main.m */,
 			);
 			path = "Supporting Files";
@@ -371,6 +372,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48FA255E1D50F55200D272EB /* Info.plist in Resources */,
 				4874BE0F1D4A5E1B00A13EC7 /* LaunchScreen.storyboard in Resources */,
 				4874BE0C1D4A5E1B00A13EC7 /* Assets.xcassets in Resources */,
 				4874BE0A1D4A5E1B00A13EC7 /* Main.storyboard in Resources */,
