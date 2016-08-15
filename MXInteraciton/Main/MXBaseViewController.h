@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MXViewController : UINavigationController
+@interface MXBaseViewController : UINavigationController
 
 @end

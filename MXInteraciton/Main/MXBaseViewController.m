@@ -6,13 +6,13 @@
 //  Copyright © 2016年 maRk. All rights reserved.
 //
 
-#import "MXViewController.h"
+#import "MXBaseViewController.h"
 
-@interface MXViewController ()
+@interface MXBaseViewController ()
 
 @end
 
-@implementation MXViewController
+@implementation MXBaseViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
