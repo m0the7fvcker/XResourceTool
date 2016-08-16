@@ -9,25 +9,34 @@
 #import "UIColor+MXCategory.h"
 
 @implementation UIColor (MXCategory)
-#pragma mark - 根据色值生成颜色
+
+/**
+ *  根据色值生成颜色
+ */
 +(UIColor *)MX_ColorWithHex:(int)hex
 {
     return [UIColor colorWithRed:((float)((hex & 0xFF0000) >> 16))/255.0 green:((float)((hex & 0xFF00) >> 8))/255.0 blue:((float)(hex & 0xFF))/255.0 alpha:1.0];
 }
 
-#pragma mark - 根据16进制色值字符串生成颜色
+/**
+ *  根据16进制色值字符串生成颜色
+ */
 +(UIColor *)MX_ColorWithHexString:(NSString *)hexString
 {
     return [self MX_GetColorWithHexString:hexString alpha:1.0];
 }
 
-#pragma mark - 根据16进制色值字符串和透明度生成颜色
+/**
+ *  根据16进制色值字符串和透明度生成颜色
+ */
 +(UIColor *)MX_ColorWithHexString:(NSString *)hexString alpha:(CGFloat)alpha
 {
     return [self MX_GetColorWithHexString:hexString alpha:alpha];
 }
 
-#pragma mark - 根据16进制色值字符串和透明度生成颜色
+/**
+ *  根据16进制色值字符串和透明度生成颜色
+ */
 + (UIColor *)MX_GetColorWithHexString:(NSString *)hexString alpha:(CGFloat)alpha
 {
     float red ,blue,green;
@@ -70,7 +79,9 @@
     return [UIColor colorWithRed:red/255 green:green/255 blue:blue/255 alpha:alpha];
 }
 
-#pragma mark - 根据16进制色值字符串转成数值
+/**
+ *  根据16进制色值字符串转成数值
+ */
 +(int)hexString:(NSString *)charString
 {
     if ([charString isEqualToString:@"0"]) {

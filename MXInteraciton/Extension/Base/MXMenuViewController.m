@@ -15,7 +15,8 @@
 @implementation MXMenuViewController
 
 #pragma mark - 控制器方法
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self initViewModel];
@@ -24,34 +25,41 @@
     [self initConstraint];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (void)dealloc{
+- (void)dealloc
+{
     [[NSNotificationCenter defaultCenter]removeObserver:self];
     NSLog(@"");
 }
 
 #pragma mark - 初始化方法
-- (void)initViewModel{
+- (void)initViewModel
+{
     
 }
 
-- (void)initNavBar{
+- (void)initNavBar
+{
     
 }
 
-- (void)initUI{
+- (void)initUI
+{
     
 }
 
-- (void)initConstraint{
+- (void)initConstraint
+{
     
 }
 
-- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
     
     [self.view endEditing:YES];
 }

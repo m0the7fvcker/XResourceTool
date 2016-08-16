@@ -64,14 +64,14 @@
 
 /* Begin PBXFileReference section */
 		44C4F694E39D8B2252987220 /* Pods-MXInteraciton.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MXInteraciton.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MXInteraciton/Pods-MXInteraciton.debug.xcconfig"; sourceTree = "<group>"; };
-		4874BDFC1D4A5E1B00A13EC7 /* MXInteraciton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MXInteraciton.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4874BDFC1D4A5E1B00A13EC7 /* MXInteraction.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MXInteraction.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4874BE091D4A5E1B00A13EC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4874BE0B1D4A5E1B00A13EC7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		4874BE0E1D4A5E1B00A13EC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		4874BE151D4A5E1B00A13EC7 /* MXInteracitonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MXInteracitonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4874BE151D4A5E1B00A13EC7 /* MXInteraction.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MXInteraction.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4874BE191D4A5E1B00A13EC7 /* MXInteracitonTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MXInteracitonTests.m; sourceTree = "<group>"; };
 		4874BE1B1D4A5E1B00A13EC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4874BE201D4A5E1B00A13EC7 /* MXInteracitonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MXInteracitonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4874BE201D4A5E1B00A13EC7 /* MXInteraction.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MXInteraction.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4874BE241D4A5E1B00A13EC7 /* MXInteracitonUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MXInteracitonUITests.m; sourceTree = "<group>"; };
 		4874BE261D4A5E1B00A13EC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48FA25541D50F37900D272EB /* MXViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXViewController.h; sourceTree = "<group>"; };
@@ -182,9 +182,9 @@
 		4874BDFD1D4A5E1B00A13EC7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4874BDFC1D4A5E1B00A13EC7 /* MXInteraciton.app */,
-				4874BE151D4A5E1B00A13EC7 /* MXInteracitonTests.xctest */,
-				4874BE201D4A5E1B00A13EC7 /* MXInteracitonUITests.xctest */,
+				4874BDFC1D4A5E1B00A13EC7 /* MXInteraction.app */,
+				4874BE151D4A5E1B00A13EC7 /* MXInteraction.xctest */,
+				4874BE201D4A5E1B00A13EC7 /* MXInteraction.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -443,9 +443,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4874BDFB1D4A5E1B00A13EC7 /* MXInteraciton */ = {
+		4874BDFB1D4A5E1B00A13EC7 /* MXInteraction */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4874BE291D4A5E1B00A13EC7 /* Build configuration list for PBXNativeTarget "MXInteraciton" */;
+			buildConfigurationList = 4874BE291D4A5E1B00A13EC7 /* Build configuration list for PBXNativeTarget "MXInteraction" */;
 			buildPhases = (
 				00D2F2A3AE14527FF35D8BFA /* [CP] Check Pods Manifest.lock */,
 				4874BDF81D4A5E1B00A13EC7 /* Sources */,
@@ -459,14 +459,14 @@
 			);
 			dependencies = (
 			);
-			name = MXInteraciton;
+			name = MXInteraction;
 			productName = MXInteraciton;
-			productReference = 4874BDFC1D4A5E1B00A13EC7 /* MXInteraciton.app */;
+			productReference = 4874BDFC1D4A5E1B00A13EC7 /* MXInteraction.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4874BE141D4A5E1B00A13EC7 /* MXInteracitonTests */ = {
+		4874BE141D4A5E1B00A13EC7 /* MXInteractionTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4874BE2C1D4A5E1B00A13EC7 /* Build configuration list for PBXNativeTarget "MXInteracitonTests" */;
+			buildConfigurationList = 4874BE2C1D4A5E1B00A13EC7 /* Build configuration list for PBXNativeTarget "MXInteractionTests" */;
 			buildPhases = (
 				4874BE111D4A5E1B00A13EC7 /* Sources */,
 				4874BE121D4A5E1B00A13EC7 /* Frameworks */,
@@ -477,14 +477,14 @@
 			dependencies = (
 				4874BE171D4A5E1B00A13EC7 /* PBXTargetDependency */,
 			);
-			name = MXInteracitonTests;
+			name = MXInteractionTests;
 			productName = MXInteracitonTests;
-			productReference = 4874BE151D4A5E1B00A13EC7 /* MXInteracitonTests.xctest */;
+			productReference = 4874BE151D4A5E1B00A13EC7 /* MXInteraction.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		4874BE1F1D4A5E1B00A13EC7 /* MXInteracitonUITests */ = {
+		4874BE1F1D4A5E1B00A13EC7 /* MXInteractionUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4874BE2F1D4A5E1B00A13EC7 /* Build configuration list for PBXNativeTarget "MXInteracitonUITests" */;
+			buildConfigurationList = 4874BE2F1D4A5E1B00A13EC7 /* Build configuration list for PBXNativeTarget "MXInteractionUITests" */;
 			buildPhases = (
 				4874BE1C1D4A5E1B00A13EC7 /* Sources */,
 				4874BE1D1D4A5E1B00A13EC7 /* Frameworks */,
@@ -495,9 +495,9 @@
 			dependencies = (
 				4874BE221D4A5E1B00A13EC7 /* PBXTargetDependency */,
 			);
-			name = MXInteracitonUITests;
+			name = MXInteractionUITests;
 			productName = MXInteracitonUITests;
-			productReference = 4874BE201D4A5E1B00A13EC7 /* MXInteracitonUITests.xctest */;
+			productReference = 4874BE201D4A5E1B00A13EC7 /* MXInteraction.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -523,7 +523,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4874BDF71D4A5E1B00A13EC7 /* Build configuration list for PBXProject "MXInteraciton" */;
+			buildConfigurationList = 4874BDF71D4A5E1B00A13EC7 /* Build configuration list for PBXProject "MXInteraction" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -536,9 +536,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4874BDFB1D4A5E1B00A13EC7 /* MXInteraciton */,
-				4874BE141D4A5E1B00A13EC7 /* MXInteracitonTests */,
-				4874BE1F1D4A5E1B00A13EC7 /* MXInteracitonUITests */,
+				4874BDFB1D4A5E1B00A13EC7 /* MXInteraction */,
+				4874BE141D4A5E1B00A13EC7 /* MXInteractionTests */,
+				4874BE1F1D4A5E1B00A13EC7 /* MXInteractionUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -692,12 +692,12 @@
 /* Begin PBXTargetDependency section */
 		4874BE171D4A5E1B00A13EC7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4874BDFB1D4A5E1B00A13EC7 /* MXInteraciton */;
+			target = 4874BDFB1D4A5E1B00A13EC7 /* MXInteraction */;
 			targetProxy = 4874BE161D4A5E1B00A13EC7 /* PBXContainerItemProxy */;
 		};
 		4874BE221D4A5E1B00A13EC7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4874BDFB1D4A5E1B00A13EC7 /* MXInteraciton */;
+			target = 4874BDFB1D4A5E1B00A13EC7 /* MXInteraction */;
 			targetProxy = 4874BE211D4A5E1B00A13EC7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -815,7 +815,7 @@
 				INFOPLIST_FILE = MXInteraciton/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = max1ao.com.MXInteraciton;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MXInteraction;
 			};
 			name = Debug;
 		};
@@ -828,7 +828,7 @@
 				INFOPLIST_FILE = MXInteraciton/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = max1ao.com.MXInteraciton;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MXInteraction;
 			};
 			name = Release;
 		};
@@ -839,8 +839,8 @@
 				INFOPLIST_FILE = MXInteracitonTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = max1ao.com.MXInteracitonTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MXInteraciton.app/MXInteraciton";
+				PRODUCT_NAME = MXInteraction;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MXInteraction.app/MXInteraction";
 			};
 			name = Debug;
 		};
@@ -851,8 +851,8 @@
 				INFOPLIST_FILE = MXInteracitonTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = max1ao.com.MXInteracitonTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MXInteraciton.app/MXInteraciton";
+				PRODUCT_NAME = MXInteraction;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MXInteraction.app/MXInteraction";
 			};
 			name = Release;
 		};
@@ -862,7 +862,7 @@
 				INFOPLIST_FILE = MXInteracitonUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = max1ao.com.MXInteracitonUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MXInteraction;
 				TEST_TARGET_NAME = MXInteraciton;
 			};
 			name = Debug;
@@ -873,7 +873,7 @@
 				INFOPLIST_FILE = MXInteracitonUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = max1ao.com.MXInteracitonUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MXInteraction;
 				TEST_TARGET_NAME = MXInteraciton;
 			};
 			name = Release;
@@ -881,7 +881,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4874BDF71D4A5E1B00A13EC7 /* Build configuration list for PBXProject "MXInteraciton" */ = {
+		4874BDF71D4A5E1B00A13EC7 /* Build configuration list for PBXProject "MXInteraction" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4874BE271D4A5E1B00A13EC7 /* Debug */,
@@ -890,7 +890,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4874BE291D4A5E1B00A13EC7 /* Build configuration list for PBXNativeTarget "MXInteraciton" */ = {
+		4874BE291D4A5E1B00A13EC7 /* Build configuration list for PBXNativeTarget "MXInteraction" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4874BE2A1D4A5E1B00A13EC7 /* Debug */,
@@ -899,7 +899,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4874BE2C1D4A5E1B00A13EC7 /* Build configuration list for PBXNativeTarget "MXInteracitonTests" */ = {
+		4874BE2C1D4A5E1B00A13EC7 /* Build configuration list for PBXNativeTarget "MXInteractionTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4874BE2D1D4A5E1B00A13EC7 /* Debug */,
@@ -908,7 +908,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4874BE2F1D4A5E1B00A13EC7 /* Build configuration list for PBXNativeTarget "MXInteracitonUITests" */ = {
+		4874BE2F1D4A5E1B00A13EC7 /* Build configuration list for PBXNativeTarget "MXInteractionUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4874BE301D4A5E1B00A13EC7 /* Debug */,

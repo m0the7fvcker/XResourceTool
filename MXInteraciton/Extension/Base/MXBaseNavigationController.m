@@ -14,12 +14,14 @@
 
 @implementation MXBaseNavigationController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -29,7 +31,8 @@
  *
  *  @param viewController 需要隐藏的子控制器
  */
-- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated{
+- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
     viewController.hidesBottomBarWhenPushed = [self.viewControllers count] > 0;
     [super pushViewController:viewController animated:YES];
 }

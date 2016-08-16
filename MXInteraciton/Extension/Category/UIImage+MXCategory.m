@@ -9,13 +9,17 @@
 #import "UIImage+MXCategory.h"
 
 @implementation UIImage (MXCategory)
-#pragma mark - 根据颜色生产图片
+/**
+ *  根据颜色生产图片
+ */
 + (UIImage *)MX_CreateImageFromColor:(UIColor *)color
 {
     return [self MX_CreateImageFromColor:color size:CGSizeMake(1, 1)];
 }
 
-#pragma mark - 根据颜色和大小生产图片
+/**
+ *  根据颜色和大小生产图片
+ */
 + (UIImage *)MX_CreateImageFromColor:(UIColor *)color size:(CGSize)size
 {
     CGRect imageRect = CGRectMake(0, 0, size.width, size.height);
@@ -27,7 +31,9 @@
     return img;
 }
 
-#pragma mark - 图片旋转
+/**
+ *  图片旋转
+ */
 + (UIImage *)MX_Image:(UIImage *)image rotation:(UIImageOrientation)orientation
 {
     long double rotate = 0.0;
