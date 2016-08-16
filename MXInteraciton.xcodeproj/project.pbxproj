@@ -13,14 +13,19 @@
 		4874BE0F1D4A5E1B00A13EC7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4874BE0D1D4A5E1B00A13EC7 /* LaunchScreen.storyboard */; };
 		4874BE1A1D4A5E1B00A13EC7 /* MXInteracitonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4874BE191D4A5E1B00A13EC7 /* MXInteracitonTests.m */; };
 		4874BE251D4A5E1B00A13EC7 /* MXInteracitonUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4874BE241D4A5E1B00A13EC7 /* MXInteracitonUITests.m */; };
-		487A954D1D50EF6800FD4F96 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 487A954C1D50EF6800FD4F96 /* main.m */; };
-		48FA25561D50F37900D272EB /* MXBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FA25551D50F37900D272EB /* MXBaseViewController.m */; };
+		48FA25561D50F37900D272EB /* MXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FA25551D50F37900D272EB /* MXViewController.m */; };
 		48FA25591D50F49D00D272EB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FA25581D50F49D00D272EB /* ViewController.m */; };
 		48FA255C1D50F4A700D272EB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FA255B1D50F4A700D272EB /* AppDelegate.m */; };
-		4D399EF31D5C794C001E1B7A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D399EF21D5C794C001E1B7A /* Info.plist */; };
 		4D41654A1D619A440095ADD1 /* MXBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4165491D619A440095ADD1 /* MXBaseNavigationController.m */; };
 		4D41654D1D619A590095ADD1 /* MXBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D41654C1D619A590095ADD1 /* MXBaseViewController.m */; };
 		4D4165501D619A7E0095ADD1 /* MXBaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D41654F1D619A7E0095ADD1 /* MXBaseTabBarController.m */; };
+		4D7C38DA1D62AEF00003B378 /* MXBaseDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C38D91D62AEF00003B378 /* MXBaseDataModel.m */; };
+		4D7C38DD1D62AF020003B378 /* MXHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C38DC1D62AF020003B378 /* MXHttpRequest.m */; };
+		4D7C38E01D62AF120003B378 /* MXRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C38DF1D62AF120003B378 /* MXRequestModel.m */; };
+		4D7C38E31D62AF1D0003B378 /* MXResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C38E21D62AF1D0003B378 /* MXResponseModel.m */; };
+		4D7C38EA1D62B1C30003B378 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D7C38E71D62B1C30003B378 /* Info.plist */; };
+		4D7C38EB1D62B1C30003B378 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C38E81D62B1C30003B378 /* main.m */; };
+		4D7C38EE1D62B64B0003B378 /* MXLanguage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C38ED1D62B64B0003B378 /* MXLanguage.m */; };
 		4DAA25591D61BAD10012ABF8 /* MXBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAA25581D61BAD10012ABF8 /* MXBaseTableViewController.m */; };
 		4DAA25641D61BE120012ABF8 /* YBFYZCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAA255C1D61BE120012ABF8 /* YBFYZCollectionView.m */; };
 		4DAA25651D61BE120012ABF8 /* YZDisplayTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAA255E1D61BE120012ABF8 /* YZDisplayTitleLabel.m */; };
@@ -69,20 +74,33 @@
 		4874BE201D4A5E1B00A13EC7 /* MXInteracitonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MXInteracitonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4874BE241D4A5E1B00A13EC7 /* MXInteracitonUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MXInteracitonUITests.m; sourceTree = "<group>"; };
 		4874BE261D4A5E1B00A13EC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		487A954C1D50EF6800FD4F96 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		48FA25541D50F37900D272EB /* MXBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXBaseViewController.h; sourceTree = "<group>"; };
-		48FA25551D50F37900D272EB /* MXBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXBaseViewController.m; sourceTree = "<group>"; };
+		48FA25541D50F37900D272EB /* MXViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXViewController.h; sourceTree = "<group>"; };
+		48FA25551D50F37900D272EB /* MXViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXViewController.m; sourceTree = "<group>"; };
 		48FA25571D50F49D00D272EB /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		48FA25581D50F49D00D272EB /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		48FA255A1D50F4A700D272EB /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		48FA255B1D50F4A700D272EB /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4D399EF21D5C794C001E1B7A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D4165481D619A440095ADD1 /* MXBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXBaseNavigationController.h; sourceTree = "<group>"; };
 		4D4165491D619A440095ADD1 /* MXBaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXBaseNavigationController.m; sourceTree = "<group>"; };
 		4D41654B1D619A590095ADD1 /* MXBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXBaseViewController.h; sourceTree = "<group>"; };
 		4D41654C1D619A590095ADD1 /* MXBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXBaseViewController.m; sourceTree = "<group>"; };
 		4D41654E1D619A7E0095ADD1 /* MXBaseTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXBaseTabBarController.h; sourceTree = "<group>"; };
 		4D41654F1D619A7E0095ADD1 /* MXBaseTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXBaseTabBarController.m; sourceTree = "<group>"; };
+		4D7C38D61D62A61E0003B378 /* MXMacro_Func.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXMacro_Func.h; sourceTree = "<group>"; };
+		4D7C38D71D62A63C0003B378 /* MXMacro_Key.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXMacro_Key.h; sourceTree = "<group>"; };
+		4D7C38D81D62AEF00003B378 /* MXBaseDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXBaseDataModel.h; sourceTree = "<group>"; };
+		4D7C38D91D62AEF00003B378 /* MXBaseDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXBaseDataModel.m; sourceTree = "<group>"; };
+		4D7C38DB1D62AF020003B378 /* MXHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXHttpRequest.h; sourceTree = "<group>"; };
+		4D7C38DC1D62AF020003B378 /* MXHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXHttpRequest.m; sourceTree = "<group>"; };
+		4D7C38DE1D62AF120003B378 /* MXRequestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXRequestModel.h; sourceTree = "<group>"; };
+		4D7C38DF1D62AF120003B378 /* MXRequestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXRequestModel.m; sourceTree = "<group>"; };
+		4D7C38E11D62AF1D0003B378 /* MXResponseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXResponseModel.h; sourceTree = "<group>"; };
+		4D7C38E21D62AF1D0003B378 /* MXResponseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXResponseModel.m; sourceTree = "<group>"; };
+		4D7C38E71D62B1C30003B378 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D7C38E81D62B1C30003B378 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4D7C38E91D62B1C30003B378 /* MXInteraciton.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXInteraciton.pch; sourceTree = "<group>"; };
+		4D7C38EC1D62B64B0003B378 /* MXLanguage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXLanguage.h; sourceTree = "<group>"; };
+		4D7C38ED1D62B64B0003B378 /* MXLanguage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXLanguage.m; sourceTree = "<group>"; };
 		4DAA25571D61BAD10012ABF8 /* MXBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXBaseTableViewController.h; sourceTree = "<group>"; };
 		4DAA25581D61BAD10012ABF8 /* MXBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXBaseTableViewController.m; sourceTree = "<group>"; };
 		4DAA255B1D61BE120012ABF8 /* YBFYZCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBFYZCollectionView.h; sourceTree = "<group>"; };
@@ -152,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				4874BDFE1D4A5E1B00A13EC7 /* MXInteraciton */,
+				4D7C38E61D62B1C30003B378 /* SupportingFiles */,
 				4874BE181D4A5E1B00A13EC7 /* MXInteracitonTests */,
 				4874BE231D4A5E1B00A13EC7 /* MXInteracitonUITests */,
 				4874BDFD1D4A5E1B00A13EC7 /* Products */,
@@ -176,21 +195,8 @@
 				487A95481D50EEEC00FD4F96 /* AppDelegate */,
 				4D41653E1D619A210095ADD1 /* Extension */,
 				487A95491D50EF1700FD4F96 /* Main */,
-				4874BDFF1D4A5E1B00A13EC7 /* Supporting Files */,
 			);
 			path = MXInteraciton;
-			sourceTree = "<group>";
-		};
-		4874BDFF1D4A5E1B00A13EC7 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				4D399EF21D5C794C001E1B7A /* Info.plist */,
-				4874BE081D4A5E1B00A13EC7 /* Main.storyboard */,
-				4874BE0B1D4A5E1B00A13EC7 /* Assets.xcassets */,
-				4874BE0D1D4A5E1B00A13EC7 /* LaunchScreen.storyboard */,
-				487A954C1D50EF6800FD4F96 /* main.m */,
-			);
-			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		4874BE181D4A5E1B00A13EC7 /* MXInteracitonTests */ = {
@@ -225,8 +231,8 @@
 			children = (
 				48FA25571D50F49D00D272EB /* ViewController.h */,
 				48FA25581D50F49D00D272EB /* ViewController.m */,
-				48FA25541D50F37900D272EB /* MXBaseViewController.h */,
-				48FA25551D50F37900D272EB /* MXBaseViewController.m */,
+				48FA25541D50F37900D272EB /* MXViewController.h */,
+				48FA25551D50F37900D272EB /* MXViewController.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -307,6 +313,8 @@
 			children = (
 				4DAA25801D61C23C0012ABF8 /* MXRefresh.h */,
 				4DAA25811D61C23C0012ABF8 /* MXRefresh.m */,
+				4D7C38EC1D62B64B0003B378 /* MXLanguage.h */,
+				4D7C38ED1D62B64B0003B378 /* MXLanguage.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -325,6 +333,8 @@
 		4D4165431D619A210095ADD1 /* Macro */ = {
 			isa = PBXGroup;
 			children = (
+				4D7C38D61D62A61E0003B378 /* MXMacro_Func.h */,
+				4D7C38D71D62A63C0003B378 /* MXMacro_Key.h */,
 			);
 			path = Macro;
 			sourceTree = "<group>";
@@ -332,6 +342,8 @@
 		4D4165441D619A210095ADD1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4D7C38D81D62AEF00003B378 /* MXBaseDataModel.h */,
+				4D7C38D91D62AEF00003B378 /* MXBaseDataModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -339,6 +351,12 @@
 		4D4165451D619A210095ADD1 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				4D7C38DB1D62AF020003B378 /* MXHttpRequest.h */,
+				4D7C38DC1D62AF020003B378 /* MXHttpRequest.m */,
+				4D7C38DE1D62AF120003B378 /* MXRequestModel.h */,
+				4D7C38DF1D62AF120003B378 /* MXRequestModel.m */,
+				4D7C38E11D62AF1D0003B378 /* MXResponseModel.h */,
+				4D7C38E21D62AF1D0003B378 /* MXResponseModel.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -356,6 +374,20 @@
 				4DAA255A1D61BE120012ABF8 /* YZDisplayViewController */,
 			);
 			path = Vendors;
+			sourceTree = "<group>";
+		};
+		4D7C38E61D62B1C30003B378 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				4874BE081D4A5E1B00A13EC7 /* Main.storyboard */,
+				4874BE0B1D4A5E1B00A13EC7 /* Assets.xcassets */,
+				4874BE0D1D4A5E1B00A13EC7 /* LaunchScreen.storyboard */,
+				4D7C38E71D62B1C30003B378 /* Info.plist */,
+				4D7C38E81D62B1C30003B378 /* main.m */,
+				4D7C38E91D62B1C30003B378 /* MXInteraciton.pch */,
+			);
+			name = SupportingFiles;
+			path = MXInteraciton/SupportingFiles;
 			sourceTree = "<group>";
 		};
 		4DAA255A1D61BE120012ABF8 /* YZDisplayViewController */ = {
@@ -516,7 +548,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D399EF31D5C794C001E1B7A /* Info.plist in Resources */,
+				4D7C38EA1D62B1C30003B378 /* Info.plist in Resources */,
 				4874BE0F1D4A5E1B00A13EC7 /* LaunchScreen.storyboard in Resources */,
 				4874BE0C1D4A5E1B00A13EC7 /* Assets.xcassets in Resources */,
 				4874BE0A1D4A5E1B00A13EC7 /* Main.storyboard in Resources */,
@@ -610,12 +642,15 @@
 				4DAA25791D61C0360012ABF8 /* NSString+MXCategory.m in Sources */,
 				4D41654A1D619A440095ADD1 /* MXBaseNavigationController.m in Sources */,
 				4DAA25761D61C0260012ABF8 /* UINavigationBar+MXCategory.m in Sources */,
+				4D7C38DA1D62AEF00003B378 /* MXBaseDataModel.m in Sources */,
 				4DAA258F1D61CBC70012ABF8 /* MXUserDefault.m in Sources */,
 				4DAA257F1D61C0580012ABF8 /* UITabBarItem+MXCategory.m in Sources */,
 				4DAA25891D61CAE40012ABF8 /* MXKeychain.m in Sources */,
 				4DAA25701D61BFF30012ABF8 /* UIColor+MXCategory.m in Sources */,
 				4D41654D1D619A590095ADD1 /* MXBaseViewController.m in Sources */,
+				4D7C38E31D62AF1D0003B378 /* MXResponseModel.m in Sources */,
 				4DAA256A1D61BE320012ABF8 /* MXMenuViewController.m in Sources */,
+				4D7C38DD1D62AF020003B378 /* MXHttpRequest.m in Sources */,
 				4DAA25671D61BE120012ABF8 /* YZFlowLayout.m in Sources */,
 				4D4165501D619A7E0095ADD1 /* MXBaseTabBarController.m in Sources */,
 				4DAA257C1D61C0420012ABF8 /* UIView+MXCategory.m in Sources */,
@@ -624,13 +659,15 @@
 				48FA255C1D50F4A700D272EB /* AppDelegate.m in Sources */,
 				48FA25591D50F49D00D272EB /* ViewController.m in Sources */,
 				4DAA25821D61C23C0012ABF8 /* MXRefresh.m in Sources */,
+				4D7C38EE1D62B64B0003B378 /* MXLanguage.m in Sources */,
 				4DAA258C1D61CBB70012ABF8 /* MXLog.m in Sources */,
+				4D7C38E01D62AF120003B378 /* MXRequestModel.m in Sources */,
 				4DAA25591D61BAD10012ABF8 /* MXBaseTableViewController.m in Sources */,
 				4DAA25641D61BE120012ABF8 /* YBFYZCollectionView.m in Sources */,
-				48FA25561D50F37900D272EB /* MXBaseViewController.m in Sources */,
+				48FA25561D50F37900D272EB /* MXViewController.m in Sources */,
 				4DAA25661D61BE120012ABF8 /* YZDisplayViewController.m in Sources */,
+				4D7C38EB1D62B1C30003B378 /* main.m in Sources */,
 				4DAA25731D61C0050012ABF8 /* UIImage+MXCategory.m in Sources */,
-				487A954D1D50EF6800FD4F96 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -774,6 +811,7 @@
 			baseConfigurationReference = 44C4F694E39D8B2252987220 /* Pods-MXInteraciton.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = /Users/apple/Documents/MXInteraction/MXInteraciton/SupportingFiles/MXInteraciton.pch;
 				INFOPLIST_FILE = MXInteraciton/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = max1ao.com.MXInteraciton;
@@ -786,6 +824,7 @@
 			baseConfigurationReference = FCB3C671AE590E1E0D75FA8F /* Pods-MXInteraciton.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = /Users/apple/Documents/MXInteraction/MXInteraciton/SupportingFiles/MXInteraciton.pch;
 				INFOPLIST_FILE = MXInteraciton/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = max1ao.com.MXInteraciton;

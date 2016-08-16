@@ -12,7 +12,6 @@
 #pragma mark - 根据色值生成颜色
 +(UIColor *)MX_ColorWithHex:(int)hex
 {
-    
     return [UIColor colorWithRed:((float)((hex & 0xFF0000) >> 16))/255.0 green:((float)((hex & 0xFF00) >> 8))/255.0 blue:((float)(hex & 0xFF))/255.0 alpha:1.0];
 }
 
@@ -40,18 +39,17 @@
     if ([colorString length]>=2) {
         NSString * oneString  = [hexString substringWithRange:NSMakeRange(0, 1)];
         NSString * towString  = [hexString substringWithRange:NSMakeRange(1, 1)];
-        red =  [self hexString:oneString]*16+ [self hexString:towString];
+        red = [self hexString:oneString]*16 + [self hexString:towString];
     }
     else
     {
         red = 0;
     }
     
-    
     if ([colorString length]>=4) {
         NSString * oneString  = [hexString substringWithRange:NSMakeRange(2, 1)];
         NSString * towString  = [hexString substringWithRange:NSMakeRange(3, 1)];
-        green =  [self hexString:oneString]*16+ [self hexString:towString];
+        green = [self hexString:oneString]*16 + [self hexString:towString];
     }
     else
     {
@@ -121,7 +119,6 @@
     if ([charString isEqualToString:@"e"]||[charString isEqualToString:@"E"]) {
         return 14;
     }
-    
     if ([charString isEqualToString:@"f"]||[charString isEqualToString:@"F"]) {
         return 15;
     }

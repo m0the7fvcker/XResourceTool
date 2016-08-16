@@ -10,7 +10,6 @@
 #import "UIView+MXCategory.h"
 #import <objc/runtime.h>
 #import <Masonry/Masonry.h>
-#define MXWeakSelf __weak typeof(self) weakSelf = self
 
 @implementation MXBlankView
 #pragma mark - 构造方法

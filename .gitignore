@@ -27,6 +27,7 @@ xcuserdata/
 *.dSYM.zip
 *.dSYM
 
+
 # CocoaPods
 #
 # We recommend against adding the Pods directory to your .gitignore. However
@@ -34,6 +35,17 @@ xcuserdata/
 # https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
 #
 # Pods/
+
+# 忽略Xcode本地用户配置信息
+*.xcuserstate
+*.xcuserdatad/
+xcuserdata/
+xcshareddata/
+.metadata/
+# 忽略`Pods/`和`Podfile.lock`
+Pods/
+Podfile.lock
+
 
 # Carthage
 #
