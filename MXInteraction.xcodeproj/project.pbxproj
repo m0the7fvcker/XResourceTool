@@ -229,6 +229,8 @@
 		487A95491D50EF1700FD4F96 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				4DA4CE641D62C73900A05157 /* LoginVC */,
+				4DA4CE681D62C73900A05157 /* RegisterVC */,
 				48FA25571D50F49D00D272EB /* ViewController.h */,
 				48FA25581D50F49D00D272EB /* ViewController.m */,
 				48FA25541D50F37900D272EB /* MXViewController.h */,
@@ -388,6 +390,68 @@
 			);
 			name = SupportingFiles;
 			path = MXInteraciton/SupportingFiles;
+			sourceTree = "<group>";
+		};
+		4DA4CE641D62C73900A05157 /* LoginVC */ = {
+			isa = PBXGroup;
+			children = (
+				4DA4CE651D62C73900A05157 /* Controller */,
+				4DA4CE661D62C73900A05157 /* Model */,
+				4DA4CE671D62C73900A05157 /* View */,
+			);
+			path = LoginVC;
+			sourceTree = "<group>";
+		};
+		4DA4CE651D62C73900A05157 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4DA4CE661D62C73900A05157 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4DA4CE671D62C73900A05157 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4DA4CE681D62C73900A05157 /* RegisterVC */ = {
+			isa = PBXGroup;
+			children = (
+				4DA4CE691D62C73900A05157 /* Controller */,
+				4DA4CE6A1D62C73900A05157 /* Model */,
+				4DA4CE6B1D62C73900A05157 /* View */,
+			);
+			path = RegisterVC;
+			sourceTree = "<group>";
+		};
+		4DA4CE691D62C73900A05157 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4DA4CE6A1D62C73900A05157 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4DA4CE6B1D62C73900A05157 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		4DAA255A1D61BE120012ABF8 /* YZDisplayViewController */ = {

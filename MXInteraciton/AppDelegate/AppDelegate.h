@@ -1,6 +1,6 @@
 //
 //  AppDelegate.h
-//  MXInteraciton
+//  MXInteraction
 //
 //  Created by maRk'sTheme on 16/7/28.
 //  Copyright © 2016年 maRk. All rights reserved.
