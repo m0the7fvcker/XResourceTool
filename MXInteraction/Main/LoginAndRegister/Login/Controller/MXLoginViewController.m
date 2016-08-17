@@ -18,18 +18,20 @@
 @implementation MXLoginViewController
 
 #pragma mark - 父类方法
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
--(void)initNavBar{
+-(void)initNavBar
+{
     self.title = @"登录";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"注册" style:UIBarButtonItemStylePlain target:self action:@selector(registerVC)];
 }
@@ -42,24 +44,30 @@
     //[self.view addUnderLineWithFrame:self.pdTextField.frame];
 }
 
--(void)initConstraint{
+-(void)initConstraint
+{
     
 }
 
-- (void)changeTheme{
+- (void)changeTheme
+{
     
 }
 
-- (void)registerVC{
+- (void)registerVC
+{
   
 }
-- (IBAction)loginApp:(UIButton *)sender {
+
+- (IBAction)loginApp:(UIButton *)sender
+{
     
     
     
 }
-- (IBAction)forgetPd:(UIButton *)sender {
-    
+
+- (IBAction)forgetPd:(UIButton *)sender
+{
     MXForgetPdViewController * forgetVC = [[MXForgetPdViewController alloc]initWithNibName:@"MXForgetPdViewController" bundle:nil];
     self.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:forgetVC animated:YES];
