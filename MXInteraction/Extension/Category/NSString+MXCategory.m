@@ -9,5 +9,14 @@
 #import "NSString+MXCategory.h"
 
 @implementation NSString (MXCategory)
-
+- (CGSize)MX_sizeWithFont:(UIFont *)font andConstrainedSize:(CGSize)constrainedSize
+{
+    CGSize newSize;
+    
+    NSDictionary *attributes = @{NSFontAttributeName:font};
+    
+    newSize = [self boundingRectWithSize:constrainedSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size;
+    
+    return newSize;
+}
 @end

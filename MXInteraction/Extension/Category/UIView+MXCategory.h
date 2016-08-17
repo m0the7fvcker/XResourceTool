@@ -14,21 +14,18 @@
 @end
 
 @interface UIView (MXCategory)
-
-@property (nonatomic,assign) CGPoint origin;
-@property (nonatomic,assign) CGSize  size;
-@property (nonatomic,assign) CGFloat width;
-@property (nonatomic,assign) CGFloat height;
-@property (nonatomic,assign) CGFloat y;
-@property (nonatomic,assign) CGFloat x;
-@property (nonatomic,assign) CGFloat centerX;
-@property (nonatomic,assign) CGFloat centerY;
-
+@property (nonatomic, assign) CGPoint origin;
+@property (nonatomic, assign) CGSize  size;
+@property (nonatomic, assign) CGFloat width;
+@property (nonatomic, assign) CGFloat height;
+@property (nonatomic, assign) CGFloat y;
+@property (nonatomic, assign) CGFloat x;
+@property (nonatomic, assign) CGFloat centerX;
+@property (nonatomic, assign) CGFloat centerY;
 @property (nonatomic,strong)  MXBlankView * blankView;
-- (void)showBankView:(NSString *)title imageName:(NSString *)imageName font:(UIFont *)font textColor:(UIColor *)textColor backgourndColor:(UIColor *)backgourndColor;
 
-
-- (void)showBankView:(NSString *)title imageName:(NSString *)imageName;
+- (void)MX_showBankView:(NSString *)title imageName:(NSString *)imageName font:(UIFont *)font textColor:(UIColor *)textColor backgourndColor:(UIColor *)backgourndColor;
+- (void)MX_showBankView:(NSString *)title imageName:(NSString *)imageName;
 - (void)hiddenBankView;
 
 /*

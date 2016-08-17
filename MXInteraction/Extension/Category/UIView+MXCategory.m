@@ -173,7 +173,7 @@
 }
 
 #pragma mark - 空白页
-- (void)showBankView:(NSString *)title imageName:(NSString *)imageName font:(UIFont *)font textColor:(UIColor *)textColor backgourndColor:(UIColor *)backgourndColor
+- (void)MX_showBankView:(NSString *)title imageName:(NSString *)imageName font:(UIFont *)font textColor:(UIColor *)textColor backgourndColor:(UIColor *)backgourndColor
 {
     if (!self.blankView) {
         self.blankView = [[MXBlankView alloc]init];
@@ -189,7 +189,6 @@
     }
     
     self.blankView.hidden = NO;
-    
     self.blankView.titleLabel.text = title;
     self.blankView.titleLabel.textColor = textColor;
     self.blankView.titleLabel.font = font;
@@ -198,9 +197,9 @@
     
 }
 
--(void)showBankView:(NSString *)title imageName:(NSString *)imageName
+- (void)MX_showBankView:(NSString *)title imageName:(NSString *)imageName
 {
-    [self showBankView:title imageName:imageName font:MXFont(14) textColor:MXColor(@"#282B35") backgourndColor:MXColor(@"#FFFFFF")];
+    [self MX_showBankView:title imageName:imageName font:MXFont(14) textColor:MXColor(@"#282B35") backgourndColor:MXColor(@"#FFFFFF")];
 }
 
 - (void)hiddenBankView
@@ -210,7 +209,8 @@
     }
 }
 
-- (UIViewController *)viewController{
+- (UIViewController *)viewController
+{
     /// Finds the view's view controller.
     
     // Traverse responder chain. Return first found view controller, which will be the view's view controller.

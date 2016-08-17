@@ -48,6 +48,7 @@
 		4D6148A91D64006100B3B093 /* MXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6148A51D64006100B3B093 /* MXAppDelegate.m */; };
 		4D9CD0C41D6407D0000832D3 /* JSPatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9CD0C31D6407D0000832D3 /* JSPatch.framework */; };
 		4D9CD0C81D640D9A000832D3 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9CD0C71D640D9A000832D3 /* libz.tbd */; };
+		4D9CD0CB1D6440D2000832D3 /* NSUserDefaults+MXCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9CD0CA1D6440D2000832D3 /* NSUserDefaults+MXCategory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +144,8 @@
 		4D9CD0C31D6407D0000832D3 /* JSPatch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JSPatch.framework; sourceTree = "<group>"; };
 		4D9CD0C51D640904000832D3 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		4D9CD0C71D640D9A000832D3 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		4D9CD0C91D6440D2000832D3 /* NSUserDefaults+MXCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+MXCategory.h"; sourceTree = "<group>"; };
+		4D9CD0CA1D6440D2000832D3 /* NSUserDefaults+MXCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+MXCategory.m"; sourceTree = "<group>"; };
 		6C67CA09F56570D3DA25D36D /* libPods-MXInteraction.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MXInteraction.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABA4727452F7BFDADA8C1F4B /* Pods-MXInteraction.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MXInteraction.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MXInteraction/Pods-MXInteraction.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -244,8 +247,12 @@
 			children = (
 				4D6148241D63FF9D00B3B093 /* NSObject+MXExtension.h */,
 				4D6148251D63FF9D00B3B093 /* NSObject+MXExtension.m */,
+				4D9CD0C91D6440D2000832D3 /* NSUserDefaults+MXCategory.h */,
+				4D9CD0CA1D6440D2000832D3 /* NSUserDefaults+MXCategory.m */,
 				4D6148261D63FF9D00B3B093 /* NSString+MXCategory.h */,
 				4D6148271D63FF9D00B3B093 /* NSString+MXCategory.m */,
+				4D6148301D63FF9D00B3B093 /* UIView+MXCategory.h */,
+				4D6148311D63FF9D00B3B093 /* UIView+MXCategory.m */,
 				4D6148281D63FF9D00B3B093 /* UIColor+MXCategory.h */,
 				4D6148291D63FF9D00B3B093 /* UIColor+MXCategory.m */,
 				4D61482A1D63FF9D00B3B093 /* UIImage+MXCategory.h */,
@@ -254,8 +261,6 @@
 				4D61482D1D63FF9D00B3B093 /* UINavigationBar+MXCategory.m */,
 				4D61482E1D63FF9D00B3B093 /* UITabBarItem+MXCategory.h */,
 				4D61482F1D63FF9D00B3B093 /* UITabBarItem+MXCategory.m */,
-				4D6148301D63FF9D00B3B093 /* UIView+MXCategory.h */,
-				4D6148311D63FF9D00B3B093 /* UIView+MXCategory.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -601,6 +606,7 @@
 		4D6147E71D63FF1400B3B093 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = MX;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = maRk;
 				TargetAttributes = {
@@ -722,6 +728,7 @@
 				4D61487E1D63FF9D00B3B093 /* MXMenuViewController.m in Sources */,
 				4D6148891D63FF9D00B3B093 /* MXLog.m in Sources */,
 				4D6148A61D64006100B3B093 /* MXAppDelegate+JSPath.m in Sources */,
+				4D9CD0CB1D6440D2000832D3 /* NSUserDefaults+MXCategory.m in Sources */,
 				4D61488C1D63FF9D00B3B093 /* MXHttpRequest.m in Sources */,
 				4D6148961D63FF9D00B3B093 /* MXLoginViewController.m in Sources */,
 				4D61487F1D63FF9D00B3B093 /* NSObject+MXExtension.m in Sources */,
