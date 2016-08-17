@@ -47,6 +47,8 @@
 		4D6148A71D64006100B3B093 /* MXAppDelegate+Launch.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6148A11D64006100B3B093 /* MXAppDelegate+Launch.m */; };
 		4D6148A81D64006100B3B093 /* MXAppDelegate+Push.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6148A31D64006100B3B093 /* MXAppDelegate+Push.m */; };
 		4D6148A91D64006100B3B093 /* MXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6148A51D64006100B3B093 /* MXAppDelegate.m */; };
+		4D9CD0C41D6407D0000832D3 /* JSPatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9CD0C31D6407D0000832D3 /* JSPatch.framework */; };
+		4D9CD0C81D640D9A000832D3 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9CD0C71D640D9A000832D3 /* libz.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +143,9 @@
 		4D6148A31D64006100B3B093 /* MXAppDelegate+Push.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MXAppDelegate+Push.m"; sourceTree = "<group>"; };
 		4D6148A41D64006100B3B093 /* MXAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXAppDelegate.h; sourceTree = "<group>"; };
 		4D6148A51D64006100B3B093 /* MXAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXAppDelegate.m; sourceTree = "<group>"; };
+		4D9CD0C31D6407D0000832D3 /* JSPatch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JSPatch.framework; sourceTree = "<group>"; };
+		4D9CD0C51D640904000832D3 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		4D9CD0C71D640D9A000832D3 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		6C67CA09F56570D3DA25D36D /* libPods-MXInteraction.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MXInteraction.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABA4727452F7BFDADA8C1F4B /* Pods-MXInteraction.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MXInteraction.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MXInteraction/Pods-MXInteraction.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,6 +155,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D9CD0C81D640D9A000832D3 /* libz.tbd in Frameworks */,
+				4D9CD0C41D6407D0000832D3 /* JSPatch.framework in Frameworks */,
 				13FAF037DE6177C0B7CF4CCA /* libPods-MXInteraction.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,6 +362,7 @@
 		4D6148501D63FF9D00B3B093 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				4D9CD0C21D6407D0000832D3 /* JSPath */,
 				4D6148531D63FF9D00B3B093 /* YZDisplayViewController */,
 			);
 			path = Vendors;
@@ -524,9 +532,19 @@
 			path = AppDelegate;
 			sourceTree = "<group>";
 		};
+		4D9CD0C21D6407D0000832D3 /* JSPath */ = {
+			isa = PBXGroup;
+			children = (
+				4D9CD0C31D6407D0000832D3 /* JSPatch.framework */,
+			);
+			path = JSPath;
+			sourceTree = "<group>";
+		};
 		52048446E227A6E310BF746E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4D9CD0C71D640D9A000832D3 /* libz.tbd */,
+				4D9CD0C51D640904000832D3 /* JavaScriptCore.framework */,
 				6C67CA09F56570D3DA25D36D /* libPods-MXInteraction.a */,
 			);
 			name = Frameworks;
@@ -843,6 +861,7 @@
 				);
 				GCC_PREFIX_HEADER = MXInteraction/SupportingFiles/MXInteraciton.pch;
 				INFOPLIST_FILE = MXInteraction/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.max1ao.MXInteraction;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -861,6 +880,7 @@
 				);
 				GCC_PREFIX_HEADER = MXInteraction/SupportingFiles/MXInteraciton.pch;
 				INFOPLIST_FILE = MXInteraction/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.max1ao.MXInteraction;
 				PRODUCT_NAME = "$(TARGET_NAME)";

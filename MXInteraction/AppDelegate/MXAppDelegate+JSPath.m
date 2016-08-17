@@ -7,12 +7,12 @@
 //
 
 #import "MXAppDelegate+JSPath.h"
-//#import <JSPatch/JSPatch.h>
+#import <JSPatch/JSPatch.h>
 
 @implementation MXAppDelegate (JSPath)
 - (void)addJSPath
 {
-//    [JSPatch startWithAppKey:@"5189da53fbc740d5"];
-//    [JSPatch sync];
+    [JSPatch startWithAppKey:@"5189da53fbc740d5"];
+    [JSPatch sync];
 }
 @end
