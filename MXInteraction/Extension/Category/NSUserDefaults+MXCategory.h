@@ -23,8 +23,6 @@
 + (BOOL)boolForKey:(NSString *)defaultName;
 + (NSURL *)URLForKey:(NSString *)defaultName ;
 
-
-
 /** setter方法 */
 + (void)setObject:(id)value forKey:(NSString *)defaultName ;
 + (void)removeObjectForKey:(NSString *)defaultName ;
@@ -33,7 +31,6 @@
 + (void)setDouble:(double)value forKey:(NSString *)defaultName ;
 + (void)setBool:(BOOL)value forKey:(NSString *)defaultName ;
 + (void)setURL:(NSURL *)url forKey:(NSString *)defaultName ;
-
 
 + (void)setObject:(id)value forKey:(NSString *)defaultName synchronize:(BOOL)synchronize;
 + (void)removeObjectForKey:(NSString *)defaultName synchronize:(BOOL)synchronize;

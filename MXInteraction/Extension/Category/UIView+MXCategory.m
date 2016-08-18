@@ -173,7 +173,7 @@
 }
 
 #pragma mark - 空白页
-- (void)MX_showBankView:(NSString *)title imageName:(NSString *)imageName font:(UIFont *)font textColor:(UIColor *)textColor backgourndColor:(UIColor *)backgourndColor
+- (void)mx_showBankView:(NSString *)title imageName:(NSString *)imageName font:(UIFont *)font textColor:(UIColor *)textColor backgourndColor:(UIColor *)backgourndColor
 {
     if (!self.blankView) {
         self.blankView = [[MXBlankView alloc]init];
@@ -197,9 +197,9 @@
     
 }
 
-- (void)MX_showBankView:(NSString *)title imageName:(NSString *)imageName
+- (void)mx_showBankView:(NSString *)title imageName:(NSString *)imageName
 {
-    [self MX_showBankView:title imageName:imageName font:MXFont(14) textColor:MXColor(@"#282B35") backgourndColor:MXColor(@"#FFFFFF")];
+    [self mx_showBankView:title imageName:imageName font:MXFont(14) textColor:MXColor(@"#282B35") backgourndColor:MXColor(@"#FFFFFF")];
 }
 
 - (void)hiddenBankView

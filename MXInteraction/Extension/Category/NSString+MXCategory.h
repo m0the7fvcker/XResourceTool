@@ -17,5 +17,5 @@
  *
  *  @return 新的size
  */
-- (CGSize)MX_sizeWithFont:(UIFont *)font andConstrainedSize:(CGSize)constrainedSize;
+- (CGSize)mx_sizeWithFont:(UIFont *)font andConstrainedSize:(CGSize)constrainedSize;
 @end

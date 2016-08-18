@@ -10,22 +10,26 @@
 
 @interface UIColor (MXCategory)
 /**
- * @brief 根据色值得到颜色
+ * 根据色值得到颜色
  * @param hex 16进制的色值
  **/
-+(UIColor *)MX_ColorWithHex:(int)hex;
++ (UIColor *)mx_colorWithHex:(int)hex;
 
 /**
- * @brief 根据色值得到颜色
+ * 根据色值得到颜色
  * @param hexString 16进制色值
  **/
-+(UIColor *)MX_ColorWithHexString:(NSString *)hexString;
++ (UIColor *)mx_colorWithHexString:(NSString *)hexString;
 
 /**
- * @brief 根据色值得到颜色
+ * 根据色值得到颜色
  * @param hexString 16进制色值
  * @param alpha     透明值
  **/
 
-+(UIColor *)MX_ColorWithHexString:(NSString *)hexString alpha:(CGFloat)alpha;
++ (UIColor *)mx_colorWithHexString:(NSString *)hexString alpha:(CGFloat)alpha;
+/**
+ *  返回随机色
+ */
++ (UIColor *)mx_randomColor;
 @end

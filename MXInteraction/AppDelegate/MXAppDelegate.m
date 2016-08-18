@@ -12,6 +12,7 @@
 #import "MXAppDelegate+Launch.h"
 #import "MXBaseNavigationController.h"
 #import "MXLoginViewController.h"
+#import "MXHomeViewController.h"
 
 @interface MXAppDelegate ()
 
@@ -25,8 +26,11 @@
     [self addPush];
     [self setFirstLaunch];
     
-    MXLoginViewController *loginVC = [[MXLoginViewController alloc]init];
-    MXBaseNavigationController *naVC = [[MXBaseNavigationController alloc]initWithRootViewController:loginVC];
+//    MXLoginViewController *loginVC = [[MXLoginViewController alloc]init];
+//    MXBaseNavigationController *naVC = [[MXBaseNavigationController alloc]initWithRootViewController:loginVC];
+
+    MXHomeViewController *homeVC = [[MXHomeViewController alloc]init];
+    MXBaseNavigationController *naVC = [[MXBaseNavigationController alloc]initWithRootViewController:homeVC];
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = naVC;
     [self.window makeKeyAndVisible];

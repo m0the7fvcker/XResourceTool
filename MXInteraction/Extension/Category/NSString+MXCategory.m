@@ -9,7 +9,7 @@
 #import "NSString+MXCategory.h"
 
 @implementation NSString (MXCategory)
-- (CGSize)MX_sizeWithFont:(UIFont *)font andConstrainedSize:(CGSize)constrainedSize
+- (CGSize)mx_sizeWithFont:(UIFont *)font andConstrainedSize:(CGSize)constrainedSize
 {
     CGSize newSize;
     

@@ -11,17 +11,17 @@
 
 @implementation MXLog
 +(BOOL)writeLogWithObject:(id)object{
-    NSString * string =[object MX_JSONString];
+    NSString * string =[object mx_JSONString];
     return [self writeLogWithString:string];
 }
 
 +(BOOL)writeLogWithDic:(NSDictionary *)dic{
-    NSString * string =[dic MX_JSONString];
+    NSString * string =[dic mx_JSONString];
     return [self writeLogWithString:string];
 }
 
 +(BOOL)writeLogWithArr:(NSArray *)arr{
-    NSString * string =[arr MX_JSONString];
+    NSString * string =[arr mx_JSONString];
     return [self writeLogWithString:string];
 }
 

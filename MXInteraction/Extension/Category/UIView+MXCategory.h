@@ -24,8 +24,8 @@
 @property (nonatomic, assign) CGFloat centerY;
 @property (nonatomic,strong)  MXBlankView * blankView;
 
-- (void)MX_showBankView:(NSString *)title imageName:(NSString *)imageName font:(UIFont *)font textColor:(UIColor *)textColor backgourndColor:(UIColor *)backgourndColor;
-- (void)MX_showBankView:(NSString *)title imageName:(NSString *)imageName;
+- (void)mx_showBankView:(NSString *)title imageName:(NSString *)imageName font:(UIFont *)font textColor:(UIColor *)textColor backgourndColor:(UIColor *)backgourndColor;
+- (void)mx_showBankView:(NSString *)title imageName:(NSString *)imageName;
 - (void)hiddenBankView;
 
 /*

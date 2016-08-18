@@ -12,15 +12,15 @@
 /**
  *  根据颜色生产图片
  */
-+ (UIImage *)MX_CreateImageFromColor:(UIColor *)color
++ (UIImage *)mx_createImageFromColor:(UIColor *)color
 {
-    return [self MX_CreateImageFromColor:color size:CGSizeMake(1, 1)];
+    return [self mx_createImageFromColor:color size:CGSizeMake(1, 1)];
 }
 
 /**
  *  根据颜色和大小生产图片
  */
-+ (UIImage *)MX_CreateImageFromColor:(UIColor *)color size:(CGSize)size
++ (UIImage *)mx_createImageFromColor:(UIColor *)color size:(CGSize)size
 {
     CGRect imageRect = CGRectMake(0, 0, size.width, size.height);
     UIGraphicsBeginImageContext(imageRect.size);
@@ -34,7 +34,7 @@
 /**
  *  图片旋转
  */
-+ (UIImage *)MX_Image:(UIImage *)image rotation:(UIImageOrientation)orientation
++ (UIImage *)mx_image:(UIImage *)image rotation:(UIImageOrientation)orientation
 {
     long double rotate = 0.0;
     CGRect rect;

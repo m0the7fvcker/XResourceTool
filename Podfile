@@ -10,5 +10,6 @@ target ‘MXInteraction’ do
   pod 'iOS-UMengMessage','~> 1.3.0'
   pod 'Reachability', '~> 3.2'
   pod 'SDCycleScrollView', '~> 1.65'
-
+  pod 'BHBPopView'
+  pod 'SDWebImage', '~> 3.8.1'
 end

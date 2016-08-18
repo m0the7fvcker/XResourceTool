@@ -13,7 +13,7 @@
 /**
  *  根据色值生成颜色
  */
-+(UIColor *)MX_ColorWithHex:(int)hex
++(UIColor *)mx_colorWithHex:(int)hex
 {
     return [UIColor colorWithRed:((float)((hex & 0xFF0000) >> 16))/255.0 green:((float)((hex & 0xFF00) >> 8))/255.0 blue:((float)(hex & 0xFF))/255.0 alpha:1.0];
 }
@@ -21,23 +21,23 @@
 /**
  *  根据16进制色值字符串生成颜色
  */
-+(UIColor *)MX_ColorWithHexString:(NSString *)hexString
++(UIColor *)mx_colorWithHexString:(NSString *)hexString
 {
-    return [self MX_GetColorWithHexString:hexString alpha:1.0];
+    return [self mx_getColorWithHexString:hexString alpha:1.0];
 }
 
 /**
  *  根据16进制色值字符串和透明度生成颜色
  */
-+(UIColor *)MX_ColorWithHexString:(NSString *)hexString alpha:(CGFloat)alpha
++(UIColor *)mx_colorWithHexString:(NSString *)hexString alpha:(CGFloat)alpha
 {
-    return [self MX_GetColorWithHexString:hexString alpha:alpha];
+    return [self mx_getColorWithHexString:hexString alpha:alpha];
 }
 
 /**
  *  根据16进制色值字符串和透明度生成颜色
  */
-+ (UIColor *)MX_GetColorWithHexString:(NSString *)hexString alpha:(CGFloat)alpha
++ (UIColor *)mx_getColorWithHexString:(NSString *)hexString alpha:(CGFloat)alpha
 {
     float red ,blue,green;
     NSMutableString * colorString = [hexString mutableCopy];
@@ -134,5 +134,16 @@
         return 15;
     }
     return 0;
+}
+
+/**
+ *  返回随机颜色
+ */
++ (UIColor *)mx_randomColor
+{
+    return [UIColor colorWithRed:(arc4random()%256)/256.f
+                           green:(arc4random()%256)/256.f
+                            blue:(arc4random()%256)/256.f
+                           alpha:1.0f];
 }
 @end

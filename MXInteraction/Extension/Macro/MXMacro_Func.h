@@ -23,15 +23,19 @@
 #define MXAppDelegateAccessor ((YBFAppDelegate *)[[UIApplication sharedApplication] delegate])
 
 // 操作系统版本判断
-#define MX_OSV_LaterIOS7 YBF_OSVLater(7.0)
-#define MX_OSV_LaterIOS8 YBF_OSVLater(8.0)
-#define MX_OSV_LaterIOS9 YBF_OSVLater(9.0)
+#define MX_OSV_LaterIOS7 MX_OSVLater(7.0)
+#define MX_OSV_LaterIOS8 MX_OSVLater(8.0)
+#define MX_OSV_LaterIOS9 MX_OSVLater(9.0)
 #define MX_OSVLater(version) ([[UIDevice currentDevice].systemVersion doubleValue] >= version)
 
 // 设备尺寸
 #define MXScreen_Bounds [UIScreen mainScreen].bounds
 #define MXScreen_Height [UIScreen mainScreen].bounds.size.height
 #define MXScreen_Width [UIScreen mainScreen].bounds.size.width
+
+#define GET_STATE_BAR_HEIGHT (MXDevice_Is_iPhone6P ? 20:(MX_OSV_LaterIOS7 ? 20 : 0))
+#define GET_NAV_BAR_HEIGHT (MXDevice_Is_iPhone6P ? 44:44)
+#define MX_NAV_HEIGHT 64
 
 #define MXDevice_Is_iPhone4 (CGSizeEqualToSize(CGSizeMake(320, 480), [UIScreen mainScreen].bounds.size))
 #define MXDevice_Is_iPhone5 (CGSizeEqualToSize(CGSizeMake(320, 568), [UIScreen mainScreen].bounds.size))
@@ -42,7 +46,7 @@
 #define MXStatusBarHeight [UIApplication sharedApplication].statusBarFrame.size.height
 
 // 字体颜色
-#define MXColor(hexString) [UIColor MX_ColorWithHexString:hexString]
+#define MXColor(hexString) [UIColor mx_colorWithHexString:hexString]
 #define MXFont(size) [UIFont systemFontOfSize:size]
 #define MXFontName(name,size) [UIFont fontWithName:name size:size]
 

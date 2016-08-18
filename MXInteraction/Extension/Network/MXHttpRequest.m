@@ -81,7 +81,7 @@
     NSURLSessionDataTask *task = [manager POST:requestUrl parameters:requestParams progress:progress success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         MXBaseDataModel *baseModel = nil;
         if ([responseObject isKindOfClass:[NSDictionary class]]) {
-            baseModel = [MXBaseDataModel MX_ObjectWithKeyValues:responseObject];
+            baseModel = [MXBaseDataModel mx_objectWithKeyValues:responseObject];
         }else{
             baseModel = [[MXBaseDataModel alloc]init];
             baseModel.code = MXRequestCode_Fail;
@@ -120,7 +120,7 @@
     NSURLSessionDataTask *task = [manager GET:requestUrl parameters:requestParams progress:progress success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         MXBaseDataModel *baseModel = nil;
         if ([responseObject isKindOfClass:[NSDictionary class]]) {
-            baseModel = [MXBaseDataModel MX_ObjectWithKeyValues:responseObject];
+            baseModel = [MXBaseDataModel mx_objectWithKeyValues:responseObject];
         }else{
             baseModel = [[MXBaseDataModel alloc]init];
             baseModel.code = MXRequestCode_Fail;
