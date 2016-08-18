@@ -37,6 +37,7 @@ xcuserdata/
 # Pods/
 
 # 忽略Xcode本地用户配置信息
+*.xcworkspace
 *.xcuserstate
 *.xcuserdatad/
 xcuserdata/
