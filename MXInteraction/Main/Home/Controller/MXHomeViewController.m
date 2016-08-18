@@ -12,7 +12,7 @@
 
 #define MXHomeHeaderHeight 400
 
-@interface MXHomeViewController ()<UITableViewDelegate, UITableViewDataSource, MXHomeHeaderMenuDelegate ,SDCycleScrollViewDelegate>
+@interface MXHomeViewController ()<UITableViewDelegate, UITableViewDataSource, MXHomeHeaderMenuDelegate,SDCycleScrollViewDelegate>
 
 @property (nonatomic, weak) UITableView *tableView;
 @property (nonatomic, weak) SDCycleScrollView *cycleView;
@@ -89,10 +89,6 @@
     
 }
 
-- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    [self.view endEditing:YES];
-}
 
 #pragma mark - 内部方法
 - (void)personalCenterClick
