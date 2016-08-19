@@ -20,7 +20,10 @@
 #define MXWeakSelf __weak typeof(self) weakSelf = self
 
 // 得到AppDelegate实例
-#define MXAppDelegateAccessor ((YBFAppDelegate *)[[UIApplication sharedApplication] delegate])
+#define MXAppDelegateAccessor ((MXAppDelegate *)[[UIApplication sharedApplication] delegate])
+
+// 得到Application实例
+#define MXApplicationAccessor [UIApplication sharedApplication]
 
 // 操作系统版本判断
 #define MX_OSV_LaterIOS7 MX_OSVLater(7.0)

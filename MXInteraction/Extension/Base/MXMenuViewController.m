@@ -19,7 +19,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self initViewModel];
     [self initNavBar];
     [self initUI];
     [self initConstraint];
@@ -38,11 +37,6 @@
 }
 
 #pragma mark - 初始化方法
-- (void)initViewModel
-{
-    
-}
-
 - (void)initNavBar
 {
     

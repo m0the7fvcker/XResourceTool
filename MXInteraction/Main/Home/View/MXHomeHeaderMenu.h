@@ -11,6 +11,7 @@
 @protocol MXHomeHeaderMenuDelegate <NSObject>
 
 @required
+
 - (void)MXHomeHeaderMenuButtonDidClick:(NSInteger)btnNumber;
 
 @end
