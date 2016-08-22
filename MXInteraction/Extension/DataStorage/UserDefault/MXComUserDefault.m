@@ -8,17 +8,30 @@
 
 #import "MXComUserDefault.h"
 
-static NSString *MXUserDefault_isFristLaunch = @"isFristLaunch";
+static NSString *MXUserDefault_IsFristLaunch = @"isFristLaunch";
+static NSString *MXUserDefault_HasLogin = @"userHasLogin";
 
 @implementation MXComUserDefault
 
-+ (BOOL)isFristLaunch{
-    return [MXUDStandard boolForKey:MXUserDefault_isFristLaunch];
++ (BOOL)isFristLaunch
+{
+    return [MXUDStandard boolForKey:MXUserDefault_IsFristLaunch];
 }
 
-+ (void)setIsFristLaunch:(BOOL)isFristLaunch{
-    [MXUDStandard setBool:isFristLaunch forKey:MXUserDefault_isFristLaunch];
++ (void)setIsFristLaunch:(BOOL)isFristLaunch
+{
+    [MXUDStandard setBool:isFristLaunch forKey:MXUserDefault_IsFristLaunch];
     [MXUDStandard synchronize];
 }
 
++ (BOOL)hasLogin
+{
+    return [MXUDStandard boolForKey:MXUserDefault_HasLogin];
+}
+
++ (void)setHasLogin:(BOOL)hasLogin
+{
+    [MXUDStandard setBool:hasLogin forKey:MXUserDefault_HasLogin];
+    [MXUDStandard synchronize];
+}
 @end

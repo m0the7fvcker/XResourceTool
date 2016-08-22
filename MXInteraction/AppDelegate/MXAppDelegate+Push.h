@@ -9,5 +9,8 @@
 #import "MXAppDelegate.h"
 
 @interface MXAppDelegate (Push)
+/**
+ *  @brief 添加推送
+ */
 - (void)addPush;
 @end

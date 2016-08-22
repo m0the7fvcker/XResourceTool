@@ -9,5 +9,8 @@
 #import "MXAppDelegate.h"
 
 @interface MXAppDelegate (Launch)
-- (void)setFirstLaunch;
+/**
+ *  @brief 启动
+ */
+- (void)launch;
 @end

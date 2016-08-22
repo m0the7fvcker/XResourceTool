@@ -19,7 +19,7 @@
 {
     [super viewDidLoad];
     
-    [self setUpSubControllers];
+//    [self setUpSubControllers];
     
     [self initUI];
     

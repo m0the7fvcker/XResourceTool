@@ -7,10 +7,59 @@
 //
 
 #import "MXAppDelegate+Launch.h"
+#import "MXBaseNavigationController.h"
+#import "MXLoginHomeViewController.h"
+#import "MXHomeViewController.h"
+#import "MXLaunchADViewController.h"
+#import "MXLaunchNFViewController.h"
+
+#import "MXComUserDefault.h"
 
 @implementation MXAppDelegate (Launch)
-- (void)setFirstLaunch
+
+- (void)launch
 {
+    [self addNotification];
     
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    
+    // 是第一次启动，显示版本特性
+    if (![MXComUserDefault isFristLaunch]) {
+        
+        [MXComUserDefault setIsFristLaunch:YES];
+        MXLaunchNFViewController *launchVC = [[MXLaunchNFViewController alloc] init];
+        self.window.rootViewController = launchVC;
+        [self.window makeKeyAndVisible];
+        
+    // 不是第一次启动，判断是否登录
+    } else {
+        
+        MXLaunchADViewController *adVC = [[MXLaunchADViewController alloc] init];
+        self.window.rootViewController = adVC;
+        [self.window makeKeyAndVisible];
+    }
+}
+
+- (void)changeRootVC
+{
+    // 判断是否已经登录
+    if ([MXComUserDefault hasLogin]) {
+        MXHomeViewController *homeVC = [[MXHomeViewController alloc] init];
+        MXBaseNavigationController *navC = [[MXBaseNavigationController alloc] initWithRootViewController:homeVC];
+        self.window.rootViewController = navC;
+        [self.window makeKeyAndVisible];
+        
+    // 未登录显示登录
+    } else {
+        MXLoginHomeViewController *loginVC = [[MXLoginHomeViewController alloc] init];
+        MXBaseNavigationController *navC = [[MXBaseNavigationController alloc] initWithRootViewController:loginVC];
+        self.window.rootViewController = navC;
+        [self.window makeKeyAndVisible];
+    }
+}
+
+- (void)addNotification
+{
+    [MXNotificationCenterAccessor addObserver:self selector:@selector(changeRootVC) name:MXNoti_Launch_ChangeVC object:nil];
 }
 @end

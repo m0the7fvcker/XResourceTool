@@ -25,6 +25,9 @@
 // 得到Application实例
 #define MXApplicationAccessor [UIApplication sharedApplication]
 
+// 通知中心
+#define MXNotificationCenterAccessor [NSNotificationCenter defaultCenter]
+
 // 操作系统版本判断
 #define MX_OSV_LaterIOS7 MX_OSVLater(7.0)
 #define MX_OSV_LaterIOS8 MX_OSVLater(8.0)
@@ -36,8 +39,8 @@
 #define MXScreen_Height [UIScreen mainScreen].bounds.size.height
 #define MXScreen_Width [UIScreen mainScreen].bounds.size.width
 
-#define GET_STATE_BAR_HEIGHT (MXDevice_Is_iPhone6P ? 20:(MX_OSV_LaterIOS7 ? 20 : 0))
-#define GET_NAV_BAR_HEIGHT (MXDevice_Is_iPhone6P ? 44:44)
+#define MX_STATE_BAR_HEIGHT (MXDevice_Is_iPhone6P ? 20:(MX_OSV_LaterIOS7 ? 20 : 0))
+#define MX_NAV_BAR_HEIGHT (MXDevice_Is_iPhone6P ? 44:44)
 #define MX_NAV_HEIGHT 64
 
 #define MXDevice_Is_iPhone4 (CGSizeEqualToSize(CGSizeMake(320, 480), [UIScreen mainScreen].bounds.size))

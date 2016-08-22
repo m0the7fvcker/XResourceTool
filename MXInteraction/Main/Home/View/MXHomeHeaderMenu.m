@@ -11,6 +11,7 @@
 @interface MXHomeHeaderMenu()
 
 @property (nonatomic, strong) NSMutableArray <UIButton *> *btnArray;
+@property (nonatomic, strong) NSArray <NSString *>*menuTitle;
 
 @end
 
@@ -19,9 +20,22 @@
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self == [super initWithFrame:frame]) {
+        [self initData];
         [self initUI];
     }
     return self;
+}
+
+- (void)initData
+{
+    self.menuTitle = @[@"可视对讲",
+                       @"开门记录",
+                       @"授权管理",
+                       @"免打扰",
+                       @"社区互帮",
+                       @"O2O商城",
+                       @"智享体验",
+                       @"分享开门"];
 }
 
 - (void)initUI
@@ -30,6 +44,13 @@
         // 创建菜单按钮
         UIButton *menuBtn = [[UIButton alloc]init];
         [menuBtn addTarget:self action:@selector(menuButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        
+        [menuBtn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"home_icon_%d",i]] forState:UIControlStateNormal];
+        [menuBtn setTitle:self.menuTitle[i] forState:UIControlStateNormal];
+        
+        menuBtn.imageEdgeInsets = UIEdgeInsetsMake(10, 10, 0, 0);
+        menuBtn.titleEdgeInsets = UIEdgeInsetsMake(40, -30, 10, 0);
+//        menuBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
         menuBtn.tag = i;
         menuBtn.backgroundColor = [UIColor mx_randomColor];
         [self addSubview:menuBtn];

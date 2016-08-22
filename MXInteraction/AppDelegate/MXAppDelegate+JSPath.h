@@ -9,5 +9,8 @@
 #import "MXAppDelegate.h"
 
 @interface MXAppDelegate (JSPath)
+/**
+ *  @brief 添加JSPath
+ */
 - (void)addJSPath;
 @end

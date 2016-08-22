@@ -2,75 +2,48 @@
 //  MXLoginViewController.m
 //  MXInteraction
 //
-//  Created by maRk'sTheme on 16/8/16.
+//  Created by maRk on 16/8/22.
 //  Copyright © 2016年 maRk. All rights reserved.
 //
 
 #import "MXLoginViewController.h"
-#import "MXForgetPdViewController.h"
-#import "MXTextField.h"
+#import "MXEnterPhoneViewController.h"
+#import "MXHomeViewController.h"
 
-@interface MXLoginViewController ()
+#import "MXComUserDefault.h"
 
+@interface MXLoginViewController ()<UITextFieldDelegate>
 
 @end
 
 @implementation MXLoginViewController
 
-#pragma mark - 父类方法
+#pragma mark - 控制器方法
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = NO;
 }
 
--(void)initNavBar
+#pragma mark - 内部方法
+- (IBAction)loginClick:(UIButton *)sender
 {
-    self.title = @"登录";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"注册" style:UIBarButtonItemStylePlain target:self action:@selector(registerVC)];
+    // 修改登录状态
+    [MXComUserDefault setHasLogin:YES];
+    
+    MXHomeViewController *homeVC = [[MXHomeViewController alloc] init];
+    [self.navigationController pushViewController:homeVC animated:YES];
 }
 
--(void)initUI{
-    
-    NSLog(@"name frame :%@",NSStringFromCGRect(self.nameTextField.frame));
-    
-    //[self.view addUnderLineWithFrame:self.nameTextField.frame];
-    //[self.view addUnderLineWithFrame:self.pdTextField.frame];
-}
-
--(void)initConstraint
+- (IBAction)forgetPwClick:(UIButton *)sender
 {
-    
-}
-
-- (void)changeTheme
-{
-    
-}
-
-- (void)registerVC
-{
-  
-}
-
-- (IBAction)loginApp:(UIButton *)sender
-{
-    
-    
-    
-}
-
-- (IBAction)forgetPd:(UIButton *)sender
-{
-    MXForgetPdViewController * forgetVC = [[MXForgetPdViewController alloc]initWithNibName:@"MXForgetPdViewController" bundle:nil];
-    self.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:forgetVC animated:YES];
+    MXEnterPhoneViewController *enterPhoneVC = [[MXEnterPhoneViewController alloc] init];
+    [self.navigationController pushViewController:enterPhoneVC animated:YES];
 }
 
 @end

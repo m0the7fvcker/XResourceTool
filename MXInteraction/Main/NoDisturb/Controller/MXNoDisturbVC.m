@@ -38,7 +38,7 @@ static NSString *const noDisturbId_Location = @"MX_NoDisturb_Location";
     [oneKeySw addTarget:self action:@selector(oneKeySwitchChange:) forControlEvents:UIControlEventValueChanged];
     self.oneKeySw = oneKeySw;
     
-    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, MX_NAV_HEIGHT, MXScreen_Width, MXScreen_Height - MX_NAV_HEIGHT) style:UITableViewStyleGrouped];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, MXScreen_Width, MXScreen_Height - MX_NAV_HEIGHT) style:UITableViewStyleGrouped];
     tableView.dataSource   = self;
     tableView.delegate     = self;
     self.tableView         = tableView;

@@ -15,8 +15,9 @@
 #import "MXOpenRecordVC.h"
 #import "MXNoDisturbVC.h"
 
-#define MXHomeHeaderHeight 400
+#define MXHomeHeaderHeight 298
 #define MXHomeBottomHeight 54
+#define MXHomeCycleHeight 248
 
 @interface MXHomeViewController ()<UITableViewDelegate, UITableViewDataSource, MXHomeHeaderMenuDelegate,SDCycleScrollViewDelegate>
 
@@ -44,15 +45,15 @@
 #pragma mark - 初始化方法
 - (void)initNavBar
 {
+    self.title = @"01区01栋01单元0201";
     // 设置导航栏按钮
-    self.navigationItem.leftBarButtonItem  = [[UIBarButtonItem alloc]initWithTitle:@"个人中心" style:UIBarButtonItemStyleDone target:self action:@selector(personalCenterClick)];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"消息" style:UIBarButtonItemStyleDone target:self action:@selector(messageClick)];
-    
+    self.navigationItem.leftBarButtonItem  = [UIBarButtonItem mx_itemWithImageName:@"home_icon_user" highImageName:nil target:self action:@selector(personalCenterClick)];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem mx_itemWithImageName:@"home_icon_no_news" highImageName:nil target:self action:@selector(messageClick)];
 }
 
 - (void)initUI
 {
-    UITableView *tableView   = [[UITableView alloc] initWithFrame:CGRectMake(0, MX_NAV_HEIGHT, MXScreen_Width, self.view.height - MXHomeBottomHeight) style:UITableViewStyleGrouped];
+    UITableView *tableView   = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, MXScreen_Width, self.view.height - MXHomeBottomHeight) style:UITableViewStyleGrouped];
     tableView.dataSource     = self;
     tableView.delegate       = self;
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -62,14 +63,14 @@
     tableView.tableHeaderView = ({
         UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MXScreen_Width, MXHomeHeaderHeight)];
         
-        UIImage *image1 = [UIImage imageNamed:@"1.png"];
-        UIImage *image2 = [UIImage imageNamed:@"2.png"];
-        UIImage *image3 = [UIImage imageNamed:@"3.png"];
+        UIImage *image1 = [UIImage imageNamed:@"banner1.png"];
+        UIImage *image2 = [UIImage imageNamed:@"banner2.png"];
+        UIImage *image3 = [UIImage imageNamed:@"banner3.png"];
         NSMutableArray *imageArray = [NSMutableArray arrayWithObjects:image1, image2, image3, nil];
         
         // 顶部轮播图
-        SDCycleScrollView *cycleView         = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, MXScreen_Width, 200) imageNamesGroup:imageArray];
-        cycleView.bannerImageViewContentMode = UIViewContentModeScaleAspectFill;
+        SDCycleScrollView *cycleView         = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, MXScreen_Width, MXHomeCycleHeight) imageNamesGroup:imageArray];
+        cycleView.bannerImageViewContentMode = UIViewContentModeScaleToFill;
         cycleView.autoScrollTimeInterval     = 3.0f;
         cycleView.pageControlStyle           = SDCycleScrollViewPageContolStyleClassic;
         cycleView.delegate                   = self;
@@ -91,7 +92,7 @@
     
     // 创建底部钥匙条
     MXWeakSelf;
-    MXHomeBottomBar *bottomBar = [[MXHomeBottomBar alloc] initWithFrame:CGRectMake(0, MXScreen_Height - MXHomeBottomHeight, MXScreen_Width, MXHomeBottomHeight) andClickBlock:^{
+    MXHomeBottomBar *bottomBar = [[MXHomeBottomBar alloc] initWithFrame:CGRectMake(0, MXScreen_Height - MX_NAV_HEIGHT - MXHomeBottomHeight, MXScreen_Width, MXHomeBottomHeight) andClickBlock:^{
         [weakSelf bottomBarKeyClick];
     }];
     self.bottomBar = bottomBar;

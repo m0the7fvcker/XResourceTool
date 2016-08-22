@@ -10,13 +10,15 @@
 
 @implementation UITabBarItem (MXCategory)
 
--(void)mx_setTitle:(NSString *)title norImgName:(NSString *)imgName selImgName:(NSString *)selImgName{
+- (void)mx_setTitle:(NSString *)title norImgName:(NSString *)imgName selImgName:(NSString *)selImgName
+{
     self.title = title;
     self.image = [UIImage imageNamed:imgName];
     self.selectedImage = [UIImage imageNamed:selImgName];
 }
 
-- (void)mx_setTitle:(NSString *)title norImg:(UIImage *)norImg selImg:(UIImage *)selImg{
+- (void)mx_setTitle:(NSString *)title norImg:(UIImage *)norImg selImg:(UIImage *)selImg
+{
     self.title = title;
     self.image = norImg;
     self.selectedImage = selImg;
