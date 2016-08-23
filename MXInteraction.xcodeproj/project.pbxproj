@@ -10,10 +10,6 @@
 		13FAF037DE6177C0B7CF4CCA /* libPods-MXInteraction.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C67CA09F56570D3DA25D36D /* libPods-MXInteraction.a */; };
 		4D02B85D1D6567EF00EC6F8A /* MXHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D02B85C1D6567EF00EC6F8A /* MXHomeViewController.m */; };
 		4D02B8601D656C3800EC6F8A /* MXHomeHeaderMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D02B85F1D656C3800EC6F8A /* MXHomeHeaderMenu.m */; };
-		4D02B8641D65ACC100EC6F8A /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D02B8611D65ACC100EC6F8A /* 1.png */; };
-		4D02B8651D65ACC100EC6F8A /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D02B8621D65ACC100EC6F8A /* 3.png */; };
-		4D02B8661D65ACC100EC6F8A /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D02B8631D65ACC100EC6F8A /* 2.png */; };
-		4D6147FF1D63FF1400B3B093 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D6147FE1D63FF1400B3B093 /* Assets.xcassets */; };
 		4D61480D1D63FF1400B3B093 /* MXInteractionUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D61480C1D63FF1400B3B093 /* MXInteractionUITests.m */; };
 		4D61487A1D63FF9D00B3B093 /* MXBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D61481A1D63FF9D00B3B093 /* MXBaseNavigationController.m */; };
 		4D61487B1D63FF9D00B3B093 /* MXBaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D61481C1D63FF9D00B3B093 /* MXBaseTabBarController.m */; };
@@ -61,7 +57,10 @@
 		4DC0555B1D6AF6940079658D /* banner2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DC055581D6AF6940079658D /* banner2.png */; };
 		4DC0555C1D6AF6940079658D /* banner3.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DC055591D6AF6940079658D /* banner3.png */; };
 		4DC0555F1D6AFE350079658D /* UIBarButtonItem+MXCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC0555E1D6AFE350079658D /* UIBarButtonItem+MXCategory.m */; };
-		4DC055621D6B09D30079658D /* MXHomeMenuBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC055611D6B09D30079658D /* MXHomeMenuBtn.m */; };
+		4DC055621D6B09D30079658D /* MXHomeHeaderMenuBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC055611D6B09D30079658D /* MXHomeHeaderMenuBtn.m */; };
+		4DC055651D6BEFC20079658D /* MXHomeServiceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC055641D6BEFC20079658D /* MXHomeServiceCell.m */; };
+		4DC055681D6BF0A60079658D /* MXHomeServiceBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC055671D6BF0A60079658D /* MXHomeServiceBtn.m */; };
+		4DC0556A1D6C2C340079658D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DC055691D6C2C340079658D /* Assets.xcassets */; };
 		4DD15E8D1D6A97D4006D6E74 /* MXLaunchADViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD15E8C1D6A97D4006D6E74 /* MXLaunchADViewController.m */; };
 		4DD15E901D6A9E70006D6E74 /* MXLaunchNFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD15E8F1D6A9E70006D6E74 /* MXLaunchNFViewController.m */; };
 		4DF7D6531D669C4E00A1FD4F /* MXHomeBottomBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF7D6521D669C4E00A1FD4F /* MXHomeBottomBar.m */; };
@@ -88,11 +87,7 @@
 		4D02B85C1D6567EF00EC6F8A /* MXHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXHomeViewController.m; sourceTree = "<group>"; };
 		4D02B85E1D656C3800EC6F8A /* MXHomeHeaderMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXHomeHeaderMenu.h; sourceTree = "<group>"; };
 		4D02B85F1D656C3800EC6F8A /* MXHomeHeaderMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXHomeHeaderMenu.m; sourceTree = "<group>"; };
-		4D02B8611D65ACC100EC6F8A /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
-		4D02B8621D65ACC100EC6F8A /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
-		4D02B8631D65ACC100EC6F8A /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
 		4D6147EF1D63FF1400B3B093 /* MXInteraction.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MXInteraction.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4D6147FE1D63FF1400B3B093 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		4D6148031D63FF1400B3B093 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		4D6148081D63FF1400B3B093 /* MXInteractionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MXInteractionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D61480C1D63FF1400B3B093 /* MXInteractionUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MXInteractionUITests.m; sourceTree = "<group>"; };
@@ -184,8 +179,13 @@
 		4DC055591D6AF6940079658D /* banner3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = banner3.png; sourceTree = "<group>"; };
 		4DC0555D1D6AFE350079658D /* UIBarButtonItem+MXCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+MXCategory.h"; sourceTree = "<group>"; };
 		4DC0555E1D6AFE350079658D /* UIBarButtonItem+MXCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+MXCategory.m"; sourceTree = "<group>"; };
-		4DC055601D6B09D30079658D /* MXHomeMenuBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXHomeMenuBtn.h; sourceTree = "<group>"; };
-		4DC055611D6B09D30079658D /* MXHomeMenuBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXHomeMenuBtn.m; sourceTree = "<group>"; };
+		4DC055601D6B09D30079658D /* MXHomeHeaderMenuBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXHomeHeaderMenuBtn.h; sourceTree = "<group>"; };
+		4DC055611D6B09D30079658D /* MXHomeHeaderMenuBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXHomeHeaderMenuBtn.m; sourceTree = "<group>"; };
+		4DC055631D6BEFC20079658D /* MXHomeServiceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXHomeServiceCell.h; sourceTree = "<group>"; };
+		4DC055641D6BEFC20079658D /* MXHomeServiceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXHomeServiceCell.m; sourceTree = "<group>"; };
+		4DC055661D6BF0A60079658D /* MXHomeServiceBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXHomeServiceBtn.h; sourceTree = "<group>"; };
+		4DC055671D6BF0A60079658D /* MXHomeServiceBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXHomeServiceBtn.m; sourceTree = "<group>"; };
+		4DC055691D6C2C340079658D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4DD15E8B1D6A97D4006D6E74 /* MXLaunchADViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXLaunchADViewController.h; sourceTree = "<group>"; };
 		4DD15E8C1D6A97D4006D6E74 /* MXLaunchADViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXLaunchADViewController.m; sourceTree = "<group>"; };
 		4DD15E8E1D6A9E70006D6E74 /* MXLaunchNFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXLaunchNFViewController.h; sourceTree = "<group>"; };
@@ -754,12 +754,16 @@
 		4D6148611D63FF9D00B3B093 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4D02B85E1D656C3800EC6F8A /* MXHomeHeaderMenu.h */,
-				4D02B85F1D656C3800EC6F8A /* MXHomeHeaderMenu.m */,
 				4DF7D6511D669C4E00A1FD4F /* MXHomeBottomBar.h */,
 				4DF7D6521D669C4E00A1FD4F /* MXHomeBottomBar.m */,
-				4DC055601D6B09D30079658D /* MXHomeMenuBtn.h */,
-				4DC055611D6B09D30079658D /* MXHomeMenuBtn.m */,
+				4D02B85E1D656C3800EC6F8A /* MXHomeHeaderMenu.h */,
+				4D02B85F1D656C3800EC6F8A /* MXHomeHeaderMenu.m */,
+				4DC055601D6B09D30079658D /* MXHomeHeaderMenuBtn.h */,
+				4DC055611D6B09D30079658D /* MXHomeHeaderMenuBtn.m */,
+				4DC055631D6BEFC20079658D /* MXHomeServiceCell.h */,
+				4DC055641D6BEFC20079658D /* MXHomeServiceCell.m */,
+				4DC055661D6BF0A60079658D /* MXHomeServiceBtn.h */,
+				4DC055671D6BF0A60079658D /* MXHomeServiceBtn.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -822,10 +826,7 @@
 				4DC055571D6AF6940079658D /* banner1.png */,
 				4DC055581D6AF6940079658D /* banner2.png */,
 				4DC055591D6AF6940079658D /* banner3.png */,
-				4D02B8611D65ACC100EC6F8A /* 1.png */,
-				4D02B8621D65ACC100EC6F8A /* 3.png */,
-				4D02B8631D65ACC100EC6F8A /* 2.png */,
-				4D6147FE1D63FF1400B3B093 /* Assets.xcassets */,
+				4DC055691D6C2C340079658D /* Assets.xcassets */,
 				4D6148031D63FF1400B3B093 /* Info.plist */,
 				4D6148781D63FF9D00B3B093 /* main.m */,
 				4D6148791D63FF9D00B3B093 /* MXInteraciton.pch */,
@@ -1030,17 +1031,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D6147FF1D63FF1400B3B093 /* Assets.xcassets in Resources */,
-				4D02B8661D65ACC100EC6F8A /* 2.png in Resources */,
 				4DC0554D1D6AB6250079658D /* MXLoginViewController.xib in Resources */,
 				4DC0555A1D6AF6940079658D /* banner1.png in Resources */,
 				4DF7D65C1D66E0F300A1FD4F /* images.bundle in Resources */,
 				4DC055561D6ADBFF0079658D /* MXForgetPdAndRegisterVC.xib in Resources */,
 				4DC0555C1D6AF6940079658D /* banner3.png in Resources */,
+				4DC0556A1D6C2C340079658D /* Assets.xcassets in Resources */,
 				4D6148991D63FF9D00B3B093 /* MXEnterPhoneViewController.xib in Resources */,
-				4D02B8651D65ACC100EC6F8A /* 3.png in Resources */,
 				4D6148971D63FF9D00B3B093 /* MXLoginHomeViewController.xib in Resources */,
-				4D02B8641D65ACC100EC6F8A /* 1.png in Resources */,
 				4DC0555B1D6AF6940079658D /* banner2.png in Resources */,
 				4DF7D65D1D66E0F300A1FD4F /* music.bundle in Resources */,
 			);
@@ -1123,11 +1121,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DC055681D6BF0A60079658D /* MXHomeServiceBtn.m in Sources */,
 				4D6148861D63FF9D00B3B093 /* MXLanguage.m in Sources */,
 				4D6148981D63FF9D00B3B093 /* MXEnterPhoneViewController.m in Sources */,
 				4D02B8601D656C3800EC6F8A /* MXHomeHeaderMenu.m in Sources */,
 				4D6148881D63FF9D00B3B093 /* MXKeychain.m in Sources */,
 				4DC055551D6ADBFF0079658D /* MXForgetPdAndRegisterVC.m in Sources */,
+				4DC055651D6BEFC20079658D /* MXHomeServiceCell.m in Sources */,
 				4DF7D6631D66E6D600A1FD4F /* MXNoDisturbVC.m in Sources */,
 				4D6148A71D64006100B3B093 /* MXAppDelegate+Launch.m in Sources */,
 				4D61488A1D63FF9D00B3B093 /* MXComUserDefault.m in Sources */,
@@ -1138,7 +1138,7 @@
 				4DF7D6661D66E86D00A1FD4F /* MXNoDisturbInnerVC.m in Sources */,
 				4D6148821D63FF9D00B3B093 /* UIImage+MXCategory.m in Sources */,
 				4DD15E901D6A9E70006D6E74 /* MXLaunchNFViewController.m in Sources */,
-				4DC055621D6B09D30079658D /* MXHomeMenuBtn.m in Sources */,
+				4DC055621D6B09D30079658D /* MXHomeHeaderMenuBtn.m in Sources */,
 				4D6148841D63FF9D00B3B093 /* UITabBarItem+MXCategory.m in Sources */,
 				4D6148A91D64006100B3B093 /* MXAppDelegate.m in Sources */,
 				4D61487D1D63FF9D00B3B093 /* MXBaseViewController.m in Sources */,

@@ -7,6 +7,7 @@
 //
 
 #import "MXHomeHeaderMenu.h"
+#import "MXHomeHeaderMenuBtn.h"
 
 @interface MXHomeHeaderMenu()
 
@@ -17,6 +18,7 @@
 
 @implementation MXHomeHeaderMenu
 
+#pragma mark - 初始化方法
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self == [super initWithFrame:frame]) {
@@ -42,31 +44,25 @@
 {
     for (int i = 0 ; i < 8; i++) {
         // 创建菜单按钮
-        UIButton *menuBtn = [[UIButton alloc]init];
-        [menuBtn addTarget:self action:@selector(menuButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-        
-        [menuBtn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"home_icon_%d",i]] forState:UIControlStateNormal];
-        [menuBtn setTitle:self.menuTitle[i] forState:UIControlStateNormal];
-        
-        menuBtn.imageEdgeInsets = UIEdgeInsetsMake(10, 10, 0, 0);
-        menuBtn.titleEdgeInsets = UIEdgeInsetsMake(40, -30, 10, 0);
-//        menuBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-        menuBtn.tag = i;
-        menuBtn.backgroundColor = [UIColor mx_randomColor];
-        [self addSubview:menuBtn];
-        
         CGFloat btnWidth = MXScreen_Width / 4;
         CGFloat btnHeight = btnWidth;
-        CGFloat btnX = btnWidth * (menuBtn.tag % 4);
-        CGFloat btnY = btnHeight * (menuBtn.tag / 4);
-        menuBtn.frame = CGRectMake(btnX, btnY, btnWidth, btnHeight);
+        CGFloat btnX = btnWidth * (i % 4);
+        CGFloat btnY = btnHeight * (i / 4);
+        CGRect frame = CGRectMake(btnX, btnY, btnWidth, btnHeight);
+        
+        MXWeakSelf;
+        MXHomeHeaderMenuBtn *menuBtn = [[MXHomeHeaderMenuBtn alloc] initWithFrame:frame index:i title:self.menuTitle[i] andActionBlock:^(NSInteger index) {
+            [weakSelf menuButtonClick:index];
+        }];
+        [self addSubview:menuBtn];
     }
 }
 
-- (void)menuButtonClick:(UIButton *)button
+#pragma mark - 内部方法
+- (void)menuButtonClick:(NSInteger )index
 {
     if ([self.delegate respondsToSelector:@selector(MXHomeHeaderMenuButtonDidClick:)]) {
-        [self.delegate MXHomeHeaderMenuButtonDidClick:button.tag];
+        [self.delegate MXHomeHeaderMenuButtonDidClick:index];
     }
 }
 @end

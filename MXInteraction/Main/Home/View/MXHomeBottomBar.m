@@ -16,11 +16,14 @@
 @property (nonatomic, weak) UIImageView *backgroundView;
 /** 钥匙按钮 */
 @property (nonatomic, weak) UIButton *keyButton;
+/** 钥匙包文字 */
+@property (nonatomic, weak) UILabel *keyLabel;
 
 @end
 
 @implementation MXHomeBottomBar
 
+#pragma mark - 初始化方法
 - (instancetype)initWithFrame:(CGRect)frame andClickBlock:(void(^)())block
 {
     if (self = [super initWithFrame:frame]) {
@@ -35,15 +38,23 @@
     _actionBlock = block;
     
     UIImageView *backgroundView = [[UIImageView alloc] init];
-    backgroundView.image = [UIImage imageNamed:@"tabbar_bg"];
+    backgroundView.contentMode = UIViewContentModeScaleAspectFill;
+    backgroundView.image = [UIImage imageNamed:@"home_tabbar_bg"];
     self.backgroundView = backgroundView;
     [self addSubview:backgroundView];
     
     UIButton *keyButton = [[UIButton alloc] init];
-    [keyButton setBackgroundImage:[UIImage imageNamed:@"btn_card"] forState:UIControlStateNormal];
+    [keyButton setBackgroundImage:[UIImage imageNamed:@"home_btn_key"] forState:UIControlStateNormal];
     [keyButton addTarget:self action:@selector(keyButtonClick) forControlEvents:UIControlEventTouchUpInside];
     self.keyButton = keyButton;
     [self addSubview:keyButton];
+    
+    UILabel *keyLabel = [[UILabel alloc] init];
+    keyLabel.font = [UIFont systemFontOfSize:13];
+    keyLabel.textAlignment = NSTextAlignmentCenter;
+    keyLabel.text = @"钥匙包";
+    self.keyLabel = keyLabel;
+    [self addSubview:keyLabel];
 }
 
 - (void)initConstraint
@@ -54,11 +65,19 @@
     }];
     
     [self.keyButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.centerY.equalTo(weakSelf);
-        make.width.height.equalTo(@(weakSelf.height - 10));
+        make.centerX.equalTo(weakSelf);
+        make.width.height.equalTo(@(weakSelf.height - 15));
+        make.bottom.equalTo(weakSelf.mas_bottom).offset(- 15);
+    }];
+    
+    [self.keyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(weakSelf.keyButton);
+        make.width.equalTo(@100);
+        make.bottom.equalTo(weakSelf.mas_bottom).offset(- 3);
     }];
 }
 
+#pragma mark - 内部方法
 - (void)keyButtonClick
 {
     _actionBlock();

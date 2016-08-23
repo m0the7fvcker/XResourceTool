@@ -46,15 +46,12 @@
     appearance.titleTextAttributes = @{
                                        NSForegroundColorAttributeName:[UIColor whiteColor],
                                        NSFontAttributeName:[UIFont systemFontOfSize:17]};
-//
-//    //设置背景颜色
-    [appearance setTintColor:[UIColor mx_colorWithHexString:@"0085e1"]];
-    [appearance setBarTintColor:[UIColor mx_colorWithHexString:@"0085e1"]];
+
+    //设置背景颜色
+    [appearance setTintColor:[UIColor mx_colorWithHexString:@"12ade7"]];
+    [appearance setBarTintColor:[UIColor mx_colorWithHexString:@"12ade7"]];
     [appearance setBackgroundColor:[UIColor mx_colorWithHexString:@"12ade7"]];
-    [appearance setBackgroundImage:[UIImage mx_createImageFromColor:[UIColor mx_colorWithHexString:@"0085e1"]] forBarMetrics:UIBarMetricsDefault];
-    
-//    [appearance setBarTintColor:[UIColor colorWithRed:20/255.0 green:155/255.0 blue:213/255.0 alpha:1.0]];
-//    [appearance setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor,nil]];
+    [appearance setBackgroundImage:[UIImage mx_createImageFromColor:[UIColor mx_colorWithHexString:@"12ade7"]] forBarMetrics:UIBarMetricsDefault];
     
     // 去掉导航栏下的下划线
     [appearance setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];

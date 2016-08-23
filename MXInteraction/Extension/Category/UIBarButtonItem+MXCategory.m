@@ -13,6 +13,7 @@
 + (UIBarButtonItem *)mx_itemWithImageName:(NSString *)imageName highImageName:(NSString *)highImageName target:(id)target action:(SEL)action
 {
     UIButton *button = [[UIButton alloc] init];
+    
     [button setBackgroundImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
     if (highImageName) {
         [button setBackgroundImage:[UIImage imageNamed:highImageName] forState:UIControlStateHighlighted];

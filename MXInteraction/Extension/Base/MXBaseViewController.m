@@ -33,7 +33,6 @@
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter]removeObserver:self];
-    NSLog(@"");
 }
 
 #pragma mark - 初始化方法

@@ -11,13 +11,16 @@
 #import "MXHomeBottomBar.h"
 #import "SDCycleScrollView.h"
 #import "BHBPopView.h"
+#import "MXHomeServiceCell.h"
 
 #import "MXOpenRecordVC.h"
 #import "MXNoDisturbVC.h"
 
-#define MXHomeHeaderHeight 298
-#define MXHomeBottomHeight 54
-#define MXHomeCycleHeight 248
+#define MXHomeMenuHeight 220
+#define MXHomeBottomHeight 79
+#define MXHomeCycleHeight 230
+#define MXHomeCellHeight 192
+#define MXHomeSectionHeight 15
 
 @interface MXHomeViewController ()<UITableViewDelegate, UITableViewDataSource, MXHomeHeaderMenuDelegate,SDCycleScrollViewDelegate>
 
@@ -37,15 +40,29 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self addNotification];
     [self initNavBar];
     [self initUI];
     [self initConstraint];
+}
+
+- (void)addNotification
+{
+    // 监听cell中物业、电梯服务点击
+    [MXNotificationCenterAccessor addObserver:self selector:@selector(houseSrv) name:MXNoti_Home_HouseSrv object:nil];
+    [MXNotificationCenterAccessor addObserver:self selector:@selector(elevatorSrv) name:MXNoti_Home_ElevatorSrv object:nil];
+}
+
+- (void)dealloc
+{
+    [MXNotificationCenterAccessor removeObserver:self];
 }
 
 #pragma mark - 初始化方法
 - (void)initNavBar
 {
     self.title = @"01区01栋01单元0201";
+    self.view.backgroundColor = [UIColor clearColor];
     // 设置导航栏按钮
     self.navigationItem.leftBarButtonItem  = [UIBarButtonItem mx_itemWithImageName:@"home_icon_user" highImageName:nil target:self action:@selector(personalCenterClick)];
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem mx_itemWithImageName:@"home_icon_no_news" highImageName:nil target:self action:@selector(messageClick)];
@@ -53,15 +70,17 @@
 
 - (void)initUI
 {
+    // 创建tableView
     UITableView *tableView   = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, MXScreen_Width, self.view.height - MXHomeBottomHeight) style:UITableViewStyleGrouped];
     tableView.dataSource     = self;
     tableView.delegate       = self;
+    tableView.backgroundColor= [UIColor mx_colorWithHexString:@"ececec"];
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     tableView.showsVerticalScrollIndicator = NO;
     
     // 创建tableHeaderView
     tableView.tableHeaderView = ({
-        UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MXScreen_Width, MXHomeHeaderHeight)];
+        UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MXScreen_Width, MXHomeMenuHeight + MXHomeCycleHeight)];
         
         UIImage *image1 = [UIImage imageNamed:@"banner1.png"];
         UIImage *image2 = [UIImage imageNamed:@"banner2.png"];
@@ -80,7 +99,8 @@
         [headerView addSubview:cycleView];
         
         // 菜单按钮
-        MXHomeHeaderMenu *menuView = [[MXHomeHeaderMenu alloc] initWithFrame:CGRectMake(0, 200, MXScreen_Width, 200)];
+        MXHomeHeaderMenu *menuView = [[MXHomeHeaderMenu alloc] initWithFrame:CGRectMake(0, MXHomeCycleHeight, MXScreen_Width, MXHomeMenuHeight)];
+        menuView.backgroundColor   = [UIColor whiteColor];
         menuView.delegate          = self;
         self.headerMenu            = menuView;
         [headerView addSubview:menuView];
@@ -90,11 +110,12 @@
     self.tableView = tableView;
     [self.view addSubview:tableView];
     
-    // 创建底部钥匙条
+    // 创建底部钥匙条，UI背景图左右宽度不一致，WTF，所以杀鸡取卵，x设置为-1
     MXWeakSelf;
-    MXHomeBottomBar *bottomBar = [[MXHomeBottomBar alloc] initWithFrame:CGRectMake(0, MXScreen_Height - MX_NAV_HEIGHT - MXHomeBottomHeight, MXScreen_Width, MXHomeBottomHeight) andClickBlock:^{
+    MXHomeBottomBar *bottomBar = [[MXHomeBottomBar alloc] initWithFrame:CGRectMake(- 1, MXScreen_Height - MX_NAV_HEIGHT - MXHomeBottomHeight, MXScreen_Width + 2, MXHomeBottomHeight) andClickBlock:^{
         [weakSelf bottomBarKeyClick];
     }];
+    NSLog(@"%lf",bottomBar.width);
     self.bottomBar = bottomBar;
     [self.view addSubview:bottomBar];
     
@@ -116,6 +137,16 @@
     
 }
 
+- (void)houseSrv
+{
+    NSLog(@"物业服务");
+}
+
+- (void)elevatorSrv
+{
+    NSLog(@"电梯服务");
+}
+
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -124,9 +155,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [[UITableViewCell alloc] init];
-    cell.backgroundColor = [UIColor mx_randomColor];
-    cell.textLabel.text = @"我是cell";
+    MXHomeServiceCell *cell = [[MXHomeServiceCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"identifier"];
     
     return cell;
 }
@@ -134,9 +163,23 @@
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 100;
+    return MXHomeCellHeight;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    if (section == 0) {
+        UIView *sectionHeader = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MXScreen_Width, MXHomeSectionHeight)];
+        sectionHeader.backgroundColor = [UIColor mx_colorWithHexString:@"ececec"];
+        return sectionHeader;
+    }
+    return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return MXHomeSectionHeight;
+}
 #pragma mark - MXHomeHeaderMenuDelegate
 - (void)MXHomeHeaderMenuButtonDidClick:(NSInteger)btnNumber
 {
