@@ -15,6 +15,7 @@
 
 #import "MXOpenRecordVC.h"
 #import "MXNoDisturbVC.h"
+#import "MXPersonalCenterVC.h"
 
 #define MXHomeMenuHeight 220
 #define MXHomeBottomHeight 79
@@ -129,7 +130,8 @@
 #pragma mark - 内部方法
 - (void)personalCenterClick
 {
-    
+    MXPersonalCenterVC *personCenterVC = [[MXPersonalCenterVC alloc] init];
+    [self.navigationController pushViewController:personCenterVC animated:YES];
 }
 
 - (void)messageClick

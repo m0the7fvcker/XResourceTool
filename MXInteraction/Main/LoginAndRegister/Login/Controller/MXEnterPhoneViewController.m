@@ -31,7 +31,13 @@
 #pragma mark - 初始化方法
 - (void)initUI
 {
+    self.comfirmPhoneTF.layer.cornerRadius = 5;
+    self.comfirmPhoneTF.layer.borderWidth = 1;
+    self.comfirmPhoneTF.layer.borderColor = [UIColor lightGrayColor].CGColor;
     
+    self.confirmBtn.layer.cornerRadius = 5;
+    self.confirmBtn.backgroundColor = [UIColor mx_colorWithHexString:@"19b0e9"];
+    [self.confirmBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 }
 
 #pragma mark - 内部方法

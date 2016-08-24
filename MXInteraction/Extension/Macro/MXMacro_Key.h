@@ -13,7 +13,9 @@
 #define MXNoti_Launch_ChangeVC @"noti_Launch_ChangeVC"
 
 /**************** 首页通知 ********************/
+// 物业服务
 #define MXNoti_Home_HouseSrv @"noti_Home_HouseSrv"
+// 呼叫电梯
 #define MXNoti_Home_ElevatorSrv @"noti_Home_ElevatorSrv"
 
 /************************************/

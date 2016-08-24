@@ -34,6 +34,19 @@
 #pragma mark - 初始化方法
 -(void)initUI
 {
+    self.logoImage.image = [UIImage imageNamed:@"login_logo"];
+    
+    self.registerButton.layer.cornerRadius = 5;
+    self.registerButton.layer.borderWidth = 1;
+    self.registerButton.layer.borderColor = [UIColor mx_colorWithHexString:@"19b0e9"].CGColor;
+    self.registerButton.backgroundColor = [UIColor whiteColor];
+    [self.registerButton setTitleColor:[UIColor mx_colorWithHexString:@"19b0e9"] forState:UIControlStateNormal];
+    
+    self.loginButton.layer.cornerRadius = 5;
+    self.loginButton.backgroundColor = [UIColor mx_colorWithHexString:@"19b0e9"];
+    [self.loginButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    [self.tasteLogin setTitleColor:[UIColor mx_colorWithHexString:@"19b0e9"] forState:UIControlStateNormal];
     
 }
 
@@ -42,7 +55,6 @@
 {
     MXLoginViewController *loginVC = [[MXLoginViewController alloc] initWithNibName:@"MXLoginViewController" bundle:nil];
     [self.navigationController pushViewController:loginVC animated:YES];
-
 }
 
 - (IBAction)registerAccount:(UIButton *)sender

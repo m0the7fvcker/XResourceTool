@@ -20,19 +20,18 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="glx-tv-lAb">
-                    <rect key="frame" x="180" y="120" width="240" height="128"/>
-                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <rect key="frame" x="240" y="120" width="120" height="128"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="128" id="FtU-HI-yMJ"/>
-                        <constraint firstAttribute="width" constant="240" id="jot-bv-ZYg"/>
+                        <constraint firstAttribute="width" constant="120" id="jot-bv-ZYg"/>
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5gQ-Pz-sTs">
-                    <rect key="frame" x="8" y="448" width="584" height="30"/>
+                    <rect key="frame" x="20" y="458" width="560" height="40"/>
                     <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="BNs-7L-mGc"/>
-                        <constraint firstAttribute="height" constant="30" id="Zck-zd-ECA"/>
+                        <constraint firstAttribute="height" constant="40" id="Zck-zd-ECA"/>
                     </constraints>
                     <state key="normal" title="登陆">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -47,10 +46,10 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="txx-jS-zto" userLabel="Register Button">
-                    <rect key="frame" x="8" y="404" width="584" height="30"/>
+                    <rect key="frame" x="20" y="404" width="560" height="40"/>
                     <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="X7I-yz-kte"/>
+                        <constraint firstAttribute="height" constant="40" id="X7I-yz-kte"/>
                     </constraints>
                     <state key="normal" title="注册">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -60,7 +59,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gij-JR-Cf6">
-                    <rect key="frame" x="532" y="496" width="60" height="30"/>
+                    <rect key="frame" x="532" y="516" width="60" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="Zmc-uG-edD"/>
                         <constraint firstAttribute="width" constant="60" id="kMD-KZ-MH7"/>
@@ -79,13 +78,13 @@
                 <constraint firstItem="txx-jS-zto" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="AIW-kN-xCz"/>
                 <constraint firstItem="glx-tv-lAb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="INr-fI-GnE"/>
                 <constraint firstItem="glx-tv-lAb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="120" id="J6r-UF-Kjg"/>
-                <constraint firstAttribute="trailing" secondItem="txx-jS-zto" secondAttribute="trailing" constant="8" id="OyJ-0Y-gWr"/>
+                <constraint firstAttribute="trailing" secondItem="txx-jS-zto" secondAttribute="trailing" constant="20" id="OyJ-0Y-gWr"/>
                 <constraint firstItem="5gQ-Pz-sTs" firstAttribute="top" secondItem="txx-jS-zto" secondAttribute="bottom" constant="14" id="Uft-s1-Qrc"/>
                 <constraint firstItem="txx-jS-zto" firstAttribute="top" secondItem="glx-tv-lAb" secondAttribute="bottom" constant="156" id="Uh1-A6-Fl4"/>
-                <constraint firstItem="txx-jS-zto" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="aOe-cM-ABo"/>
-                <constraint firstItem="5gQ-Pz-sTs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="g86-0B-FRl"/>
+                <constraint firstItem="txx-jS-zto" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="aOe-cM-ABo"/>
+                <constraint firstItem="5gQ-Pz-sTs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="g86-0B-FRl"/>
                 <constraint firstAttribute="trailing" secondItem="Gij-JR-Cf6" secondAttribute="trailing" constant="8" id="rTK-X1-Z3y"/>
-                <constraint firstAttribute="trailing" secondItem="5gQ-Pz-sTs" secondAttribute="trailing" constant="8" id="rh0-0z-N7S"/>
+                <constraint firstAttribute="trailing" secondItem="5gQ-Pz-sTs" secondAttribute="trailing" constant="20" id="rh0-0z-N7S"/>
                 <constraint firstItem="5gQ-Pz-sTs" firstAttribute="top" secondItem="txx-jS-zto" secondAttribute="bottom" constant="14" id="uvf-Vk-07I"/>
             </constraints>
             <variation key="default">

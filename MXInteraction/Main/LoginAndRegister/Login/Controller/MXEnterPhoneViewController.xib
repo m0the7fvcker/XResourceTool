@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MXEnterPhoneViewController">
             <connections>
                 <outlet property="comfirmPhoneTF" destination="Pfa-UI-Jbg" id="aOk-be-EkN"/>
+                <outlet property="confirmBtn" destination="a9q-oy-LtR" id="qD2-X6-d4t"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,9 +18,9 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pfa-UI-Jbg">
-                    <rect key="frame" x="8" y="120" width="584" height="30"/>
+                    <rect key="frame" x="20" y="25" width="560" height="40"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="F4p-Oc-aeI"/>
+                        <constraint firstAttribute="height" constant="40" id="F4p-Oc-aeI"/>
                         <constraint firstAttribute="height" constant="30" id="YPR-LH-cBS"/>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="q5y-A0-qOY"/>
                     </constraints>
@@ -36,12 +37,12 @@
                     </connections>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a9q-oy-LtR">
-                    <rect key="frame" x="8" y="191" width="584" height="30"/>
+                    <rect key="frame" x="20" y="85" width="560" height="40"/>
                     <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="azn-Sd-xpa"/>
+                        <constraint firstAttribute="height" constant="40" id="azn-Sd-xpa"/>
                     </constraints>
-                    <state key="normal" title="确定">
+                    <state key="normal" title="获取验证码">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -53,13 +54,13 @@
             <constraints>
                 <constraint firstItem="Pfa-UI-Jbg" firstAttribute="leading" secondItem="a9q-oy-LtR" secondAttribute="leading" id="28a-jC-Vgx"/>
                 <constraint firstItem="a9q-oy-LtR" firstAttribute="top" secondItem="Pfa-UI-Jbg" secondAttribute="bottom" constant="50" id="5sD-OZ-aRF"/>
-                <constraint firstItem="a9q-oy-LtR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="7We-6o-qKZ"/>
-                <constraint firstItem="a9q-oy-LtR" firstAttribute="top" secondItem="Pfa-UI-Jbg" secondAttribute="bottom" constant="41" id="8a8-d2-m2Y"/>
+                <constraint firstItem="a9q-oy-LtR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="7We-6o-qKZ"/>
+                <constraint firstItem="a9q-oy-LtR" firstAttribute="top" secondItem="Pfa-UI-Jbg" secondAttribute="bottom" constant="20" id="8a8-d2-m2Y"/>
                 <constraint firstItem="Pfa-UI-Jbg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="Hkz-sq-Gba"/>
-                <constraint firstItem="Pfa-UI-Jbg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="120" id="K9m-1e-dGW"/>
-                <constraint firstItem="Pfa-UI-Jbg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="P3v-ws-TCn"/>
-                <constraint firstAttribute="trailing" secondItem="a9q-oy-LtR" secondAttribute="trailing" constant="8" id="WUx-hK-UGt"/>
-                <constraint firstAttribute="trailing" secondItem="Pfa-UI-Jbg" secondAttribute="trailing" constant="8" id="msj-k7-pdB"/>
+                <constraint firstItem="Pfa-UI-Jbg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="25" id="K9m-1e-dGW"/>
+                <constraint firstItem="Pfa-UI-Jbg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="P3v-ws-TCn"/>
+                <constraint firstAttribute="trailing" secondItem="a9q-oy-LtR" secondAttribute="trailing" constant="20" id="WUx-hK-UGt"/>
+                <constraint firstAttribute="trailing" secondItem="Pfa-UI-Jbg" secondAttribute="trailing" constant="20" id="msj-k7-pdB"/>
                 <constraint firstAttribute="trailing" secondItem="Pfa-UI-Jbg" secondAttribute="trailing" constant="8" id="ygm-BB-hdV"/>
                 <constraint firstItem="Pfa-UI-Jbg" firstAttribute="trailing" secondItem="a9q-oy-LtR" secondAttribute="trailing" id="zbB-tB-45e"/>
             </constraints>
@@ -72,7 +73,7 @@
                     <exclude reference="5sD-OZ-aRF"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="-12" y="271"/>
+            <point key="canvasLocation" x="124" y="149"/>
         </view>
     </objects>
 </document>

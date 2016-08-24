@@ -11,5 +11,6 @@
 @interface MXEnterPhoneViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UITextField *comfirmPhoneTF;
+@property (weak, nonatomic) IBOutlet UIButton *confirmBtn;
 
 @end
