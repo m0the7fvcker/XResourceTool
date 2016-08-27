@@ -1,23 +1,17 @@
 //
-//  MXHomeViewController.m
+//  MXLoveHomeVC.m
 //  MXInteraction
 //
-//  Created by maRk on 16/8/18.
+//  Created by maRk on 16/8/27.
 //  Copyright © 2016年 maRk. All rights reserved.
 //
 
-#import "MXHomeViewController.h"
+#import "MXLoveHomeVC.h"
 #import "MXHomeHeaderMenu.h"
 #import "MXHomeBottomBar.h"
 #import "SDCycleScrollView.h"
 #import "BHBPopView.h"
 #import "MXHomeServiceCell.h"
-
-#import "MXOpenRecordVC.h"
-#import "MXNoDisturbVC.h"
-#import "MXPersonalCenterVC.h"
-#import "MXCommunityControlVC.h"
-#import "MXO2OVC.h"
 
 #define MXHomeMenuHeight 220
 #define MXHomeBottomHeight 79
@@ -25,7 +19,7 @@
 #define MXHomeCellHeight 192
 #define MXHomeSectionHeight 15
 
-@interface MXHomeViewController ()<UITableViewDelegate, UITableViewDataSource, MXHomeHeaderMenuDelegate,SDCycleScrollViewDelegate>
+@interface MXLoveHomeVC ()<UITableViewDataSource, UITableViewDelegate, MXHomeHeaderMenuDelegate, SDCycleScrollViewDelegate>
 
 @property (nonatomic, weak) UITableView *tableView;
 /** 顶部轮播图 */
@@ -37,39 +31,20 @@
 
 @end
 
-@implementation MXHomeViewController
+@implementation MXLoveHomeVC
 
 #pragma mark - 控制器方法
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self addNotification];
     [self initNavBar];
     [self initUI];
-    [self initConstraint];
-
 }
 
-- (void)addNotification
-{
-    // 监听cell中物业、电梯服务点击
-    [MXNotificationCenterAccessor addObserver:self selector:@selector(houseSrv) name:MXNoti_Home_HouseSrv object:nil];
-    [MXNotificationCenterAccessor addObserver:self selector:@selector(elevatorSrv) name:MXNoti_Home_ElevatorSrv object:nil];
-}
-
-- (void)dealloc
-{
-    [MXNotificationCenterAccessor removeObserver:self];
-}
-
-#pragma mark - 初始化方法
+#pragma mark- 初始化方法
 - (void)initNavBar
 {
-    self.title = @"01区01栋01单元0201";
-    self.view.backgroundColor = [UIColor clearColor];
-    // 设置导航栏按钮
-    self.navigationItem.leftBarButtonItem  = [UIBarButtonItem mx_itemWithImageName:@"home_icon_user" highImageName:nil target:self action:@selector(personalCenterClick)];
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem mx_itemWithImageName:@"home_icon_no_news" highImageName:nil target:self action:@selector(messageClick)];
+    
 }
 
 - (void)initUI
@@ -113,44 +88,7 @@
     });
     self.tableView = tableView;
     [self.view addSubview:tableView];
-    
-    // 创建底部钥匙条，UI背景图左右宽度不一致，WTF，所以杀鸡取卵，x设置为-1
-    MXWeakSelf;
-    MXHomeBottomBar *bottomBar = [[MXHomeBottomBar alloc] initWithFrame:CGRectMake(- 1, MXScreen_Height - MX_NAV_HEIGHT - MXHomeBottomHeight, MXScreen_Width + 2, MXHomeBottomHeight) andClickBlock:^{
-        [weakSelf bottomBarKeyClick];
-    }];
-    NSLog(@"%lf",bottomBar.width);
-    self.bottomBar = bottomBar;
-    [self.view addSubview:bottomBar];
-    
 
-}
-
-- (void)initConstraint
-{
-    
-}
-
-#pragma mark - 内部方法
-- (void)personalCenterClick
-{
-    MXPersonalCenterVC *personCenterVC = [[MXPersonalCenterVC alloc] init];
-    [self.navigationController pushViewController:personCenterVC animated:YES];
-}
-
-- (void)messageClick
-{
-    
-}
-
-- (void)houseSrv
-{
-    NSLog(@"物业服务");
-}
-
-- (void)elevatorSrv
-{
-    NSLog(@"电梯服务");
 }
 
 #pragma mark - UITableViewDataSource
@@ -191,53 +129,49 @@
 - (void)MXHomeHeaderMenuButtonDidClick:(NSInteger)btnNumber
 {
     switch (btnNumber) {
-            // 可视对讲
+            // 日化用品
         case 0:
         {
             
         }
             break;
-            // 开门记录
+            // 柴米油盐
         case 1:
         {
-            MXOpenRecordVC *recordVC = [[MXOpenRecordVC alloc] init];
-            [self.navigationController pushViewController:recordVC animated:YES];
+
         }
             break;
-            // 授权管理
+            // 零食小铺
         case 2:
         {
             
         }
             break;
-            // 免打扰
+            // 瓜果生蔬
         case 3:
         {
-            MXNoDisturbVC *noDisturbVC = [[MXNoDisturbVC alloc] init];
-            [self.navigationController pushViewController:noDisturbVC animated:YES];
+
         }
             break;
-            // 社区互帮
+            // 日用百货
         case 4:
         {
-            MXCommunityControlVC *communityControlVC = [[MXCommunityControlVC alloc] init];
-            [self.navigationController pushViewController:communityControlVC animated:YES];
+   
         }
             break;
-            // o2o商城
+            // 爱家医疗
         case 5:
         {
-            MXO2OVC *o2oVC = [[MXO2OVC alloc] init];
-            [self.navigationController pushViewController:o2oVC animated:YES];
+ 
         }
             break;
-            // 智享体验
+            // 智能硬件
         case 6:
         {
             
         }
             break;
-            // 分享开门
+            // 全部分类
         case 7:
         {
             
@@ -246,7 +180,12 @@
         default:
             break;
     }
+    
+}
 
+- (void)bottomBarKeyClick
+{
+    
 }
 
 #pragma mark - SDCycleScrollViewDelegate代理方法
@@ -254,30 +193,4 @@
 {
     NSLog(@"点击了%ld个按钮",index);
 }
-
-#pragma mark - 底部钥匙按钮点击
-- (void)bottomBarKeyClick
-{
-    //添加popview
-    [BHBPopView showToView:MXApplicationAccessor.keyWindow
-                 andImages:@[@"images.bundle/tabbar_compose_idea",
-                             @"images.bundle/tabbar_compose_photo",
-                             @"images.bundle/tabbar_compose_camera",
-                             @"images.bundle/tabbar_compose_lbs",
-                             @"images.bundle/tabbar_compose_review",
-                             @"images.bundle/tabbar_compose_more"]
-                 andTitles:@[@"Text",
-                             @"Albums",
-                             @"Camera",
-                             @"Check in",
-                             @"Review",
-                             @"More"]
-            andSelectBlock:^(BHBItem *item) {
-                
-            }
-     ];
-
-
-}
-
 @end
