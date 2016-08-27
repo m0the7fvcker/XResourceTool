@@ -46,6 +46,7 @@
 		4D6148A81D64006100B3B093 /* MXAppDelegate+Push.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6148A31D64006100B3B093 /* MXAppDelegate+Push.m */; };
 		4D6148A91D64006100B3B093 /* MXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6148A51D64006100B3B093 /* MXAppDelegate.m */; };
 		4D813A661D67070500BB2DFA /* MXCommunityControlVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D813A651D67070500BB2DFA /* MXCommunityControlVC.m */; };
+		4D87CBDF1D701C8B002B25E4 /* MXO2OModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D87CBDE1D701C8B002B25E4 /* MXO2OModel.m */; };
 		4D9CD0C41D6407D0000832D3 /* JSPatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9CD0C31D6407D0000832D3 /* JSPatch.framework */; };
 		4D9CD0C81D640D9A000832D3 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9CD0C71D640D9A000832D3 /* libz.tbd */; };
 		4D9CD0CB1D6440D2000832D3 /* NSUserDefaults+MXCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9CD0CA1D6440D2000832D3 /* NSUserDefaults+MXCategory.m */; };
@@ -64,6 +65,19 @@
 		4DC565C21D6DA5B200C58564 /* MXPersonalCenterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC565C11D6DA5B200C58564 /* MXPersonalCenterVC.m */; };
 		4DC565C51D6DA6BB00C58564 /* MXPersonalHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC565C41D6DA6BB00C58564 /* MXPersonalHeaderView.m */; };
 		4DC565C81D6DA6CE00C58564 /* MXPersonalHeaderBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC565C71D6DA6CE00C58564 /* MXPersonalHeaderBar.m */; };
+		4DC565CB1D6E995600C58564 /* MXPersonalBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC565CA1D6E995600C58564 /* MXPersonalBarButton.m */; };
+		4DC565CE1D6EED8200C58564 /* MXNeighborHelpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC565CD1D6EED8200C58564 /* MXNeighborHelpVC.m */; };
+		4DC565D11D6EEDCC00C58564 /* MXCommunityMarketVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC565D01D6EEDCC00C58564 /* MXCommunityMarketVC.m */; };
+		4DC565D41D6EEDF500C58564 /* MXCommunityVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC565D31D6EEDF500C58564 /* MXCommunityVC.m */; };
+		4DC565D71D6F136500C58564 /* MXCommunityMarketCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC565D61D6F136500C58564 /* MXCommunityMarketCell.m */; };
+		4DC565DA1D6F137400C58564 /* MXCommunityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC565D91D6F137400C58564 /* MXCommunityCell.m */; };
+		4DC565DC1D6F13DB00C58564 /* MXCommunityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC565DB1D6F13DB00C58564 /* MXCommunityCell.xib */; };
+		4DC565DE1D6F141800C58564 /* MXCommunityMarketCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC565DD1D6F141800C58564 /* MXCommunityMarketCell.xib */; };
+		4DC565E11D6F187B00C58564 /* MXCommunityMarketModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC565E01D6F187B00C58564 /* MXCommunityMarketModel.m */; };
+		4DC565E41D6F188800C58564 /* MXCommunityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC565E31D6F188800C58564 /* MXCommunityModel.m */; };
+		4DC565E71D6F1E4500C58564 /* MXO2OVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC565E61D6F1E4500C58564 /* MXO2OVC.m */; };
+		4DC565EA1D6F1ED100C58564 /* MXO2OCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC565E91D6F1ED100C58564 /* MXO2OCell.m */; };
+		4DC565EC1D6F1EE000C58564 /* MXO2OCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC565EB1D6F1EE000C58564 /* MXO2OCell.xib */; };
 		4DD15E8D1D6A97D4006D6E74 /* MXLaunchADViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD15E8C1D6A97D4006D6E74 /* MXLaunchADViewController.m */; };
 		4DD15E901D6A9E70006D6E74 /* MXLaunchNFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD15E8F1D6A9E70006D6E74 /* MXLaunchNFViewController.m */; };
 		4DF7D6531D669C4E00A1FD4F /* MXHomeBottomBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF7D6521D669C4E00A1FD4F /* MXHomeBottomBar.m */; };
@@ -166,6 +180,8 @@
 		4D6148A51D64006100B3B093 /* MXAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXAppDelegate.m; sourceTree = "<group>"; };
 		4D813A641D67070500BB2DFA /* MXCommunityControlVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXCommunityControlVC.h; sourceTree = "<group>"; };
 		4D813A651D67070500BB2DFA /* MXCommunityControlVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXCommunityControlVC.m; sourceTree = "<group>"; };
+		4D87CBDD1D701C8B002B25E4 /* MXO2OModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXO2OModel.h; sourceTree = "<group>"; };
+		4D87CBDE1D701C8B002B25E4 /* MXO2OModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXO2OModel.m; sourceTree = "<group>"; };
 		4D9CD0C31D6407D0000832D3 /* JSPatch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JSPatch.framework; sourceTree = "<group>"; };
 		4D9CD0C51D640904000832D3 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		4D9CD0C71D640D9A000832D3 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -195,6 +211,29 @@
 		4DC565C41D6DA6BB00C58564 /* MXPersonalHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXPersonalHeaderView.m; sourceTree = "<group>"; };
 		4DC565C61D6DA6CE00C58564 /* MXPersonalHeaderBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXPersonalHeaderBar.h; sourceTree = "<group>"; };
 		4DC565C71D6DA6CE00C58564 /* MXPersonalHeaderBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXPersonalHeaderBar.m; sourceTree = "<group>"; };
+		4DC565C91D6E995600C58564 /* MXPersonalBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXPersonalBarButton.h; sourceTree = "<group>"; };
+		4DC565CA1D6E995600C58564 /* MXPersonalBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXPersonalBarButton.m; sourceTree = "<group>"; };
+		4DC565CC1D6EED8200C58564 /* MXNeighborHelpVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXNeighborHelpVC.h; sourceTree = "<group>"; };
+		4DC565CD1D6EED8200C58564 /* MXNeighborHelpVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXNeighborHelpVC.m; sourceTree = "<group>"; };
+		4DC565CF1D6EEDCC00C58564 /* MXCommunityMarketVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXCommunityMarketVC.h; sourceTree = "<group>"; };
+		4DC565D01D6EEDCC00C58564 /* MXCommunityMarketVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXCommunityMarketVC.m; sourceTree = "<group>"; };
+		4DC565D21D6EEDF500C58564 /* MXCommunityVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXCommunityVC.h; sourceTree = "<group>"; };
+		4DC565D31D6EEDF500C58564 /* MXCommunityVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXCommunityVC.m; sourceTree = "<group>"; };
+		4DC565D51D6F136500C58564 /* MXCommunityMarketCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXCommunityMarketCell.h; sourceTree = "<group>"; };
+		4DC565D61D6F136500C58564 /* MXCommunityMarketCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXCommunityMarketCell.m; sourceTree = "<group>"; };
+		4DC565D81D6F137400C58564 /* MXCommunityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXCommunityCell.h; sourceTree = "<group>"; };
+		4DC565D91D6F137400C58564 /* MXCommunityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXCommunityCell.m; sourceTree = "<group>"; };
+		4DC565DB1D6F13DB00C58564 /* MXCommunityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MXCommunityCell.xib; sourceTree = "<group>"; };
+		4DC565DD1D6F141800C58564 /* MXCommunityMarketCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MXCommunityMarketCell.xib; sourceTree = "<group>"; };
+		4DC565DF1D6F187B00C58564 /* MXCommunityMarketModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXCommunityMarketModel.h; sourceTree = "<group>"; };
+		4DC565E01D6F187B00C58564 /* MXCommunityMarketModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXCommunityMarketModel.m; sourceTree = "<group>"; };
+		4DC565E21D6F188800C58564 /* MXCommunityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXCommunityModel.h; sourceTree = "<group>"; };
+		4DC565E31D6F188800C58564 /* MXCommunityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXCommunityModel.m; sourceTree = "<group>"; };
+		4DC565E51D6F1E4500C58564 /* MXO2OVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXO2OVC.h; sourceTree = "<group>"; };
+		4DC565E61D6F1E4500C58564 /* MXO2OVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXO2OVC.m; sourceTree = "<group>"; };
+		4DC565E81D6F1ED100C58564 /* MXO2OCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXO2OCell.h; sourceTree = "<group>"; };
+		4DC565E91D6F1ED100C58564 /* MXO2OCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXO2OCell.m; sourceTree = "<group>"; };
+		4DC565EB1D6F1EE000C58564 /* MXO2OCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MXO2OCell.xib; sourceTree = "<group>"; };
 		4DD15E8B1D6A97D4006D6E74 /* MXLaunchADViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXLaunchADViewController.h; sourceTree = "<group>"; };
 		4DD15E8C1D6A97D4006D6E74 /* MXLaunchADViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXLaunchADViewController.m; sourceTree = "<group>"; };
 		4DD15E8E1D6A9E70006D6E74 /* MXLaunchNFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXLaunchNFViewController.h; sourceTree = "<group>"; };
@@ -282,6 +321,12 @@
 			children = (
 				4D813A641D67070500BB2DFA /* MXCommunityControlVC.h */,
 				4D813A651D67070500BB2DFA /* MXCommunityControlVC.m */,
+				4DC565CC1D6EED8200C58564 /* MXNeighborHelpVC.h */,
+				4DC565CD1D6EED8200C58564 /* MXNeighborHelpVC.m */,
+				4DC565CF1D6EEDCC00C58564 /* MXCommunityMarketVC.h */,
+				4DC565D01D6EEDCC00C58564 /* MXCommunityMarketVC.m */,
+				4DC565D21D6EEDF500C58564 /* MXCommunityVC.h */,
+				4DC565D31D6EEDF500C58564 /* MXCommunityVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -289,6 +334,10 @@
 		4D02B83D1D65670000EC6F8A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4DC565DF1D6F187B00C58564 /* MXCommunityMarketModel.h */,
+				4DC565E01D6F187B00C58564 /* MXCommunityMarketModel.m */,
+				4DC565E21D6F188800C58564 /* MXCommunityModel.h */,
+				4DC565E31D6F188800C58564 /* MXCommunityModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -296,6 +345,12 @@
 		4D02B83E1D65670000EC6F8A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4DC565D51D6F136500C58564 /* MXCommunityMarketCell.h */,
+				4DC565D61D6F136500C58564 /* MXCommunityMarketCell.m */,
+				4DC565DD1D6F141800C58564 /* MXCommunityMarketCell.xib */,
+				4DC565D81D6F137400C58564 /* MXCommunityCell.h */,
+				4DC565D91D6F137400C58564 /* MXCommunityCell.m */,
+				4DC565DB1D6F13DB00C58564 /* MXCommunityCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -350,6 +405,8 @@
 		4D02B8441D65670000EC6F8A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4DC565E51D6F1E4500C58564 /* MXO2OVC.h */,
+				4DC565E61D6F1E4500C58564 /* MXO2OVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -357,6 +414,8 @@
 		4D02B8451D65670000EC6F8A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4D87CBDD1D701C8B002B25E4 /* MXO2OModel.h */,
+				4D87CBDE1D701C8B002B25E4 /* MXO2OModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -364,6 +423,9 @@
 		4D02B8461D65670000EC6F8A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4DC565E81D6F1ED100C58564 /* MXO2OCell.h */,
+				4DC565E91D6F1ED100C58564 /* MXO2OCell.m */,
+				4DC565EB1D6F1EE000C58564 /* MXO2OCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -943,6 +1005,8 @@
 				4DC565C41D6DA6BB00C58564 /* MXPersonalHeaderView.m */,
 				4DC565C61D6DA6CE00C58564 /* MXPersonalHeaderBar.h */,
 				4DC565C71D6DA6CE00C58564 /* MXPersonalHeaderBar.m */,
+				4DC565C91D6E995600C58564 /* MXPersonalBarButton.h */,
+				4DC565CA1D6E995600C58564 /* MXPersonalBarButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1087,11 +1151,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DC565EC1D6F1EE000C58564 /* MXO2OCell.xib in Resources */,
+				4DC565DE1D6F141800C58564 /* MXCommunityMarketCell.xib in Resources */,
 				4DC0554D1D6AB6250079658D /* MXLoginViewController.xib in Resources */,
 				4DF7D65C1D66E0F300A1FD4F /* images.bundle in Resources */,
 				4DC565B91D6D354C00C58564 /* banner1.png in Resources */,
 				4DC055561D6ADBFF0079658D /* MXForgetPdAndRegisterVC.xib in Resources */,
 				4DC565BB1D6D354C00C58564 /* banner3.png in Resources */,
+				4DC565DC1D6F13DB00C58564 /* MXCommunityCell.xib in Resources */,
 				4DC0556A1D6C2C340079658D /* Assets.xcassets in Resources */,
 				4D6148991D63FF9D00B3B093 /* MXEnterPhoneViewController.xib in Resources */,
 				4D6148971D63FF9D00B3B093 /* MXLoginHomeViewController.xib in Resources */,
@@ -1177,6 +1244,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DC565D71D6F136500C58564 /* MXCommunityMarketCell.m in Sources */,
 				4DC055681D6BF0A60079658D /* MXHomeServiceBtn.m in Sources */,
 				4D6148861D63FF9D00B3B093 /* MXLanguage.m in Sources */,
 				4D6148981D63FF9D00B3B093 /* MXEnterPhoneViewController.m in Sources */,
@@ -1188,18 +1256,26 @@
 				4D6148A71D64006100B3B093 /* MXAppDelegate+Launch.m in Sources */,
 				4D61488A1D63FF9D00B3B093 /* MXComUserDefault.m in Sources */,
 				4D6148851D63FF9D00B3B093 /* UIView+MXCategory.m in Sources */,
+				4DC565D11D6EEDCC00C58564 /* MXCommunityMarketVC.m in Sources */,
 				4D6148921D63FF9D00B3B093 /* YZDisplayViewController.m in Sources */,
 				4DD15E8D1D6A97D4006D6E74 /* MXLaunchADViewController.m in Sources */,
 				4D6148811D63FF9D00B3B093 /* UIColor+MXCategory.m in Sources */,
+				4DC565D41D6EEDF500C58564 /* MXCommunityVC.m in Sources */,
 				4DF7D6661D66E86D00A1FD4F /* MXNoDisturbInnerVC.m in Sources */,
+				4DC565E41D6F188800C58564 /* MXCommunityModel.m in Sources */,
 				4D6148821D63FF9D00B3B093 /* UIImage+MXCategory.m in Sources */,
 				4DD15E901D6A9E70006D6E74 /* MXLaunchNFViewController.m in Sources */,
 				4DC055621D6B09D30079658D /* MXHomeHeaderMenuBtn.m in Sources */,
+				4DC565E71D6F1E4500C58564 /* MXO2OVC.m in Sources */,
+				4D87CBDF1D701C8B002B25E4 /* MXO2OModel.m in Sources */,
 				4D6148841D63FF9D00B3B093 /* UITabBarItem+MXCategory.m in Sources */,
+				4DC565DA1D6F137400C58564 /* MXCommunityCell.m in Sources */,
+				4DC565EA1D6F1ED100C58564 /* MXO2OCell.m in Sources */,
 				4D6148A91D64006100B3B093 /* MXAppDelegate.m in Sources */,
 				4D61487D1D63FF9D00B3B093 /* MXBaseViewController.m in Sources */,
 				4D61487E1D63FF9D00B3B093 /* MXMenuViewController.m in Sources */,
 				4D6148891D63FF9D00B3B093 /* MXLog.m in Sources */,
+				4DC565CE1D6EED8200C58564 /* MXNeighborHelpVC.m in Sources */,
 				4D6148A61D64006100B3B093 /* MXAppDelegate+JSPath.m in Sources */,
 				4DC565C81D6DA6CE00C58564 /* MXPersonalHeaderBar.m in Sources */,
 				4DF7D6531D669C4E00A1FD4F /* MXHomeBottomBar.m in Sources */,
@@ -1210,6 +1286,7 @@
 				4D61487B1D63FF9D00B3B093 /* MXBaseTabBarController.m in Sources */,
 				4D61488B1D63FF9D00B3B093 /* MXBaseDataModel.m in Sources */,
 				4D6148931D63FF9D00B3B093 /* YZFlowLayout.m in Sources */,
+				4DC565E11D6F187B00C58564 /* MXCommunityMarketModel.m in Sources */,
 				4D61489A1D63FF9D00B3B093 /* MXTextField.m in Sources */,
 				4D61488E1D63FF9D00B3B093 /* MXResponseModel.m in Sources */,
 				4D61488D1D63FF9D00B3B093 /* MXRequestModel.m in Sources */,
@@ -1227,6 +1304,7 @@
 				4D813A661D67070500BB2DFA /* MXCommunityControlVC.m in Sources */,
 				4D61489C1D63FF9D00B3B093 /* main.m in Sources */,
 				4D02B85D1D6567EF00EC6F8A /* MXHomeViewController.m in Sources */,
+				4DC565CB1D6E995600C58564 /* MXPersonalBarButton.m in Sources */,
 				4D6148871D63FF9D00B3B093 /* MXRefresh.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

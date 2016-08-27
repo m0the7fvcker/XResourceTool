@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol MXPersonalHeaderBarDelegate <NSObject>
+
+@required
+
+- (void)MXPersonalHeaderBarButtonDidClick:(NSInteger)btnNumber;
+
+@end
+
 @interface MXPersonalHeaderBar : UIView
+
+@property (nonatomic, weak) id<MXPersonalHeaderBarDelegate> delegate;
 
 @end

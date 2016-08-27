@@ -10,7 +10,7 @@
 #import "MXHomeServiceBtn.h"
 
 @interface MXHomeServiceCell()
-@property (nonatomic, strong) NSMutableArray <NSDictionary*> *dataArray;
+@property (nonatomic, strong) NSArray <NSDictionary*> *dataArray;
 @end
 
 @implementation MXHomeServiceCell
@@ -29,14 +29,12 @@
 
 - (void)initData
 {
-    NSDictionary *dic1 = @{@"title":@"物业服务",
-                          @"subTitle":@"报修、投票、投诉等",
-                          @"image":@"home_icon_service_1"};
-    NSDictionary *dic2 = @{@"title":@"呼叫电梯",
-                           @"subTitle":@"预约电梯，懒人必备",
-                           @"image":@"home_icon_service_2"};
-    
-    self.dataArray = [NSMutableArray arrayWithObjects:dic1, dic2, nil];
+    self.dataArray = @[@{@"title":@"物业服务",
+                         @"subTitle":@"报修、投票、投诉等",
+                         @"image":@"home_icon_service_1"},
+                       @{@"title":@"呼叫电梯",
+                         @"subTitle":@"预约电梯，懒人必备",
+                         @"image":@"home_icon_service_2"}];
 }
 
 - (void)initUI

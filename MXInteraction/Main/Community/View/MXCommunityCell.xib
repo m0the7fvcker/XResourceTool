@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="272" id="0vb-n6-hiJ" customClass="MXCommunityCell">
+            <rect key="frame" x="0.0" y="0.0" width="322" height="272"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0vb-n6-hiJ" id="qtW-Gs-Jo4">
+                <rect key="frame" x="0.0" y="0.0" width="322" height="271.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_use4" translatesAutoresizingMaskIntoConstraints="NO" id="Gcx-rP-N79">
+                        <rect key="frame" x="20" y="20" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="ISJ-mu-E7e"/>
+                            <constraint firstAttribute="height" constant="40" id="pQL-HF-nb2"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="前海吴彦祖" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zlc-sm-HZO">
+                        <rect key="frame" x="68" y="29" width="100" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="WmX-ai-IFR"/>
+                            <constraint firstAttribute="height" constant="20" id="f5Y-2K-9VN"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="闲置兰博基尼出售，原价998，现价只要99.9，对你没有看错，只要99.9" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EpT-Tr-mzl">
+                        <rect key="frame" x="20" y="73" width="288" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="0Ib-eI-LXT"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner1.png" translatesAutoresizingMaskIntoConstraints="NO" id="GMn-hG-Oax">
+                        <rect key="frame" x="20" y="131" width="288" height="130.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="128" id="R1u-Z8-qOa"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="R1u-Z8-qOa"/>
+                            </mask>
+                        </variation>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="zlc-sm-HZO" firstAttribute="top" secondItem="qtW-Gs-Jo4" secondAttribute="topMargin" constant="21" id="6cv-ZY-Z4e"/>
+                    <constraint firstItem="GMn-hG-Oax" firstAttribute="leading" secondItem="qtW-Gs-Jo4" secondAttribute="leading" constant="20" id="IIc-qC-R0H"/>
+                    <constraint firstItem="zlc-sm-HZO" firstAttribute="leading" secondItem="Gcx-rP-N79" secondAttribute="trailing" constant="8" id="JQA-UD-YeO"/>
+                    <constraint firstAttribute="trailing" secondItem="GMn-hG-Oax" secondAttribute="trailing" constant="14" id="M2l-1C-QzH"/>
+                    <constraint firstItem="Gcx-rP-N79" firstAttribute="top" secondItem="qtW-Gs-Jo4" secondAttribute="topMargin" constant="12" id="R3c-UD-Qse"/>
+                    <constraint firstItem="GMn-hG-Oax" firstAttribute="leading" secondItem="qtW-Gs-Jo4" secondAttribute="leadingMargin" constant="12" id="WL3-Pb-n2g"/>
+                    <constraint firstItem="EpT-Tr-mzl" firstAttribute="top" secondItem="Gcx-rP-N79" secondAttribute="bottom" constant="13" id="ZYs-zb-CPA"/>
+                    <constraint firstItem="Gcx-rP-N79" firstAttribute="leading" secondItem="qtW-Gs-Jo4" secondAttribute="leadingMargin" constant="12" id="gK6-jl-3dE"/>
+                    <constraint firstItem="GMn-hG-Oax" firstAttribute="top" secondItem="EpT-Tr-mzl" secondAttribute="bottom" constant="8" id="gov-Fl-LBm"/>
+                    <constraint firstAttribute="bottom" secondItem="GMn-hG-Oax" secondAttribute="bottom" constant="10" id="iYM-pM-m00"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="GMn-hG-Oax" secondAttribute="trailing" constant="6" id="kSY-1r-dvX"/>
+                    <constraint firstItem="EpT-Tr-mzl" firstAttribute="leading" secondItem="qtW-Gs-Jo4" secondAttribute="leadingMargin" constant="12" id="qBr-KW-wKK"/>
+                    <constraint firstItem="GMn-hG-Oax" firstAttribute="top" secondItem="EpT-Tr-mzl" secondAttribute="bottom" constant="8" id="y5U-ph-z3z"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="EpT-Tr-mzl" secondAttribute="trailing" constant="6" id="yeH-bA-gz2"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="WL3-Pb-n2g"/>
+                        <exclude reference="kSY-1r-dvX"/>
+                        <exclude reference="y5U-ph-z3z"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="desLabel" destination="EpT-Tr-mzl" id="OhR-RZ-8TN"/>
+                <outlet property="iconImage" destination="Gcx-rP-N79" id="vfS-C1-U8D"/>
+                <outlet property="nameLabel" destination="zlc-sm-HZO" id="Nbv-SK-R7b"/>
+                <outlet property="uploadImage" destination="GMn-hG-Oax" id="4cK-gb-dJh"/>
+            </connections>
+            <point key="canvasLocation" x="62" y="322"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="banner1.png" width="1083" height="500"/>
+        <image name="icon_use4" width="62" height="62"/>
+    </resources>
+</document>

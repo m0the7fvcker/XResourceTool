@@ -7,6 +7,9 @@
 //
 
 #import "MXCommunityControlVC.h"
+#import "MXNeighborHelpVC.h"
+#import "MXCommunityVC.h"
+#import "MXCommunityMarketVC.h"
 
 @interface MXCommunityControlVC ()
 
@@ -19,7 +22,7 @@
 {
     [super viewDidLoad];
     
-//    [self setUpSubControllers];
+    [self setUpSubControllers];
     
     [self initUI];
     
@@ -49,6 +52,21 @@
     self.titleScrollViewColor = [UIColor mx_colorWithHexString:@"eff3f4"];
     self.titleHeight          = 40;
     self.isfullScreen         = NO;
+}
+
+- (void)setUpSubControllers
+{
+    MXNeighborHelpVC *neighborVC = [[MXNeighborHelpVC alloc] init];
+    neighborVC.title = @"邻里互帮";
+    [self addChildViewController:neighborVC];
+    
+    MXCommunityMarketVC *marketVC = [[MXCommunityMarketVC alloc] init];
+    marketVC.title = @"跳蚤市场";
+    [self addChildViewController:marketVC];
+    
+    MXCommunityVC *communityVC = [[MXCommunityVC alloc] init];
+    communityVC.title = @"社区沙龙";
+    [self addChildViewController:communityVC];
 }
 
 @end

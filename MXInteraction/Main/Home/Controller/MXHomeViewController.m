@@ -16,6 +16,8 @@
 #import "MXOpenRecordVC.h"
 #import "MXNoDisturbVC.h"
 #import "MXPersonalCenterVC.h"
+#import "MXCommunityControlVC.h"
+#import "MXO2OVC.h"
 
 #define MXHomeMenuHeight 220
 #define MXHomeBottomHeight 79
@@ -120,6 +122,7 @@
     self.bottomBar = bottomBar;
     [self.view addSubview:bottomBar];
     
+
 }
 
 - (void)initConstraint
@@ -182,6 +185,7 @@
 {
     return MXHomeSectionHeight;
 }
+
 #pragma mark - MXHomeHeaderMenuDelegate
 - (void)MXHomeHeaderMenuButtonDidClick:(NSInteger)btnNumber
 {
@@ -195,7 +199,8 @@
             // 开门记录
         case 1:
         {
-            
+            MXOpenRecordVC *recordVC = [[MXOpenRecordVC alloc] init];
+            [self.navigationController pushViewController:recordVC animated:YES];
         }
             break;
             // 授权管理
@@ -214,13 +219,15 @@
             // 社区互帮
         case 4:
         {
-            
+            MXCommunityControlVC *communityControlVC = [[MXCommunityControlVC alloc] init];
+            [self.navigationController pushViewController:communityControlVC animated:YES];
         }
             break;
             // o2o商城
         case 5:
         {
-            
+            MXO2OVC *o2oVC = [[MXO2OVC alloc] init];
+            [self.navigationController pushViewController:o2oVC animated:YES];
         }
             break;
             // 智享体验
@@ -238,6 +245,7 @@
         default:
             break;
     }
+
 }
 
 #pragma mark - SDCycleScrollViewDelegate代理方法
@@ -267,5 +275,7 @@
                 
             }
      ];
+
 }
+
 @end

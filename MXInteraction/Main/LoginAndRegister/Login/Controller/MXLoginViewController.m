@@ -51,7 +51,7 @@
 - (IBAction)loginClick:(UIButton *)sender
 {
     // 修改登录状态
-//    [MXComUserDefault setHasLogin:YES];
+    [MXComUserDefault setHasLogin:YES];
     
     MXHomeViewController *homeVC = [[MXHomeViewController alloc] init];
     [self.navigationController pushViewController:homeVC animated:YES];

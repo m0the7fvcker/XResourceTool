@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="192" id="XD6-XT-dwy" userLabel="MXOOCell" customClass="MXO2OCell">
+            <rect key="frame" x="0.0" y="0.0" width="355" height="192"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XD6-XT-dwy" id="4lL-aK-qrW">
+                <rect key="frame" x="0.0" y="0.0" width="355" height="191.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_personal_bar0" translatesAutoresizingMaskIntoConstraints="NO" id="WkT-7H-kKM">
+                        <rect key="frame" x="10" y="10" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="vhN-YY-evk"/>
+                            <constraint firstAttribute="width" constant="25" id="yGx-k2-cwu"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="哀家驿站" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7lA-Eb-nKU">
+                        <rect key="frame" x="43" y="12" width="164" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="164" id="Lv9-jB-34t"/>
+                            <constraint firstAttribute="height" constant="21" id="jGR-9p-PWx"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_gray_indicator" translatesAutoresizingMaskIntoConstraints="NO" id="NV6-J0-WoI">
+                        <rect key="frame" x="330" y="15" width="15" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="Q2Y-CB-LaI"/>
+                            <constraint firstAttribute="width" constant="15" id="qxV-am-IAe"/>
+                            <constraint firstAttribute="width" constant="25" id="wcM-Rj-nob"/>
+                            <constraint firstAttribute="height" constant="25" id="xc8-Ke-WzZ"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="wcM-Rj-nob"/>
+                                <exclude reference="xc8-Ke-WzZ"/>
+                            </mask>
+                        </variation>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner1.png" translatesAutoresizingMaskIntoConstraints="NO" id="YR9-oL-oKp">
+                        <rect key="frame" x="10" y="40" width="335" height="143.5"/>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="NV6-J0-WoI" secondAttribute="trailing" constant="20" id="2bd-8A-81G"/>
+                    <constraint firstItem="7lA-Eb-nKU" firstAttribute="leading" secondItem="WkT-7H-kKM" secondAttribute="trailing" constant="8" id="85u-TN-qVb"/>
+                    <constraint firstItem="YR9-oL-oKp" firstAttribute="top" secondItem="NV6-J0-WoI" secondAttribute="bottom" constant="10" id="9nb-IG-QrA"/>
+                    <constraint firstItem="WkT-7H-kKM" firstAttribute="top" secondItem="4lL-aK-qrW" secondAttribute="top" constant="10" id="EmH-Kb-5wQ"/>
+                    <constraint firstItem="NV6-J0-WoI" firstAttribute="top" secondItem="4lL-aK-qrW" secondAttribute="top" constant="12" id="SiW-OV-oDl"/>
+                    <constraint firstItem="YR9-oL-oKp" firstAttribute="leading" secondItem="4lL-aK-qrW" secondAttribute="leading" constant="10" id="YCC-j4-bbS"/>
+                    <constraint firstItem="NV6-J0-WoI" firstAttribute="top" secondItem="4lL-aK-qrW" secondAttribute="topMargin" constant="20" id="b5S-ur-KXT"/>
+                    <constraint firstItem="WkT-7H-kKM" firstAttribute="leading" secondItem="4lL-aK-qrW" secondAttribute="leading" constant="10" id="bwD-pU-heT"/>
+                    <constraint firstItem="NV6-J0-WoI" firstAttribute="centerY" secondItem="7lA-Eb-nKU" secondAttribute="centerY" id="ea5-p4-08a"/>
+                    <constraint firstAttribute="trailing" secondItem="YR9-oL-oKp" secondAttribute="trailing" constant="10" id="hEg-rg-uAU"/>
+                    <constraint firstAttribute="trailing" secondItem="NV6-J0-WoI" secondAttribute="trailing" constant="10" id="o7e-45-A1X"/>
+                    <constraint firstAttribute="bottom" secondItem="YR9-oL-oKp" secondAttribute="bottom" constant="8" id="oSt-89-VRm"/>
+                    <constraint firstItem="7lA-Eb-nKU" firstAttribute="top" secondItem="4lL-aK-qrW" secondAttribute="top" constant="12" id="ukW-Gj-e9G"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="2bd-8A-81G"/>
+                        <exclude reference="SiW-OV-oDl"/>
+                        <exclude reference="b5S-ur-KXT"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="centerImage" destination="YR9-oL-oKp" id="S4f-hJ-UuR"/>
+                <outlet property="leftIcon" destination="WkT-7H-kKM" id="5un-Py-weL"/>
+                <outlet property="nameLabel" destination="7lA-Eb-nKU" id="NAE-3P-K0Y"/>
+                <outlet property="rightIcon" destination="NV6-J0-WoI" id="6pc-EF-y2I"/>
+            </connections>
+            <point key="canvasLocation" x="26.5" y="106"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="banner1.png" width="1083" height="500"/>
+        <image name="icon_gray_indicator" width="15" height="15"/>
+        <image name="icon_personal_bar0" width="20" height="20"/>
+    </resources>
+</document>
