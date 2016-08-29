@@ -12,37 +12,32 @@
 @interface MXHomeHeaderMenu()
 
 @property (nonatomic, strong) NSMutableArray <UIButton *> *btnArray;
-@property (nonatomic, strong) NSArray <NSString *>*menuTitle;
+@property (nonatomic, strong) NSArray <NSString *> *menuTitles;
+@property (nonatomic, strong) NSArray <NSString *> *menuImages;
 
 @end
 
 @implementation MXHomeHeaderMenu
 
 #pragma mark - 初始化方法
-- (instancetype)initWithFrame:(CGRect)frame
+- (instancetype)initWithFrame:(CGRect)frame withButtonTitles:(NSArray *)titles andButtonImages:(NSArray *)images
 {
     if (self == [super initWithFrame:frame]) {
-        [self initData];
+        [self initDataWithTitles:titles andImages:images];
         [self initUI];
     }
     return self;
 }
 
-- (void)initData
+- (void)initDataWithTitles:(NSArray *)array andImages:(NSArray *)images
 {
-    self.menuTitle = @[@"可视对讲",
-                       @"开门记录",
-                       @"授权管理",
-                       @"免打扰",
-                       @"社区互帮",
-                       @"O2O商城",
-                       @"智享体验",
-                       @"分享开门"];
+    self.menuImages = images;
+    self.menuTitles = array;
 }
 
 - (void)initUI
 {
-    for (int i = 0 ; i < 8; i++) {
+    for (int i = 0 ; i < self.menuTitles.count; i++) {
         // 创建菜单按钮
         CGFloat btnWidth = MXScreen_Width / 4;
         CGFloat btnHeight = btnWidth;
@@ -51,7 +46,7 @@
         CGRect frame = CGRectMake(btnX, btnY, btnWidth, btnHeight);
         
         MXWeakSelf;
-        MXHomeHeaderMenuBtn *menuBtn = [[MXHomeHeaderMenuBtn alloc] initWithFrame:frame index:i title:self.menuTitle[i] andActionBlock:^(NSInteger index) {
+        MXHomeHeaderMenuBtn *menuBtn = [[MXHomeHeaderMenuBtn alloc] initWithFrame:frame index:i title:self.menuTitles[i] image:self.menuImages[i] andActionBlock:^(NSInteger index) {
             [weakSelf menuButtonClick:index];
         }];
         [self addSubview:menuBtn];

@@ -34,6 +34,10 @@
 @property (nonatomic, weak) MXHomeBottomBar *bottomBar;
 /** 顶部按钮菜单 */
 @property (nonatomic, weak) MXHomeHeaderMenu *headerMenu;
+/** 菜单按钮标题数组 */
+@property (nonatomic, strong) NSArray *menuTitles;
+/** 菜单按钮图片数组 */
+@property (nonatomic, strong) NSArray *menuImages;
 
 @end
 
@@ -44,6 +48,7 @@
 {
     [super viewDidLoad];
     [self addNotification];
+    [self initData];
     [self initNavBar];
     [self initUI];
     [self initConstraint];
@@ -63,6 +68,27 @@
 }
 
 #pragma mark - 初始化方法
+- (void)initData
+{
+    self.menuTitles = @[@"可视对讲",
+                       @"开门记录",
+                       @"授权管理",
+                       @"免打扰",
+                       @"社区互帮",
+                       @"O2O商城",
+                       @"智享体验",
+                       @"分享开门"];
+    
+    self.menuImages = @[@"home_icon_0",
+                        @"home_icon_1",
+                        @"home_icon_2",
+                        @"home_icon_3",
+                        @"home_icon_4",
+                        @"home_icon_5",
+                        @"home_icon_6",
+                        @"home_icon_7"];
+}
+
 - (void)initNavBar
 {
     self.title = @"01区01栋01单元0201";
@@ -103,7 +129,7 @@
         [headerView addSubview:cycleView];
         
         // 菜单按钮
-        MXHomeHeaderMenu *menuView = [[MXHomeHeaderMenu alloc] initWithFrame:CGRectMake(0, MXHomeCycleHeight, MXScreen_Width, MXHomeMenuHeight)];
+        MXHomeHeaderMenu *menuView = [[MXHomeHeaderMenu alloc] initWithFrame:CGRectMake(0, MXHomeCycleHeight, MXScreen_Width, MXHomeMenuHeight) withButtonTitles:self.menuTitles andButtonImages:self.menuImages];
         menuView.backgroundColor   = [UIColor whiteColor];
         menuView.delegate          = self;
         self.headerMenu            = menuView;
@@ -123,6 +149,7 @@
     self.bottomBar = bottomBar;
     [self.view addSubview:bottomBar];
     
+
 
 }
 
@@ -180,6 +207,7 @@
         return sectionHeader;
     }
     return nil;
+
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section

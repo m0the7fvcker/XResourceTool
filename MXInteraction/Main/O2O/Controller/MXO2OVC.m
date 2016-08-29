@@ -97,9 +97,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MXO2OCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MXO2OCell"];
-    cell.leftIcon.image = self.dataArray[indexPath.section][@"icon"];
+    cell.leftIcon.image = [UIImage imageNamed:self.dataArray[indexPath.section][@"icon"]];
     cell.nameLabel.text = self.dataArray[indexPath.section][@"title"];
-    cell.centerImage.image = self.dataArray[indexPath.section][@"image"];
+    cell.centerImage.image = [UIImage imageNamed:self.dataArray[indexPath.section][@"image"]];
     
     return cell;
 }

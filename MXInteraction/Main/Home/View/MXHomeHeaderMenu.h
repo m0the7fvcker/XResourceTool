@@ -18,6 +18,8 @@
 
 @interface MXHomeHeaderMenu : UIView
 
+- (instancetype)initWithFrame:(CGRect)frame withButtonTitles:(NSArray *)titles andButtonImages:(NSArray *)images;
+
 @property (nonatomic, weak) id<MXHomeHeaderMenuDelegate> delegate;
 
 @end

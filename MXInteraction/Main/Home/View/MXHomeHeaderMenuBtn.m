@@ -17,22 +17,22 @@
 @implementation MXHomeHeaderMenuBtn
 
 #pragma mark - 初始化方法
-- (instancetype)initWithFrame:(CGRect)frame index:(NSInteger)index title:(NSString *)title andActionBlock:(void(^)(NSInteger))block
+- (instancetype)initWithFrame:(CGRect)frame index:(NSInteger)index title:(NSString *)title image:(NSString *)image andActionBlock :(void (^)(NSInteger))block
 {
     if (self == [super initWithFrame:frame]) {
         _ActionBlock = block;
-        [self initUIWithIndex:index andTitle:title];
+        [self initUIWithIndex:index title:title andImage:image];
         [self initConstraint];
     }
     return self;
 }
 
-- (void)initUIWithIndex:(NSInteger)index andTitle:(NSString *)title
+- (void)initUIWithIndex:(NSInteger)index title:(NSString *)title andImage:(NSString *)image
 {
     self.tag = index;
     
     UIImageView *imageView = [[UIImageView alloc] init];
-    imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"home_icon_%ld",index]];
+    imageView.image = [UIImage imageNamed:image];
     self.imageView = imageView;
     [self addSubview:imageView];
     

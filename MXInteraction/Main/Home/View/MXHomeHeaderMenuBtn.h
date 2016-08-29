@@ -10,6 +10,6 @@
 
 @interface MXHomeHeaderMenuBtn : UIView
 
-- (instancetype)initWithFrame:(CGRect)frame index:(NSInteger)index title:(NSString *)title andActionBlock:(void(^)(NSInteger))block;
+- (instancetype)initWithFrame:(CGRect)frame index:(NSInteger)index title:(NSString *)title image:(NSString *)image andActionBlock:(void(^)(NSInteger))block;
 
 @end

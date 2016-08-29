@@ -91,6 +91,10 @@
 		4DF7D6601D66E1A900A1FD4F /* MXOpenRecordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF7D65F1D66E1A900A1FD4F /* MXOpenRecordVC.m */; };
 		4DF7D6631D66E6D600A1FD4F /* MXNoDisturbVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF7D6621D66E6D600A1FD4F /* MXNoDisturbVC.m */; };
 		4DF7D6661D66E86D00A1FD4F /* MXNoDisturbInnerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF7D6651D66E86D00A1FD4F /* MXNoDisturbInnerVC.m */; };
+		4DF831381D73E8270073B7DE /* MXScoreMallHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF831371D73E8270073B7DE /* MXScoreMallHeader.m */; };
+		4DF8313B1D73E9360073B7DE /* MXScoreMallCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF8313A1D73E9360073B7DE /* MXScoreMallCell.m */; };
+		4DF8313E1D740BDA0073B7DE /* MXScoreMallMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF8313D1D740BDA0073B7DE /* MXScoreMallMenu.m */; };
+		4DF831411D7423050073B7DE /* MXSelllerAreaHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF831401D7423050073B7DE /* MXSelllerAreaHeader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -262,6 +266,14 @@
 		4DF7D6621D66E6D600A1FD4F /* MXNoDisturbVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXNoDisturbVC.m; sourceTree = "<group>"; };
 		4DF7D6641D66E86D00A1FD4F /* MXNoDisturbInnerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXNoDisturbInnerVC.h; sourceTree = "<group>"; };
 		4DF7D6651D66E86D00A1FD4F /* MXNoDisturbInnerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXNoDisturbInnerVC.m; sourceTree = "<group>"; };
+		4DF831361D73E8270073B7DE /* MXScoreMallHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXScoreMallHeader.h; sourceTree = "<group>"; };
+		4DF831371D73E8270073B7DE /* MXScoreMallHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXScoreMallHeader.m; sourceTree = "<group>"; };
+		4DF831391D73E9360073B7DE /* MXScoreMallCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXScoreMallCell.h; sourceTree = "<group>"; };
+		4DF8313A1D73E9360073B7DE /* MXScoreMallCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXScoreMallCell.m; sourceTree = "<group>"; };
+		4DF8313C1D740BDA0073B7DE /* MXScoreMallMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXScoreMallMenu.h; sourceTree = "<group>"; };
+		4DF8313D1D740BDA0073B7DE /* MXScoreMallMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXScoreMallMenu.m; sourceTree = "<group>"; };
+		4DF8313F1D7423050073B7DE /* MXSelllerAreaHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXSelllerAreaHeader.h; sourceTree = "<group>"; };
+		4DF831401D7423050073B7DE /* MXSelllerAreaHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXSelllerAreaHeader.m; sourceTree = "<group>"; };
 		6C67CA09F56570D3DA25D36D /* libPods-MXInteraction.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MXInteraction.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABA4727452F7BFDADA8C1F4B /* Pods-MXInteraction.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MXInteraction.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MXInteraction/Pods-MXInteraction.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -449,6 +461,14 @@
 				4D3DFA4D1D71965300E01F1B /* MXLoveHomeCell.h */,
 				4D3DFA4E1D71965300E01F1B /* MXLoveHomeCell.m */,
 				4D3DFA4F1D71965300E01F1B /* MXLoveHomeCell.xib */,
+				4DF831361D73E8270073B7DE /* MXScoreMallHeader.h */,
+				4DF831371D73E8270073B7DE /* MXScoreMallHeader.m */,
+				4DF831391D73E9360073B7DE /* MXScoreMallCell.h */,
+				4DF8313A1D73E9360073B7DE /* MXScoreMallCell.m */,
+				4DF8313C1D740BDA0073B7DE /* MXScoreMallMenu.h */,
+				4DF8313D1D740BDA0073B7DE /* MXScoreMallMenu.m */,
+				4DF8313F1D7423050073B7DE /* MXSelllerAreaHeader.h */,
+				4DF831401D7423050073B7DE /* MXSelllerAreaHeader.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1283,12 +1303,14 @@
 				4D6148851D63FF9D00B3B093 /* UIView+MXCategory.m in Sources */,
 				4DC565D11D6EEDCC00C58564 /* MXCommunityMarketVC.m in Sources */,
 				4D6148921D63FF9D00B3B093 /* YZDisplayViewController.m in Sources */,
+				4DF8313B1D73E9360073B7DE /* MXScoreMallCell.m in Sources */,
 				4DD15E8D1D6A97D4006D6E74 /* MXLaunchADViewController.m in Sources */,
 				4D6148811D63FF9D00B3B093 /* UIColor+MXCategory.m in Sources */,
 				4DC565D41D6EEDF500C58564 /* MXCommunityVC.m in Sources */,
 				4DF7D6661D66E86D00A1FD4F /* MXNoDisturbInnerVC.m in Sources */,
 				4DC565E41D6F188800C58564 /* MXCommunityModel.m in Sources */,
 				4D6148821D63FF9D00B3B093 /* UIImage+MXCategory.m in Sources */,
+				4DF831411D7423050073B7DE /* MXSelllerAreaHeader.m in Sources */,
 				4DD15E901D6A9E70006D6E74 /* MXLaunchNFViewController.m in Sources */,
 				4DC055621D6B09D30079658D /* MXHomeHeaderMenuBtn.m in Sources */,
 				4DC565E71D6F1E4500C58564 /* MXO2OVC.m in Sources */,
@@ -1317,6 +1339,7 @@
 				4D61489A1D63FF9D00B3B093 /* MXTextField.m in Sources */,
 				4D61488E1D63FF9D00B3B093 /* MXResponseModel.m in Sources */,
 				4D3DFA4C1D71915F00E01F1B /* MXSelllerAreaVC.m in Sources */,
+				4DF8313E1D740BDA0073B7DE /* MXScoreMallMenu.m in Sources */,
 				4D61488D1D63FF9D00B3B093 /* MXRequestModel.m in Sources */,
 				4D61487A1D63FF9D00B3B093 /* MXBaseNavigationController.m in Sources */,
 				4D6148801D63FF9D00B3B093 /* NSString+MXCategory.m in Sources */,
@@ -1330,6 +1353,7 @@
 				4D6148911D63FF9D00B3B093 /* YZDisplayTitleLabel.m in Sources */,
 				4D6148901D63FF9D00B3B093 /* YBFYZCollectionView.m in Sources */,
 				4D813A661D67070500BB2DFA /* MXCommunityControlVC.m in Sources */,
+				4DF831381D73E8270073B7DE /* MXScoreMallHeader.m in Sources */,
 				4D61489C1D63FF9D00B3B093 /* main.m in Sources */,
 				4D02B85D1D6567EF00EC6F8A /* MXHomeViewController.m in Sources */,
 				4DC565CB1D6E995600C58564 /* MXPersonalBarButton.m in Sources */,
