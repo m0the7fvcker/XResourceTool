@@ -7,9 +7,11 @@
 //
 
 #import "MXScoreMallVC.h"
-#import "MXScoreMallMenu.h"
+#import "MXO2OCommonMenu.h"
 #import "MXLoveHomeCell.h"// The same as MXLoveHomeCell
 #import "MXScoreMallHeader.h"
+
+#import "MXO2OCommonModel.h"
 
 #define MXScoreMallMenuHeight 200
 #define MXScoreMallBottomHeight 79
@@ -20,17 +22,20 @@
 extern NSString *const LoveHomeCell;
 //static NSString *const ScoreMallCell = @"ScoreMallCell";// The same as MXLoveHomeCell
 
-@interface MXScoreMallVC ()<UITableViewDataSource, UITableViewDelegate, MXScoreMallMenuDelegate>
+@interface MXScoreMallVC ()<UITableViewDataSource, UITableViewDelegate, MXO2OCommonMenuDelegate>
 
 @property (nonatomic, weak) UITableView *tableView;
 /** 顶部按钮菜单 */
-@property (nonatomic, weak) MXScoreMallMenu *headerMenu;
+@property (nonatomic, weak) MXO2OCommonMenu *headerMenu;
 /** 顶部积分菜单 */
 @property (nonatomic, weak) MXScoreMallHeader *scoreHeader;
 /** 菜单按钮标题数组 */
 @property (nonatomic, strong) NSArray *menuTitles;
 /** 菜单按钮图片数组 */
 @property (nonatomic, strong) NSArray *menuImages;
+/** 模型数组 */
+@property (nonatomic, strong) NSArray *modelsArray;
+
 @end
 
 @implementation MXScoreMallVC
@@ -54,21 +59,28 @@ extern NSString *const LoveHomeCell;
                         @"积分当钱花"
                         ];
     
-    self.menuImages = @[@"home_icon_0",
-                        @"home_icon_1",
-                        @"home_icon_2",
-                        @"home_icon_3"];
+    self.menuImages = @[@"icon_store_jifen_0",
+                        @"icon_store_jifen_1",
+                        @"icon_store_jifen_2",
+                        @"icon_store_jifen_3"];
+    
+    MXO2OCommonModel *model1 = [[MXO2OCommonModel alloc] init];
+    model1.titleName = @"产品分类";
+    model1.imageName = @"bg_banner_jifen_cell_0";
+    
+    self.modelsArray = @[model1];
+    
 }
 
 - (void)initNavBar
 {
-    
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem mx_itemWithImageName:@"icon_store_jifen_share" highImageName:nil target:self action:@selector(rightShareClick)];
 }
 
 - (void)initUI
 {
     // 创建tableView
-    UITableView *tableView   = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, MXScreen_Width, self.view.height) style:UITableViewStyleGrouped];
+    UITableView *tableView   = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, MXScreen_Width, self.view.height - MX_NAV_HEIGHT) style:UITableViewStyleGrouped];
     tableView.dataSource     = self;
     tableView.delegate       = self;
     tableView.backgroundColor= [UIColor mx_colorWithHexString:@"ececec"];
@@ -84,7 +96,7 @@ extern NSString *const LoveHomeCell;
         [headerView addSubview:header];
         
         // 菜单按钮
-        MXScoreMallMenu *menuView = [[MXScoreMallMenu alloc] initWithFrame:CGRectMake(0, MXScoreMallCycleHeight, MXScreen_Width, MXScoreMallMenuHeight) withButtonTitles:self.menuTitles andButtonImages:self.menuImages];
+        MXO2OCommonMenu *menuView = [[MXO2OCommonMenu alloc] initWithFrame:CGRectMake(0, MXScoreMallCycleHeight, MXScreen_Width, MXScoreMallMenuHeight) withButtonTitles:self.menuTitles buttonImages:self.menuImages andRowCount:2];
         menuView.backgroundColor   = [UIColor whiteColor];
         menuView.delegate          = self;
         self.headerMenu            = menuView;
@@ -103,10 +115,16 @@ extern NSString *const LoveHomeCell;
     
 }
 
+#pragma mark - 内部方法
+- (void)rightShareClick
+{
+    
+}
+
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 3;
+    return self.modelsArray.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -117,7 +135,7 @@ extern NSString *const LoveHomeCell;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MXLoveHomeCell *cell = [tableView dequeueReusableCellWithIdentifier:LoveHomeCell];
-    
+    cell.model = self.modelsArray[indexPath.section];
     return cell;
 }
 
@@ -147,7 +165,7 @@ extern NSString *const LoveHomeCell;
     return 1;
 }
 
-- (void)MXScoreMallMenuButtonDidClick:(NSInteger)btnNumber
+- (void)MXO2OCommonMenuButtonDidClick:(NSInteger)btnNumber
 {
     
 }

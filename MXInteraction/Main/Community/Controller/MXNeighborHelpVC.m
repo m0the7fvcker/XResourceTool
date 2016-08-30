@@ -30,7 +30,12 @@
     self.title = @"邻里互帮";
     self.view.backgroundColor = [UIColor whiteColor];
     
-    
+    UILabel *centerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, self.view.centerY - 100, MXScreen_Width, 20)];
+    centerLabel.textAlignment = NSTextAlignmentCenter;
+    centerLabel.textColor = [UIColor mx_colorWithHexString:@"605d5d"];
+    centerLabel.font = [UIFont systemFontOfSize:18];
+    centerLabel.text = @"暂无任何互帮消息";
+    [self.view addSubview:centerLabel];
 }
 
 - (void)initConstraint

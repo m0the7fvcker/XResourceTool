@@ -12,7 +12,16 @@
 
 - (void)awakeFromNib
 {
-    
+    self.uploadImage.contentMode = UIViewContentModeScaleAspectFit;
+    self.uploadImage.clipsToBounds = YES;
+}
+
+- (void)setModel:(MXCommunityMarketModel *)model
+{
+    self.iconImage.image = [UIImage imageNamed:model.iconName];
+    self.nameLabel.text = model.nickName;
+    self.desLabel.text = model.desString;
+    self.uploadImage.image = [UIImage imageNamed:model.imageName];
 }
 
 @end

@@ -10,15 +10,11 @@
 
 @implementation MXO2OCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+- (void)setModel:(MXO2OCommonModel *)model
+{
+    self.leftIcon.image = [UIImage imageNamed:model.iconName];
+    self.nameLabel.text = model.titleName;
+    self.centerImage.image = [UIImage imageNamed:model.imageName];
 }
 
 @end

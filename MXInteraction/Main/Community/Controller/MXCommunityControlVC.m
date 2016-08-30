@@ -11,6 +11,8 @@
 #import "MXCommunityVC.h"
 #import "MXCommunityMarketVC.h"
 
+NSInteger const MXCommunityScrollTitleHeight = 40;
+
 @interface MXCommunityControlVC ()
 
 @end

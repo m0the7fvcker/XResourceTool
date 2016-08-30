@@ -13,6 +13,8 @@
 #import "BHBPopView.h"
 #import "MXLoveHomeCell.h"
 
+#import "MXO2OCommonModel.h"
+
 #define MXLoveHomeMenuHeight 220
 #define MXLoveHomeBottomHeight 79
 #define MXLoveHomeCycleHeight 230
@@ -34,6 +36,8 @@ NSString *const LoveHomeCell = @"LoveHomeCell";
 @property (nonatomic, strong) NSArray *menuTitles;
 /** 菜单按钮图片数组 */
 @property (nonatomic, strong) NSArray *menuImages;
+/** 模型数组 */
+@property (nonatomic, strong) NSArray *modelsArray;
 
 @end
 
@@ -60,14 +64,28 @@ NSString *const LoveHomeCell = @"LoveHomeCell";
                         @"只能硬件",
                         @"全部分类"];
     
-    self.menuImages = @[@"home_icon_0",
-                        @"home_icon_1",
-                        @"home_icon_2",
-                        @"home_icon_3",
-                        @"home_icon_4",
-                        @"home_icon_5",
-                        @"home_icon_6",
-                        @"home_icon_7"];
+    self.menuImages = @[@"icon_store_aijia_0",
+                        @"icon_store_aijia_1",
+                        @"icon_store_aijia_2",
+                        @"icon_store_aijia_3",
+                        @"icon_store_aijia_4",
+                        @"icon_store_aijia_5",
+                        @"icon_store_aijia_6",
+                        @"icon_store_aijia_7"];
+    
+    MXO2OCommonModel *cellModel1 = [[MXO2OCommonModel alloc] init];
+    cellModel1.titleName = @"天天抢购";
+    cellModel1.imageName = @"bg_banner_aijia_cell_0";
+    
+    MXO2OCommonModel *cellModel2 = [[MXO2OCommonModel alloc] init];
+    cellModel2.titleName = @"超级秒杀";
+    cellModel2.imageName = @"bg_banner_aijia_cell_1";
+
+    MXO2OCommonModel *cellModel3 = [[MXO2OCommonModel alloc] init];
+    cellModel3.titleName = @"热门活动";
+    cellModel3.imageName = @"bg_banner_aijia_cell_2";
+    
+    self.modelsArray = @[cellModel1,cellModel2,cellModel3];
 }
 
 - (void)initNavBar
@@ -81,7 +99,7 @@ NSString *const LoveHomeCell = @"LoveHomeCell";
 - (void)initUI
 {
     // 创建tableView
-    UITableView *tableView   = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, MXScreen_Width, self.view.height) style:UITableViewStyleGrouped];
+    UITableView *tableView   = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, MXScreen_Width, self.view.height - MX_NAV_HEIGHT) style:UITableViewStyleGrouped];
     tableView.dataSource     = self;
     tableView.delegate       = self;
     tableView.backgroundColor= [UIColor mx_colorWithHexString:@"ececec"];
@@ -92,10 +110,8 @@ NSString *const LoveHomeCell = @"LoveHomeCell";
     tableView.tableHeaderView = ({
         UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MXScreen_Width, MXLoveHomeMenuHeight + MXLoveHomeCycleHeight)];
         
-        UIImage *image1 = [UIImage imageNamed:@"banner1.png"];
-        UIImage *image2 = [UIImage imageNamed:@"banner2.png"];
-        UIImage *image3 = [UIImage imageNamed:@"banner3.png"];
-        NSMutableArray *imageArray = [NSMutableArray arrayWithObjects:image1, image2, image3, nil];
+        UIImage *image1 = [UIImage imageNamed:@"icon_store_aijia_banner"];
+        NSMutableArray *imageArray = [NSMutableArray arrayWithObjects:image1,nil];
         
         // 顶部轮播图
         SDCycleScrollView *cycleView         = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, MXScreen_Width, MXLoveHomeCycleHeight) imageNamesGroup:imageArray];
@@ -132,7 +148,7 @@ NSString *const LoveHomeCell = @"LoveHomeCell";
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 3;
+    return self.modelsArray.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -143,7 +159,7 @@ NSString *const LoveHomeCell = @"LoveHomeCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MXLoveHomeCell *cell = [tableView dequeueReusableCellWithIdentifier:LoveHomeCell];
-    
+    cell.model = self.modelsArray[indexPath.section];
     return cell;
 }
 

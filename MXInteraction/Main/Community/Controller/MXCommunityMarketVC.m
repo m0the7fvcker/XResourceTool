@@ -9,12 +9,16 @@
 #import "MXCommunityMarketVC.h"
 #import "MXCommunityMarketCell.h"
 
+#import "MXCommunityMarketModel.h"
+
+extern NSInteger const MXCommunityScrollTitleHeight;
 #define MXCommunityMarketCellHeight 270
 #define MXCommunityMarketSectionHeight 10
 
 @interface MXCommunityMarketVC()<UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, weak) UITableView *tableView;
+@property (nonatomic, strong) NSArray *modelsArray;
 
 @end
 
@@ -24,12 +28,36 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self initData];
     [self initNavBar];
     [self initUI];
     [self initConstraint];
 }
 
 #pragma mark - 初始化方法
+- (void)initData
+{
+    MXCommunityMarketModel *model1= [[MXCommunityMarketModel alloc] init];
+    model1.iconName = @"icon_user1";
+    model1.nickName = @"前海吴彦祖";
+    model1.desString = @"本人有亮Jeep专卖，有意向请联系本人";
+    model1.imageName = @"mark_cell_image1";
+    
+    MXCommunityMarketModel *model2= [[MXCommunityMarketModel alloc] init];
+    model2.iconName = @"icon_user2";
+    model2.nickName = @"尼古拉斯赵6";
+    model2.desString = @"LV包包不想要了，有人想买的吗？";
+    model2.imageName = @"mark_cell_image2";
+    
+    MXCommunityMarketModel *model3= [[MXCommunityMarketModel alloc] init];
+    model3.iconName = @"icon_user3";
+    model3.nickName = @"后海奔驰旗舰店";
+    model3.desString = @"新车即将上市......嘻嘻嘻";
+    model3.imageName = @"mark_cell_image3";
+
+    self.modelsArray = @[model1, model2, model3];
+}
+
 - (void)initNavBar
 {
     
@@ -41,7 +69,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     // 创建tableView
-    UITableView *tableView   = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, MXScreen_Width, MXScreen_Height - MX_NAV_HEIGHT) style:UITableViewStyleGrouped];
+    UITableView *tableView   = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, MXScreen_Width, self.view.height - MX_NAV_HEIGHT - MXCommunityScrollTitleHeight) style:UITableViewStyleGrouped];
     tableView.dataSource     = self;
     tableView.delegate       = self;
     tableView.backgroundColor= [UIColor mx_colorWithHexString:@"ececec"];
@@ -88,7 +116,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MXCommunityMarketCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MXCommunityMarketCell"];
-
+    cell.model = self.modelsArray[indexPath.section];
     return cell;
 }
 

@@ -48,6 +48,10 @@
                     <constraint firstItem="z0p-8w-XuX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="sfc-hN-4eS"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="adView" destination="lG4-HA-AqL" id="XCS-Hc-NjF"/>
+                <outlet property="titleLabel" destination="la5-7B-q6m" id="VSI-PJ-BZR"/>
+            </connections>
             <point key="canvasLocation" x="175" y="205.5"/>
         </tableViewCell>
     </objects>

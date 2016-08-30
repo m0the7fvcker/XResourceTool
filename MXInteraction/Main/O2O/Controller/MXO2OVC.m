@@ -9,7 +9,7 @@
 #import "MXO2OVC.h"
 #import "MXO2OCell.h"
 
-#import "MXO2OModel.h"
+#import "MXO2OCommonModel.h"
 
 #import "MXLoveHomeVC.h"
 #import "MXScoreMallVC.h"
@@ -21,7 +21,7 @@
 @interface MXO2OVC ()<UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, weak) UITableView *tableView;
-@property (nonatomic, strong) NSArray <NSDictionary *> *dataArray;
+@property (nonatomic, strong) NSArray <MXO2OCommonModel *> *modelArray;
 @end
 
 @implementation MXO2OVC
@@ -38,15 +38,22 @@
 #pragma mark - 初始化方法
 - (void)initData
 {
-    self.dataArray = @[@{@"icon" : @"icon_personal_bar0",
-                         @"title" : @"爱家e站",
-                         @"image" : @"banner1.png"},
-                       @{@"icon" : @"icon_personal_bar0",
-                         @"title" : @"积分商城",
-                         @"image" : @"banner1.png"},
-                       @{@"icon" : @"icon_personal_bar0",
-                         @"title" : @"商家商圈",
-                         @"image" : @"banner1.png"}];
+    MXO2OCommonModel *model1 = [[MXO2OCommonModel alloc] init];
+    model1.iconName = @"icon_store_aijia";
+    model1.titleName = @"爱家e站";
+    model1.imageName = @"bg_banner_O2O_0";
+    
+    MXO2OCommonModel *model2 = [[MXO2OCommonModel alloc] init];
+    model2.iconName = @"icon_store_jifen";
+    model2.titleName = @"积分商城";
+    model2.imageName = @"bg_banner_O2O_1";
+    
+    MXO2OCommonModel *model3 = [[MXO2OCommonModel alloc] init];
+    model3.iconName = @"icon_store_aijia";
+    model3.titleName = @"商家商圈";
+    model3.imageName = @"bg_banner_O2O_2";
+    
+    self.modelArray = @[model1, model2 ,model3];
 }
 
 - (void)initUI
@@ -86,7 +93,7 @@
 #pragma mark - UITabelDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return self.dataArray.count;
+    return self.modelArray.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -97,9 +104,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MXO2OCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MXO2OCell"];
-    cell.leftIcon.image = [UIImage imageNamed:self.dataArray[indexPath.section][@"icon"]];
-    cell.nameLabel.text = self.dataArray[indexPath.section][@"title"];
-    cell.centerImage.image = [UIImage imageNamed:self.dataArray[indexPath.section][@"image"]];
+    cell.model = self.modelArray[indexPath.section];
     
     return cell;
 }

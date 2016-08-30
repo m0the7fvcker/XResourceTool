@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MXO2OCommonModel.h"
 
 @interface MXLoveHomeCell : UITableViewCell
+
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *adView;
+@property (nonatomic, strong) MXO2OCommonModel *model;
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "MXSelllerAreaVC.h"
-#import "MXScoreMallMenu.h"
+#import "MXO2OCommonMenu.h"
 
 #define MXSelllerAreaMenuHeight 200
 #define MXSelllerAreaBottomHeight 79
@@ -15,11 +15,11 @@
 #define MXSelllerAreaCellHeight 192
 #define MXSelllerAreaSectionHeight 10
 
-@interface MXSelllerAreaVC ()<UITableViewDataSource, UITableViewDelegate, MXScoreMallMenuDelegate>
+@interface MXSelllerAreaVC ()<UITableViewDataSource, UITableViewDelegate, MXO2OCommonMenuDelegate>
 
 @property (nonatomic, weak) UITableView *tableView;
 /** 顶部按钮菜单 */
-@property (nonatomic, weak) MXScoreMallMenu *headerMenu;
+@property (nonatomic, weak) MXO2OCommonMenu *headerMenu;
 /** 菜单按钮标题数组 */
 @property (nonatomic, strong) NSArray *menuTitles;
 /** 菜单按钮图片数组 */
@@ -41,16 +41,20 @@
 #pragma mark - 初始化方法
 - (void)initData
 {
-    self.menuTitles = @[@"新品推荐",
-                        @"积分兑换服务",
-                        @"积分抽奖",
-                        @"积分当钱花"
+    self.menuTitles = @[@"快递收发",
+                        @"家政洗衣",
+                        @"家电维修",
+                        @"订餐服务",
+                        @"手机宽带缴费",
+                        @"更多"
                         ];
     
-    self.menuImages = @[@"home_icon_0",
-                        @"home_icon_1",
-                        @"home_icon_2",
-                        @"home_icon_3"];
+    self.menuImages = @[@"icon_store_area_0",
+                        @"icon_store_area_1",
+                        @"icon_store_area_2",
+                        @"icon_store_area_3",
+                        @"icon_store_area_4",
+                        @"icon_store_area_5"];
 }
 
 - (void)initNavBar
@@ -61,7 +65,7 @@
 - (void)initUI
 {
     // 创建tableView
-    UITableView *tableView   = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, MXScreen_Width, self.view.height) style:UITableViewStyleGrouped];
+    UITableView *tableView   = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, MXScreen_Width, self.view.height - MX_NAV_HEIGHT) style:UITableViewStyleGrouped];
     tableView.dataSource     = self;
     tableView.delegate       = self;
     tableView.backgroundColor= [UIColor mx_colorWithHexString:@"ececec"];
@@ -73,11 +77,11 @@
         UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MXScreen_Width, MXSelllerAreaMenuHeight + MXSelllerAreaCycleHeight)];
         // 顶部图片
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, MXScreen_Width, MXSelllerAreaCycleHeight)];
-        imageView.image = [UIImage imageNamed:@"banner1.png"];
+        imageView.image = [UIImage imageNamed:@"icon_store_area_banner"];
         [headerView addSubview:imageView];
         
         // 菜单按钮
-        MXScoreMallMenu *menuView = [[MXScoreMallMenu alloc] initWithFrame:CGRectMake(0, MXSelllerAreaCycleHeight, MXScreen_Width, MXSelllerAreaMenuHeight) withButtonTitles:self.menuTitles andButtonImages:self.menuImages];
+        MXO2OCommonMenu *menuView = [[MXO2OCommonMenu alloc] initWithFrame:CGRectMake(0, MXSelllerAreaCycleHeight, MXScreen_Width, self.view.height - MXSelllerAreaCycleHeight - MX_NAV_HEIGHT) withButtonTitles:self.menuTitles buttonImages:self.menuImages andRowCount:3];
         menuView.backgroundColor   = [UIColor whiteColor];
         menuView.delegate          = self;
         self.headerMenu            = menuView;
@@ -138,7 +142,7 @@
     return 1;
 }
 
-- (void)MXScoreMallMenuButtonDidClick:(NSInteger)btnNumber
+- (void)MXO2OCommonMenuButtonDidClick:(NSInteger)btnNumber
 {
     
 }

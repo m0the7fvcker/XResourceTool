@@ -9,10 +9,12 @@
 #import "MXScoreMallHeader.h"
 
 @interface MXScoreMallHeader()
+
 @property (nonatomic, weak) UIImageView *imageView;
 @property (nonatomic, weak) UILabel *myScoreLabel;
 @property (nonatomic, weak) UILabel *showScoreLabel;
 @property (nonatomic, weak) UILabel *countLabel;
+
 @end
 @implementation MXScoreMallHeader
 
@@ -27,8 +29,10 @@
 
 - (void)initUI
 {
+    self.backgroundColor = [UIColor whiteColor];
+    
     UIImageView *imageView = [[UIImageView alloc] init];
-    imageView.image  = [UIImage imageNamed:@"banner1.png"];
+    imageView.image  = [UIImage imageNamed:@"icon_store_jifen_banner"];
     self.imageView = imageView;
     [self addSubview:imageView];
     
@@ -61,7 +65,8 @@
     
     [self.myScoreLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(weakSelf.imageView.mas_bottom);
-        make.left.bottom.equalTo(weakSelf).offset(10);
+        make.left.equalTo(weakSelf).offset(10);
+        make.bottom.equalTo(weakSelf);
         make.width.equalTo(@150);
     }];
     
@@ -74,7 +79,8 @@
     
     [self.countLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(weakSelf.imageView.mas_bottom);
-        make.right.bottom.equalTo(weakSelf).offset(-10);
+        make.right.equalTo(weakSelf).offset(-10);
+        make.bottom.equalTo(weakSelf);
         make.width.equalTo(@150);
     }];
 }

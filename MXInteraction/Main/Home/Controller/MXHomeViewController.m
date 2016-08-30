@@ -149,8 +149,6 @@
     self.bottomBar = bottomBar;
     [self.view addSubview:bottomBar];
     
-
-
 }
 
 - (void)initConstraint

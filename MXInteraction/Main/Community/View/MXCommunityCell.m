@@ -15,4 +15,12 @@
     
 }
 
+- (void)setModel:(MXCommunityModel *)model
+{
+    self.iconImage.image = [UIImage imageNamed:model.iconName];
+    self.nameLabel.text = model.nickName;
+    self.timeLabel.text = model.timeString;
+    self.desLabel.text = model.desString;
+    self.uploadImage.image = [UIImage imageNamed:model.imageName];
+}
 @end

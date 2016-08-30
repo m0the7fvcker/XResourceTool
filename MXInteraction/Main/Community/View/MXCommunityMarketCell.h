@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MXCommunityMarketModel.h"
 
 @interface MXCommunityMarketCell : UITableViewCell
+
+@property (nonatomic, strong) MXCommunityMarketModel *model;
 @property (weak, nonatomic) IBOutlet UIImageView *iconImage;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *desLabel;

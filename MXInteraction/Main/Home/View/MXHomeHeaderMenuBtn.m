@@ -9,6 +9,7 @@
 #import "MXHomeHeaderMenuBtn.h"
 
 @interface MXHomeHeaderMenuBtn()
+@property (nonatomic, strong) UIView *containerView;
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) void(^ActionBlock)(NSInteger);
@@ -31,17 +32,22 @@
 {
     self.tag = index;
     
+    UIView *containerView = [[UIView alloc] init];
+    self.containerView = containerView;
+    [self addSubview:containerView];
+    
     UIImageView *imageView = [[UIImageView alloc] init];
     imageView.image = [UIImage imageNamed:image];
     self.imageView = imageView;
-    [self addSubview:imageView];
+    [self.containerView addSubview:imageView];
     
     UILabel *titleLabel = [[UILabel alloc] init];
     titleLabel.font = [UIFont systemFontOfSize:15];
     titleLabel.text = title;
     titleLabel.textColor = [UIColor blackColor];
+    [titleLabel sizeToFit];
     self.titleLabel = titleLabel;
-    [self addSubview:titleLabel];
+    [self.containerView addSubview:titleLabel];
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)];
     [self addGestureRecognizer:tapGesture];
@@ -50,14 +56,19 @@
 - (void)initConstraint
 {
     MXWeakSelf;
-    [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.containerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(weakSelf);
         make.width.equalTo(@50);
+        make.height.equalTo(@70);
+    }];
+    
+    [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.right.equalTo(weakSelf.containerView);
         make.height.equalTo(@50);
     }];
     
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(weakSelf);
+        make.centerX.equalTo(weakSelf.containerView);
         make.top.equalTo(weakSelf.imageView.mas_bottom).offset(5);
     }];
 }

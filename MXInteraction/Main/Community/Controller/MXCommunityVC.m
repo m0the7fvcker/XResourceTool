@@ -9,13 +9,16 @@
 #import "MXCommunityVC.h"
 #import "MXCommunityCell.h"
 
-#define MXCommunityCellHeight 270
+#import "MXCommunityModel.h"
+
+extern NSInteger const MXCommunityScrollTitleHeight;
+#define MXCommunityCellHeight 180
 #define MXCommunitySectionHeaderHeight 10
 
 @interface MXCommunityVC()<UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, weak) UITableView *tableView;
-
+@property (nonatomic, strong) NSArray *modelsArray;
 @end
 
 @implementation MXCommunityVC
@@ -24,12 +27,25 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self initData];
     [self initNavBar];
     [self initUI];
     [self initConstraint];
 }
 
 #pragma mark - 初始化方法
+- (void)initData
+{
+    MXCommunityModel *model1 = [[MXCommunityModel alloc] init];
+    model1.iconName = @"icon_user4";
+    model1.nickName = @"智慧社区活动";
+    model1.timeString = @"2016.8.6";
+    model1.desString = @"社区商业作为商业地产的一个重要类别，虽然没有购物中心琳琅满目、富丽堂皇，但却是最贴近居民生活的，好的商业社区布局直接关系到周边居民的生活品质如何。社区商业从最开始的底商模式，到后来的商业步行街模式，再到现在邻里中心式的社区商业模式，在不断地发展过程中，有些地方也会出现两种模式并存的情况。";
+    model1.imageName = @"";
+    
+    self.modelsArray = @[model1];
+}
+
 - (void)initNavBar
 {
     
@@ -41,7 +57,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     // 创建tableView
-    UITableView *tableView   = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, MXScreen_Width, MXScreen_Height - MX_NAV_HEIGHT) style:UITableViewStyleGrouped];
+    UITableView *tableView   = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, MXScreen_Width, self.view.height - MX_NAV_HEIGHT - MXCommunityScrollTitleHeight) style:UITableViewStyleGrouped];
     tableView.dataSource     = self;
     tableView.delegate       = self;
     tableView.backgroundColor= [UIColor mx_colorWithHexString:@"ececec"];
@@ -77,7 +93,7 @@
 #pragma mark - UITabelDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 3;
+    return self.modelsArray.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -88,7 +104,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MXCommunityCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MXCommunityCell"];
-    
+    cell.model = self.modelsArray[indexPath.section];
     return cell;
 }
 
