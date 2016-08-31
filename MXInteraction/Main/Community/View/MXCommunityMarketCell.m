@@ -13,7 +13,6 @@
 - (void)awakeFromNib
 {
     self.uploadImage.contentMode = UIViewContentModeScaleAspectFit;
-    self.uploadImage.clipsToBounds = YES;
 }
 
 - (void)setModel:(MXCommunityMarketModel *)model

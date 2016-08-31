@@ -18,6 +18,10 @@
 #import "MXPersonalCenterVC.h"
 #import "MXCommunityControlVC.h"
 #import "MXO2OVC.h"
+#import "MXShareOpenVC.h"
+
+#import "MXHomeElevatorVC.h"
+#import "MXHomeServiceVC.h"
 
 #define MXHomeMenuHeight 220
 #define MXHomeBottomHeight 79
@@ -60,6 +64,7 @@
     // 监听cell中物业、电梯服务点击
     [MXNotificationCenterAccessor addObserver:self selector:@selector(houseSrv) name:MXNoti_Home_HouseSrv object:nil];
     [MXNotificationCenterAccessor addObserver:self selector:@selector(elevatorSrv) name:MXNoti_Home_ElevatorSrv object:nil];
+
 }
 
 - (void)dealloc
@@ -112,9 +117,9 @@
     tableView.tableHeaderView = ({
         UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MXScreen_Width, MXHomeMenuHeight + MXHomeCycleHeight)];
         
-        UIImage *image1 = [UIImage imageNamed:@"banner1.png"];
-        UIImage *image2 = [UIImage imageNamed:@"banner2.png"];
-        UIImage *image3 = [UIImage imageNamed:@"banner3.png"];
+        UIImage *image1 = [UIImage imageNamed:@"home_banner1.png"];
+        UIImage *image2 = [UIImage imageNamed:@"home_banner2.png"];
+        UIImage *image3 = [UIImage imageNamed:@"home_banner3.png"];
         NSMutableArray *imageArray = [NSMutableArray arrayWithObjects:image1, image2, image3, nil];
         
         // 顶部轮播图
@@ -170,12 +175,16 @@
 
 - (void)houseSrv
 {
-    NSLog(@"物业服务");
+    MXHomeServiceVC *serviceVC = [[MXHomeServiceVC alloc] init];
+    [self.navigationController pushViewController:serviceVC animated:YES];
 }
 
 - (void)elevatorSrv
 {
-    NSLog(@"电梯服务");
+    MXHomeElevatorVC *elevatorVC = [[MXHomeElevatorVC alloc] init];
+    elevatorVC.view.frame = CGRectMake(0, 0, MXScreen_Width, MXScreen_Height);
+    [MXApplicationAccessor.keyWindow addSubview:elevatorVC.view];
+    [self addChildViewController:elevatorVC];
 }
 
 #pragma mark - UITableViewDataSource
@@ -260,13 +269,32 @@
             // 智享体验
         case 6:
         {
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"检查到您的手机中尚未安装MohMoo智能家居，是否进行下载" preferredStyle:UIAlertControllerStyleAlert];
             
+            UIAlertAction *OKAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                NSString *str = [NSString stringWithFormat:
+                                 @"https://itunes.apple.com/cn/app/yi-bi-fen-ji-shi-zu-qiu-bi/id1044544499?mt=8"];
+                
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+            }];
+            
+            UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                
+            }];
+            
+            [alertController addAction:OKAction];
+            [alertController addAction:cancleAction];
+            
+            [self presentViewController:alertController animated:YES completion:^{
+                
+            }];
         }
             break;
             // 分享开门
         case 7:
         {
-            
+            MXShareOpenVC *shareOpenVC = [[MXShareOpenVC alloc] init];
+            [self.navigationController pushViewController:shareOpenVC animated:YES];
         }
             break;
         default:
