@@ -47,7 +47,7 @@
                             </mask>
                         </variation>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner1.png" translatesAutoresizingMaskIntoConstraints="NO" id="YR9-oL-oKp">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YR9-oL-oKp">
                         <rect key="frame" x="10" y="40" width="335" height="143.5"/>
                     </imageView>
                 </subviews>
@@ -84,7 +84,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="banner1.png" width="1083" height="500"/>
         <image name="icon_gray_indicator" width="15" height="15"/>
         <image name="icon_personal_bar0" width="20" height="20"/>
     </resources>

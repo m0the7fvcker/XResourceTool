@@ -33,7 +33,7 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner1.png" translatesAutoresizingMaskIntoConstraints="NO" id="lG4-HA-AqL">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lG4-HA-AqL">
                         <rect key="frame" x="5" y="30" width="310" height="123.5"/>
                     </imageView>
                 </subviews>
@@ -55,7 +55,4 @@
             <point key="canvasLocation" x="175" y="205.5"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="banner1.png" width="1083" height="500"/>
-    </resources>
 </document>
