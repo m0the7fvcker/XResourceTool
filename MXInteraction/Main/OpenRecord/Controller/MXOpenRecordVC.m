@@ -8,6 +8,12 @@
 
 #import "MXOpenRecordVC.h"
 
+#import "MXOpenRecordSectionHeader.h"
+#import "MXOpenRecordCell.h"
+
+static NSString *const openRecordCell = @"OpenRecordCell";
+static NSString *const openRecordSectionHeader = @"OpenRecordSectionHeader";
+
 @interface MXOpenRecordVC ()<UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, weak) UITableView *tableView;
@@ -23,7 +29,6 @@
     [self initNavBar];
     [self initUI];
     [self initConstraint];
-    
 }
 
 #pragma mark - 初始化方法
@@ -58,12 +63,32 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [[UITableViewCell alloc] init];
-    cell.textLabel.text = @"我是cell";
+    MXOpenRecordCell *cell = [tableView dequeueReusableCellWithIdentifier:@"openRecordCell"];
+    if (!cell) {
+        cell = [[MXOpenRecordCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"openRecordCell"];
+    }
     
     return cell;
 }
 #pragma mark - UITableViewDelegate
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    MXOpenRecordSectionHeader *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"openRecordSectionHeader"];
+    if (!headerView) {
+        headerView = [[MXOpenRecordSectionHeader alloc] initWithReuseIdentifier:@"openRecordSectionHeader"];
+    }
+    headerView.title = @"周一";
+    return headerView;
+}
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 20;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 49;
+}
 
 @end

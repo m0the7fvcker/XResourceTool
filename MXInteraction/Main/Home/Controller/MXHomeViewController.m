@@ -23,7 +23,7 @@
 #import "MXHomeElevatorVC.h"
 #import "MXHomeServiceVC.h"
 
-#define MXHomeMenuHeight 220
+#define MXHomeMenuHeight MXScreen_Width/2
 #define MXHomeBottomHeight 79
 #define MXHomeCycleHeight 230
 #define MXHomeCellHeight 192
@@ -56,7 +56,6 @@
     [self initNavBar];
     [self initUI];
     [self initConstraint];
-
 }
 
 - (void)addNotification
@@ -236,6 +235,7 @@
         case 1:
         {
             MXOpenRecordVC *recordVC = [[MXOpenRecordVC alloc] init];
+            recordVC.title = @"开门记录";
             [self.navigationController pushViewController:recordVC animated:YES];
         }
             break;
@@ -249,6 +249,7 @@
         case 3:
         {
             MXNoDisturbVC *noDisturbVC = [[MXNoDisturbVC alloc] init];
+            noDisturbVC.title = @"免打扰";
             [self.navigationController pushViewController:noDisturbVC animated:YES];
         }
             break;
@@ -256,6 +257,7 @@
         case 4:
         {
             MXCommunityControlVC *communityControlVC = [[MXCommunityControlVC alloc] init];
+            communityControlVC.title = @"社区互帮";
             [self.navigationController pushViewController:communityControlVC animated:YES];
         }
             break;
@@ -263,6 +265,7 @@
         case 5:
         {
             MXO2OVC *o2oVC = [[MXO2OVC alloc] init];
+            o2oVC.title = @"o2o商城";
             [self.navigationController pushViewController:o2oVC animated:YES];
         }
             break;
@@ -294,6 +297,7 @@
         case 7:
         {
             MXShareOpenVC *shareOpenVC = [[MXShareOpenVC alloc] init];
+            shareOpenVC.title = @"分享开门";
             [self.navigationController pushViewController:shareOpenVC animated:YES];
         }
             break;
@@ -306,7 +310,7 @@
 #pragma mark - SDCycleScrollViewDelegate代理方法
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index;
 {
-    NSLog(@"点击了%ld个按钮",index);
+    NSLog(@"点击了%ld个按钮",(long)index);
 }
 
 #pragma mark - 底部钥匙按钮点击

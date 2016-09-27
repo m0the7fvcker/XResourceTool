@@ -34,7 +34,7 @@
     self.tag = index;
     
     UIImageView *imageView = [[UIImageView alloc] init];
-    imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"icon_personal_bar%ld",index]];
+    imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"icon_personal_bar%ld",(long)index]];
     self.imageView = imageView;
     [self addSubview:imageView];
     

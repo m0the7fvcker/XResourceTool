@@ -33,7 +33,7 @@
     self.tag = index;
     
     UIImageView *imageView = [[UIImageView alloc] init];
-    imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"home_icon_%ld",index]];
+    imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"home_icon_%ld",(long)index]];
     self.imageView = imageView;
     [self addSubview:imageView];
     

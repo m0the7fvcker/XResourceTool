@@ -12,7 +12,7 @@
 
 - (void)awakeFromNib
 {
-    
+    [super awakeFromNib];
 }
 
 - (void)setModel:(MXCommunityModel *)model

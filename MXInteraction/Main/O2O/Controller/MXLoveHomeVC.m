@@ -249,6 +249,6 @@ NSString *const LoveHomeCell = @"LoveHomeCell";
 #pragma mark - SDCycleScrollViewDelegate代理方法
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index;
 {
-    NSLog(@"点击了%ld个按钮",index);
+    NSLog(@"点击了%ld个按钮",(long)index);
 }
 @end

@@ -12,4 +12,5 @@ target ‘MXInteraction’ do
   pod 'SDCycleScrollView', '~> 1.65'
   pod 'BHBPopView'
   pod 'SDWebImage', '~> 3.8.1'
+  pod 'Hyphenate_CN'
 end

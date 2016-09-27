@@ -22,32 +22,20 @@
 
 - (void)initUI
 {
-    self.view.backgroundColor = [UIColor mx_colorWithHexString:@"ececec"];
+    self.view.backgroundColor = [UIColor mx_colorWithHexString:@"f1f0f0"];
     
-    self.kongTiao.layer.cornerRadius = 2;
-    self.kongTiao.layer.borderWidth = 0.5;
-    self.kongTiao.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.descriptionView.layer.cornerRadius = 5;
+    self.descriptionView.layer.borderWidth = 0.5;
+    self.descriptionView.layer.borderColor = [UIColor mx_colorWithHexString:@"d2d2d2"].CGColor;
     
-    self.bingXiang.layer.cornerRadius = 2;
-    self.bingXiang.layer.borderWidth = 0.5;
-    self.bingXiang.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.cameraButton.layer.cornerRadius = 5;
+    self.cameraButton.layer.borderWidth = 0.5;
+    self.cameraButton.layer.borderColor = [UIColor mx_colorWithHexString:@"d2d2d2"].CGColor;
     
-    self.shuiGuan.layer.cornerRadius = 2;
-    self.shuiGuan.layer.borderWidth = 0.5;
-    self.shuiGuan.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.phoneNumberField.layer.cornerRadius = 5;
+    self.phoneNumberField.layer.borderWidth = 0.5;
+    self.phoneNumberField.layer.borderColor = [UIColor mx_colorWithHexString:@"d2d2d2"].CGColor;
     
-    self.wangLuo.layer.cornerRadius = 2;
-    self.wangLuo.layer.borderWidth = 0.5;
-    self.wangLuo.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    
-    self.louShui.layer.cornerRadius = 2;
-    self.louShui.layer.borderWidth = 0.5;
-    self.louShui.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    
-    self.qiTa.layer.cornerRadius = 2;
-    self.qiTa.layer.borderWidth = 0.5;
-    self.qiTa.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    
-    self.tiJiao.layer.cornerRadius = 5;
+    self.submitButton.layer.cornerRadius = 5;
 }
 @end

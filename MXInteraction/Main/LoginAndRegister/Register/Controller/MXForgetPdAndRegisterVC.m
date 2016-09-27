@@ -100,7 +100,7 @@
         return;
     }
     self.countDownSecond --;
-    self.countDownLabel.text = [NSString stringWithFormat:@"%ld秒后重发",self.countDownSecond];
+    self.countDownLabel.text = [NSString stringWithFormat:@"%ld秒后重发",(long)self.countDownSecond];
 }
 
 @end

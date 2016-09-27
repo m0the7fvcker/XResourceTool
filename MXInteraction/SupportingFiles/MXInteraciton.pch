@@ -9,20 +9,27 @@
 #ifndef MXInteraciton_pch
 #define MXInteraciton_pch
 
+// 宏
 #import "MXMacro_Func.h"
 #import "MXMacro_Key.h"
 
+// 分类
 #import "UIColor+MXCategory.h"
 #import "UIView+MXCategory.h"
 #import "UIImage+MXCategory.h"
 #import "UITabBarItem+MXCategory.h"
 #import "UIBarButtonItem+MXCategory.h"
-
-#import "MXBaseDataModel.h"
 #import "NSObject+MXExtension.h"
+
+// 常用
+#import "MXBaseDataModel.h"
+
+// 工具
 #import "MXLanguage.h"
+
+// 框架
 #import "Masonry.h"
-// Include any system framework and library headers here that should be included in all compilation units.
-// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#import "EMSDKFull.h"
+
 
 #endif /* MXInteraciton_pch */

@@ -32,7 +32,7 @@ static NSString *const noDisturbInnerId_Shield = @"MX_NoDisturbInner_Shield";
 #pragma mark - 初始化方法
 - (void)initUI
 {
-    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, MX_NAV_HEIGHT, MXScreen_Width, MXScreen_Height - MX_NAV_HEIGHT) style:UITableViewStylePlain];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, MXScreen_Width, MXScreen_Height - MX_NAV_HEIGHT) style:UITableViewStylePlain];
     tableView.dataSource   = self;
     tableView.delegate     = self;
     self.tableView         = tableView;

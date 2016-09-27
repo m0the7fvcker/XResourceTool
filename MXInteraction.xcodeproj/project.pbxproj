@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		13FAF037DE6177C0B7CF4CCA /* libPods-MXInteraction.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C67CA09F56570D3DA25D36D /* libPods-MXInteraction.a */; };
+		4D016BB71D9A4DBE002E9740 /* MXOpenRecordSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D016BB61D9A4DBE002E9740 /* MXOpenRecordSectionHeader.m */; };
+		4D016BBA1D9A531B002E9740 /* MXOpenRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D016BB91D9A531B002E9740 /* MXOpenRecordCell.m */; };
 		4D02B85D1D6567EF00EC6F8A /* MXHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D02B85C1D6567EF00EC6F8A /* MXHomeViewController.m */; };
 		4D02B8601D656C3800EC6F8A /* MXHomeHeaderMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D02B85F1D656C3800EC6F8A /* MXHomeHeaderMenu.m */; };
 		4D3DFA461D71910500E01F1B /* MXLoveHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3DFA451D71910500E01F1B /* MXLoveHomeVC.m */; };
@@ -116,6 +118,10 @@
 
 /* Begin PBXFileReference section */
 		4B1A254F1D211907BACDFD59 /* Pods-MXInteraction.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MXInteraction.release.xcconfig"; path = "Pods/Target Support Files/Pods-MXInteraction/Pods-MXInteraction.release.xcconfig"; sourceTree = "<group>"; };
+		4D016BB51D9A4DBE002E9740 /* MXOpenRecordSectionHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXOpenRecordSectionHeader.h; sourceTree = "<group>"; };
+		4D016BB61D9A4DBE002E9740 /* MXOpenRecordSectionHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXOpenRecordSectionHeader.m; sourceTree = "<group>"; };
+		4D016BB81D9A531B002E9740 /* MXOpenRecordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXOpenRecordCell.h; sourceTree = "<group>"; };
+		4D016BB91D9A531B002E9740 /* MXOpenRecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXOpenRecordCell.m; sourceTree = "<group>"; };
 		4D02B85B1D6567EF00EC6F8A /* MXHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXHomeViewController.h; sourceTree = "<group>"; };
 		4D02B85C1D6567EF00EC6F8A /* MXHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXHomeViewController.m; sourceTree = "<group>"; };
 		4D02B85E1D656C3800EC6F8A /* MXHomeHeaderMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXHomeHeaderMenu.h; sourceTree = "<group>"; };
@@ -517,6 +523,10 @@
 		4D02B84E1D65670000EC6F8A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4D016BB51D9A4DBE002E9740 /* MXOpenRecordSectionHeader.h */,
+				4D016BB61D9A4DBE002E9740 /* MXOpenRecordSectionHeader.m */,
+				4D016BB81D9A531B002E9740 /* MXOpenRecordCell.h */,
+				4D016BB91D9A531B002E9740 /* MXOpenRecordCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1183,11 +1193,12 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = MX;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = maRk;
 				TargetAttributes = {
 					4D6147EE1D63FF1400B3B093 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 32FQRLPEK3;
 					};
 					4D6148071D63FF1400B3B093 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -1341,6 +1352,7 @@
 				4DC565E41D6F188800C58564 /* MXCommunityModel.m in Sources */,
 				4D6148821D63FF9D00B3B093 /* UIImage+MXCategory.m in Sources */,
 				4DD15E901D6A9E70006D6E74 /* MXLaunchNFViewController.m in Sources */,
+				4D016BB71D9A4DBE002E9740 /* MXOpenRecordSectionHeader.m in Sources */,
 				4DC055621D6B09D30079658D /* MXHomeHeaderMenuBtn.m in Sources */,
 				4DC565E71D6F1E4500C58564 /* MXO2OVC.m in Sources */,
 				4D87CBDF1D701C8B002B25E4 /* MXO2OCommonModel.m in Sources */,
@@ -1364,6 +1376,7 @@
 				4D61487F1D63FF9D00B3B093 /* NSObject+MXExtension.m in Sources */,
 				4D61487B1D63FF9D00B3B093 /* MXBaseTabBarController.m in Sources */,
 				4D61488B1D63FF9D00B3B093 /* MXBaseDataModel.m in Sources */,
+				4D016BBA1D9A531B002E9740 /* MXOpenRecordCell.m in Sources */,
 				4D3DFA491D71913100E01F1B /* MXScoreMallVC.m in Sources */,
 				4D6148931D63FF9D00B3B093 /* YZFlowLayout.m in Sources */,
 				4DC565E11D6F187B00C58564 /* MXCommunityMarketModel.m in Sources */,
@@ -1426,8 +1439,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1470,8 +1485,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1500,6 +1517,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				DEVELOPMENT_TEAM = 32FQRLPEK3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MXInteraction/Extension/Vendors/JSPath",
@@ -1519,6 +1537,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				DEVELOPMENT_TEAM = 32FQRLPEK3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MXInteraction/Extension/Vendors/JSPath",

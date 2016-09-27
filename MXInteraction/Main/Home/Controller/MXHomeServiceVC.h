@@ -9,12 +9,9 @@
 #import "MXBaseViewController.h"
 
 @interface MXHomeServiceVC : MXBaseViewController
-@property (weak, nonatomic) IBOutlet UILabel *kongTiao;
-@property (weak, nonatomic) IBOutlet UILabel *bingXiang;
-@property (weak, nonatomic) IBOutlet UILabel *shuiGuan;
-@property (weak, nonatomic) IBOutlet UILabel *wangLuo;
-@property (weak, nonatomic) IBOutlet UILabel *louShui;
-@property (weak, nonatomic) IBOutlet UILabel *qiTa;
-@property (weak, nonatomic) IBOutlet UIButton *tiJiao;
+@property (weak, nonatomic) IBOutlet UITextView *descriptionView;
+@property (weak, nonatomic) IBOutlet UIButton *cameraButton;
+@property (weak, nonatomic) IBOutlet UIButton *submitButton;
+@property (weak, nonatomic) IBOutlet UITextField *phoneNumberField;
 
 @end
