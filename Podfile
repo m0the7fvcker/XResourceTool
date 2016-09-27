@@ -13,4 +13,5 @@ target ‘MXInteraction’ do
   pod 'BHBPopView'
   pod 'SDWebImage', '~> 3.8.1'
   pod 'Hyphenate_CN'
+  pod 'SVProgressHUD'
 end
