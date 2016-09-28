@@ -40,4 +40,32 @@
  */
 + (void)setHasLogin:(BOOL)hasLogin;
 
+/**
+ *  @brief 保存用户账户
+ *
+ *  @param account 用户账户
+ */
++ (void)saveUserAccount:(NSString *)account;
+
+/**
+ *  @brief 取出用户账户
+ *
+ *  @param account 用户账户
+ */
++ (NSString *)getUserAccount;
+
+/**
+ *  @brief 保存用户密码
+ *
+ *  @param account 用户密码
+ */
++ (void)saveUserPassword:(NSString *)password withAccount:(NSString *)account;
+
+/**
+ *  @brief 取出用户密码
+ *
+ *  @param account 用户密码
+ */
++ (NSString *)getUserPasswordWithAccount:(NSString *)account;
+
 @end

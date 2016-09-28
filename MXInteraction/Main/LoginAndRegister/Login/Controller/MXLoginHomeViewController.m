@@ -34,7 +34,7 @@
 #pragma mark - 初始化方法
 -(void)initUI
 {
-    self.logoImage.image = [UIImage imageNamed:@"login_logo"];
+    self.logoImage.image = [UIImage imageNamed:@"login_logo_hui"];
     
     self.registerButton.layer.cornerRadius = 5;
     self.registerButton.layer.borderWidth = 1;

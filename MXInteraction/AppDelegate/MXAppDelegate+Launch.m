@@ -40,11 +40,14 @@
     }
 }
 
-- (void)changeRootVC
+- (void)changeRootVC:(NSNotification *)noti
 {
+     NSDictionary *data = noti.userInfo[@"data"];
+    
     // 判断是否已经登录
     if ([MXComUserDefault hasLogin]) {
         MXHomeViewController *homeVC = [[MXHomeViewController alloc] init];
+        homeVC.data = data;
         MXBaseNavigationController *navC = [[MXBaseNavigationController alloc] initWithRootViewController:homeVC];
         self.window.rootViewController = navC;
         [self.window makeKeyAndVisible];
@@ -60,6 +63,6 @@
 
 - (void)addNotification
 {
-    [MXNotificationCenterAccessor addObserver:self selector:@selector(changeRootVC) name:MXNoti_Launch_ChangeVC object:nil];
+    [MXNotificationCenterAccessor addObserver:self selector:@selector(changeRootVC:) name:MXNoti_Launch_ChangeVC object:nil];
 }
 @end

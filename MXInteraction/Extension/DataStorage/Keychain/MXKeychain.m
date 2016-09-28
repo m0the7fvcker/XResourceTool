@@ -9,7 +9,7 @@
 #import "MXKeychain.h"
 #import <SSKeychain/SSKeychain.h>
 
-static NSString *MXKeychainServiceKey = @"com.13322.lawyer";
+static NSString *MXKeychainServiceKey = @"com.max1ao.mxinteraction";
 
 @implementation MXKeychain
 + (NSString *)passwordWithAccount:(NSString *)account{

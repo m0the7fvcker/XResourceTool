@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *codeTextField;
 @property (weak, nonatomic) IBOutlet UILabel *countDownLabel;
 @property (weak, nonatomic) IBOutlet UIButton *registerButton;
+@property (nonatomic, copy) NSString *phoneNumber;
 
 @end

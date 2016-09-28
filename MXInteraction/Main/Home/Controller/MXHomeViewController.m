@@ -23,6 +23,9 @@
 #import "MXHomeElevatorVC.h"
 #import "MXHomeServiceVC.h"
 
+#import "MXHttpRequest+LoginAndRegister.h"
+#import "MXComUserDefault.h"
+
 #define MXHomeMenuHeight MXScreen_Width/2
 #define MXHomeBottomHeight 79
 #define MXHomeCycleHeight 230
@@ -91,6 +94,7 @@
                         @"home_icon_5",
                         @"home_icon_6",
                         @"home_icon_7"];
+    [self makeRequest];
 }
 
 - (void)initNavBar
@@ -184,6 +188,18 @@
     elevatorVC.view.frame = CGRectMake(0, 0, MXScreen_Width, MXScreen_Height);
     [MXApplicationAccessor.keyWindow addSubview:elevatorVC.view];
     [self addChildViewController:elevatorVC];
+}
+
+- (void)makeRequest
+{
+    NSString *account = [MXComUserDefault getUserAccount];
+    NSString *password = [MXComUserDefault getUserPasswordWithAccount:account];
+    
+    [MXHttpRequest LoginWithPhoneNumber:account password:password appVersion:@"" success:^(NSDictionary * _Nonnull data) {
+        
+    } failure:^(NSError * _Nonnull error) {
+        
+    }];
 }
 
 #pragma mark - UITableViewDataSource

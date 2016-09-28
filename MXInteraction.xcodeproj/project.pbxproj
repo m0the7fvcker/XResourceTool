@@ -58,6 +58,11 @@
 		4D9CD0C81D640D9A000832D3 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9CD0C71D640D9A000832D3 /* libz.tbd */; };
 		4D9CD0CB1D6440D2000832D3 /* NSUserDefaults+MXCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9CD0CA1D6440D2000832D3 /* NSUserDefaults+MXCategory.m */; };
 		4D9D4C331D7538DC00BAA8EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D9D4C321D7538DC00BAA8EE /* Assets.xcassets */; };
+		4DB9BEA71D9B768D00B04036 /* MXHttpRequest+LoginAndRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB9BEA61D9B768D00B04036 /* MXHttpRequest+LoginAndRegister.m */; };
+		4DB9BEAA1D9BC9E900B04036 /* MXUserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB9BEA91D9BC9E900B04036 /* MXUserInfoModel.m */; };
+		4DB9BEAD1D9BCD2F00B04036 /* MXUserKeyBagModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB9BEAC1D9BCD2F00B04036 /* MXUserKeyBagModel.m */; };
+		4DB9BEB01D9BCDAC00B04036 /* MXUserRoomModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB9BEAF1D9BCDAC00B04036 /* MXUserRoomModel.m */; };
+		4DB9BEB31D9BCFF700B04036 /* MXHomeAdModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB9BEB21D9BCFF700B04036 /* MXHomeAdModel.m */; };
 		4DC0554C1D6AB6250079658D /* MXLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC0554A1D6AB6250079658D /* MXLoginViewController.m */; };
 		4DC0554D1D6AB6250079658D /* MXLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC0554B1D6AB6250079658D /* MXLoginViewController.xib */; };
 		4DC055551D6ADBFF0079658D /* MXForgetPdAndRegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC055531D6ADBFF0079658D /* MXForgetPdAndRegisterVC.m */; };
@@ -219,6 +224,16 @@
 		4D9CD0C91D6440D2000832D3 /* NSUserDefaults+MXCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+MXCategory.h"; sourceTree = "<group>"; };
 		4D9CD0CA1D6440D2000832D3 /* NSUserDefaults+MXCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+MXCategory.m"; sourceTree = "<group>"; };
 		4D9D4C321D7538DC00BAA8EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4DB9BEA51D9B768D00B04036 /* MXHttpRequest+LoginAndRegister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MXHttpRequest+LoginAndRegister.h"; sourceTree = "<group>"; };
+		4DB9BEA61D9B768D00B04036 /* MXHttpRequest+LoginAndRegister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MXHttpRequest+LoginAndRegister.m"; sourceTree = "<group>"; };
+		4DB9BEA81D9BC9E900B04036 /* MXUserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXUserInfoModel.h; sourceTree = "<group>"; };
+		4DB9BEA91D9BC9E900B04036 /* MXUserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXUserInfoModel.m; sourceTree = "<group>"; };
+		4DB9BEAB1D9BCD2F00B04036 /* MXUserKeyBagModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXUserKeyBagModel.h; sourceTree = "<group>"; };
+		4DB9BEAC1D9BCD2F00B04036 /* MXUserKeyBagModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXUserKeyBagModel.m; sourceTree = "<group>"; };
+		4DB9BEAE1D9BCDAC00B04036 /* MXUserRoomModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXUserRoomModel.h; sourceTree = "<group>"; };
+		4DB9BEAF1D9BCDAC00B04036 /* MXUserRoomModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXUserRoomModel.m; sourceTree = "<group>"; };
+		4DB9BEB11D9BCFF700B04036 /* MXHomeAdModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXHomeAdModel.h; sourceTree = "<group>"; };
+		4DB9BEB21D9BCFF700B04036 /* MXHomeAdModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXHomeAdModel.m; sourceTree = "<group>"; };
 		4DC055491D6AB6250079658D /* MXLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXLoginViewController.h; sourceTree = "<group>"; };
 		4DC0554A1D6AB6250079658D /* MXLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXLoginViewController.m; sourceTree = "<group>"; };
 		4DC0554B1D6AB6250079658D /* MXLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MXLoginViewController.xib; sourceTree = "<group>"; };
@@ -321,6 +336,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D016BBB1D9B60F4002E9740 /* Unility */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Unility;
+			sourceTree = "<group>";
+		};
 		4D02B8371D65670000EC6F8A /* Authorization(授权管理) */ = {
 			isa = PBXGroup;
 			children = (
@@ -673,6 +695,7 @@
 		4D6148171D63FF9D00B3B093 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				4D016BBB1D9B60F4002E9740 /* Unility */,
 				4D6148181D63FF9D00B3B093 /* Base */,
 				4D6148231D63FF9D00B3B093 /* Category */,
 				4D6148321D63FF9D00B3B093 /* Common */,
@@ -809,6 +832,8 @@
 				4D61484C1D63FF9D00B3B093 /* MXRequestModel.m */,
 				4D61484D1D63FF9D00B3B093 /* MXResponseModel.h */,
 				4D61484E1D63FF9D00B3B093 /* MXResponseModel.m */,
+				4DB9BEA51D9B768D00B04036 /* MXHttpRequest+LoginAndRegister.h */,
+				4DB9BEA61D9B768D00B04036 /* MXHttpRequest+LoginAndRegister.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -896,6 +921,14 @@
 		4D6148601D63FF9D00B3B093 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4DB9BEA81D9BC9E900B04036 /* MXUserInfoModel.h */,
+				4DB9BEA91D9BC9E900B04036 /* MXUserInfoModel.m */,
+				4DB9BEAB1D9BCD2F00B04036 /* MXUserKeyBagModel.h */,
+				4DB9BEAC1D9BCD2F00B04036 /* MXUserKeyBagModel.m */,
+				4DB9BEAE1D9BCDAC00B04036 /* MXUserRoomModel.h */,
+				4DB9BEAF1D9BCDAC00B04036 /* MXUserRoomModel.m */,
+				4DB9BEB11D9BCFF700B04036 /* MXHomeAdModel.h */,
+				4DB9BEB21D9BCFF700B04036 /* MXHomeAdModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1329,6 +1362,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DB9BEB01D9BCDAC00B04036 /* MXUserRoomModel.m in Sources */,
 				4DC565D71D6F136500C58564 /* MXCommunityMarketCell.m in Sources */,
 				4D3DFA501D71965300E01F1B /* MXLoveHomeCell.m in Sources */,
 				4DC055681D6BF0A60079658D /* MXHomeServiceBtn.m in Sources */,
@@ -1346,6 +1380,8 @@
 				4D6148921D63FF9D00B3B093 /* YZDisplayViewController.m in Sources */,
 				4DF8313B1D73E9360073B7DE /* MXScoreMallCell.m in Sources */,
 				4DD15E8D1D6A97D4006D6E74 /* MXLaunchADViewController.m in Sources */,
+				4DB9BEB31D9BCFF700B04036 /* MXHomeAdModel.m in Sources */,
+				4DB9BEAD1D9BCD2F00B04036 /* MXUserKeyBagModel.m in Sources */,
 				4D6148811D63FF9D00B3B093 /* UIColor+MXCategory.m in Sources */,
 				4DC565D41D6EEDF500C58564 /* MXCommunityVC.m in Sources */,
 				4DF7D6661D66E86D00A1FD4F /* MXNoDisturbInnerVC.m in Sources */,
@@ -1358,6 +1394,7 @@
 				4D87CBDF1D701C8B002B25E4 /* MXO2OCommonModel.m in Sources */,
 				4DCC0C511D76830100F681C9 /* MXHomeElevatorVC.m in Sources */,
 				4DCC0C561D7685FB00F681C9 /* MXHomeServiceVC.m in Sources */,
+				4DB9BEAA1D9BC9E900B04036 /* MXUserInfoModel.m in Sources */,
 				4D6148841D63FF9D00B3B093 /* UITabBarItem+MXCategory.m in Sources */,
 				4D3DFA461D71910500E01F1B /* MXLoveHomeVC.m in Sources */,
 				4DC565DA1D6F137400C58564 /* MXCommunityCell.m in Sources */,
@@ -1378,6 +1415,7 @@
 				4D61488B1D63FF9D00B3B093 /* MXBaseDataModel.m in Sources */,
 				4D016BBA1D9A531B002E9740 /* MXOpenRecordCell.m in Sources */,
 				4D3DFA491D71913100E01F1B /* MXScoreMallVC.m in Sources */,
+				4DB9BEA71D9B768D00B04036 /* MXHttpRequest+LoginAndRegister.m in Sources */,
 				4D6148931D63FF9D00B3B093 /* YZFlowLayout.m in Sources */,
 				4DC565E11D6F187B00C58564 /* MXCommunityMarketModel.m in Sources */,
 				4D61489A1D63FF9D00B3B093 /* MXTextField.m in Sources */,

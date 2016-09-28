@@ -27,7 +27,7 @@
 #pragma mark - 主页
 + (NSString * _Nonnull)host
 {
-    return @"http://localhost:6888";
+    return @"http://120.76.216.204/";
 }
 
 #pragma mark - 公共参数
@@ -54,7 +54,7 @@
 + (NSDictionary *)requestParams:(NSDictionary *)params
 {
     NSMutableDictionary *dic = [[NSMutableDictionary alloc]initWithDictionary:params];
-    [dic setDictionary:[self publicInputParams]];
+    [dic  setValuesForKeysWithDictionary:[self publicInputParams]];
     return dic;
 }
 
@@ -76,12 +76,14 @@
     AFHTTPResponseSerializer *httpResponse = [self getResponseSerializer:responseType];
     AFHTTPSessionManager *manager = [self manager];
     manager.responseSerializer = httpResponse;
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
     NSString *requestUrl = [self requestUrl:url];
     NSDictionary *requestParams = [self requestParams:params];
     NSURLSessionDataTask *task = [manager POST:requestUrl parameters:requestParams progress:progress success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        MXBaseDataModel *baseModel = nil;
+        MXBaseDataModel *baseModel = [[MXBaseDataModel alloc] init];
         if ([responseObject isKindOfClass:[NSDictionary class]]) {
-            baseModel = [MXBaseDataModel mx_objectWithKeyValues:responseObject];
+//            baseModel = [MXBaseDataModel mx_objectWithKeyValues:responseObject];
+            baseModel.data = responseObject;
         }else{
             baseModel = [[MXBaseDataModel alloc]init];
             baseModel.code = MXRequestCode_Fail;
@@ -118,9 +120,10 @@
     NSString *requestUrl = [self requestUrl:url];
     NSDictionary *requestParams = [self requestParams:params];
     NSURLSessionDataTask *task = [manager GET:requestUrl parameters:requestParams progress:progress success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        MXBaseDataModel *baseModel = nil;
+        MXBaseDataModel *baseModel = [[MXBaseDataModel alloc] init];
         if ([responseObject isKindOfClass:[NSDictionary class]]) {
-            baseModel = [MXBaseDataModel mx_objectWithKeyValues:responseObject];
+//            baseModel = [MXBaseDataModel mx_objectWithKeyValues:responseObject];
+            baseModel.data = responseObject;
         }else{
             baseModel = [[MXBaseDataModel alloc]init];
             baseModel.code = MXRequestCode_Fail;

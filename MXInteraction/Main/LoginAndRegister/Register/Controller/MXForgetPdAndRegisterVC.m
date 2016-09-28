@@ -10,6 +10,7 @@
 #import "MXHomeViewController.h"
 
 #import "MXComUserDefault.h"
+#import "MXHttpRequest+LoginAndRegister.h"
 
 @interface MXForgetPdAndRegisterVC ()
 
@@ -39,6 +40,7 @@
     [self initUI];
     [self addTapGesture];
     [self startCountdown];
+    [self getVerifyCode];
 }
 
 #pragma mark - 初始化方法
@@ -69,6 +71,20 @@
 }
 
 #pragma mark - 内部方法
+- (void)getVerifyCode
+{
+    // 获取验证码
+    [MXHttpRequest GetVerifyCodeWithPhoneNumber:self.phoneNumber success:^(NSInteger result) {
+        if (result == 000000) {
+            NSLog(@"发送验证码成功");
+        }else {
+            NSLog(@"发送验证码失败");
+        }
+    } failure:^(NSError * _Nonnull error) {
+        NSLog(@"发送验证码失败");
+    }];
+}
+
 - (void)startCountdown
 {
     if (!self.hasSentMesg) {
@@ -83,9 +99,26 @@
 {
     // 修改登录状态
 //    [MXComUserDefault setHasLogin:YES];
-    
-    MXHomeViewController *homeVC = [[MXHomeViewController alloc] init];
-    [self.navigationController pushViewController:homeVC animated:YES];
+    NSString *code = self.codeTextField.text;
+    NSString *password = self.phoneTextField.text;
+    [MXHttpRequest RegisterNewUserWithPhoneNumber:self.phoneNumber vierifyCode:code password:password success:^(NSInteger result) {
+        if (result == 000000) {
+            NSLog(@"注册成功");
+//            MXHomeViewController *homeVC = [[MXHomeViewController alloc] init];
+//            [self.navigationController pushViewController:homeVC animated:YES];
+            // 修改登录状态
+            [MXComUserDefault setHasLogin:YES];
+            // 保存账户到本地
+            [MXComUserDefault saveUserAccount:self.phoneNumber];
+            // 保存密码到本地
+            [MXComUserDefault saveUserPassword:password withAccount:self.phoneNumber];
+            [MXNotificationCenterAccessor postNotificationName:MXNoti_Launch_ChangeVC object:nil];
+        }else {
+            NSLog(@"注册失败");
+        }
+    } failure:^(NSError * _Nonnull error) {
+        NSLog(@"注册失败");
+    }];
 }
 
 - (void)countDown

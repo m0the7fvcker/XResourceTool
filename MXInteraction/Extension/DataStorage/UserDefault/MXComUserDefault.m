@@ -7,9 +7,11 @@
 //
 
 #import "MXComUserDefault.h"
+#import "MXKeychain.h"
 
 static NSString *MXUserDefault_IsFristLaunch = @"isFristLaunch";
 static NSString *MXUserDefault_HasLogin = @"userHasLogin";
+static NSString *MXUserDefault_UserAccount = @"userAccount";
 
 @implementation MXComUserDefault
 
@@ -34,4 +36,26 @@ static NSString *MXUserDefault_HasLogin = @"userHasLogin";
     [MXUDStandard setBool:hasLogin forKey:MXUserDefault_HasLogin];
     [MXUDStandard synchronize];
 }
+
++ (void)saveUserAccount:(NSString *)account
+{
+    [MXUDStandard setObject:account forKey:MXUserDefault_UserAccount];
+    [MXUDStandard synchronize];
+}
+
++ (NSString *)getUserAccount
+{
+    return [MXUDStandard objectForKey:MXUserDefault_UserAccount];
+}
+
++ (void)saveUserPassword:(NSString *)password withAccount:(NSString *)account
+{
+    [MXKeychain setPassword:password account:account];
+}
+
++ (NSString *)getUserPasswordWithAccount:(NSString *)account
+{
+    return [MXKeychain passwordWithAccount:account];
+}
+
 @end
