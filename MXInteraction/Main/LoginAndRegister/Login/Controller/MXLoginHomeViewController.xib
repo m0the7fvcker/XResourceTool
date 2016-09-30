@@ -61,6 +61,7 @@
                         <constraint firstAttribute="height" constant="30" id="Zmc-uG-edD"/>
                         <constraint firstAttribute="width" constant="60" id="kMD-KZ-MH7"/>
                     </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" title="体验登录"/>
                     <connections>
                         <action selector="tasteLogin:" destination="-1" eventType="touchUpInside" id="gFn-eg-KSf"/>

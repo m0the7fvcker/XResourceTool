@@ -17,7 +17,7 @@
  @return 返回MXRequestModel
  */
 +(nullable MXRequestModel *)GetVerifyCodeWithPhoneNumber:(NSString * _Nonnull)phoneNumber
-                                                 success:(nullable void(^)(NSInteger result))success
+                                                 success:(nullable void(^)(MXBaseDataModel * _Nonnull responseModel))success
                                                  failure:(nullable void(^)(NSError *     _Nonnull error))failure;
 
 /**
@@ -32,7 +32,7 @@
 +(nullable MXRequestModel *)RegisterNewUserWithPhoneNumber:(NSString * _Nonnull)phoneNumber
                                                vierifyCode:(NSString * _Nonnull)code
                                                   password:(NSString * _Nonnull)password
-                                                   success:(nullable void(^)(NSInteger result))success
+                                                   success:(nullable void(^)(MXBaseDataModel * _Nonnull responseModel))success
                                                    failure:(nullable void(^)(NSError * _Nonnull error))failure;
 
 
@@ -48,6 +48,6 @@
 +(nullable MXRequestModel *)LoginWithPhoneNumber:(NSString * _Nonnull)phoneNumber
                                         password:(NSString * _Nonnull)password
                                       appVersion:(NSString * _Nonnull)appVersion
-                                         success:(nullable void(^)(NSDictionary * _Nonnull data))success
+                                         success:(nullable void(^)(MXBaseDataModel * _Nonnull responseModel))success
                                          failure:(nullable void(^)(NSError * _Nonnull error))failure;
 @end

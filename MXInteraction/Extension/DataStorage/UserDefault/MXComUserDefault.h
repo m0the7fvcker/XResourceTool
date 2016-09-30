@@ -59,7 +59,7 @@
  *
  *  @param account 用户密码
  */
-+ (void)saveUserPassword:(NSString *)password withAccount:(NSString *)account;
++ (BOOL)saveUserPassword:(NSString *)password withAccount:(NSString *)account;
 
 /**
  *  @brief 取出用户密码

@@ -9,8 +9,10 @@
 #import "MXBaseViewController.h"
 
 @interface MXLoginViewController : MXBaseViewController
+
 @property (weak, nonatomic) IBOutlet UITextField *accountTF;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTF;
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
 @property (weak, nonatomic) IBOutlet UIButton *forgetBtn;
+
 @end

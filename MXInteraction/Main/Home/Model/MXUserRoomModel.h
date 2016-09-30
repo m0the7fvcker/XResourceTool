@@ -10,8 +10,8 @@
 
 @interface MXUserRoomModel : NSObject
 
-@property (nonatomic, strong) NSString *communityName;
-@property (nonatomic, strong) NSString *roomName;
-@property (nonatomic, strong) NSString *roomId;
+@property (nonatomic, copy) NSString *communityName;
+@property (nonatomic, copy) NSString *roomName;
+@property (nonatomic, copy) NSString *roomId;
 
 @end

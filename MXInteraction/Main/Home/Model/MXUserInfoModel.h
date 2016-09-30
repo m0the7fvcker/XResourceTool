@@ -7,21 +7,37 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MXHomeAdModel.h"
 
 @interface MXUserInfoModel : NSObject
 
-@property (nonatomic, strong) NSString *secretKey;
-@property (nonatomic, strong) NSString *headSculpture;
-@property (nonatomic, strong) NSString *imPassword;
-@property (nonatomic, strong) NSString *imKey;
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSString *role;
+/** 密钥 */
+@property (nonatomic, copy) NSString *secretKey;
+/** 头像 */
+@property (nonatomic, copy) NSString *headSculpture;
+/** IM密码 */
+@property (nonatomic, copy) NSString *imPassword;
+/** IM用户名 */
+@property (nonatomic, copy) NSString *imKey;
+/** 用户姓名 */
+@property (nonatomic, copy) NSString *name;
+/** 用户角色 */
+@property (nonatomic, copy) NSString *role;
+/** 授权房间列表 */
 @property (nonatomic, strong) NSArray *roomList;
-@property (nonatomic, strong) NSString *roomName;
+/** 当前房间名字 */
+@property (nonatomic, copy) NSString *roomName;
+/** 该房间的钥匙包 */
 @property (nonatomic, strong) NSArray *myKeyBag;
-@property (nonatomic, strong) NSString *qrCode;
-@property (nonatomic, strong) NSString *communityName;
-@property (nonatomic, strong) NSString *server;
-@property (nonatomic, strong) NSString *advertisement;
+/** 授权二维码 */
+@property (nonatomic, copy) NSString *qrCode;
+/** 小区名称 */
+@property (nonatomic, copy) NSString *communityName;
+/** 服务器地址 */
+@property (nonatomic, copy) NSString *server;
+/** APP更新信息 */
+@property (nonatomic, copy) NSString *upgrade;
+/** 广告图片 */
+@property (nonatomic, strong) MXHomeAdModel *advertisement;
 
 @end

@@ -74,7 +74,8 @@
 - (void)getVerifyCode
 {
     // 获取验证码
-    [MXHttpRequest GetVerifyCodeWithPhoneNumber:self.phoneNumber success:^(NSInteger result) {
+    [MXHttpRequest GetVerifyCodeWithPhoneNumber:self.phoneNumber success:^(MXBaseDataModel * _Nonnull responseModel) {
+        NSInteger result = responseModel.status;
         if (result == 000000) {
             NSLog(@"发送验证码成功");
         }else {
@@ -101,23 +102,30 @@
 //    [MXComUserDefault setHasLogin:YES];
     NSString *code = self.codeTextField.text;
     NSString *password = self.phoneTextField.text;
-    [MXHttpRequest RegisterNewUserWithPhoneNumber:self.phoneNumber vierifyCode:code password:password success:^(NSInteger result) {
+    
+    [MXProgressHUD showMessage:@"正在注册" toView:self.view];
+    MXWeakSelf;
+    [MXHttpRequest RegisterNewUserWithPhoneNumber:self.phoneNumber vierifyCode:code password:password success:^(MXBaseDataModel * _Nonnull responseModel) {
+        NSInteger result = responseModel.status;
+        [MXProgressHUD hideHUDForView:weakSelf.view animated:YES];
         if (result == 000000) {
             NSLog(@"注册成功");
-//            MXHomeViewController *homeVC = [[MXHomeViewController alloc] init];
-//            [self.navigationController pushViewController:homeVC animated:YES];
+            [MXProgressHUD showSuccess:@"注册成功" toView:weakSelf.view];
             // 修改登录状态
             [MXComUserDefault setHasLogin:YES];
             // 保存账户到本地
-            [MXComUserDefault saveUserAccount:self.phoneNumber];
+            [MXComUserDefault saveUserAccount:weakSelf.phoneNumber];
             // 保存密码到本地
-            [MXComUserDefault saveUserPassword:password withAccount:self.phoneNumber];
+            [MXComUserDefault saveUserPassword:password withAccount:weakSelf.phoneNumber];
             [MXNotificationCenterAccessor postNotificationName:MXNoti_Launch_ChangeVC object:nil];
         }else {
             NSLog(@"注册失败");
+            [MXProgressHUD showSuccess:@"注册失败" toView:weakSelf.view];
         }
     } failure:^(NSError * _Nonnull error) {
         NSLog(@"注册失败");
+        [MXProgressHUD hideHUDForView:weakSelf.view animated:YES];
+        [MXProgressHUD showSuccess:@"注册失败" toView:weakSelf.view];
     }];
 }
 

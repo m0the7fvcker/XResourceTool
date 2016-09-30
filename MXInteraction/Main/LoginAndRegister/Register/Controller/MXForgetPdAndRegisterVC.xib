@@ -26,7 +26,7 @@
                         <constraint firstAttribute="height" constant="40" id="kDp-U1-XMV"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                     <variation key="default">
                         <mask key="constraints">
                             <exclude reference="Kq5-eN-Qlt"/>
@@ -92,7 +92,7 @@
                 <constraint firstItem="d9s-ZK-WJJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="rPU-XM-NnG"/>
                 <constraint firstItem="UaH-gg-aZk" firstAttribute="top" secondItem="wW2-3n-7AB" secondAttribute="bottom" constant="20" id="uJN-Ro-fWX"/>
             </constraints>
-            <point key="canvasLocation" x="-258" y="-90"/>
+            <point key="canvasLocation" x="-37" y="-181"/>
         </view>
     </objects>
 </document>

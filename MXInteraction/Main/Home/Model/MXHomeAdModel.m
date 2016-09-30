@@ -7,7 +7,12 @@
 //
 
 #import "MXHomeAdModel.h"
+#import "MXHomeBannerModel.h"
 
 @implementation MXHomeAdModel
 
++(NSDictionary *)mj_objectClassInArray{
+    return @{@"bannerPic":[MXHomeBannerModel class],
+             };
+}
 @end

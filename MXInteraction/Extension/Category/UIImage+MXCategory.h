@@ -37,4 +37,13 @@
  *  @return 旋转后图片
  */
 + (UIImage *)mx_image:(UIImage *)image rotation:(UIImageOrientation)orientatio;
+
+/**
+ *  拉伸图片
+ *
+ *  @param image      需要拉伸的图片
+ *
+ *  @return 拉伸后的图片
+ */
++ (UIImage *)mx_resizingImageWithName:(UIImage *)image;
 @end

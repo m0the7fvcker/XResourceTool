@@ -90,4 +90,17 @@
     
     return newPic;
 }
+
+
+/**
+ *  拉伸图片
+ */
++ (UIImage *)mx_resizingImageWithName:(UIImage *)image
+{
+    CGFloat w = image.size.width * 0.5;
+    CGFloat h = image.size.height * 0.5;
+    
+    return [image resizableImageWithCapInsets:UIEdgeInsetsMake(h, w, h, w)];
+}
+
 @end

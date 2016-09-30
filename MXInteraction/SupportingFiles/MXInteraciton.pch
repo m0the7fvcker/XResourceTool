@@ -26,6 +26,7 @@
 
 // 工具
 #import "MXLanguage.h"
+#import "MXProgressHUD.h"
 
 // 框架
 #import "Masonry.h"

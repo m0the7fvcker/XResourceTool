@@ -48,9 +48,9 @@ static NSString *MXUserDefault_UserAccount = @"userAccount";
     return [MXUDStandard objectForKey:MXUserDefault_UserAccount];
 }
 
-+ (void)saveUserPassword:(NSString *)password withAccount:(NSString *)account
++ (BOOL)saveUserPassword:(NSString *)password withAccount:(NSString *)account
 {
-    [MXKeychain setPassword:password account:account];
+    return [MXKeychain setPassword:password account:account];
 }
 
 + (NSString *)getUserPasswordWithAccount:(NSString *)account

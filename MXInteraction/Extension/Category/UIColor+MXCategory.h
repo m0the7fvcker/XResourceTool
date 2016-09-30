@@ -28,6 +28,7 @@
  **/
 
 + (UIColor *)mx_colorWithHexString:(NSString *)hexString alpha:(CGFloat)alpha;
+
 /**
  *  返回随机色
  */

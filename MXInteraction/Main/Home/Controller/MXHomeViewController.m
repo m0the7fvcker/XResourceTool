@@ -25,6 +25,8 @@
 
 #import "MXHttpRequest+LoginAndRegister.h"
 #import "MXComUserDefault.h"
+#import "MXUserInfoModel.h"
+#import "MXHomeBannerModel.h"
 
 #define MXHomeMenuHeight MXScreen_Width/2
 #define MXHomeBottomHeight 79
@@ -45,10 +47,25 @@
 @property (nonatomic, strong) NSArray *menuTitles;
 /** 菜单按钮图片数组 */
 @property (nonatomic, strong) NSArray *menuImages;
+/** 用户信息模型 */
+@property (nonatomic, strong) MXUserInfoModel *userInfoModel;
+/** 轮播图图片数组 */
+@property (nonatomic, strong) NSMutableArray *bannersArray;
+/** 顶部header */
+@property (nonatomic, strong) UIView *headerView;
 
 @end
 
 @implementation MXHomeViewController
+
+#pragma mark - 懒加载
+- (NSMutableArray *)bannersArray
+{
+    if (!_bannersArray) {
+        _bannersArray = [NSMutableArray array];
+    }
+    return _bannersArray;
+}
 
 #pragma mark - 控制器方法
 - (void)viewDidLoad
@@ -61,12 +78,16 @@
     [self initConstraint];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self makeRequest];
+}
+
 - (void)addNotification
 {
     // 监听cell中物业、电梯服务点击
     [MXNotificationCenterAccessor addObserver:self selector:@selector(houseSrv) name:MXNoti_Home_HouseSrv object:nil];
     [MXNotificationCenterAccessor addObserver:self selector:@selector(elevatorSrv) name:MXNoti_Home_ElevatorSrv object:nil];
-
 }
 
 - (void)dealloc
@@ -94,7 +115,6 @@
                         @"home_icon_5",
                         @"home_icon_6",
                         @"home_icon_7"];
-    [self makeRequest];
 }
 
 - (void)initNavBar
@@ -120,29 +140,13 @@
     tableView.tableHeaderView = ({
         UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MXScreen_Width, MXHomeMenuHeight + MXHomeCycleHeight)];
         
-        UIImage *image1 = [UIImage imageNamed:@"home_banner1.png"];
-        UIImage *image2 = [UIImage imageNamed:@"home_banner2.png"];
-        UIImage *image3 = [UIImage imageNamed:@"home_banner3.png"];
-        NSMutableArray *imageArray = [NSMutableArray arrayWithObjects:image1, image2, image3, nil];
-        
-        // 顶部轮播图
-        SDCycleScrollView *cycleView         = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, MXScreen_Width, MXHomeCycleHeight) imageNamesGroup:imageArray];
-        cycleView.bannerImageViewContentMode = UIViewContentModeScaleToFill;
-        cycleView.autoScrollTimeInterval     = 3.0f;
-        cycleView.pageControlStyle           = SDCycleScrollViewPageContolStyleClassic;
-        cycleView.delegate                   = self;
-        cycleView.pageControlAliment         = SDCycleScrollViewPageContolAlimentRight;
-        cycleView.titleLabelHeight           = 23.0f;
-        cycleView.titleLabelBackgroundColor  = [UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.3f];
-        [headerView addSubview:cycleView];
-        
         // 菜单按钮
         MXHomeHeaderMenu *menuView = [[MXHomeHeaderMenu alloc] initWithFrame:CGRectMake(0, MXHomeCycleHeight, MXScreen_Width, MXHomeMenuHeight) withButtonTitles:self.menuTitles andButtonImages:self.menuImages];
         menuView.backgroundColor   = [UIColor whiteColor];
         menuView.delegate          = self;
         self.headerMenu            = menuView;
         [headerView addSubview:menuView];
-        
+        self.headerView = headerView;
         headerView;
     });
     self.tableView = tableView;
@@ -165,23 +169,37 @@
 }
 
 #pragma mark - 内部方法
+
+/**
+ 个人中心
+ */
 - (void)personalCenterClick
 {
     MXPersonalCenterVC *personCenterVC = [[MXPersonalCenterVC alloc] init];
     [self.navigationController pushViewController:personCenterVC animated:YES];
 }
 
+
+/**
+ 消息
+ */
 - (void)messageClick
 {
     
 }
 
+/**
+ 物业服务
+ */
 - (void)houseSrv
 {
     MXHomeServiceVC *serviceVC = [[MXHomeServiceVC alloc] init];
     [self.navigationController pushViewController:serviceVC animated:YES];
 }
 
+/**
+ 呼叫电梯
+ */
 - (void)elevatorSrv
 {
     MXHomeElevatorVC *elevatorVC = [[MXHomeElevatorVC alloc] init];
@@ -190,16 +208,69 @@
     [self addChildViewController:elevatorVC];
 }
 
+/**
+ 请求获得用户信息
+ */
 - (void)makeRequest
 {
     NSString *account = [MXComUserDefault getUserAccount];
     NSString *password = [MXComUserDefault getUserPasswordWithAccount:account];
     
-    [MXHttpRequest LoginWithPhoneNumber:account password:password appVersion:@"" success:^(NSDictionary * _Nonnull data) {
-        
+    MXWeakSelf;
+    [MXHttpRequest LoginWithPhoneNumber:account password:@"123456" appVersion:@"1-1" success:^(MXBaseDataModel * _Nonnull responseModel) {
+        if (responseModel.status == MXRequestCode_Success) {
+            NSLog(@"请求成功");
+            weakSelf.userInfoModel = [MXUserInfoModel mx_objectWithKeyValues:responseModel.data];
+            // 获取轮播图
+            [weakSelf getBannersAndRefreshWithUserInfo:weakSelf.userInfoModel];
+            // 更新头部
+            [weakSelf updateTableViewHeader];
+        }
     } failure:^(NSError * _Nonnull error) {
-        
+        NSLog(@"请求失败");
     }];
+}
+
+/**
+ 请求道轮播图数据后再添加图片
+ */
+- (void)updateTableViewHeader
+{
+//        UIImage *image1 = [UIImage imageNamed:@"home_banner1.png"];
+//        UIImage *image2 = [UIImage imageNamed:@"home_banner2.png"];
+//        UIImage *image3 = [UIImage imageNamed:@"home_banner3.png"];
+//        NSMutableArray *imageArray = [NSMutableArray arrayWithObjects:image1, image2, image3, nil];
+    
+    // 顶部轮播图
+    SDCycleScrollView *cycleView         = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, MXScreen_Width, MXHomeCycleHeight) imageURLStringsGroup:self.bannersArray];
+    cycleView.bannerImageViewContentMode = UIViewContentModeScaleToFill;
+    cycleView.autoScrollTimeInterval     = 3.0f;
+    cycleView.pageControlStyle           = SDCycleScrollViewPageContolStyleClassic;
+    cycleView.delegate                   = self;
+    cycleView.pageControlAliment         = SDCycleScrollViewPageContolAlimentRight;
+    cycleView.titleLabelHeight           = 23.0f;
+    cycleView.titleLabelBackgroundColor  = [UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.3f];
+    [self.headerView addSubview:cycleView];
+}
+
+/**
+ 拼接获得轮播图数组并刷新
+
+ @param userInfo 用户信息
+ */
+- (void)getBannersAndRefreshWithUserInfo:(MXUserInfoModel *)userInfo
+{
+    // 服务器地址
+    NSString *server = userInfo.server;
+    // 文件夹地址
+    NSString *folder = [NSString stringWithFormat:@"%@/",userInfo.advertisement.folder];
+    // 拼接地址
+    NSString *urlString = [server stringByAppendingString:folder];
+    
+    for (MXHomeBannerModel *bannerModel in userInfo.advertisement.bannerPic) {
+        NSString *fullUrl = [urlString stringByAppendingString:bannerModel.name];
+        [self.bannersArray addObject:fullUrl];
+    }
 }
 
 #pragma mark - UITableViewDataSource
@@ -350,8 +421,6 @@
                 
             }
      ];
-
-
 }
 
 @end

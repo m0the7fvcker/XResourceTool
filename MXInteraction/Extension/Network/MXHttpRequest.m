@@ -80,14 +80,13 @@
     NSString *requestUrl = [self requestUrl:url];
     NSDictionary *requestParams = [self requestParams:params];
     NSURLSessionDataTask *task = [manager POST:requestUrl parameters:requestParams progress:progress success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        MXBaseDataModel *baseModel = [[MXBaseDataModel alloc] init];
+        MXBaseDataModel *baseModel = nil;
         if ([responseObject isKindOfClass:[NSDictionary class]]) {
-//            baseModel = [MXBaseDataModel mx_objectWithKeyValues:responseObject];
-            baseModel.data = responseObject;
+            baseModel = [MXBaseDataModel mx_objectWithKeyValues:responseObject];
         }else{
             baseModel = [[MXBaseDataModel alloc]init];
-            baseModel.code = MXRequestCode_Fail;
-            baseModel.msg = MXLocalized(RequestFail);
+            baseModel.status = MXRequestCode_Fail;
+            baseModel.timestamp = 999999;
         }
         MXResponseModel *responseModel = [MXResponseModel newWithTask:task baseModel:baseModel];
         success(responseModel);
@@ -120,14 +119,13 @@
     NSString *requestUrl = [self requestUrl:url];
     NSDictionary *requestParams = [self requestParams:params];
     NSURLSessionDataTask *task = [manager GET:requestUrl parameters:requestParams progress:progress success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        MXBaseDataModel *baseModel = [[MXBaseDataModel alloc] init];
+        MXBaseDataModel *baseModel = nil;
         if ([responseObject isKindOfClass:[NSDictionary class]]) {
-//            baseModel = [MXBaseDataModel mx_objectWithKeyValues:responseObject];
-            baseModel.data = responseObject;
+            baseModel = [MXBaseDataModel mx_objectWithKeyValues:responseObject];
         }else{
             baseModel = [[MXBaseDataModel alloc]init];
-            baseModel.code = MXRequestCode_Fail;
-            baseModel.msg = MXLocalized(RequestFail);
+            baseModel.status = MXRequestCode_Fail;
+            baseModel.timestamp = 999999;
         }
         MXResponseModel *responseModel = [MXResponseModel newWithTask:task baseModel:baseModel];
         success(responseModel);
