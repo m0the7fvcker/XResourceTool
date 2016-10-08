@@ -8,6 +8,7 @@
 
 #import "MXHttpRequest.h"
 #import <AFNetworking/AFNetworking.h>
+#import "MXComUserDefault.h"
 
 @implementation MXHttpRequest
 
@@ -77,6 +78,10 @@
     AFHTTPSessionManager *manager = [self manager];
     manager.responseSerializer = httpResponse;
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    NSString *secretKey = [MXComUserDefault getUserSecretKey];
+    if (secretKey) {
+        [manager.requestSerializer setValue:secretKey forHTTPHeaderField:@"secretKey"]; ;
+    }
     NSString *requestUrl = [self requestUrl:url];
     NSDictionary *requestParams = [self requestParams:params];
     NSURLSessionDataTask *task = [manager POST:requestUrl parameters:requestParams progress:progress success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -92,7 +97,7 @@
         success(responseModel);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         MXResponseModel *responseModel = [MXResponseModel newWithTask:task err:error];
-        success(responseModel);
+        failure(responseModel);
     }];
     MXRequestModel *request = [MXRequestModel newWithTask:task];
     return request;
@@ -131,7 +136,7 @@
         success(responseModel);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         MXResponseModel *responseModel = [MXResponseModel newWithTask:task err:error];
-        success(responseModel);
+        failure(responseModel);
     }];
     MXRequestModel *request = [MXRequestModel newWithTask:task];
     return request;

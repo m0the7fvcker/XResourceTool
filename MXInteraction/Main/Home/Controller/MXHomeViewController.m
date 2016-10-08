@@ -160,7 +160,6 @@
     NSLog(@"%lf",bottomBar.width);
     self.bottomBar = bottomBar;
     [self.view addSubview:bottomBar];
-    
 }
 
 - (void)initConstraint
@@ -221,10 +220,14 @@
         if (responseModel.status == MXRequestCode_Success) {
             NSLog(@"请求成功");
             weakSelf.userInfoModel = [MXUserInfoModel mx_objectWithKeyValues:responseModel.data];
+            // 保存secretKey到本地，部分请求续将参数添加到请求头
+            if (weakSelf.userInfoModel.secretKey) [MXComUserDefault saveUserSecretKey:weakSelf.userInfoModel.secretKey];
             // 获取轮播图
             [weakSelf getBannersAndRefreshWithUserInfo:weakSelf.userInfoModel];
             // 更新头部
             [weakSelf updateTableViewHeader];
+            // 更新title
+            [weakSelf updateTitle:weakSelf.userInfoModel.roomName];
         }
     } failure:^(NSError * _Nonnull error) {
         NSLog(@"请求失败");
@@ -240,7 +243,7 @@
 //        UIImage *image2 = [UIImage imageNamed:@"home_banner2.png"];
 //        UIImage *image3 = [UIImage imageNamed:@"home_banner3.png"];
 //        NSMutableArray *imageArray = [NSMutableArray arrayWithObjects:image1, image2, image3, nil];
-    
+    MXWeakSelf;
     // 顶部轮播图
     SDCycleScrollView *cycleView         = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, MXScreen_Width, MXHomeCycleHeight) imageURLStringsGroup:self.bannersArray];
     cycleView.bannerImageViewContentMode = UIViewContentModeScaleToFill;
@@ -250,7 +253,32 @@
     cycleView.pageControlAliment         = SDCycleScrollViewPageContolAlimentRight;
     cycleView.titleLabelHeight           = 23.0f;
     cycleView.titleLabelBackgroundColor  = [UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.3f];
-    [self.headerView addSubview:cycleView];
+    [weakSelf.headerView addSubview:cycleView];
+}
+
+
+/**
+ 修改title为房号
+
+ @param title 房号名称
+ */
+- (void)updateTitle:(NSString *)title
+{
+    MXWeakSelf;
+    
+    NSRange districtNo = NSMakeRange(0, 2);
+    NSString *district = [title substringWithRange:districtNo];
+
+    NSRange buildingNo = NSMakeRange(2, 2);
+    NSString *building = [title substringWithRange:buildingNo];
+    
+    NSRange unitNo = NSMakeRange(4, 2);
+    NSString *unit = [title substringWithRange:unitNo];
+    
+    NSString *room = [title substringFromIndex:6];
+    
+    NSString *fullTitle = [NSString stringWithFormat:@"%@小区%@栋%@单元%@号房间", district, building, unit, room];
+    weakSelf.title = fullTitle;
 }
 
 /**
@@ -260,16 +288,18 @@
  */
 - (void)getBannersAndRefreshWithUserInfo:(MXUserInfoModel *)userInfo
 {
+    MXWeakSelf;
     // 服务器地址
     NSString *server = userInfo.server;
     // 文件夹地址
     NSString *folder = [NSString stringWithFormat:@"%@/",userInfo.advertisement.folder];
     // 拼接地址
     NSString *urlString = [server stringByAppendingString:folder];
-    
+
+    [weakSelf.bannersArray removeAllObjects];
     for (MXHomeBannerModel *bannerModel in userInfo.advertisement.bannerPic) {
         NSString *fullUrl = [urlString stringByAppendingString:bannerModel.name];
-        [self.bannersArray addObject:fullUrl];
+        [weakSelf.bannersArray addObject:fullUrl];
     }
 }
 

@@ -31,6 +31,7 @@ static NSString *MXKeychainServiceKey = @"com.max1ao.mxinteraction";
 }
 
 + (BOOL)setPassword:(NSString *)password account:(NSString *)account{
-    return [SSKeychain setPassword:password forService:MXKeychainServiceKey account:account];
+    BOOL suc = [SSKeychain setPassword:password forService:MXKeychainServiceKey account:account];
+    return suc;
 }
 @end

@@ -12,5 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *comfirmPhoneTF;
 @property (weak, nonatomic) IBOutlet UIButton *confirmBtn;
+@property (nonatomic, assign) BOOL isResetPwd;
 
 @end

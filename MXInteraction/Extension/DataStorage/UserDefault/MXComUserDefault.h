@@ -68,4 +68,18 @@
  */
 + (NSString *)getUserPasswordWithAccount:(NSString *)account;
 
+/**
+ *  @brief 保存用户SecretKey
+ *
+ *  @param secretKey 用户SecretKey
+ */
++ (void)saveUserSecretKey:(NSString *)secretKey;
+
+/**
+ *  @brief 取出用户密码
+ *
+ *  @return account 用户secretKey
+ */
++ (NSString *)getUserSecretKey;
+
 @end

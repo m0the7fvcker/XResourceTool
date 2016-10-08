@@ -44,6 +44,7 @@
 - (IBAction)comfirmChange:(UIButton *)sender
 {
     MXForgetPdAndRegisterVC *registerVC = [[MXForgetPdAndRegisterVC alloc] init];
+    registerVC.isResetPwd = self.isResetPwd;
     registerVC.phoneNumber = self.comfirmPhoneTF.text;
     [self.navigationController pushViewController:registerVC animated:YES];
 }

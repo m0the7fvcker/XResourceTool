@@ -12,6 +12,7 @@
 static NSString *MXUserDefault_IsFristLaunch = @"isFristLaunch";
 static NSString *MXUserDefault_HasLogin = @"userHasLogin";
 static NSString *MXUserDefault_UserAccount = @"userAccount";
+static NSString *MXUserDefault_UserSecretKey = @"userSecretKey";
 
 @implementation MXComUserDefault
 
@@ -58,4 +59,14 @@ static NSString *MXUserDefault_UserAccount = @"userAccount";
     return [MXKeychain passwordWithAccount:account];
 }
 
++ (void)saveUserSecretKey:(NSString *)secretKey
+{
+    [MXUDStandard setObject:secretKey forKey:MXUserDefault_UserSecretKey];
+    [MXUDStandard synchronize];
+}
+
++ (NSString *)getUserSecretKey
+{
+    return [MXUDStandard objectForKey:MXUserDefault_UserSecretKey];
+}
 @end

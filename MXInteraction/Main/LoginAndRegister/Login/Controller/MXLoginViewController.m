@@ -72,8 +72,8 @@
             // 保存账户到本地
             [MXComUserDefault saveUserAccount:phoneNumber];
             // 保存密码到本地
-            BOOL save = [MXComUserDefault saveUserPassword:password withAccount:phoneNumber];
-            [MXNotificationCenterAccessor postNotificationName:MXNoti_Launch_ChangeVC object:nil userInfo:@{@"data" : responseModel.data}];
+            [MXComUserDefault saveUserPassword:password withAccount:phoneNumber];
+            [MXNotificationCenterAccessor postNotificationName:MXNoti_Launch_ChangeVC object:nil ];
         }else {
             NSLog(@"登录失败");
             [MXProgressHUD showError:@"用户名或密码不正确" toView:weakSelf.view];
@@ -81,7 +81,7 @@
     } failure:^(NSError * _Nonnull error) {
         NSLog(@"登录失败");
         [MXProgressHUD hideHUDForView:weakSelf.view animated:YES];
-        [MXProgressHUD showError:@"用户名或密码不正确" toView:self.view];
+        [MXProgressHUD showError:@"网络错误，请检查网络" toView:self.view];
     }];
     
 }
@@ -89,6 +89,7 @@
 - (IBAction)forgetPwClick:(UIButton *)sender
 {
     MXEnterPhoneViewController *enterPhoneVC = [[MXEnterPhoneViewController alloc] init];
+    enterPhoneVC.isResetPwd = YES;
     [self.navigationController pushViewController:enterPhoneVC animated:YES];
 }
 
@@ -109,7 +110,7 @@
 {
     // 不能输入特殊字符
     NSString *str = @"^[A-Za-z0-9\\u4e00-\u9fa5]+$";
-    NSPredicate* emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", str];
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", str];
     if (![emailTest evaluateWithObject:password]) {
         NSLog(@"请勿输入特殊字符");
         return NO;

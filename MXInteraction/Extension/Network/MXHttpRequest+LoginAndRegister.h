@@ -13,12 +13,36 @@
  获取验证码
  
  @param url     url地址
- @param params  参数为未注册手机号
+ @param phoneNumber  参数为未注册手机号
  @return 返回MXRequestModel
  */
 +(nullable MXRequestModel *)GetVerifyCodeWithPhoneNumber:(NSString * _Nonnull)phoneNumber
                                                  success:(nullable void(^)(MXBaseDataModel * _Nonnull responseModel))success
-                                                 failure:(nullable void(^)(NSError *     _Nonnull error))failure;
+                                                 failure:(nullable void(^)(NSError *_Nonnull error))failure;
+/**
+ 获取验证码
+ 
+ @param url     url地址
+ @param phoneNumber  参数为已注册需要重置密码手机号
+ @return 返回MXRequestModel
+ */
++(nullable MXRequestModel *)GetResetVerifyCodeWithPhoneNumber:(NSString * _Nonnull)phoneNumber
+                                                      success:(nullable void(^)(MXBaseDataModel * _Nonnull responseModel))success
+                                                      failure:(nullable void(^)(NSError *_Nonnull error))failure;
+
+/**
+ 获取验证码
+ 
+ @param url     url地址
+ @param phoneNumber  参数为已注册需要重置密码手机号
+ @param code  验证码
+ @return 返回MXRequestModel
+ */
++(nullable MXRequestModel *)ResetPasswordWithPhoneNumber:(NSString * _Nonnull)phoneNumber
+                                              verifyCode:(NSString * _Nonnull)code
+                                                password:(NSString * _Nonnull)password
+                                                 success:(nullable void(^)(MXBaseDataModel * _Nonnull responseModel))success
+                                                 failure:(nullable void(^)(NSError *_Nonnull error))failure;
 
 /**
  注册新用户

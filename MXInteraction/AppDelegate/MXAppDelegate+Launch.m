@@ -47,7 +47,7 @@
     // 判断是否已经登录
     if ([MXComUserDefault hasLogin]) {
         MXHomeViewController *homeVC = [[MXHomeViewController alloc] init];
-        homeVC.data = data;
+//        homeVC.data = data;
         MXBaseNavigationController *navC = [[MXBaseNavigationController alloc] initWithRootViewController:homeVC];
         self.window.rootViewController = navC;
         [self.window makeKeyAndVisible];

@@ -40,7 +40,7 @@
     [self initUI];
     [self addTapGesture];
     [self startCountdown];
-    [self getVerifyCode];
+    [self getVeifyCode];
 }
 
 #pragma mark - 初始化方法
@@ -59,6 +59,10 @@
     self.registerButton.layer.cornerRadius = 5;
     self.registerButton.backgroundColor = [UIColor mx_colorWithHexString:@"19b0e9"];
     [self.registerButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    if (self.isResetPwd) {
+        [self.registerButton setTitle:@"重置密码" forState:UIControlStateNormal];
+    }
 }
 
 - (void)addTapGesture
@@ -71,18 +75,41 @@
 }
 
 #pragma mark - 内部方法
-- (void)getVerifyCode
+- (void)getVeifyCode
+{
+    if (self.isResetPwd) {
+        [self getResetVerifyCode];
+    }else {
+        [self getRegisterVerifyCode];
+    }
+}
+
+- (void)getRegisterVerifyCode
 {
     // 获取验证码
     [MXHttpRequest GetVerifyCodeWithPhoneNumber:self.phoneNumber success:^(MXBaseDataModel * _Nonnull responseModel) {
         NSInteger result = responseModel.status;
-        if (result == 000000) {
-            NSLog(@"发送验证码成功");
+        if (result == MXRequestCode_Success) {
+            NSLog(@"获取验证码成功");
         }else {
-            NSLog(@"发送验证码失败");
+            NSLog(@"获取验证码失败");
         }
     } failure:^(NSError * _Nonnull error) {
-        NSLog(@"发送验证码失败");
+        NSLog(@"获取验证码失败");
+    }];
+}
+
+- (void)getResetVerifyCode
+{
+    [MXHttpRequest GetResetVerifyCodeWithPhoneNumber:self.phoneNumber success:^(MXBaseDataModel * _Nonnull responseModel) {
+        NSInteger result = responseModel.status;
+        if (result == MXRequestCode_Success) {
+            NSLog(@"获取验证码成功");
+        }else {
+            NSLog(@"获取验证码失败");
+        }
+    } failure:^(NSError * _Nonnull error) {
+        NSLog(@"获取验证码失败");
     }];
 }
 
@@ -98,8 +125,17 @@
 
 - (IBAction)goNext:(UIButton *)sender
 {
+    if (self.isResetPwd) {
+        [self resetPassword];
+    }else {
+        [self registerNewAccount];
+    }
+}
+
+- (void)registerNewAccount
+{
     // 修改登录状态
-//    [MXComUserDefault setHasLogin:YES];
+    //    [MXComUserDefault setHasLogin:YES];
     NSString *code = self.codeTextField.text;
     NSString *password = self.phoneTextField.text;
     
@@ -108,7 +144,7 @@
     [MXHttpRequest RegisterNewUserWithPhoneNumber:self.phoneNumber vierifyCode:code password:password success:^(MXBaseDataModel * _Nonnull responseModel) {
         NSInteger result = responseModel.status;
         [MXProgressHUD hideHUDForView:weakSelf.view animated:YES];
-        if (result == 000000) {
+        if (result == MXRequestCode_Success) {
             NSLog(@"注册成功");
             [MXProgressHUD showSuccess:@"注册成功" toView:weakSelf.view];
             // 修改登录状态
@@ -126,6 +162,41 @@
         NSLog(@"注册失败");
         [MXProgressHUD hideHUDForView:weakSelf.view animated:YES];
         [MXProgressHUD showSuccess:@"注册失败" toView:weakSelf.view];
+    }];
+}
+
+- (void)resetPassword
+{
+    // 修改登录状态
+    //    [MXComUserDefault setHasLogin:YES];
+    NSString *code = self.codeTextField.text;
+    NSString *password = self.phoneTextField.text;
+    
+    [MXProgressHUD showMessage:@"正在重置" toView:self.view];
+    MXWeakSelf;
+    [MXHttpRequest ResetPasswordWithPhoneNumber:self.phoneNumber verifyCode:code password:password success:^(MXBaseDataModel * _Nonnull responseModel) {
+        NSInteger result = responseModel.status;
+        [MXProgressHUD hideHUDForView:weakSelf.view animated:YES];
+        if (result == MXRequestCode_Success) {
+            NSLog(@"重置成功");
+            [MXProgressHUD showSuccess:@"重置成功" toView:weakSelf.view];
+            // 修改登录状态
+            [MXComUserDefault setHasLogin:YES];
+            // 保存账户到本地
+            [MXComUserDefault saveUserAccount:weakSelf.phoneNumber];
+            // 保存密码到本地
+            [MXComUserDefault saveUserPassword:password withAccount:weakSelf.phoneNumber];
+            [MXNotificationCenterAccessor postNotificationName:MXNoti_Launch_ChangeVC object:nil];
+        }else {
+            NSLog(@"重置失败");
+            [MXProgressHUD showSuccess:@"重置失败" toView:weakSelf.view];
+        }
+
+    } failure:^(NSError * _Nonnull error) {
+        NSLog(@"重置失败");
+        [MXProgressHUD hideHUDForView:weakSelf.view animated:YES];
+        [MXProgressHUD showSuccess:@"重置失败" toView:weakSelf.view];
+        
     }];
 }
 

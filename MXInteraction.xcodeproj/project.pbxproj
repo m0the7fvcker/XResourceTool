@@ -1251,10 +1251,11 @@
 				TargetAttributes = {
 					4D6147EE1D63FF1400B3B093 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 32FQRLPEK3;
+						DevelopmentTeam = QDH66RGJXX;
 					};
 					4D6148071D63FF1400B3B093 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 32FQRLPEK3;
 						TestTargetID = 4D6147EE1D63FF1400B3B093;
 					};
 				};
@@ -1507,6 +1508,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -1553,6 +1555,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1579,7 +1582,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
-				DEVELOPMENT_TEAM = 32FQRLPEK3;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = QDH66RGJXX;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MXInteraction/Extension/Vendors/JSPath",
@@ -1590,6 +1594,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.max1ao.MXInteraction;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0230af44-30a7-4875-b2b8-08dd07c312b3";
 			};
 			name = Debug;
 		};
@@ -1599,7 +1604,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
-				DEVELOPMENT_TEAM = 32FQRLPEK3;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = QDH66RGJXX;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MXInteraction/Extension/Vendors/JSPath",
@@ -1610,12 +1616,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.max1ao.MXInteraction;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0230af44-30a7-4875-b2b8-08dd07c312b3";
 			};
 			name = Release;
 		};
 		4D6148151D63FF1400B3B093 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 32FQRLPEK3;
 				INFOPLIST_FILE = MXInteractionUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.max1ao.MXInteractionUITests;
@@ -1627,6 +1635,7 @@
 		4D6148161D63FF1400B3B093 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 32FQRLPEK3;
 				INFOPLIST_FILE = MXInteractionUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.max1ao.MXInteractionUITests;

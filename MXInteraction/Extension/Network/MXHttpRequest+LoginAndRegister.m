@@ -24,6 +24,40 @@
     }];
 }
 
++(nullable MXRequestModel *)GetResetVerifyCodeWithPhoneNumber:(NSString * _Nonnull)phoneNumber
+                                                      success:(nullable void(^)(MXBaseDataModel * _Nonnull responseModel))success
+                                                      failure:(nullable void(^)(NSError *     _Nonnull error))failure
+{
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"phone"] = phoneNumber.length > 0 ? phoneNumber : @"";
+    
+    return [self GET:@"api/member/getcommonverifycode" params:params success:^(MXResponseModel * _Nonnull responseModel) {
+        success(responseModel.baseModel);
+    } failure:^(MXResponseModel * _Nonnull responseModel) {
+        NSError *error = responseModel.err;
+        failure(error);
+    }];
+}
+
++(nullable MXRequestModel *)ResetPasswordWithPhoneNumber:(NSString * _Nonnull)phoneNumber
+                                              verifyCode:(NSString *)code
+                                                password:(NSString *)password
+                                                 success:(nullable void(^)(MXBaseDataModel * _Nonnull responseModel))success
+                                                 failure:(nullable void(^)(NSError *_Nonnull error))failure
+{
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"phone"] = phoneNumber.length > 0 ? phoneNumber : @"";
+    params[@"code"] = code.length > 0 ? code : @"";
+    params[@"password"] = password > 0 ? password : @"";
+    
+    return [self POST:@"api/member/resetpassword" params:params success:^(MXResponseModel * _Nonnull responseModel) {
+        success(responseModel.baseModel);
+    } failure:^(MXResponseModel * _Nonnull responseModel) {
+        NSError *error = responseModel.err;
+        failure(error);
+    }];
+}
+
 +(nullable MXRequestModel *)RegisterNewUserWithPhoneNumber:(NSString * _Nonnull)phoneNumber
                                                vierifyCode:(NSString * _Nonnull)code
                                                   password:(NSString * _Nonnull)password

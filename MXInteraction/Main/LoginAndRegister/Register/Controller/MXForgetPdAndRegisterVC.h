@@ -15,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *countDownLabel;
 @property (weak, nonatomic) IBOutlet UIButton *registerButton;
 @property (nonatomic, copy) NSString *phoneNumber;
+@property (nonatomic, assign) BOOL isResetPwd;
 
 @end
