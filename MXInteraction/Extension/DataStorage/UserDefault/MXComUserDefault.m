@@ -13,6 +13,8 @@ static NSString *MXUserDefault_IsFristLaunch = @"isFristLaunch";
 static NSString *MXUserDefault_HasLogin = @"userHasLogin";
 static NSString *MXUserDefault_UserAccount = @"userAccount";
 static NSString *MXUserDefault_UserSecretKey = @"userSecretKey";
+static NSString *MXUserDefault_UserIMKey = @"userIMKey";
+static NSString *MXUserDefault_UserIMPassword = @"userIMPassword";
 
 @implementation MXComUserDefault
 
@@ -69,4 +71,27 @@ static NSString *MXUserDefault_UserSecretKey = @"userSecretKey";
 {
     return [MXUDStandard objectForKey:MXUserDefault_UserSecretKey];
 }
+
++ (void)saveUserIMKey:(NSString *)IMKey
+{
+    [MXUDStandard setObject:IMKey forKey:MXUserDefault_UserIMKey];
+    [MXUDStandard synchronize];
+}
+
++ (NSString *)getUserIMKey
+{
+    return [MXUDStandard objectForKey:MXUserDefault_UserIMKey];
+}
+
++ (void)saveUserIMPassword:(NSString *)IMPassword
+{
+    [MXUDStandard setObject:IMPassword forKey:MXUserDefault_UserIMPassword];
+    [MXUDStandard synchronize];
+}
+
++ (NSString *)getUserIMPassword
+{
+    return [MXUDStandard objectForKey:MXUserDefault_UserIMPassword];
+}
+
 @end

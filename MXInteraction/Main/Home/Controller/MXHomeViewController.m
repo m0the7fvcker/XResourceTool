@@ -13,6 +13,7 @@
 #import "BHBPopView.h"
 #import "MXHomeServiceCell.h"
 
+#import "MXSeeTalkingVC.h"
 #import "MXOpenRecordVC.h"
 #import "MXNoDisturbVC.h"
 #import "MXPersonalCenterVC.h"
@@ -53,6 +54,8 @@
 @property (nonatomic, strong) NSMutableArray *bannersArray;
 /** 顶部header */
 @property (nonatomic, strong) UIView *headerView;
+/** 钥匙包 */
+@property (nonatomic, strong) NSArray *keyBagArray;
 
 @end
 
@@ -76,11 +79,17 @@
     [self initNavBar];
     [self initUI];
     [self initConstraint];
+    [self initEMClientTool];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [self makeRequest];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self loginIM];
 }
 
 - (void)addNotification
@@ -105,7 +114,8 @@
                        @"社区互帮",
                        @"O2O商城",
                        @"智享体验",
-                       @"分享开门"];
+                       @"分享开门"
+                        ];
     
     self.menuImages = @[@"home_icon_0",
                         @"home_icon_1",
@@ -114,7 +124,8 @@
                         @"home_icon_4",
                         @"home_icon_5",
                         @"home_icon_6",
-                        @"home_icon_7"];
+                        @"home_icon_7"
+                        ];
 }
 
 - (void)initNavBar
@@ -167,6 +178,10 @@
     
 }
 
+- (void)initEMClientTool
+{
+    [MXEMClientTool shareTool];
+}
 #pragma mark - 内部方法
 
 /**
@@ -177,7 +192,6 @@
     MXPersonalCenterVC *personCenterVC = [[MXPersonalCenterVC alloc] init];
     [self.navigationController pushViewController:personCenterVC animated:YES];
 }
-
 
 /**
  消息
@@ -216,18 +230,24 @@
     NSString *password = [MXComUserDefault getUserPasswordWithAccount:account];
     
     MXWeakSelf;
-    [MXHttpRequest LoginWithPhoneNumber:account password:@"123456" appVersion:@"1-1" success:^(MXBaseDataModel * _Nonnull responseModel) {
+    [MXHttpRequest LoginWithPhoneNumber:account password:password appVersion:@"1-1" success:^(MXBaseDataModel * _Nonnull responseModel) {
         if (responseModel.status == MXRequestCode_Success) {
             NSLog(@"请求成功");
             weakSelf.userInfoModel = [MXUserInfoModel mx_objectWithKeyValues:responseModel.data];
             // 保存secretKey到本地，部分请求续将参数添加到请求头
             if (weakSelf.userInfoModel.secretKey) [MXComUserDefault saveUserSecretKey:weakSelf.userInfoModel.secretKey];
+            // 保存imKey
+            if (weakSelf.userInfoModel.imKey) [MXComUserDefault saveUserIMKey:weakSelf.userInfoModel.imKey];
+            // 保存imPassword
+            if (weakSelf.userInfoModel.imPassword) [MXComUserDefault saveUserIMPassword:weakSelf.userInfoModel.imPassword];
             // 获取轮播图
             [weakSelf getBannersAndRefreshWithUserInfo:weakSelf.userInfoModel];
             // 更新头部
             [weakSelf updateTableViewHeader];
             // 更新title
             [weakSelf updateTitle:weakSelf.userInfoModel.roomName];
+            // 获取钥匙包
+            weakSelf.keyBagArray = weakSelf.userInfoModel.myKeyBag;
         }
     } failure:^(NSError * _Nonnull error) {
         NSLog(@"请求失败");
@@ -303,6 +323,20 @@
     }
 }
 
+- (void)loginIM
+{
+    NSString *IMkey = [MXComUserDefault getUserIMKey];
+    NSString *IMPassword = [MXComUserDefault getUserIMPassword];
+    
+    EMError *error = [[EMClient sharedClient] loginWithUsername:@"maxiao2" password:@"111"];
+     if (!error)
+     {
+         NSLog(@"登陆成功");
+     }else {
+         NSLog(@"登录失败");
+     };
+}
+
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -345,7 +379,9 @@
             // 可视对讲
         case 0:
         {
-            
+            MXSeeTalkingVC *seeTalkingVC = [[MXSeeTalkingVC alloc] init];
+            seeTalkingVC.keyBagArray = self.keyBagArray;
+            [self.navigationController pushViewController:seeTalkingVC animated:YES];
         }
             break;
             // 开门记录

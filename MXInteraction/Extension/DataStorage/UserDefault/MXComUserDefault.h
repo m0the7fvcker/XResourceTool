@@ -82,4 +82,31 @@
  */
 + (NSString *)getUserSecretKey;
 
+/**
+ *  @brief 保存用户SecretKey
+ *
+ *  @param IMKey 用户IMKey
+ */
++ (void)saveUserIMKey:(NSString *)IMKey;
+
+/**
+ *  @brief 取出用户密码
+ *
+ *  @return IMKey 用户IMKey
+ */
++ (NSString *)getUserIMKey;
+
+/**
+ *  @brief 保存用户SecretKey
+ *
+ *  @param IMPassword 用户IMPassword
+ */
++ (void)saveUserIMPassword:(NSString *)IMPassword;
+
+/**
+ *  @brief 取出用户密码
+ *
+ *  @return IMPassword 用户IMPassword
+ */
++ (NSString *)getUserIMPassword;
 @end
