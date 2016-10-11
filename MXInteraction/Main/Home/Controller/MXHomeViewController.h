@@ -11,6 +11,4 @@
 
 @interface MXHomeViewController : MXBaseViewController
 
-@property (nonatomic, strong) NSDictionary *data;
-
 @end

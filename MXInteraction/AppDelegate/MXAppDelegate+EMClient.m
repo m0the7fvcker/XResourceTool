@@ -16,7 +16,7 @@
     //1192161008178084#huaxin
     //mohmoo#mohmoo
     
-    EMOptions *options = [EMOptions optionsWithAppkey:@"easemob-demo#chatdemoui"];
+    EMOptions *options = [EMOptions optionsWithAppkey:@"mohmoo#mohmoo"];
     options.apnsCertName = @"istore_dev";
     options.isAutoAcceptGroupInvitation = YES;
 //    options.enableConsoleLog = YES;

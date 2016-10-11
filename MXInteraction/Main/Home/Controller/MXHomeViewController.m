@@ -171,6 +171,11 @@
     NSLog(@"%lf",bottomBar.width);
     self.bottomBar = bottomBar;
     [self.view addSubview:bottomBar];
+    
+    
+    UIView *leftMenuView = [[UIView alloc] initWithFrame:self.view.bounds];
+    leftMenuView.backgroundColor = [UIColor yellowColor];
+    [MXApplicationAccessor.keyWindow insertSubview:leftMenuView atIndex:0];
 }
 
 - (void)initConstraint
@@ -189,8 +194,9 @@
  */
 - (void)personalCenterClick
 {
-    MXPersonalCenterVC *personCenterVC = [[MXPersonalCenterVC alloc] init];
-    [self.navigationController pushViewController:personCenterVC animated:YES];
+//    MXPersonalCenterVC *personCenterVC = [[MXPersonalCenterVC alloc] init];
+//    [self.navigationController pushViewController:personCenterVC animated:YES];
+    self.navigationController.view.transform = CGAffineTransformMakeScale(0.5, 0.5);
 }
 
 /**
@@ -198,7 +204,7 @@
  */
 - (void)messageClick
 {
-    
+    self.navigationController.view.transform = CGAffineTransformIdentity;
 }
 
 /**
@@ -230,7 +236,7 @@
     NSString *password = [MXComUserDefault getUserPasswordWithAccount:account];
     
     MXWeakSelf;
-    [MXHttpRequest LoginWithPhoneNumber:account password:password appVersion:@"1-1" success:^(MXBaseDataModel * _Nonnull responseModel) {
+    [MXHttpRequest LoginWithPhoneNumber:account password:@"111111" appVersion:@"1-1" success:^(MXBaseDataModel * _Nonnull responseModel) {
         if (responseModel.status == MXRequestCode_Success) {
             NSLog(@"请求成功");
             weakSelf.userInfoModel = [MXUserInfoModel mx_objectWithKeyValues:responseModel.data];
@@ -328,7 +334,8 @@
     NSString *IMkey = [MXComUserDefault getUserIMKey];
     NSString *IMPassword = [MXComUserDefault getUserIMPassword];
     
-    EMError *error = [[EMClient sharedClient] loginWithUsername:@"maxiao2" password:@"111"];
+    // maxiao2 111
+    EMError *error = [[EMClient sharedClient] loginWithUsername:IMkey password:IMPassword];
      if (!error)
      {
          NSLog(@"登陆成功");

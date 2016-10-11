@@ -12,6 +12,8 @@
 
 #import "MXAppDelegate.h"
 
+#import "MXJSONTool.h"
+
 @interface MXEMClientTool()<EMChatManagerDelegate, EMCallManagerDelegate, EMGroupManagerDelegate>
 
 @property (nonatomic, strong) EMCallSession *callSession;
@@ -56,8 +58,14 @@
     [[EMClient sharedClient].chatManager removeDelegate:self];
 }
 
-- (BOOL)sendCMD:(NSString *)cmd to:(NSString *)to
+- (BOOL)sendCMD:(NSDictionary *)cmd to:(NSString *)to
 {
+//    NSDictionary *cmdDic = @{@"CommandSendTimeStamp" : @"1476018140894",
+//                             @"CommandAction" : @"303",
+//                             @"RemoteImKey" : @"ef131bc92b73ebee7f12d71611ff6898"
+//                             };
+    NSString *cmdMg = [MXJSONTool dictionaryToJson:cmd];
+    
     EMCmdMessageBody *body = [[EMCmdMessageBody alloc] initWithAction:@"{\"CommandSendTimeStamp\":\"1476018140894\",\"CommandAction\":\"303\",\"RemoteImKey\":\"ef131bc92b73ebee7f12d71611ff6898\",\"LocalImKey\":\"4c5719f1dd3b2258fc922553abc9ce7f\",\"CommandType\":\"101\",\"tag\":\"command\",\"RemoteDeviceSerial\":\"02010101000001\",\"CommandSequence\":\"26\",\"LocalDeviceSerial\":\"000101010101\",\"OtherJSON\":\"\"}"];
     
     
@@ -196,11 +204,11 @@
             }
             
             if (aError) {
-                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:aError.errorDescription delegate:nil cancelButtonTitle:NSLocalizedString(@"ok", @"OK") otherButtonTitles:nil, nil];
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:aError.errorDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alertView show];
             }
             else{
-                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:reasonStr delegate:nil cancelButtonTitle:NSLocalizedString(@"ok", @"OK") otherButtonTitles:nil, nil];
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:reasonStr delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alertView show];
             }
         }
@@ -210,7 +218,7 @@
 - (void)didReceiveCallNetworkChanged:(EMCallSession *)aSession status:(EMCallNetworkStatus)aStatus
 {
     if ([aSession.sessionId isEqualToString:_callSession.sessionId]) {
-        //        [_callController setNetwork:aStatus];
+//        [_callController setNetwork:aStatus];
     }
 }
 @end

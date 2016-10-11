@@ -18,7 +18,7 @@
 
 + (MXEMClientTool *)shareTool;
 
-- (BOOL)sendCMD:(NSString *)cmd to:(NSString *)to;
+- (BOOL)sendCMD:(NSDictionary *)cmd to:(NSString *)to;
 
 - (BOOL)sendCallTo:(NSString *)to;
 
