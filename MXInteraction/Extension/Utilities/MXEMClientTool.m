@@ -28,8 +28,6 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _tool = [[MXEMClientTool alloc] init];
-        ///ssl 公开key
-        //        _manager.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModePublicKey];
     });
     return _tool;
 }
@@ -44,7 +42,7 @@
 
 - (void)initTool
 {
-    [[EMClient sharedClient] removeDelegate:self];
+//    [[EMClient sharedClient] addDelegate:self];
     [[EMClient sharedClient].chatManager addDelegate:self delegateQueue:nil];
     [[EMClient sharedClient].callManager addDelegate:self delegateQueue:nil];
     [[EMClient sharedClient].groupManager addDelegate:self delegateQueue:nil];
@@ -52,10 +50,27 @@
 
 - (void)dealloc
 {
-    [[EMClient sharedClient] removeDelegate:self];
+//    [[EMClient sharedClient] removeDelegate:self];
     [[EMClient sharedClient].callManager removeDelegate:self];
     [[EMClient sharedClient].groupManager removeDelegate:self];
     [[EMClient sharedClient].chatManager removeDelegate:self];
+}
+
+- (void)sendMsg
+{
+    EMTextMessageBody *body = [[EMTextMessageBody alloc] initWithText:@"111"];
+    NSString *from = [[EMClient sharedClient] currentUsername];
+    //ef131bc92b73ebee7f12d71611ff6898
+    EMMessage *message = [[EMMessage alloc] initWithConversationID:@"maxiao1" from:from to:@"maxiao1" body:body ext:nil];
+    
+    [[EMClient sharedClient].chatManager sendMessage:message progress:nil completion:^(EMMessage *message, EMError *error) {
+        if (!error) {
+            NSLog(@"发送成功");
+        }
+        else {
+            NSLog(@"发送失败");
+        }
+    }];
 }
 
 - (BOOL)sendCMD:(NSDictionary *)cmd to:(NSString *)to
@@ -64,10 +79,11 @@
 //                             @"CommandAction" : @"303",
 //                             @"RemoteImKey" : @"ef131bc92b73ebee7f12d71611ff6898"
 //                             };
-    NSString *cmdMg = [MXJSONTool dictionaryToJson:cmd];
+//    NSString *cmdMg = [MXJSONTool dictionaryToJson:cmd];
     
-    EMCmdMessageBody *body = [[EMCmdMessageBody alloc] initWithAction:@"{\"CommandSendTimeStamp\":\"1476018140894\",\"CommandAction\":\"303\",\"RemoteImKey\":\"ef131bc92b73ebee7f12d71611ff6898\",\"LocalImKey\":\"4c5719f1dd3b2258fc922553abc9ce7f\",\"CommandType\":\"101\",\"tag\":\"command\",\"RemoteDeviceSerial\":\"02010101000001\",\"CommandSequence\":\"26\",\"LocalDeviceSerial\":\"000101010101\",\"OtherJSON\":\"\"}"];
+    NSTimeInterval interval = [[NSDate date] timeIntervalSince1970] * 1000;
     
+    EMCmdMessageBody *body = [[EMCmdMessageBody alloc] initWithAction:@"{\"CommandSendTimeStamp\":\"1476265531808\",\"CommandAction\":\"303\",\"RemoteImKey\":\"ef131bc92b73ebee4e0b4d5bed760661\",\"LocalImKey\":\"4c5719f1dd3b2258fc922553abc9ce7f\",\"CommandType\":\"101\",\"tag\":\"command\",\"RemoteDeviceSerial\":\"02010101000001\",\"CommandSequence\":\"26\",\"LocalDeviceSerial\":\"000101010101\",\"OtherJSON\":\"\"}"];
     
     NSString *from = [[EMClient sharedClient] currentUsername];
     

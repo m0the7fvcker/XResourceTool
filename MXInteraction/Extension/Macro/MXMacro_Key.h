@@ -17,6 +17,8 @@
 #define MXNoti_Home_HouseSrv @"noti_Home_HouseSrv"
 // 呼叫电梯
 #define MXNoti_Home_ElevatorSrv @"noti_Home_ElevatorSrv"
+// 退出登录
+#define MXNoti_Home_Logout @"noti_Home_Logout"
 
 /************************************/
 /************************************/

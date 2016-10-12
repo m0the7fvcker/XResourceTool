@@ -28,11 +28,11 @@
 #pragma mark -  配置下啦刷新文本
 + (void)configureHead:(MJRefreshStateHeader *)refreshNormalHeader
 {
-    //    [refreshNormalHeader setTitle:@"" forState:MJRefreshStateIdle];
-    //    [refreshNormalHeader setTitle:@"" forState:MJRefreshStatePulling];
-    //    [refreshNormalHeader setTitle:@"" forState:MJRefreshStateRefreshing];
-    //    [refreshNormalHeader setTitle:@"" forState:MJRefreshStateWillRefresh];
-    //    refreshNormalHeader.lastUpdatedTimeLabel.hidden = NO;
+//    [refreshNormalHeader setTitle:@"" forState:MJRefreshStateIdle];
+//    [refreshNormalHeader setTitle:@"" forState:MJRefreshStatePulling];
+//    [refreshNormalHeader setTitle:@"" forState:MJRefreshStateRefreshing];
+//    [refreshNormalHeader setTitle:@"" forState:MJRefreshStateWillRefresh];
+//    refreshNormalHeader.lastUpdatedTimeLabel.hidden = NO;
 }
 
 #pragma mark - 移除头部刷先

@@ -61,5 +61,6 @@
 - (void)addNotification
 {
     [MXNotificationCenterAccessor addObserver:self selector:@selector(changeRootVC) name:MXNoti_Launch_ChangeVC object:nil];
+    [MXNotificationCenterAccessor addObserver:self selector:@selector(changeRootVC) name:MXNoti_Home_Logout object:nil];
 }
 @end

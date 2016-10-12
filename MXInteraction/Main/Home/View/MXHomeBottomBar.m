@@ -49,8 +49,14 @@
     self.keyButton = keyButton;
     [self addSubview:keyButton];
     
+    CGFloat fontSize = 0;
+    if (MXDevice_Is_iPhone5 || MXDevice_Is_iPhone4) {
+        fontSize = 10;
+    }else {
+        fontSize = 13;
+    }
     UILabel *keyLabel = [[UILabel alloc] init];
-    keyLabel.font = [UIFont systemFontOfSize:13];
+    keyLabel.font = [UIFont systemFontOfSize:fontSize];
     keyLabel.textAlignment = NSTextAlignmentCenter;
     keyLabel.text = @"钥匙包";
     self.keyLabel = keyLabel;

@@ -40,6 +40,8 @@
 
 - (void)initUI
 {
+    self.view.backgroundColor = [UIColor whiteColor];
+    
     UIImageView *bgView = [[UIImageView alloc] initWithFrame:self.view.bounds];
     bgView.image = [UIImage imageNamed:@"bg.png"];
     self.bgView = bgView;

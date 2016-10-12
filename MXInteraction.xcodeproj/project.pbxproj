@@ -28,6 +28,8 @@
 		4D46A9061DACD80300239D20 /* MXIncomingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D46A9051DACD80300239D20 /* MXIncomingVC.m */; };
 		4D46A9091DACDBBE00239D20 /* MXEMClientTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D46A9081DACDBBE00239D20 /* MXEMClientTool.m */; };
 		4D46A90C1DACDBD100239D20 /* MXJSONTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D46A90B1DACDBD100239D20 /* MXJSONTool.m */; };
+		4D46A90F1DADD8BC00239D20 /* MXHomeLeftMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D46A90E1DADD8BC00239D20 /* MXHomeLeftMenu.m */; };
+		4D46A9121DADEA8900239D20 /* MXHomeLeftMenuBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D46A9111DADEA8900239D20 /* MXHomeLeftMenuBtn.m */; };
 		4D61480D1D63FF1400B3B093 /* MXInteractionUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D61480C1D63FF1400B3B093 /* MXInteractionUITests.m */; };
 		4D61487A1D63FF9D00B3B093 /* MXBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D61481A1D63FF9D00B3B093 /* MXBaseNavigationController.m */; };
 		4D61487B1D63FF9D00B3B093 /* MXBaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D61481C1D63FF9D00B3B093 /* MXBaseTabBarController.m */; };
@@ -65,6 +67,8 @@
 		4D6148A91D64006100B3B093 /* MXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6148A51D64006100B3B093 /* MXAppDelegate.m */; };
 		4D813A661D67070500BB2DFA /* MXCommunityControlVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D813A651D67070500BB2DFA /* MXCommunityControlVC.m */; };
 		4D87CBDF1D701C8B002B25E4 /* MXO2OCommonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D87CBDE1D701C8B002B25E4 /* MXO2OCommonModel.m */; };
+		4D899F601DAE527D00167A43 /* MXHomeKeyBagVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D899F5F1DAE527D00167A43 /* MXHomeKeyBagVC.m */; };
+		4D899F621DAE594C00167A43 /* keyBag_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D899F611DAE594C00167A43 /* keyBag_bg.png */; };
 		4D9CD0C41D6407D0000832D3 /* JSPatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9CD0C31D6407D0000832D3 /* JSPatch.framework */; };
 		4D9CD0C81D640D9A000832D3 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9CD0C71D640D9A000832D3 /* libz.tbd */; };
 		4D9CD0CB1D6440D2000832D3 /* NSUserDefaults+MXCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9CD0CA1D6440D2000832D3 /* NSUserDefaults+MXCategory.m */; };
@@ -102,9 +106,6 @@
 		4DCC0C521D76830100F681C9 /* MXHomeElevatorVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DCC0C501D76830100F681C9 /* MXHomeElevatorVC.xib */; };
 		4DCC0C561D7685FB00F681C9 /* MXHomeServiceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCC0C541D7685FB00F681C9 /* MXHomeServiceVC.m */; };
 		4DCC0C571D7685FB00F681C9 /* MXHomeServiceVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DCC0C551D7685FB00F681C9 /* MXHomeServiceVC.xib */; };
-		4DCC0C5F1D76B97C00F681C9 /* home_banner1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DCC0C5B1D76B97C00F681C9 /* home_banner1.png */; };
-		4DCC0C601D76B97C00F681C9 /* home_banner2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DCC0C5C1D76B97C00F681C9 /* home_banner2.png */; };
-		4DCC0C611D76B97C00F681C9 /* home_banner3.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DCC0C5D1D76B97C00F681C9 /* home_banner3.png */; };
 		4DCC0C621D76B97C00F681C9 /* home_elevator_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DCC0C5E1D76B97C00F681C9 /* home_elevator_bg.png */; };
 		4DCC0C661D76BB9600F681C9 /* MXShareOpenVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCC0C641D76BB9600F681C9 /* MXShareOpenVC.m */; };
 		4DCC0C671D76BB9600F681C9 /* MXShareOpenVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DCC0C651D76BB9600F681C9 /* MXShareOpenVC.xib */; };
@@ -173,6 +174,10 @@
 		4D46A9081DACDBBE00239D20 /* MXEMClientTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXEMClientTool.m; sourceTree = "<group>"; };
 		4D46A90A1DACDBD100239D20 /* MXJSONTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXJSONTool.h; sourceTree = "<group>"; };
 		4D46A90B1DACDBD100239D20 /* MXJSONTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXJSONTool.m; sourceTree = "<group>"; };
+		4D46A90D1DADD8BC00239D20 /* MXHomeLeftMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXHomeLeftMenu.h; sourceTree = "<group>"; };
+		4D46A90E1DADD8BC00239D20 /* MXHomeLeftMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXHomeLeftMenu.m; sourceTree = "<group>"; };
+		4D46A9101DADEA8900239D20 /* MXHomeLeftMenuBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXHomeLeftMenuBtn.h; sourceTree = "<group>"; };
+		4D46A9111DADEA8900239D20 /* MXHomeLeftMenuBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXHomeLeftMenuBtn.m; sourceTree = "<group>"; };
 		4D6147EF1D63FF1400B3B093 /* MXInteraction.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MXInteraction.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D6148031D63FF1400B3B093 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		4D6148081D63FF1400B3B093 /* MXInteractionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MXInteractionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -251,6 +256,9 @@
 		4D813A651D67070500BB2DFA /* MXCommunityControlVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXCommunityControlVC.m; sourceTree = "<group>"; };
 		4D87CBDD1D701C8B002B25E4 /* MXO2OCommonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXO2OCommonModel.h; sourceTree = "<group>"; };
 		4D87CBDE1D701C8B002B25E4 /* MXO2OCommonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXO2OCommonModel.m; sourceTree = "<group>"; };
+		4D899F5E1DAE527D00167A43 /* MXHomeKeyBagVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXHomeKeyBagVC.h; sourceTree = "<group>"; };
+		4D899F5F1DAE527D00167A43 /* MXHomeKeyBagVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXHomeKeyBagVC.m; sourceTree = "<group>"; };
+		4D899F611DAE594C00167A43 /* keyBag_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = keyBag_bg.png; sourceTree = "<group>"; };
 		4D9CD0C31D6407D0000832D3 /* JSPatch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JSPatch.framework; sourceTree = "<group>"; };
 		4D9CD0C51D640904000832D3 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		4D9CD0C71D640D9A000832D3 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -316,9 +324,6 @@
 		4DCC0C531D7685FB00F681C9 /* MXHomeServiceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXHomeServiceVC.h; sourceTree = "<group>"; };
 		4DCC0C541D7685FB00F681C9 /* MXHomeServiceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXHomeServiceVC.m; sourceTree = "<group>"; };
 		4DCC0C551D7685FB00F681C9 /* MXHomeServiceVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MXHomeServiceVC.xib; sourceTree = "<group>"; };
-		4DCC0C5B1D76B97C00F681C9 /* home_banner1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_banner1.png; sourceTree = "<group>"; };
-		4DCC0C5C1D76B97C00F681C9 /* home_banner2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_banner2.png; sourceTree = "<group>"; };
-		4DCC0C5D1D76B97C00F681C9 /* home_banner3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_banner3.png; sourceTree = "<group>"; };
 		4DCC0C5E1D76B97C00F681C9 /* home_elevator_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_elevator_bg.png; sourceTree = "<group>"; };
 		4DCC0C631D76BB9600F681C9 /* MXShareOpenVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXShareOpenVC.h; sourceTree = "<group>"; };
 		4DCC0C641D76BB9600F681C9 /* MXShareOpenVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXShareOpenVC.m; sourceTree = "<group>"; };
@@ -963,6 +968,8 @@
 				4DCC0C531D7685FB00F681C9 /* MXHomeServiceVC.h */,
 				4DCC0C541D7685FB00F681C9 /* MXHomeServiceVC.m */,
 				4DCC0C551D7685FB00F681C9 /* MXHomeServiceVC.xib */,
+				4D899F5E1DAE527D00167A43 /* MXHomeKeyBagVC.h */,
+				4D899F5F1DAE527D00167A43 /* MXHomeKeyBagVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -999,6 +1006,10 @@
 				4DC055641D6BEFC20079658D /* MXHomeServiceCell.m */,
 				4DC055661D6BF0A60079658D /* MXHomeServiceBtn.h */,
 				4DC055671D6BF0A60079658D /* MXHomeServiceBtn.m */,
+				4D46A90D1DADD8BC00239D20 /* MXHomeLeftMenu.h */,
+				4D46A90E1DADD8BC00239D20 /* MXHomeLeftMenu.m */,
+				4D46A9101DADEA8900239D20 /* MXHomeLeftMenuBtn.h */,
+				4D46A9111DADEA8900239D20 /* MXHomeLeftMenuBtn.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1168,10 +1179,8 @@
 		4DCC0C5A1D76B97100F681C9 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				4D899F611DAE594C00167A43 /* keyBag_bg.png */,
 				4DCC0C681D76C05A00F681C9 /* shareOpen_erweima.png */,
-				4DCC0C5B1D76B97C00F681C9 /* home_banner1.png */,
-				4DCC0C5C1D76B97C00F681C9 /* home_banner2.png */,
-				4DCC0C5D1D76B97C00F681C9 /* home_banner3.png */,
 				4DCC0C5E1D76B97C00F681C9 /* home_elevator_bg.png */,
 			);
 			path = images;
@@ -1319,11 +1328,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DCC0C5F1D76B97C00F681C9 /* home_banner1.png in Resources */,
 				4DC565EC1D6F1EE000C58564 /* MXO2OCell.xib in Resources */,
 				4DC565DE1D6F141800C58564 /* MXCommunityMarketCell.xib in Resources */,
 				4DC0554D1D6AB6250079658D /* MXLoginViewController.xib in Resources */,
-				4DCC0C611D76B97C00F681C9 /* home_banner3.png in Resources */,
+				4D899F621DAE594C00167A43 /* keyBag_bg.png in Resources */,
 				4DF7D65C1D66E0F300A1FD4F /* images.bundle in Resources */,
 				4D9D4C331D7538DC00BAA8EE /* Assets.xcassets in Resources */,
 				4DC055561D6ADBFF0079658D /* MXForgetPdAndRegisterVC.xib in Resources */,
@@ -1336,7 +1344,6 @@
 				4DCC0C571D7685FB00F681C9 /* MXHomeServiceVC.xib in Resources */,
 				4D3DFA511D71965300E01F1B /* MXLoveHomeCell.xib in Resources */,
 				4DF7D65D1D66E0F300A1FD4F /* music.bundle in Resources */,
-				4DCC0C601D76B97C00F681C9 /* home_banner2.png in Resources */,
 				4DCC0C671D76BB9600F681C9 /* MXShareOpenVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1430,6 +1437,7 @@
 				4DC055651D6BEFC20079658D /* MXHomeServiceCell.m in Sources */,
 				4DF7D6631D66E6D600A1FD4F /* MXNoDisturbVC.m in Sources */,
 				4D6148A71D64006100B3B093 /* MXAppDelegate+Launch.m in Sources */,
+				4D899F601DAE527D00167A43 /* MXHomeKeyBagVC.m in Sources */,
 				4D61488A1D63FF9D00B3B093 /* MXComUserDefault.m in Sources */,
 				4D6148851D63FF9D00B3B093 /* UIView+MXCategory.m in Sources */,
 				4D46A90C1DACDBD100239D20 /* MXJSONTool.m in Sources */,
@@ -1486,6 +1494,7 @@
 				4D3EBF651D9CB6CC00A10C25 /* MXHomeBannerModel.m in Sources */,
 				4DF8313E1D740BDA0073B7DE /* MXO2OCommonMenu.m in Sources */,
 				4D61488D1D63FF9D00B3B093 /* MXRequestModel.m in Sources */,
+				4D46A9121DADEA8900239D20 /* MXHomeLeftMenuBtn.m in Sources */,
 				4D61487A1D63FF9D00B3B093 /* MXBaseNavigationController.m in Sources */,
 				4D6148801D63FF9D00B3B093 /* NSString+MXCategory.m in Sources */,
 				4D3EBF621D9CB46700A10C25 /* MXHomeKeyBagPicModel.m in Sources */,
@@ -1496,6 +1505,7 @@
 				4DC0554C1D6AB6250079658D /* MXLoginViewController.m in Sources */,
 				4DCC0C661D76BB9600F681C9 /* MXShareOpenVC.m in Sources */,
 				4D6148831D63FF9D00B3B093 /* UINavigationBar+MXCategory.m in Sources */,
+				4D46A90F1DADD8BC00239D20 /* MXHomeLeftMenu.m in Sources */,
 				4D6148A81D64006100B3B093 /* MXAppDelegate+Push.m in Sources */,
 				4D6148911D63FF9D00B3B093 /* YZDisplayTitleLabel.m in Sources */,
 				4D6148901D63FF9D00B3B093 /* YBFYZCollectionView.m in Sources */,

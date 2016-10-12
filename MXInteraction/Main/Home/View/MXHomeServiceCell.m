@@ -39,17 +39,23 @@
 
 - (void)initUI
 {
+    CGFloat buttonHeight = 0;
+    if (MXDevice_Is_iPhone5 || MXDevice_Is_iPhone4) {
+        buttonHeight = 150;
+    }else {
+        buttonHeight = 192;
+    }
     // 左边按钮
-    MXHomeServiceBtn *leftBtn = [[MXHomeServiceBtn alloc] initWithFrame:CGRectMake(0, 0, MXScreen_Width / 2, 192) index:0 title:self.dataArray[0][@"title"] subTitle:self.dataArray[0][@"subTitle"] ];
+    MXHomeServiceBtn *leftBtn = [[MXHomeServiceBtn alloc] initWithFrame:CGRectMake(0, 0, MXScreen_Width / 2, buttonHeight) index:0 title:self.dataArray[0][@"title"] subTitle:self.dataArray[0][@"subTitle"] ];
     [self.contentView addSubview:leftBtn];
     
     // 分割线
-    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(MXScreen_Width / 2, 20, 0.5, 192 - 30)];
+    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(MXScreen_Width / 2, 20, 0.5, buttonHeight - 30)];
     lineView.backgroundColor = [UIColor mx_colorWithHexString:@"dddddd"];
     [self.contentView addSubview:lineView];
     
     // 右边按钮
-    MXHomeServiceBtn *rightBtn = [[MXHomeServiceBtn alloc] initWithFrame:CGRectMake(MXScreen_Width / 2, 0, MXScreen_Width / 2, 192) index:1 title:self.dataArray[1][@"title"] subTitle:self.dataArray[1][@"subTitle"]];
+    MXHomeServiceBtn *rightBtn = [[MXHomeServiceBtn alloc] initWithFrame:CGRectMake(MXScreen_Width / 2, 0, MXScreen_Width / 2, buttonHeight) index:1 title:self.dataArray[1][@"title"] subTitle:self.dataArray[1][@"subTitle"]];
     [self.contentView addSubview:rightBtn];
 }
 

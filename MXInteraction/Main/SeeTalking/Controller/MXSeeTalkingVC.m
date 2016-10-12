@@ -59,6 +59,7 @@
     
 //    [[MXEMClientTool shareTool] sendCallTo:@"maxiao1"];
     [[MXEMClientTool shareTool] sendCMD:@"11" to:model.imKey];
+//    [[MXEMClientTool shareTool] sendMsg];
 }
 
 @end

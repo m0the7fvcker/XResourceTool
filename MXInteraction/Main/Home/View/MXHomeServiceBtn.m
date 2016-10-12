@@ -37,15 +37,27 @@
     self.imageView = imageView;
     [self addSubview:imageView];
     
+    CGFloat titleFontSize = 0;
+    if (MXDevice_Is_iPhone5 || MXDevice_Is_iPhone4) {
+        titleFontSize = 12;
+    }else {
+        titleFontSize = 15;
+    }
     UILabel *titleLabel = [[UILabel alloc] init];
-    titleLabel.font = [UIFont systemFontOfSize:16];
+    titleLabel.font = [UIFont systemFontOfSize:titleFontSize];
     titleLabel.text = title;
     titleLabel.textColor = [UIColor mx_colorWithHexString:@"0e0d0c"];
     self.titleLabel = titleLabel;
     [self addSubview:titleLabel];
     
+    CGFloat subTitleFontSize = 0;
+    if (MXDevice_Is_iPhone5 || MXDevice_Is_iPhone4) {
+        subTitleFontSize = 9.5;
+    }else {
+        subTitleFontSize = 13;
+    }
     UILabel *subTitleLabel = [[UILabel alloc] init];
-    subTitleLabel.font = [UIFont systemFontOfSize:13];
+    subTitleLabel.font = [UIFont systemFontOfSize:subTitleFontSize];
     subTitleLabel.text = subTitle;
     subTitleLabel.textColor = [UIColor mx_colorWithHexString:@"72706f"];
     self.subTitleLabel = subTitleLabel;

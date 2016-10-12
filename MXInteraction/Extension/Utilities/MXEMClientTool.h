@@ -22,4 +22,6 @@
 
 - (BOOL)sendCallTo:(NSString *)to;
 
+- (void)sendMsg;
+
 @end

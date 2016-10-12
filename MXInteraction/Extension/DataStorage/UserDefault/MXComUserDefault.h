@@ -55,6 +55,13 @@
 + (NSString *)getUserAccount;
 
 /**
+ *  @brief 移除用户账户
+ *
+ *  @return void
+ */
++ (void)removeUserAccount;
+
+/**
  *  @brief 保存用户密码
  *
  *  @param account 用户密码
@@ -69,6 +76,12 @@
 + (NSString *)getUserPasswordWithAccount:(NSString *)account;
 
 /**
+ *  @brief 移除用户密码
+ *
+ *  @return void
+ */
++ (BOOL)removeUserPassword;
+/**
  *  @brief 保存用户SecretKey
  *
  *  @param secretKey 用户SecretKey
@@ -81,6 +94,13 @@
  *  @return account 用户secretKey
  */
 + (NSString *)getUserSecretKey;
+
+/**
+ *  @brief 移除用户账户SecretKey
+ *
+ *  @return void
+ */
++ (void)removeUserSecretKey;
 
 /**
  *  @brief 保存用户SecretKey
@@ -97,6 +117,13 @@
 + (NSString *)getUserIMKey;
 
 /**
+ *  @brief 移除用户账户IMKey
+ *
+ *  @return void
+ */
++ (void)removeUserIMKey;
+
+/**
  *  @brief 保存用户SecretKey
  *
  *  @param IMPassword 用户IMPassword
@@ -109,4 +136,11 @@
  *  @return IMPassword 用户IMPassword
  */
 + (NSString *)getUserIMPassword;
+
+/**
+ *  @brief 移除用户账户IMPassword
+ *
+ *  @return void
+ */
++ (void)removeUserIMPassword;
 @end

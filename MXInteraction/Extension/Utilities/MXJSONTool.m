@@ -12,7 +12,6 @@
 
 + (NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString
 {
-    
     if (jsonString == nil) {
         return nil;
     }
@@ -23,11 +22,9 @@
                                                         options:NSJSONReadingMutableContainers
                                                           error:&err];
     
-    if(err)
-    {
+    if(err) {
         NSLog(@"json解析失败：%@",err);
         return nil;
-        
     }
     return dic;
 }
@@ -35,7 +32,9 @@
 + (NSString*)dictionaryToJson:(NSDictionary *)dic
 {
     NSError *parseError = nil;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:&parseError];
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic
+                                                       options:NSJSONWritingPrettyPrinted
+                                                         error:&parseError];
     
     return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
 }

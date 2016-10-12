@@ -51,6 +51,11 @@ static NSString *MXUserDefault_UserIMPassword = @"userIMPassword";
     return [MXUDStandard objectForKey:MXUserDefault_UserAccount];
 }
 
++ (void)removeUserAccount
+{
+    [MXUDStandard removeObjectForKey:MXUserDefault_UserAccount];
+}
+
 + (BOOL)saveUserPassword:(NSString *)password withAccount:(NSString *)account
 {
     return [MXKeychain setPassword:password account:account];
@@ -59,6 +64,11 @@ static NSString *MXUserDefault_UserIMPassword = @"userIMPassword";
 + (NSString *)getUserPasswordWithAccount:(NSString *)account
 {
     return [MXKeychain passwordWithAccount:account];
+}
+
++ (BOOL)removeUserPassword
+{
+   return [MXKeychain deletePassword:[self getUserAccount]];
 }
 
 + (void)saveUserSecretKey:(NSString *)secretKey
@@ -72,6 +82,11 @@ static NSString *MXUserDefault_UserIMPassword = @"userIMPassword";
     return [MXUDStandard objectForKey:MXUserDefault_UserSecretKey];
 }
 
++ (void)removeUserSecretKey
+{
+    [MXUDStandard removeObjectForKey:MXUserDefault_UserSecretKey];
+}
+
 + (void)saveUserIMKey:(NSString *)IMKey
 {
     [MXUDStandard setObject:IMKey forKey:MXUserDefault_UserIMKey];
@@ -81,6 +96,11 @@ static NSString *MXUserDefault_UserIMPassword = @"userIMPassword";
 + (NSString *)getUserIMKey
 {
     return [MXUDStandard objectForKey:MXUserDefault_UserIMKey];
+}
+
++ (void)removeUserIMKey
+{
+    [MXUDStandard removeObjectForKey:MXUserDefault_UserIMKey];
 }
 
 + (void)saveUserIMPassword:(NSString *)IMPassword
@@ -94,4 +114,8 @@ static NSString *MXUserDefault_UserIMPassword = @"userIMPassword";
     return [MXUDStandard objectForKey:MXUserDefault_UserIMPassword];
 }
 
++ (void)removeUserIMPassword
+{
+    [MXUDStandard removeObjectForKey:MXUserDefault_UserIMPassword];
+}
 @end

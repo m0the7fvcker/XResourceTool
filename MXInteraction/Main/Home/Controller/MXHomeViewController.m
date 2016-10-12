@@ -12,6 +12,7 @@
 #import "SDCycleScrollView.h"
 #import "BHBPopView.h"
 #import "MXHomeServiceCell.h"
+#import "MXHomeLeftMenu.h"
 
 #import "MXSeeTalkingVC.h"
 #import "MXOpenRecordVC.h"
@@ -20,6 +21,7 @@
 #import "MXCommunityControlVC.h"
 #import "MXO2OVC.h"
 #import "MXShareOpenVC.h"
+#import "MXHomeKeyBagVC.h"
 
 #import "MXHomeElevatorVC.h"
 #import "MXHomeServiceVC.h"
@@ -30,12 +32,15 @@
 #import "MXHomeBannerModel.h"
 
 #define MXHomeMenuHeight MXScreen_Width/2
-#define MXHomeBottomHeight 79
-#define MXHomeCycleHeight 230
-#define MXHomeCellHeight 192
+#define MXHomeBottomHeight_Later6 79
+#define MXHomeBottomHeight_Before 59
+#define MXHomeCycleHeight_Later6 230
+#define MXHomeCycleHeight_Before6 190
+#define MXHomeCellHeight_Later6 192
+#define MXHomeCellHeight_Before6 150
 #define MXHomeSectionHeight 15
 
-@interface MXHomeViewController ()<UITableViewDelegate, UITableViewDataSource, MXHomeHeaderMenuDelegate,SDCycleScrollViewDelegate>
+@interface MXHomeViewController ()<UITableViewDelegate, UITableViewDataSource, MXHomeHeaderMenuDelegate,SDCycleScrollViewDelegate, MXHomeLeftMenuDelegate>
 
 @property (nonatomic, weak) UITableView *tableView;
 /** 顶部轮播图 */
@@ -56,6 +61,8 @@
 @property (nonatomic, strong) UIView *headerView;
 /** 钥匙包 */
 @property (nonatomic, strong) NSArray *keyBagArray;
+/** 变形后的蒙版 */
+@property (nonatomic, weak) UIButton *cover;
 
 @end
 
@@ -75,8 +82,8 @@
 {
     [super viewDidLoad];
     [self addNotification];
-    [self initData];
     [self initNavBar];
+    [self initData];
     [self initUI];
     [self initConstraint];
     [self initEMClientTool];
@@ -84,7 +91,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [self makeRequest];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -139,20 +146,32 @@
 
 - (void)initUI
 {
+    CGFloat bottomBarHeight = 0;
+    if (MXDevice_Is_iPhone4 || MXDevice_Is_iPhone5) {
+        bottomBarHeight = MXHomeBottomHeight_Before;
+    }else {
+        bottomBarHeight = MXHomeBottomHeight_Later6;
+    }
     // 创建tableView
-    UITableView *tableView   = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, MXScreen_Width, self.view.height - MXHomeBottomHeight) style:UITableViewStyleGrouped];
+    UITableView *tableView   = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, MXScreen_Width, self.view.height - bottomBarHeight) style:UITableViewStyleGrouped];
     tableView.dataSource     = self;
     tableView.delegate       = self;
     tableView.backgroundColor= [UIColor mx_colorWithHexString:@"ececec"];
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     tableView.showsVerticalScrollIndicator = NO;
     
+    CGFloat bannerHeight = 0;
+    if (MXDevice_Is_iPhone4 || MXDevice_Is_iPhone5) {
+        bannerHeight = MXHomeCycleHeight_Before6;
+    }else {
+        bannerHeight = MXHomeCycleHeight_Later6;
+    }
     // 创建tableHeaderView
     tableView.tableHeaderView = ({
-        UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MXScreen_Width, MXHomeMenuHeight + MXHomeCycleHeight)];
+        UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MXScreen_Width, MXHomeMenuHeight + bannerHeight)];
         
         // 菜单按钮
-        MXHomeHeaderMenu *menuView = [[MXHomeHeaderMenu alloc] initWithFrame:CGRectMake(0, MXHomeCycleHeight, MXScreen_Width, MXHomeMenuHeight) withButtonTitles:self.menuTitles andButtonImages:self.menuImages];
+        MXHomeHeaderMenu *menuView = [[MXHomeHeaderMenu alloc] initWithFrame:CGRectMake(0, bannerHeight, MXScreen_Width, MXHomeMenuHeight) withButtonTitles:self.menuTitles andButtonImages:self.menuImages];
         menuView.backgroundColor   = [UIColor whiteColor];
         menuView.delegate          = self;
         self.headerMenu            = menuView;
@@ -165,17 +184,25 @@
     
     // 创建底部钥匙条，UI背景图左右宽度不一致，WTF，所以杀鸡取卵，x设置为-1
     MXWeakSelf;
-    MXHomeBottomBar *bottomBar = [[MXHomeBottomBar alloc] initWithFrame:CGRectMake(- 1, MXScreen_Height - MX_NAV_HEIGHT - MXHomeBottomHeight, MXScreen_Width + 2, MXHomeBottomHeight) andClickBlock:^{
+    MXHomeBottomBar *bottomBar = [[MXHomeBottomBar alloc] initWithFrame:CGRectMake(- 1, MXScreen_Height - MX_NAV_HEIGHT - bottomBarHeight, MXScreen_Width + 2, bottomBarHeight) andClickBlock:^{
         [weakSelf bottomBarKeyClick];
     }];
     NSLog(@"%lf",bottomBar.width);
     self.bottomBar = bottomBar;
     [self.view addSubview:bottomBar];
     
-    
-    UIView *leftMenuView = [[UIView alloc] initWithFrame:self.view.bounds];
-    leftMenuView.backgroundColor = [UIColor yellowColor];
+    // 添加侧滑菜单
+    MXHomeLeftMenu *leftMenuView = [[MXHomeLeftMenu alloc] initWithFrame:self.view.bounds];
+    leftMenuView.delegate = self;
+    leftMenuView.backgroundColor = [UIColor mx_colorWithHexString:@"39495C"];
     [MXApplicationAccessor.keyWindow insertSubview:leftMenuView atIndex:0];
+    
+    // 添加下拉刷新
+    [MXRefresh addHeaderRefresh:self.tableView refreshingBlock:^{
+        [weakSelf makeRequest];
+    }];
+    
+    [MXRefresh beginHeaderRefresh:self.tableView];
 }
 
 - (void)initConstraint
@@ -194,9 +221,37 @@
  */
 - (void)personalCenterClick
 {
-//    MXPersonalCenterVC *personCenterVC = [[MXPersonalCenterVC alloc] init];
-//    [self.navigationController pushViewController:personCenterVC animated:YES];
-    self.navigationController.view.transform = CGAffineTransformMakeScale(0.5, 0.5);
+    [UIView animateWithDuration:0.25 animations:^{
+        // 缩放为0.8倍
+        CGAffineTransform transform = CGAffineTransformMakeScale(0.8, 0.8);
+        
+        CGFloat leftRightMargin = MXScreen_Width * (1 - 0.8) * 0.5;
+//        CGFloat topBottomMargin = MXScreen_Height * (1 - 0.8) * 0.5;
+        
+        CGFloat translateX = MXScreen_Width * 0.8 - leftRightMargin;
+//        CGFloat translateY = 0;
+        
+        self.navigationController.view.transform = CGAffineTransformTranslate(transform, translateX / 0.8, 0);
+        
+        UIButton *cover = [[UIButton alloc] init];
+        [cover addTarget:self action:@selector(coverClick:) forControlEvents:UIControlEventTouchUpInside];
+        cover.frame = self.navigationController.view.bounds;
+        self.cover = cover;
+        [self.navigationController.view addSubview:cover];
+        
+    } completion:nil];
+}
+
+/**
+ 点击遮盖还原控制器
+ */
+- (void)coverClick:(UIButton *)cover
+{
+    [UIView animateWithDuration:0.25 animations:^{
+        self.navigationController.view.transform = CGAffineTransformIdentity;
+    } completion:^(BOOL finished) {
+        [cover removeFromSuperview];
+    }];
 }
 
 /**
@@ -258,6 +313,7 @@
     } failure:^(NSError * _Nonnull error) {
         NSLog(@"请求失败");
     }];
+    [MXRefresh endHeaderRefresh:self.tableView];
 }
 
 /**
@@ -265,21 +321,26 @@
  */
 - (void)updateTableViewHeader
 {
-//        UIImage *image1 = [UIImage imageNamed:@"home_banner1.png"];
-//        UIImage *image2 = [UIImage imageNamed:@"home_banner2.png"];
-//        UIImage *image3 = [UIImage imageNamed:@"home_banner3.png"];
-//        NSMutableArray *imageArray = [NSMutableArray arrayWithObjects:image1, image2, image3, nil];
     MXWeakSelf;
-    // 顶部轮播图
-    SDCycleScrollView *cycleView         = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, MXScreen_Width, MXHomeCycleHeight) imageURLStringsGroup:self.bannersArray];
-    cycleView.bannerImageViewContentMode = UIViewContentModeScaleToFill;
-    cycleView.autoScrollTimeInterval     = 3.0f;
-    cycleView.pageControlStyle           = SDCycleScrollViewPageContolStyleClassic;
-    cycleView.delegate                   = self;
-    cycleView.pageControlAliment         = SDCycleScrollViewPageContolAlimentRight;
-    cycleView.titleLabelHeight           = 23.0f;
-    cycleView.titleLabelBackgroundColor  = [UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.3f];
-    [weakSelf.headerView addSubview:cycleView];
+//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//
+//        CGFloat bannerHeight = 0;
+//        if (MXDevice_Is_iPhone4 || MXDevice_Is_iPhone5) {
+//            bannerHeight = MXHomeCycleHeight_Before6;
+//        }else {
+//            bannerHeight = MXHomeCycleHeight_Later6;
+//        }
+        // 顶部轮播图
+        SDCycleScrollView *cycleView         = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, MXScreen_Width, 230) imageURLStringsGroup:weakSelf.bannersArray];
+        cycleView.bannerImageViewContentMode = UIViewContentModeScaleToFill;
+        cycleView.autoScrollTimeInterval     = 3.0f;
+        cycleView.pageControlStyle           = SDCycleScrollViewPageContolStyleClassic;
+        cycleView.delegate                   = weakSelf;
+        cycleView.pageControlAliment         = SDCycleScrollViewPageContolAlimentRight;
+        cycleView.titleLabelHeight           = 23.0f;
+        cycleView.titleLabelBackgroundColor  = [UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.3f];
+        [weakSelf.headerView addSubview:cycleView];
+//    });
 }
 
 
@@ -338,9 +399,9 @@
     EMError *error = [[EMClient sharedClient] loginWithUsername:IMkey password:IMPassword];
      if (!error)
      {
-         NSLog(@"登陆成功");
+         NSLog(@"IM登陆成功");
      }else {
-         NSLog(@"登录失败");
+         NSLog(@"IM登录失败");
      };
 }
 
@@ -360,7 +421,11 @@
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return MXHomeCellHeight;
+    if (MXDevice_Is_iPhone4 || MXDevice_Is_iPhone5) {
+        return MXHomeCellHeight_Before6;
+    }else {
+        return MXHomeCellHeight_Later6;
+    }
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -473,27 +538,56 @@
     NSLog(@"点击了%ld个按钮",(long)index);
 }
 
+#pragma mark - MXHomeLeftMenuDelegate
+- (void)homeLeftMenuDidClickButtonAtIndex:(NSInteger)index
+{
+    [UIView animateWithDuration:0.25 animations:^{
+        self.navigationController.view.transform = CGAffineTransformIdentity;
+    } completion:^(BOOL finished) {
+        [self.cover removeFromSuperview];
+    }];
+    switch (index) {
+            // 免打扰
+        case 0:
+        {
+            
+        }
+            break;
+            // 修改密码
+        case 1:
+        {
+            
+        }
+            break;
+            // 钥匙包
+        case 2:
+        {
+            
+        }
+            break;
+            // 扫一扫
+        case 3:
+        {
+            
+        }
+            break;
+            // 关于
+        case 4:
+        {
+            
+        }
+            break;
+        default:
+            break;
+    }
+}
+
 #pragma mark - 底部钥匙按钮点击
 - (void)bottomBarKeyClick
 {
-    //添加popview
-    [BHBPopView showToView:MXApplicationAccessor.keyWindow
-                 andImages:@[@"images.bundle/tabbar_compose_idea",
-                             @"images.bundle/tabbar_compose_photo",
-                             @"images.bundle/tabbar_compose_camera",
-                             @"images.bundle/tabbar_compose_lbs",
-                             @"images.bundle/tabbar_compose_review",
-                             @"images.bundle/tabbar_compose_more"]
-                 andTitles:@[@"Text",
-                             @"Albums",
-                             @"Camera",
-                             @"Check in",
-                             @"Review",
-                             @"More"]
-            andSelectBlock:^(BHBItem *item) {
-                
-            }
-     ];
+    MXHomeKeyBagVC *keyBagVC = [[MXHomeKeyBagVC alloc] init];
+    keyBagVC.keyBagArray = self.keyBagArray;
+    [self presentViewController:keyBagVC animated:YES completion:nil];
 }
 
 @end

@@ -41,8 +41,14 @@
     self.imageView = imageView;
     [self.containerView addSubview:imageView];
     
+    CGFloat fontSize = 0;
+    if (MXDevice_Is_iPhone5 || MXDevice_Is_iPhone4) {
+        fontSize = 12;
+    }else {
+        fontSize = 15;
+    }
     UILabel *titleLabel = [[UILabel alloc] init];
-    titleLabel.font = [UIFont systemFontOfSize:15];
+    titleLabel.font = [UIFont systemFontOfSize:fontSize];
     titleLabel.text = title;
     titleLabel.textColor = [UIColor blackColor];
     [titleLabel sizeToFit];
@@ -55,16 +61,22 @@
 
 - (void)initConstraint
 {
+    CGFloat buttonWdith = 0;
+    if (MXDevice_Is_iPhone4 || MXDevice_Is_iPhone5) {
+        buttonWdith = 40;
+    }else {
+        buttonWdith = 50;
+    }
     MXWeakSelf;
     [self.containerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(weakSelf);
-        make.width.equalTo(@50);
+        make.width.equalTo(@(buttonWdith));
         make.height.equalTo(@70);
     }];
     
     [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.equalTo(weakSelf.containerView);
-        make.height.equalTo(@50);
+        make.height.equalTo(@(buttonWdith));
     }];
     
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
