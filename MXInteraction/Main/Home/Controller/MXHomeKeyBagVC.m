@@ -9,7 +9,9 @@
 #import "MXHomeKeyBagVC.h"
 #import "MXHomeHeaderMenuBtn.h"
 
-#define HomeKeyBagBtnWidth 80
+#define HomeKeyBagKeyWidth 80
+#define HomeKeyBagBtnWidth_Later6 80
+#define HomeKeyBagBtnWidth_Before6 60
 #define HomeKeyBagBtnHeight HomeKeyBagBtnWidth
 #define HomeKeyBagBtnLineMargin 30
 
@@ -43,20 +45,26 @@
     self.timeView = timeView;
     [self.view addSubview:timeView];
     
-    UIImageView *adView = [[UIImageView alloc] initWithFrame:CGRectMake(MXScreen_Width - 35 - 210, 75, 210, 175)];
+    UIImageView *adView = [[UIImageView alloc] initWithFrame:CGRectMake(MXScreen_Width - 35 - 100, 75, 100, 175)];
     adView.image = [UIImage imageNamed:@"img_malfunction"];
     self.adView = adView;
     [self.view addSubview:adView];
     
-    UIButton *bottomBtn = [[UIButton alloc] initWithFrame:CGRectMake(MXScreen_Width * 0.5 - HomeKeyBagBtnWidth * 0.5, MXScreen_Height - 40 - HomeKeyBagBtnWidth, HomeKeyBagBtnWidth, HomeKeyBagBtnHeight)];
+    CGFloat keyWidth = 0;
+    if (MXDevice_Is_iPhone4 || MXDevice_Is_iPhone5) {
+        keyWidth = HomeKeyBagBtnWidth_Before6;
+    }else {
+        keyWidth = HomeKeyBagBtnWidth_Later6;
+    }
+    UIButton *bottomBtn = [[UIButton alloc] initWithFrame:CGRectMake(MXScreen_Width * 0.5 - keyWidth * 0.5, MXScreen_Height - 40 - keyWidth, keyWidth, keyWidth)];
     [bottomBtn addTarget:self action:@selector(bottomBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [bottomBtn setBackgroundImage:[UIImage imageNamed:@"home_btn_key"] forState:UIControlStateNormal];
     [self.view addSubview:bottomBtn];
     
     for (int i = 0 ; i < self.keyBagArray.count; i++) {
-        CGFloat marginX = (MXScreen_Width - 3 * HomeKeyBagBtnWidth) / 4;
-        CGFloat bottomMargin = 220;
         CGFloat buttonW = 80;
+        CGFloat marginX = (MXScreen_Width - 3 * buttonW) / 4;
+        CGFloat bottomMargin = 220;
         CGFloat buttonH = buttonW;
         CGFloat buttonX = marginX + (marginX + buttonW) * (i % 3);
         CGFloat buttonY = MXScreen_Height -  (bottomMargin + (buttonW + HomeKeyBagBtnLineMargin) * (i / 3));

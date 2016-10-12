@@ -324,14 +324,14 @@
     MXWeakSelf;
 //    dispatch_async(dispatch_get_global_queue(0, 0), ^{
 //
-//        CGFloat bannerHeight = 0;
-//        if (MXDevice_Is_iPhone4 || MXDevice_Is_iPhone5) {
-//            bannerHeight = MXHomeCycleHeight_Before6;
-//        }else {
-//            bannerHeight = MXHomeCycleHeight_Later6;
-//        }
+        CGFloat bannerHeight = 0;
+        if (MXDevice_Is_iPhone4 || MXDevice_Is_iPhone5) {
+            bannerHeight = MXHomeCycleHeight_Before6;
+        }else {
+            bannerHeight = MXHomeCycleHeight_Later6;
+        }
         // 顶部轮播图
-        SDCycleScrollView *cycleView         = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, MXScreen_Width, 230) imageURLStringsGroup:weakSelf.bannersArray];
+        SDCycleScrollView *cycleView         = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, MXScreen_Width, bannerHeight) imageURLStringsGroup:weakSelf.bannersArray];
         cycleView.bannerImageViewContentMode = UIViewContentModeScaleToFill;
         cycleView.autoScrollTimeInterval     = 3.0f;
         cycleView.pageControlStyle           = SDCycleScrollViewPageContolStyleClassic;

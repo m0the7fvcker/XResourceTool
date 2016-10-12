@@ -27,7 +27,7 @@
 
 - (void)initUI
 {
-    self.backgroundColor = [UIColor mx_colorWithHexString:@"ececec"];
+    self.contentView.backgroundColor = [UIColor mx_colorWithHexString:@"ececec"];
     
     UILabel *timeLabel = [[UILabel alloc] init];
     timeLabel.font = [UIFont systemFontOfSize:14];

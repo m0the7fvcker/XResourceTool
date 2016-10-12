@@ -69,13 +69,15 @@
     }
     MXWeakSelf;
     [self.containerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(weakSelf).offset(5);
         make.center.equalTo(weakSelf);
         make.width.equalTo(@(buttonWdith));
         make.height.equalTo(@70);
     }];
     
     [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.right.equalTo(weakSelf.containerView);
+        make.left.right.equalTo(weakSelf.containerView);
+        make.top.equalTo(weakSelf.containerView.mas_top).offset(5);
         make.height.equalTo(@(buttonWdith));
     }];
     
