@@ -11,7 +11,9 @@
 
 @interface MXMonitoringVC : MXBaseViewController
 
+@property (nonatomic, copy) NSString *remoteIMKey;
+@property (nonatomic, copy) NSString *remoteSerial;
+
 - (instancetype)initWithSessicon:(EMCallSession *)callSession andIsCaller:(BOOL)isCaller;
 - (void)close;
-
 @end

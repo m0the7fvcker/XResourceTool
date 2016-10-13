@@ -301,6 +301,8 @@
             if (weakSelf.userInfoModel.imKey) [MXComUserDefault saveUserIMKey:weakSelf.userInfoModel.imKey];
             // 保存imPassword
             if (weakSelf.userInfoModel.imPassword) [MXComUserDefault saveUserIMPassword:weakSelf.userInfoModel.imPassword];
+            // 保存localDeviceSerial，要添加00
+            if (weakSelf.userInfoModel.roomName) [MXComUserDefault saveUserLocalDeviceSerial:[NSString stringWithFormat:@"00%@",weakSelf.userInfoModel.roomName]];
             // 获取轮播图
             [weakSelf getBannersAndRefreshWithUserInfo:weakSelf.userInfoModel];
             // 更新头部
@@ -322,8 +324,6 @@
 - (void)updateTableViewHeader
 {
     MXWeakSelf;
-//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-//
         CGFloat bannerHeight = 0;
         if (MXDevice_Is_iPhone4 || MXDevice_Is_iPhone5) {
             bannerHeight = MXHomeCycleHeight_Before6;
@@ -340,7 +340,6 @@
         cycleView.titleLabelHeight           = 23.0f;
         cycleView.titleLabelBackgroundColor  = [UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.3f];
         [weakSelf.headerView addSubview:cycleView];
-//    });
 }
 
 

@@ -55,10 +55,10 @@
 - (void)didClickMonitorButton:(NSInteger)index
 {
     NSLog(@"%ld",index);
-    MXUserKeyBagModel *model = self.keyBagArray[index];
+    MXUserKeyBagModel *key = self.keyBagArray[index];
     
 //    [[MXEMClientTool shareTool] sendCallTo:@"maxiao1"];
-    [[MXEMClientTool shareTool] sendCMD:@"11" to:model.imKey];
+    [[MXEMClientTool shareTool] sendMonitorRequestCMDToPoint:key.imKey withRemoteSerial:key.name];
 //    [[MXEMClientTool shareTool] sendMsg];
 }
 

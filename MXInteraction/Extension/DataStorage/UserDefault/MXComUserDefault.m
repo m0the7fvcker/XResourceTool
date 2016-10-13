@@ -15,6 +15,7 @@ static NSString *MXUserDefault_UserAccount = @"userAccount";
 static NSString *MXUserDefault_UserSecretKey = @"userSecretKey";
 static NSString *MXUserDefault_UserIMKey = @"userIMKey";
 static NSString *MXUserDefault_UserIMPassword = @"userIMPassword";
+static NSString *MXUserDefault_UserLocalSerial = @"userLocalSerial";
 
 @implementation MXComUserDefault
 
@@ -118,4 +119,21 @@ static NSString *MXUserDefault_UserIMPassword = @"userIMPassword";
 {
     [MXUDStandard removeObjectForKey:MXUserDefault_UserIMPassword];
 }
+
++ (void)saveUserLocalDeviceSerial:(NSString *)localSerial
+{
+    [MXUDStandard setObject:localSerial forKey:MXUserDefault_UserLocalSerial];
+    [MXUDStandard synchronize];
+}
+
++ (NSString *)getUserLocalDeviceSerial
+{
+    return [MXUDStandard objectForKey:MXUserDefault_UserLocalSerial];
+}
+
++ (void)removeUserLocalDeviceSerial
+{
+    [MXUDStandard removeObjectForKey:MXUserDefault_UserLocalSerial];
+}
+
 @end

@@ -143,4 +143,27 @@
  *  @return void
  */
 + (void)removeUserIMPassword;
+
+
+/**
+ *  @brief 保存用户LocalDeviceSerial
+ *
+ *  @param IMPassword 用户LocalDeviceSerial
+ */
++ (void)saveUserLocalDeviceSerial:(NSString *)localSerial;
+
+/**
+ *  @brief 保存用户LocalDeviceSerial
+ *
+ *  @return 用户LocalDeviceSerial
+ */
++ (NSString *)getUserLocalDeviceSerial;
+
+/**
+ *  @brief 移除用户LocalDeviceSerial
+ *
+ *  @return void
+ */
++ (void)removeUserLocalDeviceSerial;
+
 @end

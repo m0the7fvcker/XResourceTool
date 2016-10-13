@@ -9,6 +9,8 @@
 #import "MXHomeKeyBagVC.h"
 #import "MXHomeHeaderMenuBtn.h"
 
+#import "MXUserKeyBagModel.h"
+
 #define HomeKeyBagKeyWidth 80
 #define HomeKeyBagBtnWidth_Later6 80
 #define HomeKeyBagBtnWidth_Before6 60
@@ -79,8 +81,11 @@
 }
 
 - (void)didClickKeyAtIndex:(NSInteger)index
-{
-    [MXProgressHUD showSuccess:@"开门成功" toView:self.view];
+{ 
+//    [MXProgressHUD showSuccess:@"开门成功" toView:self.view];
+    MXUserKeyBagModel *key = self.keyBagArray[index];
+    
+    [[MXEMClientTool shareTool] sendOpenRequestCMDToPoint:key.imKey withRemoteSerial:key.name];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self dismissViewControllerAnimated:YES completion:nil];

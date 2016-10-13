@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		13FAF037DE6177C0B7CF4CCA /* libPods-MXInteraction.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C67CA09F56570D3DA25D36D /* libPods-MXInteraction.a */; };
+		48EE6A761DAF58AF00FFB2C2 /* MXEMCommandModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 48EE6A751DAF58AF00FFB2C2 /* MXEMCommandModel.m */; };
+		48EE6A7B1DAFCA0000FFB2C2 /* calling_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 48EE6A7A1DAFCA0000FFB2C2 /* calling_bg.png */; };
 		4D016BB71D9A4DBE002E9740 /* MXOpenRecordSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D016BB61D9A4DBE002E9740 /* MXOpenRecordSectionHeader.m */; };
 		4D016BBA1D9A531B002E9740 /* MXOpenRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D016BB91D9A531B002E9740 /* MXOpenRecordCell.m */; };
 		4D02B85D1D6567EF00EC6F8A /* MXHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D02B85C1D6567EF00EC6F8A /* MXHomeViewController.m */; };
@@ -134,6 +136,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		48EE6A741DAF58AF00FFB2C2 /* MXEMCommandModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXEMCommandModel.h; sourceTree = "<group>"; };
+		48EE6A751DAF58AF00FFB2C2 /* MXEMCommandModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXEMCommandModel.m; sourceTree = "<group>"; };
+		48EE6A7A1DAFCA0000FFB2C2 /* calling_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calling_bg.png; sourceTree = "<group>"; };
 		4B1A254F1D211907BACDFD59 /* Pods-MXInteraction.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MXInteraction.release.xcconfig"; path = "Pods/Target Support Files/Pods-MXInteraction/Pods-MXInteraction.release.xcconfig"; sourceTree = "<group>"; };
 		4D016BB51D9A4DBE002E9740 /* MXOpenRecordSectionHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXOpenRecordSectionHeader.h; sourceTree = "<group>"; };
 		4D016BB61D9A4DBE002E9740 /* MXOpenRecordSectionHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXOpenRecordSectionHeader.m; sourceTree = "<group>"; };
@@ -873,6 +878,8 @@
 			children = (
 				4D6148461D63FF9D00B3B093 /* MXBaseDataModel.h */,
 				4D6148471D63FF9D00B3B093 /* MXBaseDataModel.m */,
+				48EE6A741DAF58AF00FFB2C2 /* MXEMCommandModel.h */,
+				48EE6A751DAF58AF00FFB2C2 /* MXEMCommandModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1179,6 +1186,7 @@
 		4DCC0C5A1D76B97100F681C9 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				48EE6A7A1DAFCA0000FFB2C2 /* calling_bg.png */,
 				4D899F611DAE594C00167A43 /* keyBag_bg.png */,
 				4DCC0C681D76C05A00F681C9 /* shareOpen_erweima.png */,
 				4DCC0C5E1D76B97C00F681C9 /* home_elevator_bg.png */,
@@ -1295,7 +1303,8 @@
 				TargetAttributes = {
 					4D6147EE1D63FF1400B3B093 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = QDH66RGJXX;
+						DevelopmentTeam = RGFQAX73E5;
+						ProvisioningStyle = Automatic;
 					};
 					4D6148071D63FF1400B3B093 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -1330,6 +1339,7 @@
 			files = (
 				4DC565EC1D6F1EE000C58564 /* MXO2OCell.xib in Resources */,
 				4DC565DE1D6F141800C58564 /* MXCommunityMarketCell.xib in Resources */,
+				48EE6A7B1DAFCA0000FFB2C2 /* calling_bg.png in Resources */,
 				4DC0554D1D6AB6250079658D /* MXLoginViewController.xib in Resources */,
 				4D899F621DAE594C00167A43 /* keyBag_bg.png in Resources */,
 				4DF7D65C1D66E0F300A1FD4F /* images.bundle in Resources */,
@@ -1517,6 +1527,7 @@
 				4DC565CB1D6E995600C58564 /* MXPersonalBarButton.m in Sources */,
 				4D46A9091DACDBBE00239D20 /* MXEMClientTool.m in Sources */,
 				4D6148871D63FF9D00B3B093 /* MXRefresh.m in Sources */,
+				48EE6A761DAF58AF00FFB2C2 /* MXEMCommandModel.m in Sources */,
 				4D3EBF6F1D9E430400A10C25 /* MXProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1635,6 +1646,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Wang Zong (T2LAUPP44Z)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1646,8 +1658,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.maxiao.mxinteraction;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "97cd7604-1007-48a4-a29c-d661d2b4fe7b";
-				PROVISIONING_PROFILE_SPECIFIER = mxinteraction_dev;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -1658,6 +1670,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Wang Zong (T2LAUPP44Z)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1669,8 +1682,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.maxiao.mxinteraction;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "97cd7604-1007-48a4-a29c-d661d2b4fe7b";
-				PROVISIONING_PROFILE_SPECIFIER = mxinteraction_dev;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

@@ -7,10 +7,16 @@
 //
 
 #import "MXBaseViewController.h"
+@class EMCallSession;
 
 @interface MXIncomingVC : MXBaseViewController
 
-- (instancetype)initWithSessicon:(EMCallSession *)callSession andIsCaller:(BOOL)isCaller;
-- (void)close;
+@property (nonatomic, strong) EMCallSession *callSession;
+@property (nonatomic, copy) NSString *remoteIMKey;
+@property (nonatomic, copy) NSString *remoteSerial;
+@property (nonatomic, assign) BOOL isCaller;
 
+- (instancetype)initWithSessicon:(EMCallSession *)callSession andIsCaller:(BOOL)isCaller;
+- (instancetype)initWithIsCaller:(BOOL)isCaller;
+- (void)close;
 @end

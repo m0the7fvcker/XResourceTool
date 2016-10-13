@@ -28,6 +28,7 @@
     if (self = [super init]) {
         self.callSession = callSession;
         self.isCaller = isCaller;
+        [self initUI];
     }
     return self;
 }
@@ -40,32 +41,33 @@
 
 - (void)initUI
 {
-    UIImageView *bgView = [[UIImageView alloc] initWithFrame:self.view.bounds];
-    bgView.image = [UIImage imageNamed:@"bg.png"];
-    self.bgView = bgView;
-    [self.view addSubview:bgView];
-    
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 50, 100, 40)];
-    titleLabel.text = @"01栋03小区";
-    self.titleLabel = titleLabel;
-    [self.view addSubview:titleLabel];
-    
-    UILabel *countdownLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 100, 20)];
-    countdownLabel.text = @"10:00";
-    self.countdownLabel = countdownLabel;
-    [self.view addSubview:countdownLabel];
-    
-    self.callSession.remoteVideoView = [[EMCallRemoteView alloc] initWithFrame:CGRectMake(50 , 100, 200, 200)];
-    self.callSession.remoteVideoView.backgroundColor = [UIColor yellowColor];
-    [self.view addSubview:self.callSession.remoteVideoView];
-    
-    UIButton *acceptBtn = [[UIButton alloc] initWithFrame:CGRectMake(100, 300, 50, 50)];
-    [acceptBtn setTitle:@"接受" forState:UIControlStateNormal];
-    acceptBtn.backgroundColor = [UIColor greenColor];
-    [acceptBtn addTarget:self action:@selector(accept) forControlEvents:UIControlEventTouchUpInside];
-    self.acceptBtn = acceptBtn;
-    [self.view addSubview:acceptBtn];
-    
+    self.view.backgroundColor = [UIColor yellowColor];
+//    UIImageView *bgView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+//    bgView.image = [UIImage imageNamed:@"bg.png"];
+//    self.bgView = bgView;
+//    [self.view addSubview:bgView];
+//    
+//    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 50, 100, 40)];
+//    titleLabel.text = @"01栋03小区";
+//    self.titleLabel = titleLabel;
+//    [self.view addSubview:titleLabel];
+//    
+//    UILabel *countdownLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 100, 20)];
+//    countdownLabel.text = @"10:00";
+//    self.countdownLabel = countdownLabel;
+//    [self.view addSubview:countdownLabel];
+//    
+//    self.callSession.remoteVideoView = [[EMCallRemoteView alloc] initWithFrame:CGRectMake(50 , 100, 200, 200)];
+//    self.callSession.remoteVideoView.backgroundColor = [UIColor yellowColor];
+//    [self.view addSubview:self.callSession.remoteVideoView];
+//    
+//    UIButton *acceptBtn = [[UIButton alloc] initWithFrame:CGRectMake(100, 300, 50, 50)];
+//    [acceptBtn setTitle:@"接受" forState:UIControlStateNormal];
+//    acceptBtn.backgroundColor = [UIColor greenColor];
+//    [acceptBtn addTarget:self action:@selector(accept) forControlEvents:UIControlEventTouchUpInside];
+//    self.acceptBtn = acceptBtn;
+//    [self.view addSubview:acceptBtn];
+//    
     UIButton *rejectBtn = [[UIButton alloc] initWithFrame:CGRectMake(200, 300, 50, 50)];
     [rejectBtn setTitle:@"拒绝" forState:UIControlStateNormal];
     rejectBtn.backgroundColor = [UIColor redColor];
@@ -100,6 +102,10 @@
     if (self.callSession) {
         [[EMClient sharedClient].callManager endCall:_callSession.sessionId reason:EMCallEndReasonDecline];
     }
+    // 设置状态为闲置状态
+    [MXEMClientTool shareTool].deviceState = MXDeviceState_Idle;
+    [[MXEMClientTool shareTool] sendHandupCMDToPoint:self.remoteIMKey withRemoteSerial:self.remoteSerial];
+    [self close];
 }
 
 - (void)close

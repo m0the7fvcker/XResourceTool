@@ -7,9 +7,10 @@
 //
 
 #import "MXBaseViewController.h"
+@class MXUserKeyBagModel;
 
 @interface MXSeeTalkingVC : MXBaseViewController
 
-@property (nonatomic, strong) NSArray *keyBagArray;
+@property (nonatomic, strong) NSArray <MXUserKeyBagModel *>*keyBagArray;
 
 @end

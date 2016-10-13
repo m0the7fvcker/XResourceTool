@@ -17,6 +17,8 @@
 @interface MXEMClientTool()<EMChatManagerDelegate, EMCallManagerDelegate, EMGroupManagerDelegate>
 
 @property (nonatomic, strong) EMCallSession *callSession;
+@property (nonatomic, strong) MXMonitoringVC *monitorVC;
+@property (nonatomic, strong) MXIncomingVC *incomingVC;
 
 @end
 
@@ -73,21 +75,14 @@
     }];
 }
 
-- (BOOL)sendCMD:(NSDictionary *)cmd to:(NSString *)to
+- (BOOL)sendPointCMD:(MXEMCommandModel *)cmd toPoint:(NSString *)pointIMKey
 {
-//    NSDictionary *cmdDic = @{@"CommandSendTimeStamp" : @"1476018140894",
-//                             @"CommandAction" : @"303",
-//                             @"RemoteImKey" : @"ef131bc92b73ebee7f12d71611ff6898"
-//                             };
-//    NSString *cmdMg = [MXJSONTool dictionaryToJson:cmd];
-    
-    NSTimeInterval interval = [[NSDate date] timeIntervalSince1970] * 1000;
-    
-    EMCmdMessageBody *body = [[EMCmdMessageBody alloc] initWithAction:@"{\"CommandSendTimeStamp\":\"1476265531808\",\"CommandAction\":\"303\",\"RemoteImKey\":\"ef131bc92b73ebee4e0b4d5bed760661\",\"LocalImKey\":\"4c5719f1dd3b2258fc922553abc9ce7f\",\"CommandType\":\"101\",\"tag\":\"command\",\"RemoteDeviceSerial\":\"02010101000001\",\"CommandSequence\":\"26\",\"LocalDeviceSerial\":\"000101010101\",\"OtherJSON\":\"\"}"];
+    NSString *cmdJSON = [cmd mx_JSONString];
+    EMCmdMessageBody *body = [[EMCmdMessageBody alloc] initWithAction:cmdJSON];
     
     NSString *from = [[EMClient sharedClient] currentUsername];
     
-    EMMessage *message = [[EMMessage alloc] initWithConversationID:to from:from to:to body:body ext:nil];
+    EMMessage *message = [[EMMessage alloc] initWithConversationID:pointIMKey from:from to:pointIMKey body:body ext:nil];
     message.chatType = EMChatTypeChat;
     
     __block BOOL sendStataus;
@@ -105,7 +100,31 @@
     return sendStataus;
 }
 
-- (BOOL)sendCallTo:(NSString *)to
+- (BOOL)sendGroupCMD:(MXEMCommandModel *)cmd toGroup:(NSString *)groupID;
+{
+    NSString *cmdJSON = [cmd mx_JSONString];
+    EMCmdMessageBody *body = [[EMCmdMessageBody alloc] initWithAction:cmdJSON];
+    
+    NSString *from = [[EMClient sharedClient] currentUsername];
+    EMMessage *message = [[EMMessage alloc] initWithConversationID:groupID from:from to:groupID body:body ext:nil];
+    message.chatType = EMChatTypeGroupChat;
+    
+    __block BOOL sendStataus;
+    [[EMClient sharedClient].chatManager sendMessage:message progress:nil completion:^(EMMessage *aMessage, EMError *aError) {
+        if (!aError) {
+            sendStataus = YES;
+            NSLog(@"发送成功");
+        }
+        else {
+            sendStataus = NO;
+            NSLog(@"发送失败");
+        }
+    }];
+    
+    return sendStataus;
+}
+
+- (BOOL)sendPointCallTo:(NSString *)to
 {
     __block BOOL sendStatus;
     [[EMClient sharedClient].callManager startVideoCall:to completion:^(EMCallSession *aCallSession, EMError *aError) {
@@ -124,15 +143,177 @@
     return sendStatus;
 }
 
-#pragma mark - 消息代理
-- (void)didReceiveMessages:(NSArray *)aMessages
+- (BOOL)sendOpenRequestCMDToPoint:(NSString *)pointIMKey withRemoteSerial:(NSString *)remoteSerial
 {
+    NSTimeInterval interval = [[NSDate date] timeIntervalSince1970] * 1000;
+    long timeStamp = (long)interval;
     
+    MXEMCommandModel *openCMD = [[MXEMCommandModel alloc] init];
+    openCMD.CommandAction = @"303";
+    openCMD.CommandType = @"101";
+    openCMD.CommandSendTimeStamp = [NSString stringWithFormat:@"%ld",timeStamp];
+    openCMD.RemoteImKey = pointIMKey;
+    openCMD.LocalImKey = [EMClient sharedClient].currentUsername;
+    openCMD.tag = @"command";
+    openCMD.RemoteDeviceSerial = remoteSerial;
+    openCMD.LocalDeviceSerial = [MXComUserDefault getUserLocalDeviceSerial];
+    openCMD.CommandSequence = @"1";
+    openCMD.OtherJSON = @"";
+    
+    return [self sendPointCMD:openCMD toPoint:pointIMKey];
 }
 
+- (BOOL)sendMonitorRequestCMDToPoint:(NSString *)pointIMKey withRemoteSerial:(NSString *)remoteSerial
+{
+    NSTimeInterval interval = [[NSDate date] timeIntervalSince1970] * 1000;
+    long timeStamp = (long)interval;
+    
+    MXEMCommandModel *openCMD = [[MXEMCommandModel alloc] init];
+    openCMD.CommandAction = @"304";
+    openCMD.CommandType = @"101";
+    openCMD.CommandSendTimeStamp = [NSString stringWithFormat:@"%ld",timeStamp];
+    openCMD.RemoteImKey = pointIMKey;
+    openCMD.LocalImKey = [EMClient sharedClient].currentUsername;
+    openCMD.tag = @"command";
+    openCMD.RemoteDeviceSerial = remoteSerial;
+    openCMD.LocalDeviceSerial = [MXComUserDefault getUserLocalDeviceSerial];
+    openCMD.CommandSequence = @"1";
+    openCMD.OtherJSON = @"";
+    
+    return [self sendPointCMD:openCMD toPoint:pointIMKey];
+}
+
+- (BOOL)sendIdleStateCMDToGroup:(NSString *)groupID withRemoteSerial:(NSString *)remoteSerial andRemoteIMKey:(NSString *)pointIMKey
+{
+    NSTimeInterval interval = [[NSDate date] timeIntervalSince1970] * 1000;
+    long timeStamp = (long)interval;
+    
+    MXEMCommandModel *openCMD = [[MXEMCommandModel alloc] init];
+    openCMD.CommandAction = @"301";
+    openCMD.CommandType = @"102";
+    openCMD.CommandSendTimeStamp = [NSString stringWithFormat:@"%ld",timeStamp];
+    openCMD.RemoteImKey = pointIMKey;
+    openCMD.LocalImKey = [EMClient sharedClient].currentUsername;
+    openCMD.tag = @"command";
+    openCMD.RemoteDeviceSerial = remoteSerial;
+    openCMD.LocalDeviceSerial = [MXComUserDefault getUserLocalDeviceSerial];
+    openCMD.CommandSequence = @"1";
+    openCMD.OtherJSON = @"";
+    
+    return [self sendGroupCMD:openCMD toGroup:groupID];
+}
+
+- (BOOL)sendCallAnswerCMDToGroup:(NSString *)groupID withRemoteSerial:(NSString *)remoteSerial andRemoteIMKey:(NSString *)pointIMKey
+{
+    NSTimeInterval interval = [[NSDate date] timeIntervalSince1970] * 1000;
+    long timeStamp = (long)interval;
+    
+    MXEMCommandModel *openCMD = [[MXEMCommandModel alloc] init];
+    openCMD.CommandAction = @"305";
+    openCMD.CommandType = @"101";
+    openCMD.CommandSendTimeStamp = [NSString stringWithFormat:@"%ld",timeStamp];
+    openCMD.RemoteImKey = pointIMKey;
+    openCMD.LocalImKey = [EMClient sharedClient].currentUsername;
+    openCMD.tag = @"command";
+    openCMD.RemoteDeviceSerial = remoteSerial;
+    openCMD.LocalDeviceSerial = [MXComUserDefault getUserLocalDeviceSerial];
+    openCMD.CommandSequence = @"1";
+    openCMD.OtherJSON = @"";
+    
+    return [self sendGroupCMD:openCMD toGroup:groupID];
+}
+
+- (BOOL)sendHandupCMDToPoint:(NSString *)pointIMKey withRemoteSerial:(NSString *)remoteSerial
+{
+    NSTimeInterval interval = [[NSDate date] timeIntervalSince1970] * 1000;
+    long timeStamp = (long)interval;
+    
+    MXEMCommandModel *openCMD = [[MXEMCommandModel alloc] init];
+    openCMD.CommandAction = @"302";
+    openCMD.CommandType = @"101";
+    openCMD.CommandSendTimeStamp = [NSString stringWithFormat:@"%ld",timeStamp];
+    openCMD.RemoteImKey = pointIMKey;
+    openCMD.LocalImKey = [EMClient sharedClient].currentUsername;
+    openCMD.tag = @"command";
+    openCMD.RemoteDeviceSerial = remoteSerial;
+    openCMD.LocalDeviceSerial = [MXComUserDefault getUserLocalDeviceSerial];
+    openCMD.CommandSequence = @"1";
+    openCMD.OtherJSON = @"";
+    
+    return [self sendPointCMD:openCMD toPoint:pointIMKey];
+}
+
+#pragma mark - 消息代理
 - (void)didReceiveCmdMessages:(NSArray *)aCmdMessages
 {
+    EMMessage *message = aCmdMessages.firstObject;
+    EMCmdMessageBody *body = (EMCmdMessageBody *)message.body;
+    NSDictionary *responseDic = [MXJSONTool dictionaryWithJsonString:body.action];
+    MXEMCommandModel *responseModel = [MXEMCommandModel mx_objectWithKeyValues:responseDic];
+    // 操作类型
+    NSInteger actionType = [responseModel.CommandAction integerValue];
+    NSInteger commandType = [responseModel.CommandType integerValue];
+    switch (actionType) {
+            // 挂断
+        case MXEMCammondActionType_Hangup:
+        {
+            if (commandType == MXEMCammondType_Request_Success) {
+                NSLog(@"挂断成功");
+            }else if(commandType == MXEMCammondType_Request) {
+                NSLog(@"请求发送挂断消息");
+            }
+            NSLog(@"-----挂断");
+        }
+            break;
+            // 开门
+        case MXEMCammondActionType_Open:
+        {
+            if (commandType == MXEMCammondType_Request_Success) {
+                [MXProgressHUD showSuccess:@"开门成功" toView:nil];
+                NSLog(@"开门成功");
+            }else if(commandType == MXEMCammondType_Request) {
+                NSLog(@"请求发送开门消息");
+            }else {
+                [MXProgressHUD showError:@"开门失败" toView:nil];
+            }
+            NSLog(@"-----开门");
+        }
+            break;
+            // 监控
+        case MXEMCammondActionType_Monitor:
+        {
+            if (commandType == MXEMCammondType_Request_Success) {
+                NSLog(@"发送监控成功");
+                self.incomingVC = [[MXIncomingVC alloc] initWithIsCaller:YES];
+                self.incomingVC.remoteIMKey = responseModel.LocalImKey;
+                self.incomingVC.remoteSerial = responseModel.LocalDeviceSerial;
+                // 修改状态为响铃状态
+                self.deviceState = MXDeviceState_Connecting;
+                [MXAppDelegateAccessor.window.rootViewController presentViewController:self.incomingVC animated:YES completion:nil];
+            }else if(commandType == MXEMCammondType_Request) {
+                NSLog(@"请求发送监控消息");
+            }else {
+                NSLog(@"请求发送监控对方正忙");
+            }
+            NSLog(@"-----监控");
+        }
+            break;
+            // 呼叫
+        case MXEMCammondActionType_Answer:
+        {
+            if (commandType == MXEMCammondType_Request_Success) {
+                NSLog(@"接听成功");
+            }else if(commandType == MXEMCammondType_Request) {
+                NSLog(@"请求发送接听消息");
+            }
+            NSLog(@"-----接听");
+        }
+            break;
+        default:
+            break;
+    }
     
+    NSLog(@"收到的action是 -- %@",responseDic);
 }
 
 #pragma mark - 加群代理
@@ -140,7 +321,12 @@
              inviter:(NSString *)aInviter
              message:(NSString *)aMessage
 {
-    NSLog(@"%@",aMessage);
+    NSDictionary *responseDic = [MXJSONTool dictionaryWithJsonString:aMessage];
+    MXEMCommandModel *responseModel = [MXEMCommandModel mx_objectWithKeyValues:responseDic];
+    
+    NSLog(@"%@----%@",aMessage,aGroup.groupId);
+    [self sendIdleStateCMDToGroup:aGroup.groupId withRemoteSerial:responseModel.LocalDeviceSerial andRemoteIMKey:responseModel.LocalDeviceSerial];
+    [self sendCallAnswerCMDToGroup:aGroup.groupId withRemoteSerial:responseModel.LocalDeviceSerial andRemoteIMKey:responseModel.LocalImKey];
 }
 
 #pragma mark - 视频通话
@@ -155,28 +341,45 @@
     }
     
     _callSession = aSession;
-    if(_callSession){
-        MXIncomingVC *incomingVC = [[MXIncomingVC alloc] initWithSessicon:aSession andIsCaller:YES];
-        self.incomingVC = incomingVC;
-        [MXAppDelegateAccessor.window.rootViewController presentViewController:incomingVC animated:YES completion:nil];
+    if(_callSession) {
+        // 主动监控来电
+        if (self.incomingVC) {
+            self.incomingVC.callSession = aSession;
+            // 自动接通
+            [self acceptSession:aSession];
+        // 被动机器呼叫
+        }else {
+            MXIncomingVC *incomeVC = [[MXIncomingVC alloc] initWithSessicon:aSession andIsCaller:NO];
+            self.incomingVC = incomeVC;
+            [MXAppDelegateAccessor.window.rootViewController presentViewController:incomeVC animated:NO completion:nil];
+        }
     }
 }
 
 - (void)didReceiveCallConnected:(EMCallSession *)aSession
 {
     if ([aSession.sessionId isEqualToString:_callSession.sessionId]) {
-
+        
     }
 }
 
 - (void)didReceiveCallAccepted:(EMCallSession *)aSession
 {
+    // 视频信号接通后调用此方法，此时显示视频窗口
     if ([[UIApplication sharedApplication] applicationState] != UIApplicationStateActive) {
         [[EMClient sharedClient].callManager endCall:aSession.sessionId reason:EMCallEndReasonFailed];
     }
     
     if ([aSession.sessionId isEqualToString:_callSession.sessionId]) {
-
+        if (self.incomingVC) {
+            
+            MXMonitoringVC *monitorVC = [[MXMonitoringVC alloc] initWithSessicon:aSession andIsCaller:NO];
+            monitorVC.remoteIMKey = self.incomingVC.remoteIMKey;
+            monitorVC.remoteSerial = self.incomingVC.remoteSerial;
+            [self.incomingVC close];
+            [MXAppDelegateAccessor.window.rootViewController presentViewController:monitorVC animated:NO completion:nil];
+            
+        }
     }
 }
 
@@ -185,13 +388,9 @@
                            error:(EMError *)aError
 {
     if ([aSession.sessionId isEqualToString:_callSession.sessionId]) {
-        //        [self _stopCallTimer];
-        
         _callSession = nil;
-        
-        [self.incomingVC close];
-        //        _callController = nil;
-        
+        _incomingVC = nil;
+
         if (aReason != EMCallEndReasonHangup) {
             NSString *reasonStr = @"";
             switch (aReason) {
@@ -237,4 +436,26 @@
 //        [_callController setNetwork:aStatus];
     }
 }
+
+#pragma mark - 内部方法
+- (void)acceptSession:(EMCallSession *)callSession
+{
+    if (callSession) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            EMError *error = [[EMClient sharedClient].callManager answerIncomingCall:callSession.sessionId];
+            if (error) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if (error.code == EMErrorNetworkUnavailable) {
+                        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"network.disconnection", @"Network disconnection") delegate:nil cancelButtonTitle:NSLocalizedString(@"ok", @"OK") otherButtonTitles:nil, nil];
+                        [alertView show];
+                    }
+                    else{
+                        //                        [self hangupCallWithReason:EMCallEndReasonFailed];
+                    }
+                });
+            }
+        });
+    }
+}
+
 @end
