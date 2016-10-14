@@ -71,6 +71,7 @@
 		4D87CBDF1D701C8B002B25E4 /* MXO2OCommonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D87CBDE1D701C8B002B25E4 /* MXO2OCommonModel.m */; };
 		4D899F601DAE527D00167A43 /* MXHomeKeyBagVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D899F5F1DAE527D00167A43 /* MXHomeKeyBagVC.m */; };
 		4D899F621DAE594C00167A43 /* keyBag_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D899F611DAE594C00167A43 /* keyBag_bg.png */; };
+		4D899F6A1DB0C1F400167A43 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D899F671DB0C19500167A43 /* AVFoundation.framework */; };
 		4D9CD0C41D6407D0000832D3 /* JSPatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9CD0C31D6407D0000832D3 /* JSPatch.framework */; };
 		4D9CD0C81D640D9A000832D3 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9CD0C71D640D9A000832D3 /* libz.tbd */; };
 		4D9CD0CB1D6440D2000832D3 /* NSUserDefaults+MXCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9CD0CA1D6440D2000832D3 /* NSUserDefaults+MXCategory.m */; };
@@ -264,6 +265,7 @@
 		4D899F5E1DAE527D00167A43 /* MXHomeKeyBagVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXHomeKeyBagVC.h; sourceTree = "<group>"; };
 		4D899F5F1DAE527D00167A43 /* MXHomeKeyBagVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXHomeKeyBagVC.m; sourceTree = "<group>"; };
 		4D899F611DAE594C00167A43 /* keyBag_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = keyBag_bg.png; sourceTree = "<group>"; };
+		4D899F671DB0C19500167A43 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		4D9CD0C31D6407D0000832D3 /* JSPatch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JSPatch.framework; sourceTree = "<group>"; };
 		4D9CD0C51D640904000832D3 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		4D9CD0C71D640D9A000832D3 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -363,6 +365,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D899F6A1DB0C1F400167A43 /* AVFoundation.framework in Frameworks */,
 				4D9CD0C81D640D9A000832D3 /* libz.tbd in Frameworks */,
 				4D9CD0C41D6407D0000832D3 /* JSPatch.framework in Frameworks */,
 				13FAF037DE6177C0B7CF4CCA /* libPods-MXInteraction.a in Frameworks */,
@@ -1233,6 +1236,7 @@
 		52048446E227A6E310BF746E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4D899F671DB0C19500167A43 /* AVFoundation.framework */,
 				4D9CD0C71D640D9A000832D3 /* libz.tbd */,
 				4D9CD0C51D640904000832D3 /* JavaScriptCore.framework */,
 				6C67CA09F56570D3DA25D36D /* libPods-MXInteraction.a */,

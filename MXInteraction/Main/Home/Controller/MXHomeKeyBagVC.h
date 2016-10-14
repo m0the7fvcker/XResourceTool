@@ -12,5 +12,5 @@
 @interface MXHomeKeyBagVC : MXBaseViewController
 
 @property (nonatomic, strong) NSArray <MXUserKeyBagModel *>*keyBagArray;
-
+- (void)close;
 @end

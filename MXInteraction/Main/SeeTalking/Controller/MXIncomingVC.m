@@ -8,10 +8,12 @@
 
 #import "MXIncomingVC.h"
 #import "EMCallSession.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface MXIncomingVC ()
 
 @property (nonatomic, weak) UIImageView *bgView;
+@property (nonatomic, weak) UIImageView *userIconView;
 @property (nonatomic, weak) UILabel *titleLabel;
 @property (nonatomic, weak) UILabel *countdownLabel;
 @property (nonatomic, weak) UIButton *acceptBtn;
@@ -57,81 +59,95 @@
     self.bgView = bgView;
     [self.view addSubview:bgView];
     
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 50, 100, 40)];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 50, 200, 40)];
+    titleLabel.centerX = self.view.centerX;
     titleLabel.text = @"正在监视01号主机";
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.textColor = [UIColor whiteColor];
     self.titleLabel = titleLabel;
     [self.view addSubview:titleLabel];
     
-    UILabel *countdownLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 100, 20)];
-    countdownLabel.text = @"10:00";
+    UILabel *countdownLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 100, 100, 20)];
+    countdownLabel.centerX = self.view.centerX;
+    countdownLabel.textAlignment = NSTextAlignmentCenter;
+    countdownLabel.textColor = [UIColor whiteColor];
+    countdownLabel.font = [UIFont systemFontOfSize:14];
+    countdownLabel.text = @"正在连接...";
     self.countdownLabel = countdownLabel;
     [self.view addSubview:countdownLabel];
     
-    self.callSession.remoteVideoView = [[EMCallRemoteView alloc] initWithFrame:CGRectMake(50 , 100, 200, 200)];
-    self.callSession.remoteVideoView.backgroundColor = [UIColor yellowColor];
-    [self.view addSubview:self.callSession.remoteVideoView];
+    UIImageView *userIconView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 70, 70)];
+    userIconView.image = [UIImage imageNamed:@"icon_personal_user"];
+    userIconView.center = self.view.center;
+    self.userIconView = userIconView;
+    [self.view addSubview:userIconView];
     
-    UIButton *rejectBtn = [[UIButton alloc] initWithFrame:CGRectMake(100, 300, 50, 50)];
-    [rejectBtn setTitle:@"拒绝" forState:UIControlStateNormal];
-    rejectBtn.backgroundColor = [UIColor redColor];
+    UIButton *rejectBtn = [[UIButton alloc] initWithFrame:CGRectMake(0 , MXScreen_Height - 150, 60, 60)];
+    rejectBtn.centerX = MXScreen_Width / 6;
+    [rejectBtn setBackgroundImage:[UIImage imageNamed:@"seeTalking_reject"] forState:UIControlStateNormal];
     [rejectBtn addTarget:self action:@selector(rejectClick) forControlEvents:UIControlEventTouchUpInside];
     self.rejectBtn = rejectBtn;
     [self.view addSubview:rejectBtn];
     
-    UIButton *speakerBtn = [[UIButton alloc] initWithFrame:CGRectMake(200, 300, 50, 50)];
+    UIButton *speakerBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, MXScreen_Height - 150, 60, 60)];
+    speakerBtn.centerX = MXScreen_Width / 2;
     [speakerBtn setBackgroundImage:[UIImage imageNamed:@"seeTalking_speaker"] forState:UIControlStateNormal];
-    speakerBtn.backgroundColor = [UIColor redColor];
     [speakerBtn addTarget:self action:@selector(speakerClick) forControlEvents:UIControlEventTouchUpInside];
     self.speakerBtn = speakerBtn;
     [self.view addSubview:speakerBtn];
     
-    UIButton *unlockBtn = [[UIButton alloc] initWithFrame:CGRectMake(200, 300, 50, 50)];
-    [unlockBtn setTitle:@"开门" forState:UIControlStateNormal];
-    unlockBtn.backgroundColor = [UIColor redColor];
-    unlockBtn.hidden = !self.isCaller;
-    [unlockBtn addTarget:self action:@selector(speakerClick) forControlEvents:UIControlEventTouchUpInside];
+    UIButton *unlockBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, MXScreen_Height - 150, 60, 60)];
+    [unlockBtn setBackgroundImage:[UIImage imageNamed:@"seeTalking_unlock"] forState:UIControlStateNormal];
+    [unlockBtn addTarget:self action:@selector(unlockClick) forControlEvents:UIControlEventTouchUpInside];
     self.unlockBtn = unlockBtn;
     [self.view addSubview:unlockBtn];
+    if (!self.isCaller) {
+        unlockBtn.centerX = MXScreen_Width / 2;
+    }else {
+        unlockBtn.centerX = MXScreen_Width * 5 / 6;
+    }
     
-    UIButton *acceptBtn = [[UIButton alloc] initWithFrame:CGRectMake(300, 300, 50, 50)];
-    [acceptBtn setTitle:@"接受" forState:UIControlStateNormal];
-    acceptBtn.backgroundColor = [UIColor greenColor];
+    UIButton *acceptBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, MXScreen_Height - 150, 50, 50)];
+    acceptBtn.centerX = MXScreen_Width * 5 / 6;
+    [acceptBtn setBackgroundImage:[UIImage imageNamed:@"seeTalking_accept"] forState:UIControlStateNormal];
+    acceptBtn.hidden = self.isCaller;
     [acceptBtn addTarget:self action:@selector(acceptClick) forControlEvents:UIControlEventTouchUpInside];
     self.acceptBtn = acceptBtn;
     [self.view addSubview:acceptBtn];
-    
-
     
 }
 
 - (void)speakerClick
 {
-    
+    if ([[[AVAudioSession sharedInstance] category] isEqualToString:AVAudioSessionCategoryPlayback])
+    {
+        //切换为听筒播放
+        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
+        
+    }else {
+        //切换为扬声器播放
+        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+    }
 }
 
 - (void)unlockClick
 {
+    // 开门
+    [[MXEMClientTool shareTool] sendOpenRequestCMDToPoint:self.remoteIMKey withRemoteSerial:self.remoteSerial];
+    [MXEMClientTool shareTool].openHasResponse = NO;
+    [MXEMClientTool shareTool].deviceState = MXDeviceState_Busy;
     
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        if (![MXEMClientTool shareTool].openHasResponse) {
+            [MXProgressHUD showError:@"对方不在线" toView:nil];
+            [MXEMClientTool shareTool].deviceState = MXDeviceState_Idle;
+        }
+    });
 }
 
 - (void)acceptClick
 {
-    if (self.callSession) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            EMError *error = [[EMClient sharedClient].callManager answerIncomingCall:self.callSession.sessionId];
-            if (error) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    if (error.code == EMErrorNetworkUnavailable) {
-                        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"network.disconnection", @"Network disconnection") delegate:nil cancelButtonTitle:NSLocalizedString(@"ok", @"OK") otherButtonTitles:nil, nil];
-                        [alertView show];
-                    }
-                    else{
-                        //                        [self hangupCallWithReason:EMCallEndReasonFailed];
-                    }
-                });
-            }
-        });
-    }
+//    [[MXEMClientTool shareTool] sendCallAnswerCMDToGroup:aGroup.groupId withRemoteSerial:responseModel.LocalDeviceSerial andRemoteIMKey:responseModel.LocalImKey];
 }
 
 - (void)rejectClick
@@ -139,8 +155,6 @@
     if (self.callSession) {
         [[EMClient sharedClient].callManager endCall:_callSession.sessionId reason:EMCallEndReasonHangup];
     }
-    // 设置状态为闲置状态
-    [MXEMClientTool shareTool].deviceState = MXDeviceState_Idle;
     [[MXEMClientTool shareTool] sendHandupCMDToPoint:self.remoteIMKey withRemoteSerial:self.remoteSerial];
     [self close];
 }
@@ -149,6 +163,7 @@
 {
     [self removeFromParentViewController];
     [self dismissViewControllerAnimated:NO completion:nil];
+    [MXEMClientTool shareTool].incomingVC = nil;
 }
 
 @end

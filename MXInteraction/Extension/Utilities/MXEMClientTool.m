@@ -18,7 +18,6 @@
 
 @property (nonatomic, strong) EMCallSession *callSession;
 @property (nonatomic, strong) MXMonitoringVC *monitorVC;
-@property (nonatomic, strong) MXIncomingVC *incomingVC;
 
 @end
 
@@ -259,8 +258,11 @@
         {
             if (commandType == MXEMCammondType_Request_Success) {
                 NSLog(@"挂断成功");
+                if (self.monitorVC) {
+                    [self.monitorVC close];
+                }
             }else if(commandType == MXEMCammondType_Request) {
-                NSLog(@"请求发送挂断消息");
+                NSLog(@"请求发送挂断消息，对方已挂断");
             }
             NSLog(@"-----挂断");
         }
@@ -268,13 +270,20 @@
             // 开门
         case MXEMCammondActionType_Open:
         {
+            self.openHasResponse = YES;
             if (commandType == MXEMCammondType_Request_Success) {
                 [MXProgressHUD showSuccess:@"开门成功" toView:nil];
                 NSLog(@"开门成功");
-            }else if(commandType == MXEMCammondType_Request) {
-                NSLog(@"请求发送开门消息");
             }else {
                 [MXProgressHUD showError:@"开门失败" toView:nil];
+                NSLog(@"开门失败");
+            }
+            // 判断是否为钥匙包点击开门还是接听界面的开门
+            if (self.keyBagVC) {
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [self.keyBagVC close];
+                    self.deviceState = MXDeviceState_Idle;
+                });
             }
             NSLog(@"-----开门");
         }
@@ -282,18 +291,18 @@
             // 监控
         case MXEMCammondActionType_Monitor:
         {
+            self.monitorHasResponse = YES;
+            // 门禁可以提供监控并将自动发送视频通话
             if (commandType == MXEMCammondType_Request_Success) {
                 NSLog(@"发送监控成功");
-                self.incomingVC = [[MXIncomingVC alloc] initWithIsCaller:YES];
-                self.incomingVC.remoteIMKey = responseModel.LocalImKey;
-                self.incomingVC.remoteSerial = responseModel.LocalDeviceSerial;
-                // 修改状态为响铃状态
-                self.deviceState = MXDeviceState_Connecting;
-                [MXAppDelegateAccessor.window.rootViewController presentViewController:self.incomingVC animated:YES completion:nil];
-            }else if(commandType == MXEMCammondType_Request) {
-                NSLog(@"请求发送监控消息");
+            // 对方正忙，关闭连接页面，设置状态为闲置
             }else {
-                NSLog(@"请求发送监控对方正忙");
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [MXProgressHUD showError:@"对方正忙" toView:nil];
+                    [self.incomingVC close];
+                    self.deviceState = MXDeviceState_Idle;
+                });
+                NSLog(@"门禁没有响应");
             }
             NSLog(@"-----监控");
         }
@@ -301,11 +310,22 @@
             // 呼叫
         case MXEMCammondActionType_Answer:
         {
-            if (commandType == MXEMCammondType_Request_Success) {
-                NSLog(@"接听成功");
-            }else if(commandType == MXEMCammondType_Request) {
-                NSLog(@"请求发送接听消息");
+            // 判断回应的是否为当前设备
+            if ([[MXComUserDefault getUserIMKey] isEqualToString:responseModel.RemoteImKey]) {
+                if (commandType == MXEMCammondType_Request_Success) {
+                    NSLog(@"接听成功");
+                }else {
+                    [MXProgressHUD showError:@"接听失败" toView:nil];
+                    [self.incomingVC close];
+                    self.deviceState = MXDeviceState_Idle;
+                    NSLog(@"接听失败");
+                }
+            }else {
+                [self.incomingVC close];
+                self.deviceState = MXDeviceState_Idle;
+                NSLog(@"已在其他设备处理");
             }
+            
             NSLog(@"-----接听");
         }
             break;
@@ -316,7 +336,7 @@
     NSLog(@"收到的action是 -- %@",responseDic);
 }
 
-#pragma mark - 加群代理
+#pragma mark - 群代理
 - (void)didJoinGroup:(EMGroup *)aGroup
              inviter:(NSString *)aInviter
              message:(NSString *)aMessage
@@ -325,8 +345,15 @@
     MXEMCommandModel *responseModel = [MXEMCommandModel mx_objectWithKeyValues:responseDic];
     
     NSLog(@"%@----%@",aMessage,aGroup.groupId);
-    [self sendIdleStateCMDToGroup:aGroup.groupId withRemoteSerial:responseModel.LocalDeviceSerial andRemoteIMKey:responseModel.LocalDeviceSerial];
-    [self sendCallAnswerCMDToGroup:aGroup.groupId withRemoteSerial:responseModel.LocalDeviceSerial andRemoteIMKey:responseModel.LocalImKey];
+    if (self.deviceState == MXDeviceState_Idle) {
+        MXIncomingVC *incomingVC = [[MXIncomingVC alloc] initWithIsCaller:NO];
+        incomingVC.remoteIMKey = responseModel.LocalImKey;
+        incomingVC.remoteSerial = responseModel.RemoteDeviceSerial;
+        self.deviceState = MXDeviceState_Ringing;
+        [MXApplicationAccessor.keyWindow.rootViewController presentViewController:incomingVC animated:YES completion:nil];
+        
+        [self sendIdleStateCMDToGroup:aGroup.groupId withRemoteSerial:responseModel.LocalDeviceSerial andRemoteIMKey:responseModel.LocalDeviceSerial];
+    }
 }
 
 #pragma mark - 视频通话
@@ -342,16 +369,21 @@
     
     _callSession = aSession;
     if(_callSession) {
-        // 主动监控来电
+    
         if (self.incomingVC) {
             self.incomingVC.callSession = aSession;
             // 自动接通
             [self acceptSession:aSession];
-        // 被动机器呼叫
+        
         }else {
-            MXIncomingVC *incomeVC = [[MXIncomingVC alloc] initWithSessicon:aSession andIsCaller:NO];
-            self.incomingVC = incomeVC;
-            [MXAppDelegateAccessor.window.rootViewController presentViewController:incomeVC animated:NO completion:nil];
+            // 视频监控上一次挂断操作延时获得的session
+            if (self.deviceState == MXDeviceState_Busy) {
+                [[EMClient sharedClient].callManager endCall:_callSession.sessionId reason:EMCallEndReasonHangup];
+                self.deviceState = MXDeviceState_Idle;
+            // 机器主动呼叫获得的session
+            }else if (self.deviceState == MXDeviceState_Ringing){
+                [self acceptSession:aSession];
+            }
         }
     }
 }
@@ -359,7 +391,7 @@
 - (void)didReceiveCallConnected:(EMCallSession *)aSession
 {
     if ([aSession.sessionId isEqualToString:_callSession.sessionId]) {
-        
+        self.deviceState = MXDeviceState_Connected;
     }
 }
 
@@ -371,15 +403,11 @@
     }
     
     if ([aSession.sessionId isEqualToString:_callSession.sessionId]) {
-        if (self.incomingVC) {
-            
-            MXMonitoringVC *monitorVC = [[MXMonitoringVC alloc] initWithSessicon:aSession andIsCaller:NO];
-            monitorVC.remoteIMKey = self.incomingVC.remoteIMKey;
-            monitorVC.remoteSerial = self.incomingVC.remoteSerial;
-            [self.incomingVC close];
-            [MXAppDelegateAccessor.window.rootViewController presentViewController:monitorVC animated:NO completion:nil];
-            
-        }
+        MXMonitoringVC *monitorVC = [[MXMonitoringVC alloc] initWithSessicon:aSession];
+        monitorVC.remoteIMKey = self.incomingVC.remoteIMKey;
+        monitorVC.remoteSerial = self.incomingVC.remoteSerial;
+        [self.incomingVC close];
+        [MXAppDelegateAccessor.window.rootViewController presentViewController:monitorVC animated:NO completion:nil];
     }
 }
 
@@ -388,8 +416,13 @@
                            error:(EMError *)aError
 {
     if ([aSession.sessionId isEqualToString:_callSession.sessionId]) {
-        _callSession = nil;
-        _incomingVC = nil;
+        // 重置状态
+        self.callSession = nil;
+        self.incomingVC = nil;
+        self.monitorVC = nil;
+        self.deviceState = MXDeviceState_Idle;
+        self.openHasResponse = NO;
+        self.monitorHasResponse = NO;
 
         if (aReason != EMCallEndReasonHangup) {
             NSString *reasonStr = @"";
@@ -433,7 +466,7 @@
 - (void)didReceiveCallNetworkChanged:(EMCallSession *)aSession status:(EMCallNetworkStatus)aStatus
 {
     if ([aSession.sessionId isEqualToString:_callSession.sessionId]) {
-//        [_callController setNetwork:aStatus];
+        // 设置网络状态
     }
 }
 

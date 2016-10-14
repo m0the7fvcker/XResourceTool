@@ -14,6 +14,6 @@
 @property (nonatomic, copy) NSString *remoteIMKey;
 @property (nonatomic, copy) NSString *remoteSerial;
 
-- (instancetype)initWithSessicon:(EMCallSession *)callSession andIsCaller:(BOOL)isCaller;
+- (instancetype)initWithSessicon:(EMCallSession *)callSession;
 - (void)close;
 @end

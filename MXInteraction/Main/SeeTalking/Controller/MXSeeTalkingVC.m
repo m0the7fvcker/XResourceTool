@@ -57,9 +57,25 @@
     NSLog(@"%ld",index);
     MXUserKeyBagModel *key = self.keyBagArray[index];
     
-//    [[MXEMClientTool shareTool] sendCallTo:@"maxiao1"];
+    MXIncomingVC *incomingVC = [[MXIncomingVC alloc] initWithIsCaller:YES];
+    incomingVC.remoteIMKey = key.imKey;
+    incomingVC.remoteSerial = key.name;
+    
+    // 修改状态为响铃状态
+    [MXEMClientTool shareTool].incomingVC = incomingVC;
+    [MXEMClientTool shareTool].deviceState = MXDeviceState_Busy;
+    [MXEMClientTool shareTool].monitorHasResponse = NO;
     [[MXEMClientTool shareTool] sendMonitorRequestCMDToPoint:key.imKey withRemoteSerial:key.name];
-//    [[MXEMClientTool shareTool] sendMsg];
+    [MXApplicationAccessor.keyWindow.rootViewController presentViewController:incomingVC animated:YES completion:nil];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        if (![MXEMClientTool shareTool].monitorHasResponse) {
+            [MXProgressHUD showError:@"对方不在线" toView:nil];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [[MXEMClientTool shareTool].incomingVC close];
+            });
+        }
+    });
 }
 
 @end

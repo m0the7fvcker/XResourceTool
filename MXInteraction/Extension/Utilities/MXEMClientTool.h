@@ -10,21 +10,25 @@
 #import "MXSeeTalkingVC.h"
 #import "MXMonitoringVC.h"
 #import "MXIncomingVC.h"
+#import "MXHomeKeyBagVC.h"
 
 #import "MXEMCommandModel.h"
 
 typedef NS_ENUM(NSInteger, MXDeviceState){
     MXDeviceState_Idle = 1, // 空闲
-    MXDeviceState_Ringing = 2,// 响铃
-    MXDeviceState_Connecting = 3, // 连接
-    MXDeviceState_Connected = 4,// 接通
-    MXDeviceState_Monitoring = 5 // 监控
+    MXDeviceState_Busy = 2,// 繁忙
+    MXDeviceState_Ringing = 3,// 响铃
+    MXDeviceState_Connected = 4// 已连接
 };
 
 
 @interface MXEMClientTool : NSObject
 
 @property (nonatomic, assign) MXDeviceState deviceState;
+@property (nonatomic, strong) MXIncomingVC *incomingVC;
+@property (nonatomic, strong) MXHomeKeyBagVC *keyBagVC;
+@property (nonatomic, assign) BOOL openHasResponse;
+@property (nonatomic, assign) BOOL monitorHasResponse;
 
 + (MXEMClientTool *)shareTool;
 

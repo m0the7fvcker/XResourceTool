@@ -435,7 +435,6 @@
         return sectionHeader;
     }
     return nil;
-
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
