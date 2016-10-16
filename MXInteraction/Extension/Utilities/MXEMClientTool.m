@@ -7,7 +7,6 @@
 //
 
 #import "MXEMClientTool.h"
-#import "MXMonitoringVC.h"
 #import "MXIncomingVC.h"
 
 #import "MXAppDelegate.h"
@@ -222,6 +221,26 @@
     return [self sendGroupCMD:openCMD toGroup:groupID];
 }
 
+- (BOOL)sendCallHandupCMDToGroup:(NSString *)groupID withRemoteSerial:(NSString *)remoteSerial andRemoteIMKey:(NSString *)pointIMKey
+{
+    NSTimeInterval interval = [[NSDate date] timeIntervalSince1970] * 1000;
+    long timeStamp = (long)interval;
+    
+    MXEMCommandModel *openCMD = [[MXEMCommandModel alloc] init];
+    openCMD.CommandAction = @"302";
+    openCMD.CommandType = @"101";
+    openCMD.CommandSendTimeStamp = [NSString stringWithFormat:@"%ld",timeStamp];
+    openCMD.RemoteImKey = pointIMKey;
+    openCMD.LocalImKey = [EMClient sharedClient].currentUsername;
+    openCMD.tag = @"command";
+    openCMD.RemoteDeviceSerial = remoteSerial;
+    openCMD.LocalDeviceSerial = [MXComUserDefault getUserLocalDeviceSerial];
+    openCMD.CommandSequence = @"1";
+    openCMD.OtherJSON = @"";
+    
+    return [self sendGroupCMD:openCMD toGroup:groupID];
+}
+
 - (BOOL)sendHandupCMDToPoint:(NSString *)pointIMKey withRemoteSerial:(NSString *)remoteSerial
 {
     NSTimeInterval interval = [[NSDate date] timeIntervalSince1970] * 1000;
@@ -256,12 +275,14 @@
             // 挂断
         case MXEMCammondActionType_Hangup:
         {
+            // 不管是对方挂断还是自己挂断，先重置状态
+            self.deviceState = MXDeviceState_Idle;
             if (commandType == MXEMCammondType_Request_Success) {
+                
                 NSLog(@"挂断成功");
-                if (self.monitorVC) {
-                    [self.monitorVC close];
-                }
             }else if(commandType == MXEMCammondType_Request) {
+                [MXProgressHUD showError:@"对方已挂断" toView:nil];
+                [self.incomingVC close];
                 NSLog(@"请求发送挂断消息，对方已挂断");
             }
             NSLog(@"-----挂断");
@@ -321,6 +342,7 @@
                     NSLog(@"接听失败");
                 }
             }else {
+                [MXProgressHUD showError:@"已在其他设备处理" toView:nil];
                 [self.incomingVC close];
                 self.deviceState = MXDeviceState_Idle;
                 NSLog(@"已在其他设备处理");
@@ -348,11 +370,13 @@
     if (self.deviceState == MXDeviceState_Idle) {
         MXIncomingVC *incomingVC = [[MXIncomingVC alloc] initWithIsCaller:NO];
         incomingVC.remoteIMKey = responseModel.LocalImKey;
-        incomingVC.remoteSerial = responseModel.RemoteDeviceSerial;
+        incomingVC.remoteSerial = responseModel.LocalDeviceSerial;
+        incomingVC.groupId = aGroup.groupId;
+        self.incomingVC = incomingVC;
         self.deviceState = MXDeviceState_Ringing;
         [MXApplicationAccessor.keyWindow.rootViewController presentViewController:incomingVC animated:YES completion:nil];
         
-        [self sendIdleStateCMDToGroup:aGroup.groupId withRemoteSerial:responseModel.LocalDeviceSerial andRemoteIMKey:responseModel.LocalDeviceSerial];
+        [self sendIdleStateCMDToGroup:aGroup.groupId withRemoteSerial:responseModel.LocalDeviceSerial andRemoteIMKey:responseModel.LocalImKey];
     }
 }
 
@@ -369,7 +393,7 @@
     
     _callSession = aSession;
     if(_callSession) {
-    
+        // 判断获得session之前是否窗口已经被关闭
         if (self.incomingVC) {
             self.incomingVC.callSession = aSession;
             // 自动接通
@@ -403,11 +427,12 @@
     }
     
     if ([aSession.sessionId isEqualToString:_callSession.sessionId]) {
-        MXMonitoringVC *monitorVC = [[MXMonitoringVC alloc] initWithSessicon:aSession];
-        monitorVC.remoteIMKey = self.incomingVC.remoteIMKey;
-        monitorVC.remoteSerial = self.incomingVC.remoteSerial;
-        [self.incomingVC close];
-        [MXAppDelegateAccessor.window.rootViewController presentViewController:monitorVC animated:NO completion:nil];
+//        MXMonitoringVC *monitorVC = [[MXMonitoringVC alloc] initWithSessicon:aSession];
+//        monitorVC.remoteIMKey = self.incomingVC.remoteIMKey;
+//        monitorVC.remoteSerial = self.incomingVC.remoteSerial;
+//        self.monitorVC = monitorVC;
+//        [self.incomingVC close];
+//        [MXAppDelegateAccessor.window.rootViewController presentViewController:monitorVC animated:NO completion:nil];
     }
 }
 
@@ -416,6 +441,7 @@
                            error:(EMError *)aError
 {
     if ([aSession.sessionId isEqualToString:_callSession.sessionId]) {
+        [self.incomingVC close];
         // 重置状态
         self.callSession = nil;
         self.incomingVC = nil;

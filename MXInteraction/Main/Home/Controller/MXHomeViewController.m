@@ -156,6 +156,7 @@
     UITableView *tableView   = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, MXScreen_Width, self.view.height - bottomBarHeight) style:UITableViewStyleGrouped];
     tableView.dataSource     = self;
     tableView.delegate       = self;
+    tableView.allowsSelection= NO;
     tableView.backgroundColor= [UIColor mx_colorWithHexString:@"ececec"];
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     tableView.showsVerticalScrollIndicator = NO;
@@ -291,7 +292,7 @@
     NSString *password = [MXComUserDefault getUserPasswordWithAccount:account];
     
     MXWeakSelf;
-    [MXHttpRequest LoginWithPhoneNumber:account password:@"111111" appVersion:@"1-1" success:^(MXBaseDataModel * _Nonnull responseModel) {
+    [MXHttpRequest LoginWithPhoneNumber:account password:password appVersion:@"1-1" success:^(MXBaseDataModel * _Nonnull responseModel) {
         if (responseModel.status == MXRequestCode_Success) {
             NSLog(@"请求成功");
             weakSelf.userInfoModel = [MXUserInfoModel mx_objectWithKeyValues:responseModel.data];
@@ -413,7 +414,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MXHomeServiceCell *cell = [[MXHomeServiceCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"identifier"];
-    
+
     return cell;
 }
 

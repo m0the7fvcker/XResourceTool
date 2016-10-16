@@ -14,6 +14,7 @@
 @property (nonatomic, strong) EMCallSession *callSession;
 @property (nonatomic, copy) NSString *remoteIMKey;
 @property (nonatomic, copy) NSString *remoteSerial;
+@property (nonatomic, copy) NSString *groupId;
 @property (nonatomic, assign) BOOL isCaller;
 
 - (instancetype)initWithSessicon:(EMCallSession *)callSession andIsCaller:(BOOL)isCaller;

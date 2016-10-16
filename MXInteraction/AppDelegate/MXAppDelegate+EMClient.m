@@ -17,7 +17,11 @@
     //mohmoo#mohmoo
     
     EMOptions *options = [EMOptions optionsWithAppkey:@"mohmoo#mohmoo"];
-    options.apnsCertName = @"istore_dev";
+#if DEBUG
+    options.apnsCertName = @"wangzongpush_dev";
+#else
+    options.apnsCertName = @"wangzongpush_dis";
+#endif
     options.isAutoAcceptGroupInvitation = YES;
 //    options.enableConsoleLog = YES;
     

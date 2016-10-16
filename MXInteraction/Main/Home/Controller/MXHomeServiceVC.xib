@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11535.1" systemVersion="16B2338c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11523"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,10 +20,11 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="故障描述" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wPr-9g-hLm">
+                    <rect key="frame" x="20" y="20" width="300" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="300" id="308-H8-zJ0"/>
                         <constraint firstAttribute="height" constant="21" id="bfw-xe-ElC"/>
@@ -30,6 +34,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W8n-MM-k2b">
+                    <rect key="frame" x="30" y="438" width="315" height="40"/>
                     <color key="backgroundColor" red="1" green="0.16237211409999999" blue="0.32726498380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="bMj-Cd-Ztp"/>
@@ -37,6 +42,7 @@
                     <state key="normal" title="提交报修"/>
                 </button>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="描述您的报修故障情况" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JRS-FE-CEh">
+                    <rect key="frame" x="20" y="57" width="231" height="101"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="101" id="B0Z-Kt-lBh"/>
@@ -45,6 +51,7 @@
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="联系电话" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ngm-c7-DFZ">
+                    <rect key="frame" x="20" y="317" width="335" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="7oy-Lb-qOW"/>
                     </constraints>
@@ -53,6 +60,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="blM-CZ-UtQ">
+                    <rect key="frame" x="20" y="348" width="335" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="D8a-g8-zJN"/>
                     </constraints>
@@ -61,13 +69,15 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yWA-St-OtR">
+                    <rect key="frame" x="265" y="57" width="90" height="101"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="101" id="KTb-E2-Xz8"/>
-                        <constraint firstAttribute="width" constant="120" id="aKi-DH-CS3"/>
+                        <constraint firstAttribute="width" constant="90" id="aKi-DH-CS3"/>
                     </constraints>
                     <state key="normal" backgroundImage="home_homeSrv_camera"/>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_malfunction" translatesAutoresizingMaskIntoConstraints="NO" id="8Li-6e-2lD">
+                    <rect key="frame" x="20" y="178" width="120" height="120"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="120" id="Cvb-UC-0K3"/>
                         <constraint firstAttribute="width" constant="120" id="RHr-p0-Y2G"/>

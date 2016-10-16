@@ -10,7 +10,6 @@
 #import "MXNoDisturbInnerVC.h"
 
 static NSString *const noDisturbId_OneKey = @"MX_NoDisturb_OnkeKey";
-static NSString *const noDisturbId_Location = @"MX_NoDisturb_Location";
 
 @interface MXNoDisturbVC ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -41,6 +40,7 @@ static NSString *const noDisturbId_Location = @"MX_NoDisturb_Location";
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, MXScreen_Width, MXScreen_Height - MX_NAV_HEIGHT) style:UITableViewStyleGrouped];
     tableView.dataSource   = self;
     tableView.delegate     = self;
+    tableView.backgroundColor = [UIColor mx_colorWithHexString:@"F7F5F5"];
     self.tableView         = tableView;
     [self.view addSubview:tableView];
 
@@ -65,7 +65,7 @@ static NSString *const noDisturbId_Location = @"MX_NoDisturb_Location";
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -75,28 +75,19 @@ static NSString *const noDisturbId_Location = @"MX_NoDisturb_Location";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:noDisturbId_OneKey];
-        if (!cell) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:noDisturbId_OneKey];
-            cell.textLabel.text = @"一键免打扰";
-            cell.accessoryView = [[UISwitch alloc] init];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        }
-        
-        return cell;
-    }else {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:noDisturbId_Location];
-        if (!cell) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:noDisturbId_Location];
-            cell.textLabel.text = @"01区01栋01单元01";
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        }
-
-        return cell;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:noDisturbId_OneKey];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:noDisturbId_OneKey];
+        cell.backgroundColor = [UIColor whiteColor];
+        cell.textLabel.text = @"一键免打扰";
+        UISwitch *sw = [[UISwitch alloc] init];
+        [sw addTarget:self action:@selector(switchDidChange:) forControlEvents:UIControlEventValueChanged];
+        [sw setOn:[MXComUserDefault getUserNoDisturbSetting] animated:NO];
+        cell.accessoryView = sw;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-   
+    
+    return cell;
     
 }
 
@@ -108,17 +99,23 @@ static NSString *const noDisturbId_Location = @"MX_NoDisturb_Location";
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-    return nil;
+    UIView *containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MXScreen_Width, 60)];
+    UILabel *desLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, MXScreen_Width - 20, 60)];
+    desLabel.text = @"开启后，您将不再接收到来自门禁主机给您发出的通话请求";
+    desLabel.font = [UIFont systemFontOfSize:15];
+    desLabel.numberOfLines = 0;
+    [containerView addSubview:desLabel];
+    return containerView;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 1;
+    return 20;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 1;
+    return 60;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -130,4 +127,12 @@ static NSString *const noDisturbId_Location = @"MX_NoDisturb_Location";
         [self.navigationController pushViewController:innerVC animated:YES];
     }
 }
+
+#pragma mark - 内部方法
+- (void)switchDidChange:(UISwitch *)sw
+{
+    BOOL on = [MXComUserDefault getUserNoDisturbSetting];
+    [MXComUserDefault saveUserNoDisturbSetting:![MXComUserDefault getUserNoDisturbSetting]];
+}
+
 @end

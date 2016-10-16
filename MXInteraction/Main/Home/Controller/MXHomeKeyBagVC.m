@@ -89,8 +89,8 @@
     [MXEMClientTool shareTool].openHasResponse = NO;
     [MXEMClientTool shareTool].deviceState = MXDeviceState_Busy;
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        if (![MXEMClientTool shareTool].openHasResponse) {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        if (![MXEMClientTool shareTool].openHasResponse ) {
             [MXProgressHUD showError:@"对方不在线" toView:nil];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [self dismissViewControllerAnimated:YES completion:nil];

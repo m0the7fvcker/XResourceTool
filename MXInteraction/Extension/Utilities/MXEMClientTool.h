@@ -15,7 +15,7 @@
 #import "MXEMCommandModel.h"
 
 typedef NS_ENUM(NSInteger, MXDeviceState){
-    MXDeviceState_Idle = 1, // 空闲
+    MXDeviceState_Idle = 0, // 空闲
     MXDeviceState_Busy = 2,// 繁忙
     MXDeviceState_Ringing = 3,// 响铃
     MXDeviceState_Connected = 4// 已连接
@@ -98,7 +98,17 @@ typedef NS_ENUM(NSInteger, MXDeviceState){
  @param pointKey 对方pointKey
  @return 发送是否成功
  */
-- (BOOL)sendCallAnswerCMDToGroup:(NSString *)groupID withRemoteSerial:(NSString *)remoteSerial andRemoteIMKey:(NSString *)pointKey;
+- (BOOL)sendCallAnswerCMDToGroup:(NSString *)groupID withRemoteSerial:(NSString *)remoteSerial andRemoteIMKey:(NSString *)pointIMKey;
+
+/**
+ 发送拒绝视频消息到群组
+ 
+ @param groupID 群组ID
+ @param remoteSerial 对方Serial
+ @param pointKey 对方pointKey
+ @return 发送是否成功
+ */
+- (BOOL)sendCallHandupCMDToGroup:(NSString *)groupID withRemoteSerial:(NSString *)remoteSerial andRemoteIMKey:(NSString *)pointIMKey;
 
 
 /**

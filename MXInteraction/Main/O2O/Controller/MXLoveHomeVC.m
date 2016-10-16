@@ -15,7 +15,7 @@
 
 #import "MXO2OCommonModel.h"
 
-#define MXLoveHomeMenuHeight 220
+#define MXLoveHomeMenuHeight MXScreen_Width / 2
 #define MXLoveHomeBottomHeight 79
 #define MXLoveHomeCycleHeight 230
 #define MXLoveHomeCellHeight 192

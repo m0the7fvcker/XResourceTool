@@ -166,4 +166,26 @@
  */
 + (void)removeUserLocalDeviceSerial;
 
+
+/**
+ 保存用户免打扰设置
+
+ @param noDisturb 是否开启免打扰
+ */
++ (void)saveUserNoDisturbSetting:(BOOL)noDisturb;
+
+/**
+ 获取用户免打扰设置
+
+ @return 用户设置
+ */
++ (BOOL)getUserNoDisturbSetting;
+
+/**
+ 移除用户免打扰设置
+
+ @return void
+ */
++ (void)removeUserNoDisturbSetting;
+
 @end

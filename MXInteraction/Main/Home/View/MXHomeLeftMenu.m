@@ -12,7 +12,7 @@
 #define HomeLeftMenuBtnHeight_Later6 70
 #define HomeLeftMenuBtnHeight_Before6 50
 #define HomeLeftMenuBtnIndent 20
-#define HomeLeftMenuBtnWidth MXScreen_Width * 0.8 - HomeLeftMenuBtnIndent
+#define HomeLeftMenuBtnWidth MXScreen_Width * 0.8
 
 @interface MXHomeLeftMenu()
 

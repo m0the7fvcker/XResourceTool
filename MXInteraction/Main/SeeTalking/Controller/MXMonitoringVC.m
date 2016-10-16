@@ -63,11 +63,6 @@
     self.countdownLabel = countdownLabel;
     [self.view addSubview:countdownLabel];
     
-    self.callSession.remoteVideoView = [[EMCallRemoteView alloc] initWithFrame:CGRectMake(0, 0, MXScreen_Width, 300)];
-    self.callSession.remoteVideoView.backgroundColor = [UIColor redColor];
-    self.callSession.remoteVideoView.center = self.view.center;
-    [self.view addSubview:self.callSession.remoteVideoView];
-    
     UIButton *rejectBtn = [[UIButton alloc] initWithFrame:CGRectMake(0 , MXScreen_Height - 150, 60, 60)];
     rejectBtn.centerX = MXScreen_Width / 6;
     [rejectBtn setBackgroundImage:[UIImage imageNamed:@"seeTalking_reject"] forState:UIControlStateNormal];

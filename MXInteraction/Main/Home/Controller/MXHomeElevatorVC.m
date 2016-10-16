@@ -29,5 +29,6 @@
 {
     [self.view removeFromSuperview];
     [self removeFromParentViewController];
+    [MXProgressHUD showError:@"未与电梯模块对接" toView:nil];
 }
 @end

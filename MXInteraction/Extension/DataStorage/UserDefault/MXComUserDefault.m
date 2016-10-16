@@ -16,6 +16,7 @@ static NSString *MXUserDefault_UserSecretKey = @"userSecretKey";
 static NSString *MXUserDefault_UserIMKey = @"userIMKey";
 static NSString *MXUserDefault_UserIMPassword = @"userIMPassword";
 static NSString *MXUserDefault_UserLocalSerial = @"userLocalSerial";
+static NSString *MXUserDefault_UserNoDisturbSetting = @"userNoDisturbSetting";
 
 @implementation MXComUserDefault
 
@@ -134,6 +135,22 @@ static NSString *MXUserDefault_UserLocalSerial = @"userLocalSerial";
 + (void)removeUserLocalDeviceSerial
 {
     [MXUDStandard removeObjectForKey:MXUserDefault_UserLocalSerial];
+}
+
++ (void)saveUserNoDisturbSetting:(BOOL)noDisturb
+{
+    [MXUDStandard setBool:noDisturb forKey:MXUserDefault_UserNoDisturbSetting];
+    [MXUDStandard synchronize];
+}
+
++ (BOOL)getUserNoDisturbSetting
+{
+    return [MXUDStandard boolForKey:MXUserDefault_UserNoDisturbSetting];
+}
+
++ (void)removeUserNoDisturbSetting
+{
+    [MXUDStandard removeObjectForKey:MXUserDefault_UserNoDisturbSetting];
 }
 
 @end

@@ -107,7 +107,7 @@
         unlockBtn.centerX = MXScreen_Width * 5 / 6;
     }
     
-    UIButton *acceptBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, MXScreen_Height - 150, 50, 50)];
+    UIButton *acceptBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, MXScreen_Height - 150, 60, 60)];
     acceptBtn.centerX = MXScreen_Width * 5 / 6;
     [acceptBtn setBackgroundImage:[UIImage imageNamed:@"seeTalking_accept"] forState:UIControlStateNormal];
     acceptBtn.hidden = self.isCaller;
@@ -147,7 +147,14 @@
 
 - (void)acceptClick
 {
-//    [[MXEMClientTool shareTool] sendCallAnswerCMDToGroup:aGroup.groupId withRemoteSerial:responseModel.LocalDeviceSerial andRemoteIMKey:responseModel.LocalImKey];
+    [[MXEMClientTool shareTool] sendCallAnswerCMDToGroup:self.groupId withRemoteSerial:self.remoteSerial andRemoteIMKey:self.remoteIMKey];
+    __block CGRect acceptFrame = self.acceptBtn.frame;
+    // 修改状态为已连接，因为门禁此时已经开始自动呼叫手机
+    [MXEMClientTool shareTool].deviceState = MXDeviceState_Connected;
+    [UIView animateWithDuration:0.25 animations:^{
+        self.unlockBtn.frame = acceptFrame;
+        self.acceptBtn.hidden = YES;
+    } completion:nil];
 }
 
 - (void)rejectClick
@@ -155,15 +162,38 @@
     if (self.callSession) {
         [[EMClient sharedClient].callManager endCall:_callSession.sessionId reason:EMCallEndReasonHangup];
     }
-    [[MXEMClientTool shareTool] sendHandupCMDToPoint:self.remoteIMKey withRemoteSerial:self.remoteSerial];
+    // 为主动监视
+    if (self.isCaller) {
+        [[MXEMClientTool shareTool] sendHandupCMDToPoint:self.remoteIMKey withRemoteSerial:self.remoteSerial];
+    // 为主机来电
+    }else {
+        // 响铃状态就挂断
+        if ([MXEMClientTool shareTool].deviceState == MXDeviceState_Ringing) {
+            [[MXEMClientTool shareTool] sendCallHandupCMDToGroup:self.groupId withRemoteSerial:self.remoteSerial andRemoteIMKey:self.remoteIMKey];
+        // 接通后挂断
+        }else {
+            [[MXEMClientTool shareTool] sendHandupCMDToPoint:self.remoteIMKey withRemoteSerial:self.remoteSerial];
+        }
+        // 主动修改状态
+        [MXEMClientTool shareTool].deviceState = MXDeviceState_Idle;
+    }
     [self close];
 }
 
 - (void)close
 {
-    [self removeFromParentViewController];
-    [self dismissViewControllerAnimated:NO completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
     [MXEMClientTool shareTool].incomingVC = nil;
 }
 
+- (void)setCallSession:(EMCallSession *)callSession
+{
+    _callSession = callSession;
+    _callSession.remoteVideoView.contentMode = UIViewContentModeScaleToFill;
+    _callSession.remoteVideoView = [[EMCallRemoteView alloc] initWithFrame:CGRectMake(0, 0, MXScreen_Width, 300)];
+    _callSession.remoteVideoView.backgroundColor = [UIColor redColor];
+    _callSession.remoteVideoView.center = self.view.center;
+    [self.view addSubview:self.callSession.remoteVideoView];
+    
+}
 @end
