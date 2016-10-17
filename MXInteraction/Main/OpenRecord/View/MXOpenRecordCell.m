@@ -58,4 +58,10 @@
         make.centerX.centerY.equalTo(weakSelf.contentView);
     }];
 }
+
+- (void)setModel:(MXOpenRecordModel *)model
+{
+    self.timeLabel.text = model.time;
+    self.recordLabel.text = model.result;
+}
 @end

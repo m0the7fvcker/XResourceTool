@@ -17,6 +17,7 @@ static NSString *MXUserDefault_UserIMKey = @"userIMKey";
 static NSString *MXUserDefault_UserIMPassword = @"userIMPassword";
 static NSString *MXUserDefault_UserLocalSerial = @"userLocalSerial";
 static NSString *MXUserDefault_UserNoDisturbSetting = @"userNoDisturbSetting";
+static NSString *MXUserDefault_UserQRCode = @"userQRCode";
 
 @implementation MXComUserDefault
 
@@ -151,6 +152,22 @@ static NSString *MXUserDefault_UserNoDisturbSetting = @"userNoDisturbSetting";
 + (void)removeUserNoDisturbSetting
 {
     [MXUDStandard removeObjectForKey:MXUserDefault_UserNoDisturbSetting];
+}
+
++ (void)saveUserQRCode:(NSString *)QRCode
+{
+    [MXUDStandard setObject:QRCode forKey:MXUserDefault_UserQRCode];
+    [MXUDStandard synchronize];
+}
+
++ (NSString *)getUserQRCode
+{
+    return [MXUDStandard objectForKey:MXUserDefault_UserQRCode];
+}
+
++ (void)removeUserQRCode
+{
+    [MXUDStandard removeObjectForKey:MXUserDefault_UserQRCode];
 }
 
 @end

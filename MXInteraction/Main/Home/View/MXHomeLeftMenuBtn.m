@@ -89,8 +89,14 @@
 - (void)tap
 {
     self.backgroundColor = [UIColor mx_colorWithHexString:@"7B7661"];
+    self.userInteractionEnabled = NO;
+    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         self.backgroundColor = [UIColor clearColor];
+    });
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.userInteractionEnabled = YES;
     });
     
     self.Action(self.tag);

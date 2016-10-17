@@ -28,6 +28,7 @@
 - (void)initUI
 {
     self.title = @"邻里互帮";
+    self.view.backgroundColor = [UIColor mx_colorWithHexString:@"F3F2F2"];
     self.view.backgroundColor = [UIColor whiteColor];
     
     UILabel *centerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, self.view.centerY - 100, MXScreen_Width, 20)];

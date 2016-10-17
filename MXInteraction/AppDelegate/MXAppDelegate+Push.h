@@ -12,5 +12,6 @@
 /**
  *  @brief 添加推送
  */
-- (void)addPush;
+- (void)addPushWithApplication:(UIApplication *)application;
+
 @end

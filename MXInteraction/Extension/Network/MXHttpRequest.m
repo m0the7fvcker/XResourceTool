@@ -80,7 +80,7 @@
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     NSString *secretKey = [MXComUserDefault getUserSecretKey];
     if (secretKey) {
-        [manager.requestSerializer setValue:secretKey forHTTPHeaderField:@"secretKey"]; ;
+        [manager.requestSerializer setValue:secretKey forHTTPHeaderField:@"secretKey"];
     }
     NSString *requestUrl = [self requestUrl:url];
     NSDictionary *requestParams = [self requestParams:params];

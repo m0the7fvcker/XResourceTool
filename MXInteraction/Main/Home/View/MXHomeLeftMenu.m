@@ -9,13 +9,14 @@
 #import "MXHomeLeftMenu.h"
 #import "MXHomeLeftMenuBtn.h"
 
-#define HomeLeftMenuBtnHeight_Later6 70
+#define HomeLeftMenuBtnHeight_Later6 65
 #define HomeLeftMenuBtnHeight_Before6 50
 #define HomeLeftMenuBtnIndent 20
 #define HomeLeftMenuBtnWidth MXScreen_Width * 0.8
 
 @interface MXHomeLeftMenu()
 
+@property (nonatomic, strong) UILabel *phoneNumber;
 @property (nonatomic, strong) UIButton *logoutBtn;
 @property (nonatomic, strong) NSArray *imagesArray;
 @property (nonatomic, strong) NSArray *titlesArray;
@@ -57,6 +58,7 @@
     UILabel *numberLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(userIcon.frame) + 15, 0, 200, userIconView.height)];
     numberLabel.text = [MXComUserDefault getUserAccount] ? [MXComUserDefault getUserAccount] : @"未登录";
     numberLabel.textColor = [UIColor whiteColor];
+    self.phoneNumber = numberLabel;
     userIcon.centerY = numberLabel.centerY;
     [userIconView addSubview:userIcon];
     [userIconView addSubview:numberLabel];
@@ -125,9 +127,13 @@
             [MXComUserDefault removeUserIMKey];
             [MXComUserDefault removeUserIMPassword];
             [MXComUserDefault removeUserSecretKey];
-            [MXComUserDefault removeUserPassword];
             [MXComUserDefault removeUserAccount];
+            [MXComUserDefault removeUserPassword];
+            [MXComUserDefault removeUserQRCode];
+            [MXComUserDefault removeUserLocalDeviceSerial];
+            [MXComUserDefault removeUserNoDisturbSetting];
             [MXComUserDefault setHasLogin:NO];
+            [self removeOpenRecord];
             [[NSNotificationCenter defaultCenter] postNotificationName:MXNoti_Home_Logout object:nil];
         }
     }];
@@ -141,5 +147,22 @@
     
     // 不知为何不能用appdelegate的window.rootVC
     [MXApplicationAccessor.keyWindow.rootViewController presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void)updatePhoneNumber
+{
+    self.phoneNumber.text = [MXComUserDefault getUserAccount] ? [MXComUserDefault getUserAccount] : @"未登录";
+}
+
+- (void)removeOpenRecord
+{
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject];
+    // 获取要删除的路径
+    NSString *deletePath = [path stringByAppendingPathComponent:@"open.record"];
+    // 创建文件管理对象
+    NSFileManager *manager = [NSFileManager defaultManager];
+    // 删除
+    BOOL isDelete = [manager removeItemAtPath:deletePath error:nil];
+    NSLog(@"%d", isDelete);
 }
 @end

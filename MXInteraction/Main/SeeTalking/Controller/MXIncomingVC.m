@@ -8,6 +8,9 @@
 
 #import "MXIncomingVC.h"
 #import "EMCallSession.h"
+
+#import "MXUserKeyBagModel.h"
+
 #import <AVFoundation/AVFoundation.h>
 
 @interface MXIncomingVC ()
@@ -20,10 +23,22 @@
 @property (nonatomic, weak) UIButton *unlockBtn;
 @property (nonatomic, weak) UIButton *rejectBtn;
 @property (nonatomic, weak) UIButton *speakerBtn;
+@property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic, assign) NSInteger currentTime;
 
 @end
 
 @implementation MXIncomingVC
+
+#pragma mark - 懒加载
+- (NSTimer *)timer
+{
+    if (!_timer) {
+        _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timing) userInfo:nil repeats:YES];
+        [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
+    }
+    return _timer;
+}
 
 - (instancetype)initWithSessicon:(EMCallSession *)callSession andIsCaller:(BOOL)isCaller
 {
@@ -35,9 +50,10 @@
     return self;
 }
 
-- (instancetype)initWithIsCaller:(BOOL)isCaller
+- (instancetype)initWithIsCaller:(BOOL)isCaller andKeyName:(NSString *)keyName
 {
     if (self = [super init]) {
+        self.keyName = keyName;
         self.isCaller = isCaller;
         [self initUI];
     }
@@ -61,7 +77,12 @@
     
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 50, 200, 40)];
     titleLabel.centerX = self.view.centerX;
-    titleLabel.text = @"正在监视01号主机";
+    if (self.isCaller) {
+        titleLabel.text = [NSString stringWithFormat:@"正在监控%@号主机",[self.keyName substringFromIndex:(self.keyName.length - 2)]];
+    }else {
+        titleLabel.text = [NSString stringWithFormat:@"正在与%@号主机视频通话",[self.keyName substringFromIndex:(self.keyName.length - 2)]];
+    }
+
     titleLabel.textAlignment = NSTextAlignmentCenter;
     titleLabel.textColor = [UIColor whiteColor];
     self.titleLabel = titleLabel;
@@ -183,6 +204,8 @@
 - (void)close
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+    [self.timer invalidate];
+    self.timer = nil;
     [MXEMClientTool shareTool].incomingVC = nil;
 }
 
@@ -194,6 +217,19 @@
     _callSession.remoteVideoView.backgroundColor = [UIColor redColor];
     _callSession.remoteVideoView.center = self.view.center;
     [self.view addSubview:self.callSession.remoteVideoView];
-    
+}
+
+- (void)startTiming
+{
+    [self.timer fire];
+    self.titleLabel.text = @"正在视频通话";
+}
+
+- (void)timing
+{
+    self.currentTime ++;
+    int minite = self.currentTime / 60;
+    int second = self.currentTime % 60;
+    self.countdownLabel.text = [NSString stringWithFormat:@"%02d:%02d",minite,second];
 }
 @end

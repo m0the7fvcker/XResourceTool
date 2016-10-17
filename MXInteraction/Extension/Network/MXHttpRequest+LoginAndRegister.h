@@ -74,4 +74,19 @@
                                       appVersion:(NSString * _Nonnull)appVersion
                                          success:(nullable void(^)(MXBaseDataModel * _Nonnull responseModel))success
                                          failure:(nullable void(^)(NSError * _Nonnull error))failure;
+
+/**
+ 修改密码
+ 
+ @param oldpassword  旧密码
+ @param newpassword  新密码
+ 
+ @return 返回MXRequestModel
+ */
++(nullable MXRequestModel *)ChangePasswordWithOldPassword:(NSString * _Nonnull)phoneNumber
+                                           andNewPassword:(NSString * _Nonnull)password
+                                                  success:(nullable void(^)(MXBaseDataModel * _Nonnull responseModel))success
+                                                  failure:(nullable void(^)(NSError * _Nonnull error))failure;
+
+
 @end

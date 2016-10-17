@@ -188,4 +188,25 @@
  */
 + (void)removeUserNoDisturbSetting;
 
+/**
+ 保存用户二维码
+
+ @param QRCode 二维码字符串
+ */
++ (void)saveUserQRCode:(NSString *)QRCode;
+
+/**
+ 获取用户二维码
+
+ @return 二维码字符串
+ */
++ (NSString *)getUserQRCode;
+
+/**
+ 移除用户二维码
+ 
+ @return void
+ */
++ (void)removeUserQRCode;
+
 @end

@@ -9,6 +9,7 @@
 #import "MXEMClientTool.h"
 #import "MXIncomingVC.h"
 
+#import "MXOpenRecordModel.h"
 #import "MXAppDelegate.h"
 
 #import "MXJSONTool.h"
@@ -294,9 +295,11 @@
             self.openHasResponse = YES;
             if (commandType == MXEMCammondType_Request_Success) {
                 [MXProgressHUD showSuccess:@"开门成功" toView:nil];
+                [self writeOpenRecordToFile:YES];
                 NSLog(@"开门成功");
             }else {
                 [MXProgressHUD showError:@"开门失败" toView:nil];
+                [self writeOpenRecordToFile:NO];
                 NSLog(@"开门失败");
             }
             // 判断是否为钥匙包点击开门还是接听界面的开门
@@ -368,7 +371,7 @@
     
     NSLog(@"%@----%@",aMessage,aGroup.groupId);
     if (self.deviceState == MXDeviceState_Idle) {
-        MXIncomingVC *incomingVC = [[MXIncomingVC alloc] initWithIsCaller:NO];
+        MXIncomingVC *incomingVC = [[MXIncomingVC alloc] initWithIsCaller:NO andKeyName:responseModel.LocalDeviceSerial];
         incomingVC.remoteIMKey = responseModel.LocalImKey;
         incomingVC.remoteSerial = responseModel.LocalDeviceSerial;
         incomingVC.groupId = aGroup.groupId;
@@ -377,6 +380,10 @@
         [MXApplicationAccessor.keyWindow.rootViewController presentViewController:incomingVC animated:YES completion:nil];
         
         [self sendIdleStateCMDToGroup:aGroup.groupId withRemoteSerial:responseModel.LocalDeviceSerial andRemoteIMKey:responseModel.LocalImKey];
+    }
+    // 不在线或者未打开app时发送本地通知
+    if ([UIApplication sharedApplication].applicationState != UIApplicationStateActive) {
+        [self sendCallingLocalNotification];
     }
 }
 
@@ -427,12 +434,7 @@
     }
     
     if ([aSession.sessionId isEqualToString:_callSession.sessionId]) {
-//        MXMonitoringVC *monitorVC = [[MXMonitoringVC alloc] initWithSessicon:aSession];
-//        monitorVC.remoteIMKey = self.incomingVC.remoteIMKey;
-//        monitorVC.remoteSerial = self.incomingVC.remoteSerial;
-//        self.monitorVC = monitorVC;
-//        [self.incomingVC close];
-//        [MXAppDelegateAccessor.window.rootViewController presentViewController:monitorVC animated:NO completion:nil];
+        [[MXEMClientTool shareTool].incomingVC startTiming];
     }
 }
 
@@ -517,4 +519,47 @@
     }
 }
 
+- (void)writeOpenRecordToFile:(BOOL)success
+{
+    NSString *docPath=[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject];
+    NSString *path=[docPath stringByAppendingPathComponent:@"open.record"];
+    NSLog(@"path==%@",path);
+    
+    NSMutableArray *recordArray = nil;
+    if ([NSKeyedUnarchiver unarchiveObjectWithFile:path] && [[NSKeyedUnarchiver unarchiveObjectWithFile:path] isKindOfClass:[NSMutableArray class]]) {
+        recordArray = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    }else {
+        recordArray = [NSMutableArray array];
+    }
+    
+    MXOpenRecordModel *model = [[MXOpenRecordModel alloc] init];
+    model.time = [self getTime];
+    model.result = success ? @"开门成功" : @"开门失败";
+    [recordArray addObject:model];
+    
+    [NSKeyedArchiver archiveRootObject:recordArray toFile:path];
+}
+
+- (NSString *)getTime
+{
+    NSDate *currentDate = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MM-dd HH:mm:ss"];
+    NSString *dateString = [dateFormatter stringFromDate:currentDate];
+    
+    return dateString;
+}
+
+- (void)sendCallingLocalNotification
+{
+    UILocalNotification *localNoti = [[UILocalNotification alloc] init];
+    
+    localNoti.fireDate = [NSDate dateWithTimeIntervalSinceNow:0];
+    localNoti.timeZone = [NSTimeZone defaultTimeZone];
+    localNoti.alertBody = @"主机请求视频通话...";
+    localNoti.soundName = @"Ladder.caf";
+    localNoti.applicationIconBadgeNumber = 1;
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNoti];
+}
 @end

@@ -34,6 +34,7 @@
     
     UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, MXScreen_Width, SeeTalkingHeaderHeight)];
     headerLabel.text = @"  选择大门查看监视";
+    headerLabel.font = [UIFont systemFontOfSize:15];
     headerLabel.backgroundColor = [UIColor mx_colorWithHexString:@"ececec"];
     self.headerLabel = headerLabel;
     [self.view addSubview:headerLabel];
@@ -57,7 +58,7 @@
     NSLog(@"%ld",index);
     MXUserKeyBagModel *key = self.keyBagArray[index];
     
-    MXIncomingVC *incomingVC = [[MXIncomingVC alloc] initWithIsCaller:YES];
+    MXIncomingVC *incomingVC = [[MXIncomingVC alloc] initWithIsCaller:YES andKeyName:key.name];
     incomingVC.remoteIMKey = key.imKey;
     incomingVC.remoteSerial = key.name;
     
@@ -68,10 +69,11 @@
     [[MXEMClientTool shareTool] sendMonitorRequestCMDToPoint:key.imKey withRemoteSerial:key.name];
     [MXApplicationAccessor.keyWindow.rootViewController presentViewController:incomingVC animated:YES completion:nil];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         // 对方有回应且呼叫界面还未关闭时弹出提示
         if (![MXEMClientTool shareTool].monitorHasResponse && [MXEMClientTool shareTool].incomingVC) {
             [MXProgressHUD showError:@"对方不在线" toView:nil];
+            [[MXEMClientTool shareTool] writeOpenRecordToFile:NO];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [[MXEMClientTool shareTool].incomingVC close];
             });

@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MXOpenRecordModel.h"
 
 @interface MXOpenRecordCell : UITableViewCell
+
+@property (nonatomic, strong) MXOpenRecordModel *model;
 
 @end

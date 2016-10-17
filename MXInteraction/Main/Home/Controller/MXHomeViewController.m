@@ -22,6 +22,13 @@
 #import "MXO2OVC.h"
 #import "MXShareOpenVC.h"
 #import "MXHomeKeyBagVC.h"
+#import "MXAuthorizationVC.h"
+#import "MXHomeMessageVC.h"
+
+#import "MXHomeAboutVC.h"
+#import "MXHomeChangePwVC.h"
+#import "MXHomeLeftKeyBagVC.h"
+#import "MXHomeQRCodeVC.h"
 
 #import "MXHomeElevatorVC.h"
 #import "MXHomeServiceVC.h"
@@ -49,6 +56,8 @@
 @property (nonatomic, weak) MXHomeBottomBar *bottomBar;
 /** 顶部按钮菜单 */
 @property (nonatomic, weak) MXHomeHeaderMenu *headerMenu;
+/** 侧滑栏 */
+@property (nonatomic, strong) MXHomeLeftMenu *leftMenuView;
 /** 菜单按钮标题数组 */
 @property (nonatomic, strong) NSArray *menuTitles;
 /** 菜单按钮图片数组 */
@@ -85,13 +94,7 @@
     [self initNavBar];
     [self initData];
     [self initUI];
-    [self initConstraint];
     [self initEMClientTool];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -196,6 +199,7 @@
     MXHomeLeftMenu *leftMenuView = [[MXHomeLeftMenu alloc] initWithFrame:self.view.bounds];
     leftMenuView.delegate = self;
     leftMenuView.backgroundColor = [UIColor mx_colorWithHexString:@"39495C"];
+    self.leftMenuView = leftMenuView;
     [MXApplicationAccessor.keyWindow insertSubview:leftMenuView atIndex:0];
     
     // 添加下拉刷新
@@ -204,11 +208,6 @@
     }];
     
     [MXRefresh beginHeaderRefresh:self.tableView];
-}
-
-- (void)initConstraint
-{
-    
 }
 
 - (void)initEMClientTool
@@ -222,6 +221,7 @@
  */
 - (void)personalCenterClick
 {
+    [self.leftMenuView updatePhoneNumber];
     [UIView animateWithDuration:0.25 animations:^{
         // 缩放为0.8倍
         CGAffineTransform transform = CGAffineTransformMakeScale(0.8, 0.8);
@@ -260,7 +260,8 @@
  */
 - (void)messageClick
 {
-    self.navigationController.view.transform = CGAffineTransformIdentity;
+    MXHomeMessageVC *messageVC = [[MXHomeMessageVC alloc] init];
+    [self.navigationController pushViewController:messageVC animated:YES];
 }
 
 /**
@@ -292,7 +293,7 @@
     NSString *password = [MXComUserDefault getUserPasswordWithAccount:account];
     
     MXWeakSelf;
-    [MXHttpRequest LoginWithPhoneNumber:account password:password appVersion:@"1-1" success:^(MXBaseDataModel * _Nonnull responseModel) {
+    [MXHttpRequest LoginWithPhoneNumber:account password:@"123456" appVersion:@"1-1" success:^(MXBaseDataModel * _Nonnull responseModel) {
         if (responseModel.status == MXRequestCode_Success) {
             NSLog(@"请求成功");
             weakSelf.userInfoModel = [MXUserInfoModel mx_objectWithKeyValues:responseModel.data];
@@ -304,8 +305,12 @@
             if (weakSelf.userInfoModel.imPassword) [MXComUserDefault saveUserIMPassword:weakSelf.userInfoModel.imPassword];
             // 保存localDeviceSerial，要添加00
             if (weakSelf.userInfoModel.roomName) [MXComUserDefault saveUserLocalDeviceSerial:[NSString stringWithFormat:@"00%@",weakSelf.userInfoModel.roomName]];
+            // 保存用户二维码
+            if (weakSelf.userInfoModel.qrCode) [MXComUserDefault saveUserQRCode:weakSelf.userInfoModel.qrCode];
             // 获取轮播图
             [weakSelf getBannersAndRefreshWithUserInfo:weakSelf.userInfoModel];
+            // 保存启动广告和钥匙包广告到本地
+            [weakSelf getAndSaveAdImageAndKeyBagImageWithUserInfo:weakSelf.userInfoModel];
             // 更新头部
             [weakSelf updateTableViewHeader];
             // 更新title
@@ -390,6 +395,44 @@
     }
 }
 
+- (void)getAndSaveAdImageAndKeyBagImageWithUserInfo:(MXUserInfoModel *)userInfo
+{
+    // 服务器地址
+    NSString *server = userInfo.server;
+    // 文件夹地址
+    NSString *folder = [NSString stringWithFormat:@"%@/",userInfo.advertisement.folder];
+    // 拼接地址
+    NSString *urlString = [server stringByAppendingString:folder];
+    
+    // 启动广告
+    NSString *launchUrl = userInfo.advertisement.startPic;
+    if (userInfo.advertisement.startPic) {
+        NSString *launchFullUrl = [urlString stringByAppendingString:launchUrl];
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:launchFullUrl]];
+            NSString *documentsDirectoryPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+            if (data != nil) {
+                [data writeToFile:[documentsDirectoryPath stringByAppendingPathComponent:[NSString stringWithFormat:@"lanuchAdImage"]] options:NSAtomicWrite error:nil];
+            }
+        });
+    }
+
+    // 钥匙包广告
+    NSString *keyBagUrl = userInfo.advertisement.keyBagPic.name;
+    if (userInfo.advertisement.keyBagPic.name) {
+        NSString *keyBagFullUrl = [urlString stringByAppendingString:keyBagUrl];
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:keyBagFullUrl]];
+            NSString *documentsDirectoryPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+            if (data != nil) {
+                [data writeToFile:[documentsDirectoryPath stringByAppendingPathComponent:[NSString stringWithFormat:@"keyBagAdImage"]] options:NSAtomicWrite error:nil];
+            }
+        });
+    }
+    
+
+}
+
 - (void)loginIM
 {
     NSString *IMkey = [MXComUserDefault getUserIMKey];
@@ -466,7 +509,8 @@
             // 授权管理
         case 2:
         {
-            
+            MXAuthorizationVC *authorizationVC = [[MXAuthorizationVC alloc] init];
+            [self.navigationController pushViewController:authorizationVC animated:YES];
         }
             break;
             // 免打扰
@@ -542,43 +586,49 @@
 {
     [UIView animateWithDuration:0.25 animations:^{
         self.navigationController.view.transform = CGAffineTransformIdentity;
+        switch (index) {
+                // 免打扰
+            case 0:
+            {
+                MXNoDisturbVC *noDisturbVC = [[MXNoDisturbVC alloc] init];
+                [self.navigationController pushViewController:noDisturbVC animated:YES];
+            }
+                break;
+                // 修改密码
+            case 1:
+            {
+                MXHomeChangePwVC *changePwVC = [[MXHomeChangePwVC alloc] init];
+                [self.navigationController pushViewController:changePwVC animated:YES];
+            }
+                break;
+                // 钥匙包
+            case 2:
+            {
+                MXHomeLeftKeyBagVC *leftKeyBagVC = [[MXHomeLeftKeyBagVC alloc] init];
+                leftKeyBagVC.keysArray = self.keyBagArray;
+                [self.navigationController pushViewController:leftKeyBagVC animated:YES];
+            }
+                break;
+                // 扫一扫
+            case 3:
+            {
+                MXHomeQRCodeVC *QRCodeVC = [[MXHomeQRCodeVC alloc] init];
+                [self.navigationController pushViewController:QRCodeVC animated:YES];
+            }
+                break;
+                // 关于
+            case 4:
+            {
+                MXHomeAboutVC *aboutVC = [[MXHomeAboutVC alloc] init];
+                [self.navigationController pushViewController:aboutVC animated:YES];
+            }
+                break;
+            default:
+                break;
+        }
     } completion:^(BOOL finished) {
         [self.cover removeFromSuperview];
     }];
-    switch (index) {
-            // 免打扰
-        case 0:
-        {
-            
-        }
-            break;
-            // 修改密码
-        case 1:
-        {
-            
-        }
-            break;
-            // 钥匙包
-        case 2:
-        {
-            
-        }
-            break;
-            // 扫一扫
-        case 3:
-        {
-            
-        }
-            break;
-            // 关于
-        case 4:
-        {
-            
-        }
-            break;
-        default:
-            break;
-    }
 }
 
 #pragma mark - 底部钥匙按钮点击

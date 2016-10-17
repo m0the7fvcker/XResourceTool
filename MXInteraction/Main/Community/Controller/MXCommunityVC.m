@@ -12,7 +12,7 @@
 #import "MXCommunityModel.h"
 
 extern NSInteger const MXCommunityScrollTitleHeight;
-#define MXCommunityCellHeight 180
+#define MXCommunityCellHeight 190
 #define MXCommunitySectionHeaderHeight 10
 
 @interface MXCommunityVC()<UITableViewDataSource, UITableViewDelegate>

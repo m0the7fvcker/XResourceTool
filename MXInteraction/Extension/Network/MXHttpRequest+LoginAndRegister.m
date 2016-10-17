@@ -48,7 +48,7 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"phone"] = phoneNumber.length > 0 ? phoneNumber : @"";
     params[@"code"] = code.length > 0 ? code : @"";
-    params[@"password"] = password > 0 ? password : @"";
+    params[@"password"] = password.length > 0 ? password : @"";
     
     return [self POST:@"api/member/resetpassword" params:params success:^(MXResponseModel * _Nonnull responseModel) {
         success(responseModel.baseModel);
@@ -67,7 +67,7 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"phone"] = phoneNumber.length > 0 ? phoneNumber : @"";
     params[@"code"] = code.length > 0 ? code : @"";
-    params[@"password"] = password > 0 ? password : @"";
+    params[@"password"] = password.length > 0 ? password : @"";
     
     return [self POST:@"api/member/register" params:params success:^(MXResponseModel * _Nonnull responseModel) {
         success(responseModel.baseModel);
@@ -85,9 +85,26 @@
 {
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"phone"] = phoneNumber.length > 0 ? phoneNumber : @"";
-    params[@"password"] = password > 0 ? password : @"";
+    params[@"password"] = password.length > 0 ? password : @"";
     
     return [self POST:@"api/member/login" params:params success:^(MXResponseModel * _Nonnull responseModel) {
+        success(responseModel.baseModel);
+    } failure:^(MXResponseModel * _Nonnull responseModel) {
+        NSError *error = responseModel.err;
+        failure(error);
+    }];
+}
+
++(nullable MXRequestModel *)ChangePasswordWithOldPassword:(NSString * _Nonnull)prepassword
+                                           andNewPassword:(NSString * _Nonnull)newpassword
+                                                  success:(nullable void(^)(MXBaseDataModel * _Nonnull responseModel))success
+                                                  failure:(nullable void(^)(NSError * _Nonnull error))failure
+{
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"prepassword"] = prepassword.length > 0 ? prepassword : @"";
+    params[@"newpassword"] = newpassword.length > 0 ? newpassword : @"";
+    
+    return [self POST:@"api/member/editpassword" params:params success:^(MXResponseModel * _Nonnull responseModel) {
         success(responseModel.baseModel);
     } failure:^(MXResponseModel * _Nonnull responseModel) {
         NSError *error = responseModel.err;

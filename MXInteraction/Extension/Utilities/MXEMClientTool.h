@@ -125,4 +125,11 @@ typedef NS_ENUM(NSInteger, MXDeviceState){
  */
 - (void)sendMsg;
 
+/**
+ 记录开门记录到本地
+
+ @param success 是否开门成功
+ */
+- (void)writeOpenRecordToFile:(BOOL)success;
+
 @end

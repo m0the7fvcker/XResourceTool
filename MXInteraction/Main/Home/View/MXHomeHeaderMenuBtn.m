@@ -12,6 +12,7 @@
 @property (nonatomic, strong) UIView *containerView;
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, assign) BOOL isKeyBag;
 @property (nonatomic, strong) void(^ActionBlock)(NSInteger);
 @end
 
@@ -26,6 +27,12 @@
         [self initConstraint];
     }
     return self;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame index:(NSInteger)index title:(NSString *)title image:(NSString *)image isKeybag:(BOOL)isKeyBag andActionBlock:(void(^)(NSInteger))block
+{
+    self.isKeyBag = isKeyBag;
+    return [self initWithFrame:frame index:index title:title image:image andActionBlock:block];
 }
 
 - (void)initUIWithIndex:(NSInteger)index title:(NSString *)title andImage:(NSString *)image
@@ -45,7 +52,7 @@
     if (MXDevice_Is_iPhone5 || MXDevice_Is_iPhone4) {
         fontSize = 12;
     }else {
-        fontSize = 15;
+        fontSize = 13;
     }
     UILabel *titleLabel = [[UILabel alloc] init];
     titleLabel.font = [UIFont systemFontOfSize:fontSize];
@@ -65,19 +72,27 @@
     if (MXDevice_Is_iPhone4 || MXDevice_Is_iPhone5) {
         buttonWdith = 40;
     }else {
-        buttonWdith = 50;
+        buttonWdith = 45;
     }
+    if (self.isKeyBag) buttonWdith = 60;
     MXWeakSelf;
     [self.containerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(weakSelf).offset(5);
+        make.top.equalTo(weakSelf).offset(9);
         make.center.equalTo(weakSelf);
         make.width.equalTo(@(buttonWdith));
         make.height.equalTo(@70);
     }];
     
+    CGFloat offset = 0;
+    if (MXDevice_Is_iPhone4 || MXDevice_Is_iPhone5) {
+        offset = 5;
+    }else {
+        offset = 9;
+    }
+    
     [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(weakSelf.containerView);
-        make.top.equalTo(weakSelf.containerView.mas_top).offset(5);
+        make.top.equalTo(weakSelf.containerView.mas_top).offset(offset);
         make.height.equalTo(@(buttonWdith));
     }];
     

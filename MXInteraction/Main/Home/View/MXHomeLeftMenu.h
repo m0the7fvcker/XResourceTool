@@ -19,5 +19,6 @@
 @interface MXHomeLeftMenu : UIView
 
 @property (nonatomic, weak) id<MXHomeLeftMenuDelegate> delegate;
+- (void)updatePhoneNumber;
 
 @end

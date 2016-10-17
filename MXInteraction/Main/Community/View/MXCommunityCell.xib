@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -12,11 +13,10 @@
             <rect key="frame" x="0.0" y="0.0" width="322" height="272"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0vb-n6-hiJ" id="qtW-Gs-Jo4">
-                <rect key="frame" x="0.0" y="0.0" width="322" height="271.5"/>
+                <frame key="frameInset" width="322" height="271.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="前海吴彦祖" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zlc-sm-HZO">
-                        <rect key="frame" x="68" y="20" width="100" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="nG3-u9-AM9"/>
                             <constraint firstAttribute="width" constant="100" id="oGS-RW-2p3"/>
@@ -26,7 +26,6 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="闲置兰博基尼出售，原价998，现价只要99.9，对你没有看错，只要99.9" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EpT-Tr-mzl">
-                        <rect key="frame" x="10" y="55" width="302" height="206.5"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="0Ib-eI-LXT"/>
                         </constraints>
@@ -40,7 +39,6 @@
                         </variation>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016.8.6" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwP-hn-GpI">
-                        <rect key="frame" x="204" y="20" width="100" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="hUB-pM-K0w"/>
                             <constraint firstAttribute="width" constant="100" id="rat-pQ-Pxf"/>
@@ -50,7 +48,6 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_use4" translatesAutoresizingMaskIntoConstraints="NO" id="Gcx-rP-N79">
-                        <rect key="frame" x="10" y="10" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="GPR-Rp-ZM6"/>
                             <constraint firstAttribute="width" constant="40" id="g3W-na-pHg"/>
@@ -59,10 +56,10 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="EpT-Tr-mzl" firstAttribute="top" secondItem="Gcx-rP-N79" secondAttribute="bottom" constant="5" id="1Vg-Bu-Bnx"/>
-                    <constraint firstItem="EpT-Tr-mzl" firstAttribute="leading" secondItem="qtW-Gs-Jo4" secondAttribute="leading" constant="10" id="7Ly-Hq-XGm"/>
+                    <constraint firstItem="EpT-Tr-mzl" firstAttribute="leading" secondItem="qtW-Gs-Jo4" secondAttribute="leading" constant="15" id="7Ly-Hq-XGm"/>
                     <constraint firstItem="zlc-sm-HZO" firstAttribute="centerY" secondItem="Gcx-rP-N79" secondAttribute="centerY" id="7ih-5D-eq7"/>
                     <constraint firstItem="Gcx-rP-N79" firstAttribute="top" secondItem="qtW-Gs-Jo4" secondAttribute="top" constant="10" id="R8i-9B-AlJ"/>
-                    <constraint firstAttribute="trailing" secondItem="EpT-Tr-mzl" secondAttribute="trailing" constant="10" id="Ru3-vS-SNO"/>
+                    <constraint firstAttribute="trailing" secondItem="EpT-Tr-mzl" secondAttribute="trailing" constant="15" id="Ru3-vS-SNO"/>
                     <constraint firstAttribute="bottom" secondItem="EpT-Tr-mzl" secondAttribute="bottom" constant="10" id="Vvl-Yx-nKU"/>
                     <constraint firstAttribute="trailingMargin" secondItem="cwP-hn-GpI" secondAttribute="trailing" constant="10" id="bWE-Xa-M1J"/>
                     <constraint firstItem="cwP-hn-GpI" firstAttribute="centerY" secondItem="Gcx-rP-N79" secondAttribute="centerY" id="dsU-qW-vch"/>

@@ -21,16 +21,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self addJSPath];
-    [self addPush];
+    [self addPushWithApplication:application];
     [self addEMClient];
     [self launch];
     
     return YES;
-}
-
-- (void)applicationWillResignActive:(UIApplication *)application
-{
-   
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
@@ -45,7 +40,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-
+    application.applicationIconBadgeNumber = 0;
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

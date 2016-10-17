@@ -33,15 +33,15 @@
     self.tag = index;
     
     UIImageView *imageView = [[UIImageView alloc] init];
-    imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"home_icon_%ld",(long)index]];
+    imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"home_icon_service_%ld",(long)index]];
     self.imageView = imageView;
     [self addSubview:imageView];
     
     CGFloat titleFontSize = 0;
     if (MXDevice_Is_iPhone5 || MXDevice_Is_iPhone4) {
-        titleFontSize = 12;
+        titleFontSize = 11;
     }else {
-        titleFontSize = 15;
+        titleFontSize = 13;
     }
     UILabel *titleLabel = [[UILabel alloc] init];
     titleLabel.font = [UIFont systemFontOfSize:titleFontSize];
@@ -52,9 +52,9 @@
     
     CGFloat subTitleFontSize = 0;
     if (MXDevice_Is_iPhone5 || MXDevice_Is_iPhone4) {
-        subTitleFontSize = 9.5;
+        subTitleFontSize = 9;
     }else {
-        subTitleFontSize = 13;
+        subTitleFontSize = 11.5;
     }
     UILabel *subTitleLabel = [[UILabel alloc] init];
     subTitleLabel.font = [UIFont systemFontOfSize:subTitleFontSize];

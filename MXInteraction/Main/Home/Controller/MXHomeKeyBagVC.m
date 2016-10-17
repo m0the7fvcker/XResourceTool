@@ -8,11 +8,12 @@
 
 #import "MXHomeKeyBagVC.h"
 #import "MXHomeHeaderMenuBtn.h"
+#import "MXHomeClockView.h"
 
 #import "MXUserKeyBagModel.h"
 
 #define HomeKeyBagKeyWidth 80
-#define HomeKeyBagBtnWidth_Later6 80
+#define HomeKeyBagBtnWidth_Later6 70
 #define HomeKeyBagBtnWidth_Before6 60
 #define HomeKeyBagBtnHeight HomeKeyBagBtnWidth
 #define HomeKeyBagBtnLineMargin 30
@@ -42,13 +43,11 @@
     self.bgView = bgView;
     [self.view addSubview:bgView];
     
-    UILabel *timeView = [[UILabel alloc] initWithFrame:CGRectMake(30, 75, 100, 50)];
-    timeView.text = @"2016:10:12";
-    self.timeView = timeView;
-    [self.view addSubview:timeView];
+    MXHomeClockView *clickView = [[MXHomeClockView alloc] initWithFrame:CGRectMake(30, 75, 140, 50) andDateString:[self getTime]];
+    [self.view addSubview:clickView];
     
     UIImageView *adView = [[UIImageView alloc] initWithFrame:CGRectMake(MXScreen_Width - 35 - 100, 75, 100, 175)];
-    adView.image = [UIImage imageNamed:@"img_malfunction"];
+    adView.image =  [self getLocalAdImageFromLocal]? [self getLocalAdImageFromLocal] : [UIImage imageNamed:@"img_malfunction"];
     self.adView = adView;
     [self.view addSubview:adView];
     
@@ -72,7 +71,7 @@
         CGFloat buttonY = MXScreen_Height -  (bottomMargin + (buttonW + HomeKeyBagBtnLineMargin) * (i / 3));
         NSString *title = [NSString stringWithFormat:@"%d号围机",i + 1];
         MXWeakSelf;
-        MXHomeHeaderMenuBtn *keyButton = [[MXHomeHeaderMenuBtn alloc] initWithFrame:CGRectMake(buttonX, buttonY, buttonW, buttonH) index:i title:title image:@"keyBag_icon_key0" andActionBlock:^(NSInteger index) {
+        MXHomeHeaderMenuBtn *keyButton = [[MXHomeHeaderMenuBtn alloc] initWithFrame:CGRectMake(buttonX, buttonY, buttonW, buttonH) index:i title:title image:@"keyBag_icon_key0" isKeybag:YES andActionBlock:^(NSInteger index) {
             [weakSelf didClickKeyAtIndex:index];
         }];
         [self.view addSubview:keyButton];
@@ -110,4 +109,22 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (UIImage *)getLocalAdImageFromLocal
+{
+    NSString *documentsDirectoryPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    
+    UIImage *adImage = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/keyBagAdImage",documentsDirectoryPath]];
+    
+    return adImage;
+}
+
+- (NSString *)getTime
+{
+    NSDate *currentDate = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"dd/MM/YYYY"];
+    NSString *dateString = [dateFormatter stringFromDate:currentDate];
+    
+    return dateString;
+}
 @end

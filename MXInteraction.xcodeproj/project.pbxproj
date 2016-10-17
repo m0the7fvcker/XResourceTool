@@ -69,6 +69,7 @@
 		4D6148A71D64006100B3B093 /* MXAppDelegate+Launch.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6148A11D64006100B3B093 /* MXAppDelegate+Launch.m */; };
 		4D6148A81D64006100B3B093 /* MXAppDelegate+Push.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6148A31D64006100B3B093 /* MXAppDelegate+Push.m */; };
 		4D6148A91D64006100B3B093 /* MXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6148A51D64006100B3B093 /* MXAppDelegate.m */; };
+		4D7E7E3B1DB484ED00FF8434 /* MXOpenRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7E7E3A1DB484ED00FF8434 /* MXOpenRecordModel.m */; };
 		4D813A661D67070500BB2DFA /* MXCommunityControlVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D813A651D67070500BB2DFA /* MXCommunityControlVC.m */; };
 		4D87CBDF1D701C8B002B25E4 /* MXO2OCommonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D87CBDE1D701C8B002B25E4 /* MXO2OCommonModel.m */; };
 		4D899F601DAE527D00167A43 /* MXHomeKeyBagVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D899F5F1DAE527D00167A43 /* MXHomeKeyBagVC.m */; };
@@ -91,6 +92,8 @@
 		4DC055621D6B09D30079658D /* MXHomeHeaderMenuBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC055611D6B09D30079658D /* MXHomeHeaderMenuBtn.m */; };
 		4DC055651D6BEFC20079658D /* MXHomeServiceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC055641D6BEFC20079658D /* MXHomeServiceCell.m */; };
 		4DC055681D6BF0A60079658D /* MXHomeServiceBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC055671D6BF0A60079658D /* MXHomeServiceBtn.m */; };
+		4DC0A7721DB35A37001F8D2E /* MXHomeChangePwVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC0A7701DB35A37001F8D2E /* MXHomeChangePwVC.m */; };
+		4DC0A7731DB35A37001F8D2E /* MXHomeChangePwVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC0A7711DB35A37001F8D2E /* MXHomeChangePwVC.xib */; };
 		4DC565C21D6DA5B200C58564 /* MXPersonalCenterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC565C11D6DA5B200C58564 /* MXPersonalCenterVC.m */; };
 		4DC565C51D6DA6BB00C58564 /* MXPersonalHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC565C41D6DA6BB00C58564 /* MXPersonalHeaderView.m */; };
 		4DC565C81D6DA6CE00C58564 /* MXPersonalHeaderBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC565C71D6DA6CE00C58564 /* MXPersonalHeaderBar.m */; };
@@ -117,6 +120,7 @@
 		4DCC0C691D76C05A00F681C9 /* shareOpen_erweima.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DCC0C681D76C05A00F681C9 /* shareOpen_erweima.png */; };
 		4DD15E8D1D6A97D4006D6E74 /* MXLaunchADViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD15E8C1D6A97D4006D6E74 /* MXLaunchADViewController.m */; };
 		4DD15E901D6A9E70006D6E74 /* MXLaunchNFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD15E8F1D6A9E70006D6E74 /* MXLaunchNFViewController.m */; };
+		4DF1CBBF1DB513E90079BDE1 /* MXHomeClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF1CBBE1DB513E90079BDE1 /* MXHomeClockView.m */; };
 		4DF7D6531D669C4E00A1FD4F /* MXHomeBottomBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF7D6521D669C4E00A1FD4F /* MXHomeBottomBar.m */; };
 		4DF7D65C1D66E0F300A1FD4F /* images.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4DF7D65A1D66E0F300A1FD4F /* images.bundle */; };
 		4DF7D65D1D66E0F300A1FD4F /* music.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4DF7D65B1D66E0F300A1FD4F /* music.bundle */; };
@@ -126,6 +130,10 @@
 		4DF831381D73E8270073B7DE /* MXScoreMallHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF831371D73E8270073B7DE /* MXScoreMallHeader.m */; };
 		4DF8313B1D73E9360073B7DE /* MXScoreMallCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF8313A1D73E9360073B7DE /* MXScoreMallCell.m */; };
 		4DF8313E1D740BDA0073B7DE /* MXO2OCommonMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF8313D1D740BDA0073B7DE /* MXO2OCommonMenu.m */; };
+		4DFCBC7F1DB361AB003688E5 /* MXHomeLeftKeyBagVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFCBC7E1DB361AB003688E5 /* MXHomeLeftKeyBagVC.m */; };
+		4DFCBC821DB36995003688E5 /* MXHomeQRCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFCBC811DB36995003688E5 /* MXHomeQRCodeVC.m */; };
+		4DFCBC851DB36D82003688E5 /* MXAuthorizationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFCBC841DB36D82003688E5 /* MXAuthorizationVC.m */; };
+		4DFCBC881DB37960003688E5 /* MXHomeMessageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFCBC871DB37960003688E5 /* MXHomeMessageVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -263,6 +271,9 @@
 		4D6148A31D64006100B3B093 /* MXAppDelegate+Push.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MXAppDelegate+Push.m"; sourceTree = "<group>"; };
 		4D6148A41D64006100B3B093 /* MXAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXAppDelegate.h; sourceTree = "<group>"; };
 		4D6148A51D64006100B3B093 /* MXAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXAppDelegate.m; sourceTree = "<group>"; };
+		4D7E7E381DB4634A00FF8434 /* MXInteraction.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MXInteraction.entitlements; sourceTree = "<group>"; };
+		4D7E7E391DB484ED00FF8434 /* MXOpenRecordModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXOpenRecordModel.h; sourceTree = "<group>"; };
+		4D7E7E3A1DB484ED00FF8434 /* MXOpenRecordModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXOpenRecordModel.m; sourceTree = "<group>"; };
 		4D813A641D67070500BB2DFA /* MXCommunityControlVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXCommunityControlVC.h; sourceTree = "<group>"; };
 		4D813A651D67070500BB2DFA /* MXCommunityControlVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXCommunityControlVC.m; sourceTree = "<group>"; };
 		4D87CBDD1D701C8B002B25E4 /* MXO2OCommonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXO2OCommonModel.h; sourceTree = "<group>"; };
@@ -301,6 +312,9 @@
 		4DC055641D6BEFC20079658D /* MXHomeServiceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXHomeServiceCell.m; sourceTree = "<group>"; };
 		4DC055661D6BF0A60079658D /* MXHomeServiceBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXHomeServiceBtn.h; sourceTree = "<group>"; };
 		4DC055671D6BF0A60079658D /* MXHomeServiceBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXHomeServiceBtn.m; sourceTree = "<group>"; };
+		4DC0A76F1DB35A37001F8D2E /* MXHomeChangePwVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXHomeChangePwVC.h; sourceTree = "<group>"; };
+		4DC0A7701DB35A37001F8D2E /* MXHomeChangePwVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXHomeChangePwVC.m; sourceTree = "<group>"; };
+		4DC0A7711DB35A37001F8D2E /* MXHomeChangePwVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MXHomeChangePwVC.xib; sourceTree = "<group>"; };
 		4DC565C01D6DA5B200C58564 /* MXPersonalCenterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXPersonalCenterVC.h; sourceTree = "<group>"; };
 		4DC565C11D6DA5B200C58564 /* MXPersonalCenterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXPersonalCenterVC.m; sourceTree = "<group>"; };
 		4DC565C31D6DA6BB00C58564 /* MXPersonalHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXPersonalHeaderView.h; sourceTree = "<group>"; };
@@ -345,6 +359,8 @@
 		4DD15E8C1D6A97D4006D6E74 /* MXLaunchADViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXLaunchADViewController.m; sourceTree = "<group>"; };
 		4DD15E8E1D6A9E70006D6E74 /* MXLaunchNFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXLaunchNFViewController.h; sourceTree = "<group>"; };
 		4DD15E8F1D6A9E70006D6E74 /* MXLaunchNFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXLaunchNFViewController.m; sourceTree = "<group>"; };
+		4DF1CBBD1DB513E90079BDE1 /* MXHomeClockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXHomeClockView.h; sourceTree = "<group>"; };
+		4DF1CBBE1DB513E90079BDE1 /* MXHomeClockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXHomeClockView.m; sourceTree = "<group>"; };
 		4DF7D6511D669C4E00A1FD4F /* MXHomeBottomBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXHomeBottomBar.h; sourceTree = "<group>"; };
 		4DF7D6521D669C4E00A1FD4F /* MXHomeBottomBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXHomeBottomBar.m; sourceTree = "<group>"; };
 		4DF7D65A1D66E0F300A1FD4F /* images.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = images.bundle; sourceTree = "<group>"; };
@@ -361,6 +377,14 @@
 		4DF8313A1D73E9360073B7DE /* MXScoreMallCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXScoreMallCell.m; sourceTree = "<group>"; };
 		4DF8313C1D740BDA0073B7DE /* MXO2OCommonMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXO2OCommonMenu.h; sourceTree = "<group>"; };
 		4DF8313D1D740BDA0073B7DE /* MXO2OCommonMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXO2OCommonMenu.m; sourceTree = "<group>"; };
+		4DFCBC7D1DB361AB003688E5 /* MXHomeLeftKeyBagVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXHomeLeftKeyBagVC.h; sourceTree = "<group>"; };
+		4DFCBC7E1DB361AB003688E5 /* MXHomeLeftKeyBagVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXHomeLeftKeyBagVC.m; sourceTree = "<group>"; };
+		4DFCBC801DB36995003688E5 /* MXHomeQRCodeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXHomeQRCodeVC.h; sourceTree = "<group>"; };
+		4DFCBC811DB36995003688E5 /* MXHomeQRCodeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXHomeQRCodeVC.m; sourceTree = "<group>"; };
+		4DFCBC831DB36D82003688E5 /* MXAuthorizationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXAuthorizationVC.h; sourceTree = "<group>"; };
+		4DFCBC841DB36D82003688E5 /* MXAuthorizationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXAuthorizationVC.m; sourceTree = "<group>"; };
+		4DFCBC861DB37960003688E5 /* MXHomeMessageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXHomeMessageVC.h; sourceTree = "<group>"; };
+		4DFCBC871DB37960003688E5 /* MXHomeMessageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXHomeMessageVC.m; sourceTree = "<group>"; };
 		6C67CA09F56570D3DA25D36D /* libPods-MXInteraction.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MXInteraction.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABA4727452F7BFDADA8C1F4B /* Pods-MXInteraction.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MXInteraction.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MXInteraction/Pods-MXInteraction.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -401,6 +425,8 @@
 		4D02B8381D65670000EC6F8A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4DFCBC831DB36D82003688E5 /* MXAuthorizationVC.h */,
+				4DFCBC841DB36D82003688E5 /* MXAuthorizationVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -582,6 +608,8 @@
 		4D02B84D1D65670000EC6F8A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4D7E7E391DB484ED00FF8434 /* MXOpenRecordModel.h */,
+				4D7E7E3A1DB484ED00FF8434 /* MXOpenRecordModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -740,6 +768,7 @@
 		4D6147F11D63FF1400B3B093 /* MXInteraction */ = {
 			isa = PBXGroup;
 			children = (
+				4D7E7E381DB4634A00FF8434 /* MXInteraction.entitlements */,
 				4D61489D1D64006100B3B093 /* AppDelegate */,
 				4D6148171D63FF9D00B3B093 /* Extension */,
 				4D61485D1D63FF9D00B3B093 /* Main */,
@@ -988,6 +1017,15 @@
 				484A34F41DB3539B00AD39DE /* MXHomeAboutVC.h */,
 				484A34F51DB3539B00AD39DE /* MXHomeAboutVC.m */,
 				484A34F61DB3539B00AD39DE /* MXHomeAboutVC.xib */,
+				4DC0A76F1DB35A37001F8D2E /* MXHomeChangePwVC.h */,
+				4DC0A7701DB35A37001F8D2E /* MXHomeChangePwVC.m */,
+				4DC0A7711DB35A37001F8D2E /* MXHomeChangePwVC.xib */,
+				4DFCBC7D1DB361AB003688E5 /* MXHomeLeftKeyBagVC.h */,
+				4DFCBC7E1DB361AB003688E5 /* MXHomeLeftKeyBagVC.m */,
+				4DFCBC801DB36995003688E5 /* MXHomeQRCodeVC.h */,
+				4DFCBC811DB36995003688E5 /* MXHomeQRCodeVC.m */,
+				4DFCBC861DB37960003688E5 /* MXHomeMessageVC.h */,
+				4DFCBC871DB37960003688E5 /* MXHomeMessageVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1028,6 +1066,8 @@
 				4D46A90E1DADD8BC00239D20 /* MXHomeLeftMenu.m */,
 				4D46A9101DADEA8900239D20 /* MXHomeLeftMenuBtn.h */,
 				4D46A9111DADEA8900239D20 /* MXHomeLeftMenuBtn.m */,
+				4DF1CBBD1DB513E90079BDE1 /* MXHomeClockView.h */,
+				4DF1CBBE1DB513E90079BDE1 /* MXHomeClockView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1317,6 +1357,11 @@
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = RGFQAX73E5;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					4D6148071D63FF1400B3B093 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -1362,6 +1407,7 @@
 				4D6148991D63FF9D00B3B093 /* MXEnterPhoneViewController.xib in Resources */,
 				4D6148971D63FF9D00B3B093 /* MXLoginHomeViewController.xib in Resources */,
 				4DCC0C691D76C05A00F681C9 /* shareOpen_erweima.png in Resources */,
+				4DC0A7731DB35A37001F8D2E /* MXHomeChangePwVC.xib in Resources */,
 				4DCC0C621D76B97C00F681C9 /* home_elevator_bg.png in Resources */,
 				484A34F81DB3539B00AD39DE /* MXHomeAboutVC.xib in Resources */,
 				4DCC0C571D7685FB00F681C9 /* MXHomeServiceVC.xib in Resources */,
@@ -1464,6 +1510,7 @@
 				4D899F601DAE527D00167A43 /* MXHomeKeyBagVC.m in Sources */,
 				4D61488A1D63FF9D00B3B093 /* MXComUserDefault.m in Sources */,
 				4D6148851D63FF9D00B3B093 /* UIView+MXCategory.m in Sources */,
+				4DFCBC7F1DB361AB003688E5 /* MXHomeLeftKeyBagVC.m in Sources */,
 				4D46A90C1DACDBD100239D20 /* MXJSONTool.m in Sources */,
 				4DC565D11D6EEDCC00C58564 /* MXCommunityMarketVC.m in Sources */,
 				4D6148921D63FF9D00B3B093 /* YZDisplayViewController.m in Sources */,
@@ -1474,6 +1521,7 @@
 				4D6148811D63FF9D00B3B093 /* UIColor+MXCategory.m in Sources */,
 				4DC565D41D6EEDF500C58564 /* MXCommunityVC.m in Sources */,
 				4DF7D6661D66E86D00A1FD4F /* MXNoDisturbInnerVC.m in Sources */,
+				4D7E7E3B1DB484ED00FF8434 /* MXOpenRecordModel.m in Sources */,
 				4DC565E41D6F188800C58564 /* MXCommunityModel.m in Sources */,
 				4D6148821D63FF9D00B3B093 /* UIImage+MXCategory.m in Sources */,
 				4DD15E901D6A9E70006D6E74 /* MXLaunchNFViewController.m in Sources */,
@@ -1501,18 +1549,23 @@
 				4D9CD0CB1D6440D2000832D3 /* NSUserDefaults+MXCategory.m in Sources */,
 				4D61488C1D63FF9D00B3B093 /* MXHttpRequest.m in Sources */,
 				4D6148961D63FF9D00B3B093 /* MXLoginHomeViewController.m in Sources */,
+				4DF1CBBF1DB513E90079BDE1 /* MXHomeClockView.m in Sources */,
+				4DFCBC821DB36995003688E5 /* MXHomeQRCodeVC.m in Sources */,
 				4D61487F1D63FF9D00B3B093 /* NSObject+MXExtension.m in Sources */,
 				4D46A9061DACD80300239D20 /* MXIncomingVC.m in Sources */,
 				4D46A8FD1DACC41900239D20 /* MXSeeTalkingVC.m in Sources */,
+				4DFCBC851DB36D82003688E5 /* MXAuthorizationVC.m in Sources */,
 				4D61487B1D63FF9D00B3B093 /* MXBaseTabBarController.m in Sources */,
 				4D61488B1D63FF9D00B3B093 /* MXBaseDataModel.m in Sources */,
 				4D016BBA1D9A531B002E9740 /* MXOpenRecordCell.m in Sources */,
 				4D3DFA491D71913100E01F1B /* MXScoreMallVC.m in Sources */,
 				4DB9BEA71D9B768D00B04036 /* MXHttpRequest+LoginAndRegister.m in Sources */,
+				4DFCBC881DB37960003688E5 /* MXHomeMessageVC.m in Sources */,
 				4D6148931D63FF9D00B3B093 /* YZFlowLayout.m in Sources */,
 				4D46A9031DACD7DE00239D20 /* MXMonitoringVC.m in Sources */,
 				4DC565E11D6F187B00C58564 /* MXCommunityMarketModel.m in Sources */,
 				4D61489A1D63FF9D00B3B093 /* MXTextField.m in Sources */,
+				4DC0A7721DB35A37001F8D2E /* MXHomeChangePwVC.m in Sources */,
 				4D61488E1D63FF9D00B3B093 /* MXResponseModel.m in Sources */,
 				4D3DFA4C1D71915F00E01F1B /* MXSelllerAreaVC.m in Sources */,
 				4D3EBF651D9CB6CC00A10C25 /* MXHomeBannerModel.m in Sources */,
@@ -1659,9 +1712,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_ENTITLEMENTS = MXInteraction/MXInteraction.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Wang Zong (T2LAUPP44Z)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = RGFQAX73E5;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MXInteraction/Extension/Vendors/JSPath",
@@ -1670,9 +1725,47 @@
 				INFOPLIST_FILE = MXInteraction/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/BHBPopView\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/Hyphenate_CN\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/MJExtension\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/Reachability\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/SDCycleScrollView\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/SSKeychain\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/SVProgressHUD\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/TapkuLibrary\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/iOS-UMengMessage\"",
+					"-fembed-bitcode",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-fembed-bitcode",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.maxiao.mxinteraction;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "98e03723-1cd2-4447-8ca1-1a494517bd67";
+				PROVISIONING_PROFILE = "4beb539f-4c7d-4535-8f36-bd2eae812551";
 				PROVISIONING_PROFILE_SPECIFIER = mxinteraction_dev;
 			};
 			name = Debug;
@@ -1683,9 +1776,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_ENTITLEMENTS = MXInteraction/MXInteraction.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Wang Zong (T2LAUPP44Z)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = RGFQAX73E5;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MXInteraction/Extension/Vendors/JSPath",
@@ -1694,6 +1789,44 @@
 				INFOPLIST_FILE = MXInteraction/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/BHBPopView\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/Hyphenate_CN\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/MJExtension\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/Reachability\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/SDCycleScrollView\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/SSKeychain\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/SVProgressHUD\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/TapkuLibrary\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/iOS-UMengMessage\"",
+					"-fembed-bitcode",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-fembed-bitcode",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.maxiao.mxinteraction;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "98e03723-1cd2-4447-8ca1-1a494517bd67";

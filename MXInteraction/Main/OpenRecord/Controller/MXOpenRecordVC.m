@@ -11,12 +11,15 @@
 #import "MXOpenRecordSectionHeader.h"
 #import "MXOpenRecordCell.h"
 
+#import "MXOpenRecordModel.h"
+
 static NSString *const openRecordCell = @"OpenRecordCell";
 static NSString *const openRecordSectionHeader = @"OpenRecordSectionHeader";
 
 @interface MXOpenRecordVC ()<UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, weak) UITableView *tableView;
+@property (nonatomic, strong) NSMutableArray *recordArray;
 
 @end
 
@@ -26,7 +29,7 @@ static NSString *const openRecordSectionHeader = @"OpenRecordSectionHeader";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self initNavBar];
+    [self initData];
     [self initUI];
     [self initConstraint];
 }
@@ -34,16 +37,22 @@ static NSString *const openRecordSectionHeader = @"OpenRecordSectionHeader";
 #pragma mark - 初始化方法
 - (void)initUI
 {
-    UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, MXScreen_Width, self.view.height - 64) style:UITableViewStylePlain];
     tableView.dataSource   = self;
     tableView.delegate     = self;
+    tableView.tableFooterView = [[UIView alloc] init];
     self.tableView         = tableView;
     [self.view addSubview:tableView];
 }
 
-- (void)initNavBar
+- (void)initData
 {
+    NSString *docPath=[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject];
+    NSString *path=[docPath stringByAppendingPathComponent:@"open.record"];
+    NSLog(@"path==%@",path);
     
+    self.recordArray = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+
 }
 
 - (void)initConstraint
@@ -52,13 +61,9 @@ static NSString *const openRecordSectionHeader = @"OpenRecordSectionHeader";
 }
 
 #pragma mark - UITableViewDataSource
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 3;
-}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return self.recordArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -67,23 +72,23 @@ static NSString *const openRecordSectionHeader = @"OpenRecordSectionHeader";
     if (!cell) {
         cell = [[MXOpenRecordCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"openRecordCell"];
     }
-    
+    cell.model = self.recordArray[indexPath.row];
     return cell;
 }
 #pragma mark - UITableViewDelegate
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    MXOpenRecordSectionHeader *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"openRecordSectionHeader"];
-    if (!headerView) {
-        headerView = [[MXOpenRecordSectionHeader alloc] initWithReuseIdentifier:@"openRecordSectionHeader"];
-    }
-    headerView.title = @"周一";
-    return headerView;
+//    MXOpenRecordSectionHeader *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"openRecordSectionHeader"];
+//    if (!headerView) {
+//        headerView = [[MXOpenRecordSectionHeader alloc] initWithReuseIdentifier:@"openRecordSectionHeader"];
+//    }
+//    headerView.title = @"周一";
+    return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 20;
+    return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
