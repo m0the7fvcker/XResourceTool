@@ -214,7 +214,7 @@
     _callSession = callSession;
     _callSession.remoteVideoView.contentMode = UIViewContentModeScaleToFill;
     _callSession.remoteVideoView = [[EMCallRemoteView alloc] initWithFrame:CGRectMake(0, 0, MXScreen_Width, 300)];
-    _callSession.remoteVideoView.backgroundColor = [UIColor redColor];
+    _callSession.remoteVideoView.backgroundColor = [UIColor blackColor];
     _callSession.remoteVideoView.center = self.view.center;
     [self.view addSubview:self.callSession.remoteVideoView];
 }
