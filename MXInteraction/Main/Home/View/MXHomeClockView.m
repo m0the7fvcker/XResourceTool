@@ -34,18 +34,21 @@
 {
     UILabel *dayLabel = [[UILabel alloc] init];
     dayLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:53];
+    dayLabel.textColor = [UIColor mx_colorWithHexString:@"646567"];
     dayLabel.textAlignment = NSTextAlignmentCenter;
 //    dayLabel.backgroundColor = [UIColor mx_randomColor];
     self.dayLabel = dayLabel;
     [self addSubview:dayLabel];
     
     UILabel *monthLabel = [[UILabel alloc] init];
+    monthLabel.textColor = [UIColor mx_colorWithHexString:@"8F8F90"];
     monthLabel.textAlignment = NSTextAlignmentCenter;
 //    monthLabel.backgroundColor = [UIColor mx_randomColor];
     self.monthLabel = monthLabel;
     [self addSubview:monthLabel];
     
     UILabel *weekdayLabel = [[UILabel alloc] init];
+    weekdayLabel.textColor = [UIColor mx_colorWithHexString:@"8F8F90"];
     weekdayLabel.textAlignment = NSTextAlignmentCenter;
 //    weekdayLabel.backgroundColor = [UIColor redColor];
     self.weekdayLabel = weekdayLabel;

@@ -53,10 +53,11 @@
     }
     
     UIView *userIconView = [[UIView alloc] initWithFrame:CGRectMake(HomeLeftMenuBtnIndent, 70, HomeLeftMenuBtnWidth, buttonHeight + 20)];
-    UIImageView *userIcon = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
+    UIImageView *userIcon = [[UIImageView alloc] initWithFrame:CGRectMake(HomeLeftMenuBtnIndent, 70, 60, 60)];
     userIcon.image = [UIImage imageNamed:@"icon_personal_user"];
     UILabel *numberLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(userIcon.frame) + 15, 0, 200, userIconView.height)];
-    numberLabel.text = [MXComUserDefault getUserAccount] ? [MXComUserDefault getUserAccount] : @"未登录";
+    NSString *phoneNumber = [MXComUserDefault getUserAccount];
+    numberLabel.text = phoneNumber ? phoneNumber : @"未登录";
     numberLabel.textColor = [UIColor whiteColor];
     self.phoneNumber = numberLabel;
     userIcon.centerY = numberLabel.centerY;
@@ -151,12 +152,14 @@
 
 - (void)updatePhoneNumber
 {
+    NSString *phoneNumber = [MXComUserDefault getUserAccount];
     self.phoneNumber.text = [MXComUserDefault getUserAccount] ? [MXComUserDefault getUserAccount] : @"未登录";
+    NSLog(@"%@",self.phoneNumber.text);
 }
 
 - (void)removeOpenRecord
 {
-    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject];
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     // 获取要删除的路径
     NSString *deletePath = [path stringByAppendingPathComponent:@"open.record"];
     // 创建文件管理对象

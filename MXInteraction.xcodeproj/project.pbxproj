@@ -121,6 +121,7 @@
 		4DD15E8D1D6A97D4006D6E74 /* MXLaunchADViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD15E8C1D6A97D4006D6E74 /* MXLaunchADViewController.m */; };
 		4DD15E901D6A9E70006D6E74 /* MXLaunchNFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD15E8F1D6A9E70006D6E74 /* MXLaunchNFViewController.m */; };
 		4DF1CBBF1DB513E90079BDE1 /* MXHomeClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF1CBBE1DB513E90079BDE1 /* MXHomeClockView.m */; };
+		4DF1CBC31DB5C8C40079BDE1 /* ad.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DF1CBC21DB5C8C40079BDE1 /* ad.png */; };
 		4DF7D6531D669C4E00A1FD4F /* MXHomeBottomBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF7D6521D669C4E00A1FD4F /* MXHomeBottomBar.m */; };
 		4DF7D65C1D66E0F300A1FD4F /* images.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4DF7D65A1D66E0F300A1FD4F /* images.bundle */; };
 		4DF7D65D1D66E0F300A1FD4F /* music.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4DF7D65B1D66E0F300A1FD4F /* music.bundle */; };
@@ -361,6 +362,7 @@
 		4DD15E8F1D6A9E70006D6E74 /* MXLaunchNFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXLaunchNFViewController.m; sourceTree = "<group>"; };
 		4DF1CBBD1DB513E90079BDE1 /* MXHomeClockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXHomeClockView.h; sourceTree = "<group>"; };
 		4DF1CBBE1DB513E90079BDE1 /* MXHomeClockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXHomeClockView.m; sourceTree = "<group>"; };
+		4DF1CBC21DB5C8C40079BDE1 /* ad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ad.png; sourceTree = "<group>"; };
 		4DF7D6511D669C4E00A1FD4F /* MXHomeBottomBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXHomeBottomBar.h; sourceTree = "<group>"; };
 		4DF7D6521D669C4E00A1FD4F /* MXHomeBottomBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXHomeBottomBar.m; sourceTree = "<group>"; };
 		4DF7D65A1D66E0F300A1FD4F /* images.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = images.bundle; sourceTree = "<group>"; };
@@ -1237,6 +1239,7 @@
 		4DCC0C5A1D76B97100F681C9 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				4DF1CBC21DB5C8C40079BDE1 /* ad.png */,
 				48EE6A7A1DAFCA0000FFB2C2 /* calling_bg.png */,
 				4D899F611DAE594C00167A43 /* keyBag_bg.png */,
 				4DCC0C681D76C05A00F681C9 /* shareOpen_erweima.png */,
@@ -1402,6 +1405,7 @@
 				4DF7D65C1D66E0F300A1FD4F /* images.bundle in Resources */,
 				4D9D4C331D7538DC00BAA8EE /* Assets.xcassets in Resources */,
 				4DC055561D6ADBFF0079658D /* MXForgetPdAndRegisterVC.xib in Resources */,
+				4DF1CBC31DB5C8C40079BDE1 /* ad.png in Resources */,
 				4DCC0C521D76830100F681C9 /* MXHomeElevatorVC.xib in Resources */,
 				4DC565DC1D6F13DB00C58564 /* MXCommunityCell.xib in Resources */,
 				4D6148991D63FF9D00B3B093 /* MXEnterPhoneViewController.xib in Resources */,
@@ -1711,7 +1715,7 @@
 			baseConfigurationReference = ABA4727452F7BFDADA8C1F4B /* Pods-MXInteraction.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = MXInteraction/MXInteraction.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Wang Zong (T2LAUPP44Z)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1775,7 +1779,7 @@
 			baseConfigurationReference = 4B1A254F1D211907BACDFD59 /* Pods-MXInteraction.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = MXInteraction/MXInteraction.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Wang Zong (T2LAUPP44Z)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

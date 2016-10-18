@@ -65,11 +65,11 @@
     for (int i = 0 ; i < self.keyBagArray.count; i++) {
         CGFloat buttonW = 80;
         CGFloat marginX = (MXScreen_Width - 3 * buttonW) / 4;
-        CGFloat bottomMargin = 220;
+        CGFloat bottomMargin = 240;
         CGFloat buttonH = buttonW;
         CGFloat buttonX = marginX + (marginX + buttonW) * (i % 3);
         CGFloat buttonY = MXScreen_Height -  (bottomMargin + (buttonW + HomeKeyBagBtnLineMargin) * (i / 3));
-        NSString *title = [NSString stringWithFormat:@"%d号围机",i + 1];
+        NSString *title = [NSString stringWithFormat:@"%d号围墙机",i + 1];
         MXWeakSelf;
         MXHomeHeaderMenuBtn *keyButton = [[MXHomeHeaderMenuBtn alloc] initWithFrame:CGRectMake(buttonX, buttonY, buttonW, buttonH) index:i title:title image:@"keyBag_icon_key0" isKeybag:YES andActionBlock:^(NSInteger index) {
             [weakSelf didClickKeyAtIndex:index];
@@ -91,6 +91,7 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         if (![MXEMClientTool shareTool].openHasResponse ) {
             [MXProgressHUD showError:@"对方不在线" toView:nil];
+            [[MXEMClientTool shareTool] writeOpenRecordToFile:NO];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [self dismissViewControllerAnimated:YES completion:nil];
             });

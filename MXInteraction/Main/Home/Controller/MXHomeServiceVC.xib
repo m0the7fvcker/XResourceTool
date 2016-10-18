@@ -20,7 +20,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="故障描述" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wPr-9g-hLm">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="故障描述:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wPr-9g-hLm">
                     <constraints>
                         <constraint firstAttribute="width" constant="300" id="308-H8-zJ0"/>
                         <constraint firstAttribute="height" constant="21" id="bfw-xe-ElC"/>
@@ -37,8 +37,11 @@
                     <state key="normal" title="提交报修">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="submitClick:" destination="-1" eventType="touchUpInside" id="FOg-by-zfx"/>
+                    </connections>
                 </button>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="描述您的报修故障情况" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JRS-FE-CEh">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JRS-FE-CEh">
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="101" id="B0Z-Kt-lBh"/>
@@ -46,7 +49,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="联系电话" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ngm-c7-DFZ">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="联系电话:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ngm-c7-DFZ">
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="7oy-Lb-qOW"/>
                     </constraints>
@@ -91,7 +94,7 @@
                 <constraint firstItem="Ngm-c7-DFZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="bb5-OS-PdF"/>
                 <constraint firstAttribute="trailing" secondItem="yWA-St-OtR" secondAttribute="trailing" constant="20" id="eWw-g6-ROl"/>
                 <constraint firstItem="8Li-6e-2lD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="iiu-Uw-FHH"/>
-                <constraint firstItem="blM-CZ-UtQ" firstAttribute="top" secondItem="Ngm-c7-DFZ" secondAttribute="bottom" constant="10" id="imo-UO-iP0"/>
+                <constraint firstItem="blM-CZ-UtQ" firstAttribute="top" secondItem="Ngm-c7-DFZ" secondAttribute="bottom" constant="16" id="imo-UO-iP0"/>
                 <constraint firstAttribute="trailing" secondItem="Ngm-c7-DFZ" secondAttribute="trailing" constant="20" id="sc0-AH-nuW"/>
                 <constraint firstItem="yWA-St-OtR" firstAttribute="top" secondItem="wPr-9g-hLm" secondAttribute="bottom" constant="16" id="tkP-id-oU9"/>
                 <constraint firstItem="wPr-9g-hLm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="y2s-e2-a1g"/>

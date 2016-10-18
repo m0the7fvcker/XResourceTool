@@ -49,7 +49,7 @@
     model2.imageName = @"bg_banner_O2O_1";
     
     MXO2OCommonModel *model3 = [[MXO2OCommonModel alloc] init];
-    model3.iconName = @"icon_store_aijia";
+    model3.iconName = @"icon_store_area";
     model3.titleName = @"商家商圈";
     model3.imageName = @"bg_banner_O2O_2";
     

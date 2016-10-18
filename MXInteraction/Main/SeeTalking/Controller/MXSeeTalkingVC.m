@@ -73,7 +73,6 @@
         // 对方有回应且呼叫界面还未关闭时弹出提示
         if (![MXEMClientTool shareTool].monitorHasResponse && [MXEMClientTool shareTool].incomingVC) {
             [MXProgressHUD showError:@"对方不在线" toView:nil];
-            [[MXEMClientTool shareTool] writeOpenRecordToFile:NO];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [[MXEMClientTool shareTool].incomingVC close];
             });
