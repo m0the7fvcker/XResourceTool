@@ -27,11 +27,13 @@
     if (![MXComUserDefault isFristLaunch]) {
         
         [MXComUserDefault setIsFristLaunch:YES];
-        MXLaunchNFViewController *launchVC = [[MXLaunchNFViewController alloc] init];
-        self.window.rootViewController = launchVC;
+//        MXLaunchNFViewController *launchVC = [[MXLaunchNFViewController alloc] init];
+//        self.window.rootViewController = launchVC;
+//        [self.window makeKeyAndVisible];
+        MXLaunchADViewController *adVC = [[MXLaunchADViewController alloc] init];
+        self.window.rootViewController = adVC;
         [self.window makeKeyAndVisible];
-        
-    // 不是第一次启动，判断是否登录
+    // 不是第一次启动，进入广告
     } else {
         
         MXLaunchADViewController *adVC = [[MXLaunchADViewController alloc] init];

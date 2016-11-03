@@ -126,11 +126,12 @@
     
     UIImage *adImage = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/adImage",documentsDirectoryPath]];
     
-//    if (self.adImageUrl.length == 0 || adImage == nil) {
-//        self.showSeconds = -2;
-//        return [self getSystemLaunchImage];
-//    }
+    if (adImage == nil) {
+        return [UIImage imageNamed:@"ad.png"];
+        return nil;
+    }
     
     return adImage;
 }
+
 @end

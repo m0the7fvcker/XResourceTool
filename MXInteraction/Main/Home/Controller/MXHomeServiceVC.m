@@ -38,4 +38,14 @@
     
     self.submitButton.layer.cornerRadius = 5;
 }
+
+- (IBAction)submitClick:(UIButton *)sender
+{
+    if (self.descriptionView.text.length == 0) {
+        [MXProgressHUD showError:@"故障描述不能为空" toView:nil];
+    }else {
+        [MXProgressHUD showSuccess:@"提交成功" toView:nil];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
 @end
