@@ -133,6 +133,9 @@
             [MXComUserDefault removeUserLocalDeviceSerial];
             [MXComUserDefault removeUserNoDisturbSetting];
             [MXComUserDefault setHasLogin:NO];
+            [MXApplicationAccessor.keyWindow.subviews[0] removeFromSuperview];
+            [self removeFromSuperview];
+            NSLog(@"%@",MXApplicationAccessor.keyWindow.subviews[0]);
             [self removeOpenRecord];
             [[NSNotificationCenter defaultCenter] postNotificationName:MXNoti_Home_Logout object:nil];
         }
@@ -151,7 +154,8 @@
 
 - (void)updatePhoneNumber
 {
-    self.phoneNumber.text = [MXComUserDefault getUserAccount] ? [MXComUserDefault getUserAccount] : @"未登录";
+    NSString *phoneNumber = [MXComUserDefault getUserAccount];
+    self.phoneNumber.text = phoneNumber;
 }
 
 - (void)removeOpenRecord

@@ -57,7 +57,7 @@
 /** 顶部按钮菜单 */
 @property (nonatomic, weak) MXHomeHeaderMenu *headerMenu;
 /** 侧滑栏 */
-@property (nonatomic, strong) MXHomeLeftMenu *leftMenuView;
+@property (nonatomic, weak) MXHomeLeftMenu *leftMenuView;
 /** 菜单按钮标题数组 */
 @property (nonatomic, strong) NSArray *menuTitles;
 /** 菜单按钮图片数组 */
@@ -195,6 +195,7 @@
     self.bottomBar = bottomBar;
     [self.view addSubview:bottomBar];
     
+    NSLog(@">>>>>>>>>>>>>>>>>>>>>>>>>%@",MXApplicationAccessor.keyWindow.subviews);
     // 添加侧滑菜单
     MXHomeLeftMenu *leftMenuView = [[MXHomeLeftMenu alloc] initWithFrame:self.view.bounds];
     leftMenuView.delegate = self;
@@ -293,7 +294,7 @@
     NSString *password = [MXComUserDefault getUserPasswordWithAccount:account];
     
     MXWeakSelf;
-    [MXHttpRequest LoginWithPhoneNumber:account password:@"123456" appVersion:@"1-1" success:^(MXBaseDataModel * _Nonnull responseModel) {
+    [MXHttpRequest LoginWithPhoneNumber:account password:password appVersion:@"1-1" success:^(MXBaseDataModel * _Nonnull responseModel) {
         if (responseModel.status == MXRequestCode_Success) {
             NSLog(@"请求成功");
             weakSelf.userInfoModel = [MXUserInfoModel mx_objectWithKeyValues:responseModel.data];

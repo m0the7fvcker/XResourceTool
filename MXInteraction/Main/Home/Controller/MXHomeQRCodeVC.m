@@ -56,6 +56,7 @@
 
 - (void)initUI
 {
+    self.title = @"扫一扫";
     UIImageView *scannerView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 180, 180)];
     scannerView.image = [UIImage imageNamed:@"home_scanner"];
     scannerView.centerX = self.view.centerX;

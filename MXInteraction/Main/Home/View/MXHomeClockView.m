@@ -34,6 +34,7 @@
 {
     UILabel *dayLabel = [[UILabel alloc] init];
     dayLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:53];
+    dayLabel.textColor = [UIColor mx_colorWithHexString:@"666666"];
     dayLabel.textAlignment = NSTextAlignmentCenter;
 //    dayLabel.backgroundColor = [UIColor mx_randomColor];
     self.dayLabel = dayLabel;
@@ -41,12 +42,14 @@
     
     UILabel *monthLabel = [[UILabel alloc] init];
     monthLabel.textAlignment = NSTextAlignmentCenter;
+    monthLabel.textColor = [UIColor mx_colorWithHexString:@"666666"];
 //    monthLabel.backgroundColor = [UIColor mx_randomColor];
     self.monthLabel = monthLabel;
     [self addSubview:monthLabel];
     
     UILabel *weekdayLabel = [[UILabel alloc] init];
     weekdayLabel.textAlignment = NSTextAlignmentCenter;
+    weekdayLabel.textColor = [UIColor mx_colorWithHexString:@"666666"];
 //    weekdayLabel.backgroundColor = [UIColor redColor];
     self.weekdayLabel = weekdayLabel;
     [self addSubview:weekdayLabel];

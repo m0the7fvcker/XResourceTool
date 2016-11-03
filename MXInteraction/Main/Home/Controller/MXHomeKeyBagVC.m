@@ -37,7 +37,7 @@
 }
 
 - (void)initUI
-{
+{    
     UIImageView *bgView = [[UIImageView alloc] initWithFrame:self.view.bounds];
     bgView.image = [UIImage imageNamed:@"keyBag_bg"];
     self.bgView = bgView;

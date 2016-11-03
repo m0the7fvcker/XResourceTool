@@ -71,6 +71,7 @@ static NSString *const openRecordSectionHeader = @"OpenRecordSectionHeader";
     MXOpenRecordCell *cell = [tableView dequeueReusableCellWithIdentifier:@"openRecordCell"];
     if (!cell) {
         cell = [[MXOpenRecordCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"openRecordCell"];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     cell.model = self.recordArray[indexPath.row];
     return cell;

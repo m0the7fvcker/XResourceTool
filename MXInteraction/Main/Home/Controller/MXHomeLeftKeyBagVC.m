@@ -27,6 +27,7 @@ static NSString * const cellIdentifier = @"cellIdentifier";
 
 - (void)initUI
 {
+    self.title = @"钥匙包管理";
     UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     tableView.dataSource = self;
     tableView.delegate = self;

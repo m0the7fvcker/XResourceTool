@@ -53,6 +53,7 @@ extern NSString *const LoveHomeCell;
 #pragma mark - 初始化方法
 - (void)initData
 {
+    self.title = @"积分商城";
     self.menuTitles = @[@"新品推荐",
                         @"积分兑换服务",
                         @"积分抽奖",

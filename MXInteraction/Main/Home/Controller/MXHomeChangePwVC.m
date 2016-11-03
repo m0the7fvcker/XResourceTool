@@ -23,6 +23,7 @@
 
 - (void)viewDidLoad
 {
+    self.title = @"修改密码";
     [super viewDidLoad];
     self.submitBtn.backgroundColor = [UIColor mx_colorWithHexString:@"24AEE4"];
     self.submitBtn.layer.cornerRadius = 5;

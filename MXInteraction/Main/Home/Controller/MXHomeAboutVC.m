@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad
 {
+    self.title = @"关于";
     [super viewDidLoad];
 }
 

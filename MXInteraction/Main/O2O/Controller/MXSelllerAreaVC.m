@@ -64,6 +64,7 @@
 
 - (void)initUI
 {
+    self.title = @"商家商圈";
     // 创建tableView
     UITableView *tableView   = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, MXScreen_Width, self.view.height - MX_NAV_HEIGHT) style:UITableViewStyleGrouped];
     tableView.dataSource     = self;

@@ -32,6 +32,7 @@ static NSString *const noDisturbId_OneKey = @"MX_NoDisturb_OnkeKey";
 #pragma mark - 初始化方法
 - (void)initUI
 {
+    self.title = @"免打扰";
     UISwitch *oneKeySw = [[UISwitch alloc] init];
     oneKeySw.on = NO;
     [oneKeySw addTarget:self action:@selector(oneKeySwitchChange:) forControlEvents:UIControlEventValueChanged];
