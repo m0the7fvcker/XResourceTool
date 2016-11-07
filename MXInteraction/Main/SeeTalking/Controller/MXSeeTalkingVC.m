@@ -30,6 +30,7 @@
 
 - (void)initUI
 {
+    self.title = @"可视对讲";
     self.view.backgroundColor = [UIColor whiteColor];
     
     UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, MXScreen_Width, SeeTalkingHeaderHeight)];
