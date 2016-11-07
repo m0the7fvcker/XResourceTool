@@ -7,14 +7,14 @@
 //
 
 #import "MXKeychain.h"
-#import <SSKeychain/SSKeychain.h>
+#import <SAMKeychain/SAMKeychain.h>
 
 static NSString *MXKeychainServiceKey = @"com.max1ao.mxinteraction";
 
 @implementation MXKeychain
 + (NSString *)passwordWithAccount:(NSString *)account{
     NSError *err;
-    NSString *psw = [SSKeychain passwordForService:MXKeychainServiceKey account:account error:&err];
+    NSString *psw = [SAMKeychain passwordForService:MXKeychainServiceKey account:account error:&err];
     if (err == nil) {
         return psw;
     }
@@ -27,11 +27,11 @@ static NSString *MXKeychainServiceKey = @"com.max1ao.mxinteraction";
 }
 
 + (BOOL)deletePassword:(NSString *)account{
-    return [SSKeychain deletePasswordForService:MXKeychainServiceKey account:account];
+    return [SAMKeychain deletePasswordForService:MXKeychainServiceKey account:account];
 }
 
 + (BOOL)setPassword:(NSString *)password account:(NSString *)account{
-    BOOL suc = [SSKeychain setPassword:password forService:MXKeychainServiceKey account:account];
+    BOOL suc = [SAMKeychain setPassword:password forService:MXKeychainServiceKey account:account];
     return suc;
 }
 @end

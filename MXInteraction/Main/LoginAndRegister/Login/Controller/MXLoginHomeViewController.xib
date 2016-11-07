@@ -32,7 +32,7 @@
                         <constraint firstAttribute="height" constant="30" id="BNs-7L-mGc"/>
                         <constraint firstAttribute="height" constant="40" id="Zck-zd-ECA"/>
                     </constraints>
-                    <state key="normal" title="登陆">
+                    <state key="normal" title="登录">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <variation key="default">

@@ -4,7 +4,7 @@ target ‘MXInteraction’ do
 
   pod 'AFNetworking', '~> 3.1.0’
   pod 'MJRefresh', '~> 3.1.12'
-  pod 'SSKeychain', '~> 1.4.1'
+  pod 'SAMKeychain', '~> 1.5.2'
   pod 'MJExtension', '~> 3.0.13'
   pod 'Masonry', '~> 1.0.1'
   pod 'iOS-UMengMessage','~> 1.3.0'

@@ -72,7 +72,7 @@
                     </constraints>
                     <state key="normal" backgroundImage="home_homeSrv_camera"/>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_malfunction" translatesAutoresizingMaskIntoConstraints="NO" id="8Li-6e-2lD">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8Li-6e-2lD">
                     <constraints>
                         <constraint firstAttribute="height" constant="120" id="Cvb-UC-0K3"/>
                         <constraint firstAttribute="width" constant="120" id="RHr-p0-Y2G"/>
@@ -100,11 +100,10 @@
                 <constraint firstItem="wPr-9g-hLm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="y2s-e2-a1g"/>
                 <constraint firstItem="blM-CZ-UtQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="yFJ-f4-7Tp"/>
             </constraints>
-            <point key="canvasLocation" x="81" y="257"/>
+            <point key="canvasLocation" x="-361" y="189"/>
         </view>
     </objects>
     <resources>
         <image name="home_homeSrv_camera" width="80" height="56"/>
-        <image name="img_malfunction" width="298" height="304"/>
     </resources>
 </document>

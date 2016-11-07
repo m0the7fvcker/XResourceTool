@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		13FAF037DE6177C0B7CF4CCA /* libPods-MXInteraction.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C67CA09F56570D3DA25D36D /* libPods-MXInteraction.a */; };
 		484A34F71DB3539B00AD39DE /* MXHomeAboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 484A34F51DB3539B00AD39DE /* MXHomeAboutVC.m */; };
 		484A34F81DB3539B00AD39DE /* MXHomeAboutVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 484A34F61DB3539B00AD39DE /* MXHomeAboutVC.xib */; };
 		48EE6A761DAF58AF00FFB2C2 /* MXEMCommandModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 48EE6A751DAF58AF00FFB2C2 /* MXEMCommandModel.m */; };
@@ -135,6 +134,7 @@
 		4DFCBC821DB36995003688E5 /* MXHomeQRCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFCBC811DB36995003688E5 /* MXHomeQRCodeVC.m */; };
 		4DFCBC851DB36D82003688E5 /* MXAuthorizationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFCBC841DB36D82003688E5 /* MXAuthorizationVC.m */; };
 		4DFCBC881DB37960003688E5 /* MXHomeMessageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFCBC871DB37960003688E5 /* MXHomeMessageVC.m */; };
+		7D6447975DCAC17D4D4772DF /* libPods-MXInteraction.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D35C2E66599ACC8691DFFD75 /* libPods-MXInteraction.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,13 +148,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		355910FC3C47A23243C8FB7E /* Pods-MXInteraction.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MXInteraction.release.xcconfig"; path = "Pods/Target Support Files/Pods-MXInteraction/Pods-MXInteraction.release.xcconfig"; sourceTree = "<group>"; };
 		484A34F41DB3539B00AD39DE /* MXHomeAboutVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXHomeAboutVC.h; sourceTree = "<group>"; };
 		484A34F51DB3539B00AD39DE /* MXHomeAboutVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXHomeAboutVC.m; sourceTree = "<group>"; };
 		484A34F61DB3539B00AD39DE /* MXHomeAboutVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MXHomeAboutVC.xib; sourceTree = "<group>"; };
 		48EE6A741DAF58AF00FFB2C2 /* MXEMCommandModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXEMCommandModel.h; sourceTree = "<group>"; };
 		48EE6A751DAF58AF00FFB2C2 /* MXEMCommandModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXEMCommandModel.m; sourceTree = "<group>"; };
 		48EE6A7A1DAFCA0000FFB2C2 /* calling_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calling_bg.png; sourceTree = "<group>"; };
-		4B1A254F1D211907BACDFD59 /* Pods-MXInteraction.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MXInteraction.release.xcconfig"; path = "Pods/Target Support Files/Pods-MXInteraction/Pods-MXInteraction.release.xcconfig"; sourceTree = "<group>"; };
 		4D016BB51D9A4DBE002E9740 /* MXOpenRecordSectionHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXOpenRecordSectionHeader.h; sourceTree = "<group>"; };
 		4D016BB61D9A4DBE002E9740 /* MXOpenRecordSectionHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXOpenRecordSectionHeader.m; sourceTree = "<group>"; };
 		4D016BB81D9A531B002E9740 /* MXOpenRecordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXOpenRecordCell.h; sourceTree = "<group>"; };
@@ -387,8 +387,8 @@
 		4DFCBC841DB36D82003688E5 /* MXAuthorizationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXAuthorizationVC.m; sourceTree = "<group>"; };
 		4DFCBC861DB37960003688E5 /* MXHomeMessageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXHomeMessageVC.h; sourceTree = "<group>"; };
 		4DFCBC871DB37960003688E5 /* MXHomeMessageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXHomeMessageVC.m; sourceTree = "<group>"; };
-		6C67CA09F56570D3DA25D36D /* libPods-MXInteraction.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MXInteraction.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		ABA4727452F7BFDADA8C1F4B /* Pods-MXInteraction.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MXInteraction.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MXInteraction/Pods-MXInteraction.debug.xcconfig"; sourceTree = "<group>"; };
+		5D76C22F1723AECC53739F29 /* Pods-MXInteraction.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MXInteraction.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MXInteraction/Pods-MXInteraction.debug.xcconfig"; sourceTree = "<group>"; };
+		D35C2E66599ACC8691DFFD75 /* libPods-MXInteraction.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MXInteraction.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -399,7 +399,7 @@
 				4D899F6A1DB0C1F400167A43 /* AVFoundation.framework in Frameworks */,
 				4D9CD0C81D640D9A000832D3 /* libz.tbd in Frameworks */,
 				4D9CD0C41D6407D0000832D3 /* JSPatch.framework in Frameworks */,
-				13FAF037DE6177C0B7CF4CCA /* libPods-MXInteraction.a in Frameworks */,
+				7D6447975DCAC17D4D4772DF /* libPods-MXInteraction.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -753,8 +753,8 @@
 				4D6147F11D63FF1400B3B093 /* MXInteraction */,
 				4D61480B1D63FF1400B3B093 /* MXInteractionUITests */,
 				4D6147F01D63FF1400B3B093 /* Products */,
-				FB043B5543353E469B103569 /* Pods */,
 				52048446E227A6E310BF746E /* Frameworks */,
+				7EA9E0948EF8CDBD8F179551 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1290,16 +1290,16 @@
 				4D899F671DB0C19500167A43 /* AVFoundation.framework */,
 				4D9CD0C71D640D9A000832D3 /* libz.tbd */,
 				4D9CD0C51D640904000832D3 /* JavaScriptCore.framework */,
-				6C67CA09F56570D3DA25D36D /* libPods-MXInteraction.a */,
+				D35C2E66599ACC8691DFFD75 /* libPods-MXInteraction.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		FB043B5543353E469B103569 /* Pods */ = {
+		7EA9E0948EF8CDBD8F179551 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				ABA4727452F7BFDADA8C1F4B /* Pods-MXInteraction.debug.xcconfig */,
-				4B1A254F1D211907BACDFD59 /* Pods-MXInteraction.release.xcconfig */,
+				5D76C22F1723AECC53739F29 /* Pods-MXInteraction.debug.xcconfig */,
+				355910FC3C47A23243C8FB7E /* Pods-MXInteraction.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -1311,13 +1311,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4D6148111D63FF1400B3B093 /* Build configuration list for PBXNativeTarget "MXInteraction" */;
 			buildPhases = (
-				E186577A122F4247B24EA254 /* [CP] Check Pods Manifest.lock */,
+				2E6A22DC9543E446F4B663F4 /* [CP] Check Pods Manifest.lock */,
 				4D6147EB1D63FF1400B3B093 /* Sources */,
 				4D6147EC1D63FF1400B3B093 /* Frameworks */,
 				4D6147ED1D63FF1400B3B093 /* Resources */,
-				84D1C0046405BB318C516375 /* [CP] Embed Pods Frameworks */,
-				ED799F635C5D7F21B994B436 /* [CP] Copy Pods Resources */,
-				B3825724993157A854F980ED /* Embed Pods Frameworks */,
+				A12063EA6B2233FC39E31914 /* [CP] Embed Pods Frameworks */,
+				7E3DD40F229E08840B3CF179 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1431,37 +1430,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		84D1C0046405BB318C516375 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MXInteraction/Pods-MXInteraction-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B3825724993157A854F980ED /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MXInteraction/Pods-MXInteraction-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E186577A122F4247B24EA254 /* [CP] Check Pods Manifest.lock */ = {
+		2E6A22DC9543E446F4B663F4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1473,10 +1442,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run \'pod install\' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		ED799F635C5D7F21B994B436 /* [CP] Copy Pods Resources */ = {
+		7E3DD40F229E08840B3CF179 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1489,6 +1458,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MXInteraction/Pods-MXInteraction-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A12063EA6B2233FC39E31914 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MXInteraction/Pods-MXInteraction-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1712,13 +1696,11 @@
 		};
 		4D6148121D63FF1400B3B093 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ABA4727452F7BFDADA8C1F4B /* Pods-MXInteraction.debug.xcconfig */;
+			baseConfigurationReference = 5D76C22F1723AECC53739F29 /* Pods-MXInteraction.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = MXInteraction/MXInteraction.entitlements;
-
 				CODE_SIGN_IDENTITY = "iPhone Developer: Wang Zong (T2LAUPP44Z)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = RGFQAX73E5;
@@ -1778,13 +1760,11 @@
 		};
 		4D6148131D63FF1400B3B093 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4B1A254F1D211907BACDFD59 /* Pods-MXInteraction.release.xcconfig */;
+			baseConfigurationReference = 355910FC3C47A23243C8FB7E /* Pods-MXInteraction.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = MXInteraction/MXInteraction.entitlements;
-
 				CODE_SIGN_IDENTITY = "iPhone Developer: Wang Zong (T2LAUPP44Z)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = RGFQAX73E5;
