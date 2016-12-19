@@ -12,7 +12,7 @@ target ‘MXInteraction’ do
   pod 'SDCycleScrollView', '~> 1.65'
   pod 'BHBPopView'
   pod 'SDWebImage', '~> 3.8.1'
-  pod 'Hyphenate_CN'
+
   pod 'SVProgressHUD'
   pod 'TapkuLibrary', '~> 0.3.8'
   pod 'MBProgressHUD', '~> 1.0.0'
