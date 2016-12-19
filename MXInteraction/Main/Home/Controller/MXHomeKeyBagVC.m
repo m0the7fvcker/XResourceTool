@@ -46,9 +46,18 @@
     MXHomeClockView *clickView = [[MXHomeClockView alloc] initWithFrame:CGRectMake(30, 75, 140, 50) andDateString:[self getTime]];
     [self.view addSubview:clickView];
     
-    UIImageView *adView = [[UIImageView alloc] initWithFrame:CGRectMake(MXScreen_Width - 35 - 100, 75, 100, 175)];
-    adView.image =  [self getLocalAdImageFromLocal]? [self getLocalAdImageFromLocal] : [UIImage imageNamed:@"img_malfunction"];
+    CGFloat adViewX;
+    if (MXDevice_Is_iPhone4 || MXDevice_Is_iPhone5) {
+        adViewX = MXScreen_Width - 130;
+    }else {
+        adViewX = MXScreen_Width - 165;
+    }
+    UIImageView *adView = [[UIImageView alloc] initWithFrame:CGRectMake(adViewX, 75, 100, 100)];
+//    adView.image =  [self getLocalAdImageFromLocal]? [self getLocalAdImageFromLocal] : [UIImage imageNamed:@"keyBag_ad"];
+//    adView.backgroundColor = [UIColor whiteColor];
+    adView.image = [UIImage imageNamed:@"keyBag_ad"];
     self.adView = adView;
+    
     [self.view addSubview:adView];
     
     CGFloat keyWidth = 0;

@@ -38,7 +38,7 @@
 #import "MXUserInfoModel.h"
 #import "MXHomeBannerModel.h"
 
-#define MXHomeMenuHeight MXScreen_Width/2
+#define MXHomeMenuHeight (MXScreen_Width - 20) * 2 / 3 + 15
 #define MXHomeBottomHeight_Later6 79
 #define MXHomeBottomHeight_Before 59
 #define MXHomeCycleHeight_Later6 230
@@ -121,20 +121,25 @@
                        @"开门记录",
                        @"授权管理",
                        @"免打扰",
-                       @"社区互帮",
-                       @"O2O商城",
-                       @"智享体验",
-                       @"分享开门"
+//                       @"社区互帮",
+//                       @"O2O商城",
+//                       @"智享体验",
+//                       @"分享开门"
                         ];
     
-    self.menuImages = @[@"home_icon_0",
-                        @"home_icon_1",
-                        @"home_icon_2",
-                        @"home_icon_3",
-                        @"home_icon_4",
-                        @"home_icon_5",
-                        @"home_icon_6",
-                        @"home_icon_7"
+    self.menuImages = @[
+//                        @"home_icon_0",
+//                        @"home_icon_1",
+//                        @"home_icon_2",
+//                        @"home_icon_3",
+//                        @"home_icon_4",
+//                        @"home_icon_5",
+//                        @"home_icon_6",
+//                        @"home_icon_7"
+                        @"icon_talkback",
+                        @"icon_record",
+                        @"icon_award",
+                        @"icon_no_disturbing"
                         ];
 }
 
@@ -149,6 +154,8 @@
 
 - (void)initUI
 {
+    self.view.backgroundColor = [UIColor whiteColor];
+    
     CGFloat bottomBarHeight = 0;
     if (MXDevice_Is_iPhone4 || MXDevice_Is_iPhone5) {
         bottomBarHeight = MXHomeBottomHeight_Before;
@@ -163,6 +170,7 @@
     tableView.backgroundColor= [UIColor mx_colorWithHexString:@"ececec"];
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     tableView.showsVerticalScrollIndicator = NO;
+    tableView.backgroundColor = [UIColor whiteColor];
     
     CGFloat bannerHeight = 0;
     if (MXDevice_Is_iPhone4 || MXDevice_Is_iPhone5) {
@@ -452,7 +460,7 @@
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -474,11 +482,11 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    if (section == 0) {
-        UIView *sectionHeader = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MXScreen_Width, MXHomeSectionHeight)];
-        sectionHeader.backgroundColor = [UIColor mx_colorWithHexString:@"ececec"];
-        return sectionHeader;
-    }
+//    if (section == 0) {
+//        UIView *sectionHeader = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MXScreen_Width, MXHomeSectionHeight)];
+//        sectionHeader.backgroundColor = [UIColor mx_colorWithHexString:@"ececec"];
+//        return sectionHeader;
+//    }
     return nil;
 }
 

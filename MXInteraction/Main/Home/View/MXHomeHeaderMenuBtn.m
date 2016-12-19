@@ -85,9 +85,9 @@
     
     CGFloat offset = 0;
     if (MXDevice_Is_iPhone4 || MXDevice_Is_iPhone5) {
-        offset = 5;
-    }else {
         offset = 9;
+    }else {
+        offset = 13;
     }
     
     [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -98,7 +98,7 @@
     
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(weakSelf.containerView);
-        make.top.equalTo(weakSelf.imageView.mas_bottom).offset(5);
+        make.top.equalTo(weakSelf.imageView.mas_bottom).offset(8);
     }];
 }
 
