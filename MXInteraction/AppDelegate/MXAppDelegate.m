@@ -20,6 +20,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    ;;
     [self addJSPath];
     [self addPushWithApplication:application];
     [self addEMClient];
