@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'XResourceTools_Example' do
+  pod 'XResourceTools', :path => '../'
+
+  target 'XResourceTools_Tests' do
+    inherit! :search_paths
+
+    pod 'FBSnapshotTestCase'
+  end
+end
