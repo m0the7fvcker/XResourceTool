@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'XResourceTool'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'A short description of XResourceTool.'
 
 # This description is used to generate tags and improve search results.
@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/Ge3kXm/XResourceTool'
+  s.homepage         = 'https://github.com/Ge3kX/XResourceTool'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Poly.ma' => 'poly.ma@corp.to8to.com' }
-  s.source           = { :git => 'https://github.com/Ge3kXm/XResourceTool.git', :tag => s.version.to_s }
+  s.author           = { 'ge3kxm@gmail.com' }
+  s.source           = { :git => 'https://github.com/Ge3kX/XResourceTool.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
