@@ -19,6 +19,53 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod 'XResourceTools'
 ```
+## 使用方法
+
+初始化时选择对应的bundle，当前framework使用当前类所在的bundle，主bundle使用mainbundle
+
+OC:
+```objective-c
+@import XResourceTools;
+
+@interface XBaseImageManager: YSImageManager
+
++ (instancetype)shared;
+
+@end
+
+@implementation XBaseImageManager
+
+static id instance = nil;
++ (instancetype)mgr {
+    if (!instance) {
+        instance = [[XBaseImageManager alloc] initWithBundle:[NSBundle bundleForClass:self.class]];
+    }
+    return instance;
+}
+
+@end
+```
+
+```swift
+import XResourceTool
+
+class BundleClass: NSObject {
+
+}
+
+class BaseImageTool: YSImageManager {
+
+    static let sharedManager: BaseImageTool = BaseImageTool()
+    private override init() {
+    let bundle = Bundle(for: BundleClass.init().classForCoder)
+        super.init(bundle: bundle)
+}
+
+public override func imageNamed(_ imageName: String!) -> UIImage! {
+    return super.imageNamed(imageName)
+    }
+}
+```
 
 ## Author
 
